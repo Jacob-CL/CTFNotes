@@ -1,6 +1,34 @@
 # Nmap
 Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
+```c
+#!/bin/bash
+
+# Check if both parameters are provided
+if [ $# -ne 2 ]; then
+    echo "Usage: $0 <filename> <target_ip>"
+    exit 1
+fi
+
+# Assign parameters to variables
+FILENAME=$1
+TARGET_IP=$2
+
+# Run the nmap command
+echo "Running nmap scan on $TARGET_IP with output to $FILENAME..."
+nmap -sV -sC -oA "$FILENAME" "$TARGET_IP"
+
+# Check if the command was successful
+if [ $? -eq 0 ]; then
+    echo "Scan completed successfully."
+    echo "Output files created: $FILENAME.nmap, $FILENAME.gnmap, $FILENAME.xml"
+else
+    echo "Scan failed with error code $?"
+fi
+```
+
+Example usage: `./nmapscan.sh myscan 192.168.1.1`
+
 ---
 
 ### Nmap Scan Types
