@@ -307,15 +307,14 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-| ### File Hashing | Description |
+### Linux File Hashing
+| File Hashing | Description |
 |:----------------------------------|:--------------------------------------------------|
 | md5sum <FILE_PATH> | Generate MD5 hash of a file |
 | echo "<STRING>" \| md5sum | Generate MD5 hash of a string |
 | sha1sum <FILE_PATH> | Generate SHA1 hash of a file |
 
 ---
-
-</div>
 
 # CONVERSIONS
 ## URL Encoding
