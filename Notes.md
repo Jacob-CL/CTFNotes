@@ -1,4 +1,4 @@
-[TOC]
+[[TOC]]
 
 # START
 ## Nmap
