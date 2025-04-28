@@ -169,6 +169,52 @@
 ## Windows Data Mining 
 
 # LINUX BASICS
+### Linux Basic Commands
+| Basic Commands | Description |
+|----------------|-------------|
+| ls | List Directory |
+| cd | Change Directory |
+| mv | Move File |
+| man | Manual Pages |
+| mkdir | Make Directory |
+| rmdir | Remove Directory |
+| touch | Make Empty File |
+| rm | Remove File |
+| locate | Locate File |
+| pwd | Print Working Directory |
+| cat | Print Contents |
+| cp | Copy |
+| ln | Link |
+| sudo | Super User Do |
+| head | Display Header of File |
+| tail | Display Tail of File |
+| chmod | change permissions |
+
+---
+
+### Linux Administrative Commands
+| Administrative Commands | Description |
+|-------------------------|-------------|
+| curl <url> | get HTML of webpage |
+| wget <url> | retrieve file |
+| rdesktop <ip> | Remote desktop |
+| ssh <ip> | Secure Shell |
+| scp <directory> <user>@<ip>:<directory> | Put File |
+| scp <user>@<ip>:<directory> <directory> | Get File |
+| useradd <username> | Add User |
+| passwd <user> | Change User Password |
+| rmuser <user> | Remove User |
+| script -a <outfile> | Record Shell |
+| apropos <topic> | Search Man Pages for Topic |
+| history | Show users bash history |
+| ! <number> | Executes from number in history |
+| env | Environment Variables |
+| top | Shows top processes |
+| ifconfig | Shows ip address |
+| lsof | Files associated with application |
+
+---
+
 ### Linux Directories
 | Directory | Description |
 |:-----------|:-------------|
@@ -224,6 +270,25 @@
 | cat /proc/version | Display kernel information |
 | which <SHELL_NAME> | Locate the executable files or location of each shell on the system (Can search: tscsh, csh, ksh, bash, etc.) |
 | fdisk -l | Display connected drives |
+| host <ip> | get Hostname for IP address |
+| who am i | get the Current User |
+| w | Show logged in users |
+| who -a | | 
+| last -a | User login history |
+| ps | running processes |
+| df | Display free disk space |
+| mount | show mounted drives |
+| getent passwd | Get entries in passwd(users) |
+| PATH=$PATH:/<directory> | Add to the PATH variable |
+| kill <pid> | kills process with pid ID |
+| kill -9 <pid> | force kill process |
+| rpm -i *.rpm | install rpm package |
+| rpm -qa | show installed packages |
+| dpkg -i *.deb | install deb package |
+| dpkg --get-selections | show installed packages |
+| pkginfo | solaris show installed packages |
+| cat /etc/shells | show location of shell executables |
+| chmod -x <shell dir> | make shell/file nonexecutable |
 
 ---
 
