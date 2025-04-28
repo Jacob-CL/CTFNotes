@@ -1,5 +1,4 @@
 # Nmap
-
 Ippsec: `nmap -sV -sC -oA filename targetip`
 
 - `sV`: Enables version detection. It attempts to determine the version of the services running on open ports.
