@@ -175,3 +175,25 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 # ATTACKS
 
 # CODE SNIPPETS
+
+# CONVERSIONS
+## URL Encoding
+| Character | URL Encoded | Character | URL Encoded | Character | URL Encoded |
+|-----------|------------|-----------|------------|-----------|------------|
+| a | %61 | A | %41 | 0 | %30 |
+| b | %62 | B | %42 | 1 | %31 |
+| c | %63 | C | %43 | 2 | %32 |
+| d | %64 | D | %44 | 3 | %33 |
+| e | %65 | E | %45 | 4 | %34 |
+| f | %66 | F | %46 | 5 | %35 |
+| g | %67 | G | %47 | 6 | %36 |
+| h | %68 | H | %48 | 7 | %37 |
+| i | %69 | I | %49 | 8 | %38 |
+| j | %6A | J | %4A | 9 | %39 |
+| k | %6B | K | %4B | space | %20 |
+| l | %6C | L | %4C | ! | %21 |
+| m | %6D | M | %4D | " | %22 |
+| n | %6E | N | %4E | # | %23 |
+| o | %6F | O | %4F | $ | %24 |
+| p | %70 | P | %50 | % | %25 |
+|
