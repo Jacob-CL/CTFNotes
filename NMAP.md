@@ -15,6 +15,8 @@ Ippsec: `nmap -sV -sC -oA filename targetip`
 
 ## 80/443 - HTTP / HTTPS
 - [OWASP Testing Guide](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/)
+- [OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/index.html)
+- [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/stable-en/)
 
 
 
