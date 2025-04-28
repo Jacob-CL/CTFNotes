@@ -315,6 +315,120 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 | sha1sum <FILE_PATH> | Generate SHA1 hash of a file |
 
 ---
+### Linux Service Manipulation
+| Service Manipulation | Description |
+|----------------------------------|--------------------------------------------------|
+| systemctl list-unit-files --type=service | List existing services and run status |
+| systemctl list-unit-files --type=service \| grep httpd | Check single service status |
+| service --status-all | List all services [+] Service is running [-] Service is not running |
+| service <SERVICE_NAME> start | Start a service |
+| service <SERVICE_NAME> stop | Stop a service |
+| service <SERVICE_NAME> status | Check status of a service |
+| systemctl disable <SERVICE_NAME> | Disable service so it will not auto start |
+| systemctl enable <SERVICE_NAME> | Enable service so it will auto start on reboot |
+
+---
+
+### Linux Wi-Fi Commands
+| Linux Wi-Fi Commands | |
+|----------------------------------|--------------------------------------------------|
+| iwconfig | Display wireless interface configuration |
+| rfkill list | List current state of wireless devices |
+| rfkill unblock all | Turn on wireless interface |
+| airodump –ng <INTERFACE_NAME> | Monitor all interfaces |
+| iwconfig ath0 essid <BSSID> ifconfig ath0 up dhclient ath0 | Connect to unsecured Wi-Fi |
+| iwconfig ath0 essid <BSSID> key <WEB_KEY> ifconfig ath0 up dhclient ath0 | Connect to WEP Wi-Fi network |
+| iwconfig ath0 essid <BSSID> ifconfig ath0 up wpa_supplicant –B –i ath0 –c wpa-psk.conf dhclient ath0 | Connect to WPA-PSK Wi-Fi network |
+
+---
+
+### Linux Wi-Fi Testing
+| Linux Wi-Fi Testing | Description |
+|----------------------------------|--------------------------------------------------|
+| airmon-ng stop <INTERFACE_NAME> | Stop monitor mode interface |
+| airmon-ng start <INTERFACE_NAME> iwconfig <INTERFACE_NAME> channel <CHANNEL> | Start monitor mode interface |
+| airodump-ng –c <CHANNEL> --bssid <BSSID> –w file <OUTPUT_PATH> | Capture traffic |
+| aireplay-ng -0 10 –a <BSSID> –c <VICTIM_MAC> <INTERFACE_NAME> | Force client de-auth |
+| #WPA-PSK aircrack-ng –w <WORDLIST_PATH> <CAPTURED_HANDSHAKE_FILE_PATH> | Brute force handshake |
+| #EAP-MD5 eapmd5pass –r <CAPTURED_HANDSHAKE_FILE_PATH> –w <WORDLIST_PATH> | Brute force handshake |
+
+---
+
+### Linux Bluetrooth Commands
+| Linux Bluetooth | |
+|----------------------------------|--------------------------------------------------|
+| hciconfig <INTERFACE_NAME> up | Turn on Bluetooth interface |
+| hcitool –i <INTERFACE_NAME> scan --flush –all | Scan for Bluetooth devices |
+| sdptool browse <INTERFACE_NAME> | List open services |
+| hciconfig <INTERFACE_NAME> name "<BLUETOOTH_NAME>" class 0x520204   piscan | Set as discoverable |
+| pand –K | Clear pand sessions |
+
+---
+
+# NETWORKING
+## IPv4
+### Classful IPv4 Ranges
+| Classful IPv4 Ranges | Description |
+|----------------------------------|--------------------------------------------------|
+| 0.0.0.0   – 127.255.255.255 | Class A Range |
+| 128.0.0.0 – 191.255.255.255 | Class B Range |
+| 192.0.0.0 – 223.255.255.255 | Class C Range |
+| 224.0.0.0 – 239.255.255.255 | Class D Range |
+| 240.0.0.0 – 255.255.255.255 | Class E Range |
+
+---
+
+### Reserved Private Ranges
+| Reserved Private Ranges | Description |
+|----------------------------------|--------------------------------------------------|
+| 10.0.0.0    – 10.255.255.255 | Class A Range |
+| 172.16.0.0  – 172.31.255.255 | Class B Range |
+| 192.168.0.0 - 192.168.255.255 | Class C Range |
+| 127.0.0.0   – 127.255.255.255 | Loopback Range |
+
+---
+
+### Subnetting
+| Subnetting | | |
+|-----------|-------------------|-------------|
+| /31 | 255.255.255.254 | 0 Useable Hosts |
+| /30 | 255.255.255.252 | 2 Hosts |
+| /29 | 255.255.255.248 | 6 Hosts |
+| /28 | 255.255.255.240 | 14 Hosts |
+| /27 | 255.255.255.224 | 30 Hosts |
+| /26 | 255.255.255.192 | 62 Hosts |
+| /25 | 255.255.255.128 | 126 Hosts |
+| /24 | 255.255.255.0 | 254 Hosts |
+| /23 | 255.255.254.0 | 510 Hosts |
+| /22 | 255.255.252.0 | 1022 Hosts |
+| /21 | 255.255.248.0 | 2046 Hosts |
+| /20 | 255.255.240.0 | 4094 Hosts |
+| /19 | 255.255.224.
+
+---
+
+## IPv6
+### IPv6 Broadcast Addresses
+| Broadcast Addresses | |
+|----------------------------------|--------------------------------------------------|
+| ff02::1 | link-local nodes |
+| ff01::2 | node-local routers |
+| ff02::2 | link-local routers |
+| ff05::2 | site-local routers |
+
+---
+
+### IPv6 Interface Addresses
+| Interface Addresses | |
+|----------------------------------|--------------------------------------------------|
+| fe80:: | link-local |
+| 2001:: | routable |
+| ::a.b.c.d | IPv4 compatible IPv6 (Example: ::192.168.1.2) |
+| ::ffff:a.b.c.d | IPv4 mapped IPv6 (Example: ::FFFF:129.144.52.38) |
+| 2000::/3 | Global Unicast |
+| FC00::/7 | Unique Local |
+
+---
 
 # CONVERSIONS
 ## URL Encoding
