@@ -1,4 +1,4 @@
-# Resources
+# RESOURCES
 - OWASP Projects
   - [OWASP Web Security Testing Guide (WSTG)](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/)
   - [OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/index.html)
