@@ -3,10 +3,7 @@
 Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
-
-<div align="center">
-  
-### <p align="left"> Nmap Scan Types </p>
+### Nmap Scan Types
 
 | Scan Type | Description |
 |:-----------|:-------------|
@@ -20,7 +17,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-### <p align="left"> Nmap Scan Options</p>
+### Nmap Scan Options
 | Scan Option | Description |
 |:-------------|:-------------|
 | -p <PORT_RANGES> | Ports |
@@ -39,7 +36,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-### <p align="left"> Nmap Output/Input Options</p>
+### Nmap Output/Input Options
 | Output/Input Option | Description |
 |:---------------------|:-------------|
 | -oX <FILE_PATH> | Write to XML file |
@@ -50,7 +47,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-### <p align="left"> Nmap Firewall evasion options</p>
+### Nmap Firewall evasion options
 | Firewall Evasion Option | Description |
 |:-------------------------|:-------------|
 | -f | Fragment packets |
@@ -64,15 +61,13 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-### <p align="left"> Nmap Misc </p>
+### Nmap Misc
 | Misc Flags | Description |
 |:------------|:-------------|
 | xsltproc <INPUT_NMAP_XML>.xml –o <OUTPUT_PATH>.html | Convert Nmap XML file to HTML |
 | nmap –sP –n –oX out.xml <IP_CIDR> \| grep "Nmap" \| cut –d " " –f 5 > <OUTPUT_PATH>.txt | Generate live host file |
 | ndiff <FILE_PATH1>.xml <FILE_PATH2>.xml | Compare Nmap results |
 | nmap –R –sL –dns-server <DNS_SERVER_IP> <IP_CIDR> | DNS reverse lookup on IP range |
-
-</div>
 
 ---
 
@@ -183,8 +178,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 # LINUX BASICS
 
-<div align="center">
-
+### Linux Directories
 | Directory | Description |
 |:-----------|:-------------|
 | / | Anchor and root of the filesystem |
@@ -204,6 +198,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
+### Important Linux Files and Directories
 | Important Files + Directories | Description |
 |:----------------|:-------------|
 | /etc/shadow | User account information and password hashes |
@@ -228,6 +223,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
+### Get Linux OS Information
 | Operating System Information | Description |
 |:---------|:-------------|
 | df -h | Disk usage |
@@ -240,6 +236,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
+### Get Linux Situational Awareness
 | Situational Awareness & Process Manipulation | Description |
 |:---------|:-------------|
 | id | Displays current user/group information |
@@ -255,6 +252,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
+### Get Linux account enumeration and config
 | User Account Enumeration & Configuration | Description |
 |:---------------------------------------|:-----------------------------------------------|
 | getent passwd | Display user and service accounts |
@@ -268,6 +266,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
+### Get Linux Network config
 | Network Configuration | Description |
 |:----------------------------------|:--------------------------------------------------|
 | watch --interval 3 ss -t --all | List all listening, established, and connected TCP sockets every 3 seconds |
@@ -286,6 +285,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
+### Linux file manipulation
 | File Manipulation | Description |
 |:----------------------------------|:--------------------------------------------------|
 | diff <FILE_PATH_A> <FILE_PATH_B> | Compare files |
@@ -307,7 +307,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-| #### File Hashing | Description |
+| ### File Hashing | Description |
 |:----------------------------------|:--------------------------------------------------|
 | md5sum <FILE_PATH> | Generate MD5 hash of a file |
 | echo "<STRING>" \| md5sum | Generate MD5 hash of a string |
