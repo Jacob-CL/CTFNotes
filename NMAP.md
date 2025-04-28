@@ -5,6 +5,8 @@ Ippsec: `nmap -sV -sC -oA filename targetip`
 - `sC`: Tells nmap to run a set of default scripts. These scripts are part of the Nmap Scripting Engine (NSE) and are used to gather more information about the target.
 - `oA`: Used for output. preceeds `filename`.
 
+---
+
 ## 21 - FTP
 
 ## 22 - SSH
