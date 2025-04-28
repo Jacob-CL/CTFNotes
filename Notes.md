@@ -1,6 +1,6 @@
 # START
 ## Nmap
-Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
+Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
