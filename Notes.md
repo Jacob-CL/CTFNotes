@@ -1,7 +1,9 @@
 # START
 ## Nmap
 Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
+
 <div align="center">
+  
 | Scan Type | Description |
 |-----------|-------------|
 | -sn | Ping scan |
@@ -53,6 +55,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | nmap –sP –n –oX out.xml <IP_CIDR> \| grep "Nmap" \| cut –d " " –f 5 > <OUTPUT_PATH>.txt | Generate live host file |
 | ndiff <FILE_PATH1>.xml <FILE_PATH2>.xml | Compare Nmap results |
 | nmap –R –sL –dns-server <DNS_SERVER_IP> <IP_CIDR> | DNS reverse lookup on IP range |
+
 </div>
 ---
 ## Ports
