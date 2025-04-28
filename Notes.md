@@ -7,7 +7,7 @@ Ippsec: `nmap -sV -sC -oA filename targetip`
 - `oA`: Used for output. preceeds `filename`.
 
 ---
-## PORTS
+## Ports
 ### 20/21 - FTP (Data Connection / Control Connection)
 
 ### 22 - SSH/SCP
