@@ -14,6 +14,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | -sC | Default scripts |
 | -sV | Enables version detection |
 
+---
+
 | Scan Option | Description |
 |:-------------|:-------------|
 | -p <PORT_RANGES> | Ports |
@@ -38,6 +40,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | -iL <FILE_PATH> | Read hosts/IPs from file |
 | --excludefile <FILE_PATH> | Excludes hosts in file |
 
+---
+
 | Firewall Evasion Option | Description |
 |:-------------------------|:-------------|
 | -f | Fragment packets |
@@ -49,6 +53,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | --data-length <SIZE> | Append random data |
 | --scan-delay <TIME> | Scan delay |
 
+---
+
 | Misc Flags | Description |
 |:------------|:-------------|
 | xsltproc <INPUT_NMAP_XML>.xml –o <OUTPUT_PATH>.html | Convert Nmap XML file to HTML |
@@ -57,7 +63,9 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | nmap –R –sL –dns-server <DNS_SERVER_IP> <IP_CIDR> | DNS reverse lookup on IP range |
 
 </div>
+
 ---
+
 ## Ports
 ### 20/21 - FTP (Data Connection / Control Connection)
 
