@@ -8,7 +8,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 <div align="center">
   
-|** Scan Type** | Description |
+### Nmap Scan Types
+| Scan Type | Description |
 |:-----------|:-------------|
 | -sn | Ping scan |
 | -sS | Syn scan |
@@ -20,7 +21,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-| **Scan Option** | Description |
+### Nmap Scan Options
+| Scan Option | Description |
 |:-------------|:-------------|
 | -p <PORT_RANGES> | Ports |
 | -T[0-5] | Speed presets: 0 Slowest, 5 fastest |
@@ -38,7 +40,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-|** Output/Input Option** | Description |
+### Nmap Output/Input Options
+| Output/Input Option | Description |
 |:---------------------|:-------------|
 | -oX <FILE_PATH> | Write to XML file |
 | -oG <FILE_PATH> | Write to grep file |
@@ -48,7 +51,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-| **Firewall Evasion Option** | Description |
+### Nmap Firewall evasion options
+| Firewall Evasion Option | Description |
 |:-------------------------|:-------------|
 | -f | Fragment packets |
 | -S <IP_ADDRESS> | Spoof source IP |
@@ -61,7 +65,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-|** Misc Flags** | Description |
+### Nmap Misc 
+| Misc Flags | Description |
 |:------------|:-------------|
 | xsltproc <INPUT_NMAP_XML>.xml –o <OUTPUT_PATH>.html | Convert Nmap XML file to HTML |
 | nmap –sP –n –oX out.xml <IP_CIDR> \| grep "Nmap" \| cut –d " " –f 5 > <OUTPUT_PATH>.txt | Generate live host file |
