@@ -1,4 +1,5 @@
-# Nmap
+# START
+## Nmap
 Ippsec: `nmap -sV -sC -oA filename targetip`
 
 - `sV`: Enables version detection. It attempts to determine the version of the services running on open ports.
@@ -6,7 +7,7 @@ Ippsec: `nmap -sV -sC -oA filename targetip`
 - `oA`: Used for output. preceeds `filename`.
 
 ---
-
+# PORTS
 ## 21 - FTP
 
 ## 22 - SSH
@@ -20,4 +21,6 @@ Ippsec: `nmap -sV -sC -oA filename targetip`
   - [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/stable-en/)
 
 
+# TESTING + VALIDATING
 
+# ATTACKS
