@@ -34,6 +34,8 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | --script <SCRIPT_NAME> | Execute script against host |
 | --script-args <ARGUMENTS> | Set script arguments |
 
+---
+
 | Output/Input Option | Description |
 |:---------------------|:-------------|
 | -oX <FILE_PATH> | Write to XML file |
