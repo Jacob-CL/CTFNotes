@@ -4,8 +4,6 @@
   - [OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/index.html)
      [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/stable-en/)
  
-# ATTACKS
-
 # CODE SNIPPETS
 
 # WINDOWS BASICS
