@@ -1,7 +1,8 @@
 # Nmap
 Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
-```c
+nmap.sh
+```bash
 #!/bin/bash
 
 # Check if both parameters are provided
@@ -27,7 +28,7 @@ else
 fi
 ```
 
-Example usage: `./nmapscan.sh myscan 192.168.1.1`
+Example usage: `./nmap.sh myscan 192.168.1.1`
 
 ---
 
