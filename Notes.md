@@ -8,7 +8,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 <div align="center">
   
-### Nmap Scan Types
+<p align="left">### Nmap Scan Types</p>
 | Scan Type | Description |
 |:-----------|:-------------|
 | -sn | Ping scan |
