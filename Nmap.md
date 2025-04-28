@@ -69,3 +69,58 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 | nmap –R –sL –dns-server <DNS_SERVER_IP> <IP_CIDR> | DNS reverse lookup on IP range |
 
 ---
+
+# PORTS
+| Port # | Service |
+|--------|---------|
+| 20 | FTP (Data Connection) |
+| 21 | FTP (Control Connection) |
+| 22 | SSH/SCP |
+| 23 | Telnet |
+| 25 | SMTP |
+| 49 | TACACS |
+| 53 | DNS |
+| 67-68 | DHCP/BOOTP |
+| 69 | TFTP (UDP) |
+| 80 | HTTP |
+| 88 | Kerberos |
+| 110 | POP3 |
+| 111 | RPC |
+| 123 | NTP (UDP) |
+| 135 | Windows RPC |
+| 137-138 | NetBIOS |
+| 139 | SMB |
+| 143 | IMAP4 |
+| 161-162 | SNMP (UDP) |
+| 179 | BGP |
+| 201 | AppleTalk |
+| 389 | LDAP |
+| 443 | HTTPS |
+| 445 | SMB |
+| 500 | ISAKMP (UDP) |
+| 514 | Syslog |
+| 520 | RIP |
+| 546-547 | DHCPv6 |
+| 587 | SMTP |
+| 902 | VMWare Server |
+| 1080 | Socks Proxy |
+| 1194 | Open VPN |
+| 1433-1434 | MS-SQL |
+| 1521 | Oracle |
+| 2049 | NFS |
+| 3128 | Squid Proxy |
+| 3306 | MySQL |
+| 3389 | RDP |
+| 5060 | SIP |
+| 5222-5223 | XMPP/Jabber |
+| 5432 | Postgres SQL |
+| 5666 | Nagios |
+| 5900 | VNC |
+| 6000-6063 | X11 |
+| 6129 | DameWare |
+| 6133 | DameWare |
+| 6665-6669 | IRC |
+| 9001 | Tor |
+| 9001 | HSQL |
+| 9090-9091 | Openfire |
+| 9100 | HP JetDirect |
