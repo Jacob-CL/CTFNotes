@@ -22,7 +22,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-### Nmap Scan Options
+### <p align="left"> Nmap Scan Options</p>
 | Scan Option | Description |
 |:-------------|:-------------|
 | -p <PORT_RANGES> | Ports |
@@ -41,7 +41,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-### Nmap Output/Input Options
+### <p align="left"> Nmap Output/Input Options</p>
 | Output/Input Option | Description |
 |:---------------------|:-------------|
 | -oX <FILE_PATH> | Write to XML file |
@@ -52,7 +52,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-### Nmap Firewall evasion options
+### <p align="left"> Nmap Firewall evasion options</p>
 | Firewall Evasion Option | Description |
 |:-------------------------|:-------------|
 | -f | Fragment packets |
@@ -66,7 +66,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-### Nmap Misc 
+### <p align="left"> Nmap Misc </p>
 | Misc Flags | Description |
 |:------------|:-------------|
 | xsltproc <INPUT_NMAP_XML>.xml –o <OUTPUT_PATH>.html | Convert Nmap XML file to HTML |
