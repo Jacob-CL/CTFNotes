@@ -8,11 +8,21 @@ Ippsec: `nmap -sV -sC -oA filename targetip`
 
 ---
 # PORTS
-## 21 - FTP
+## 20/21 - FTP (Data Connection / Control Connection)
 
-## 22 - SSH
+## 22 - SSH/SCP
+
+## 23 - TELNET
+
+## 25 - SMTP
+
+## 49 - TACAS
 
 ## 53 - DNS
+
+## 67/68 - DHCP/BOOTP
+
+## 69 - TFTP (UDP)
 
 ## 80/443 - HTTP / HTTPS
 - OWASP Projects
