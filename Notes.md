@@ -15,7 +15,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | -sV | Enables version detection |
 
 | Scan Option | Description |
-|-------------|-------------|
+|:-------------|:-------------|
 | -p <PORT_RANGES> | Ports |
 | -T[0-5] | Speed presets: 0 Slowest, 5 fastest |
 | -n | No DNS resolution |
@@ -31,7 +31,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | --script-args <ARGUMENTS> | Set script arguments |
 
 | Output/Input Option | Description |
-|---------------------|-------------|
+|:---------------------|:-------------|
 | -oX <FILE_PATH> | Write to XML file |
 | -oG <FILE_PATH> | Write to grep file |
 | -oA <FILE_PATH> | Save as all 3 formats |
@@ -39,7 +39,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | --excludefile <FILE_PATH> | Excludes hosts in file |
 
 | Firewall Evasion Option | Description |
-|-------------------------|-------------|
+|:-------------------------|:-------------|
 | -f | Fragment packets |
 | -S <IP_ADDRESS> | Spoof source IP |
 | -g <PORT> | Spoof source port |
@@ -50,7 +50,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 | --scan-delay <TIME> | Scan delay |
 
 | Misc Flags | Description |
-|------------|-------------|
+|:------------|:-------------|
 | xsltproc <INPUT_NMAP_XML>.xml –o <OUTPUT_PATH>.html | Convert Nmap XML file to HTML |
 | nmap –sP –n –oX out.xml <IP_CIDR> \| grep "Nmap" \| cut –d " " –f 5 > <OUTPUT_PATH>.txt | Generate live host file |
 | ndiff <FILE_PATH1>.xml <FILE_PATH2>.xml | Compare Nmap results |
