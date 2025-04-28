@@ -24,3 +24,5 @@ Ippsec: `nmap -sV -sC -oA filename targetip`
 # TESTING + VALIDATING
 
 # ATTACKS
+
+# CODE SNIPPETS
