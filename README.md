@@ -1,110 +1,176 @@
-## Ports
-### 20/21 - FTP (Data Connection / Control Connection)
-
-### 22 - SSH/SCP
-
-### 23 - TELNET
-
-### 25 - SMTP
-
-### 49 - TACAS
-
-### 53 - DNS
-
-### 67/68 - DHCP/BOOTP
-
-### 69 - TFTP (UDP)
-
-### 80/443 - HTTP / HTTPS
+# Resources
 - OWASP Projects
   - [OWASP Web Security Testing Guide (WSTG)](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/)
   - [OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/index.html)
      [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/stable-en/)
  
-### 88 - KERBEROS
-
-### 110 - POP3
-
-### 111 - RPC
-
-### 123 - NTP (UDP)
-
-### 135 - Windows RPC
-
-### 137/138 - NetBIOS
-
-### 139 - SMB
-
-### 143 - IMAP4
-
-### 161/162 - SNMP (UDP)
-
-### 179 - BGP
-
-### 201 - AppleTalk
-
-### 389 - LDAP
-
-### 445 - SMB
-
-### 500 - ISAKMP (UDP)
-
-### 514 - SYSLOG
-
-#### 520 - RIP
-
-### 546/547 - DHCPv6
-
-### 587 - SMTP
-
-### 902 - VMWare Server
-
-### 1080 - Socks Proxy
-
-### 1194 - OpenVPN
-
-### 1433/1434 - MSSQL
-
-### 1521 - Oracle
-
-### 2049 - NFS
-
-### 3128 - Squid Proxy
-
-### 3306 - MySQL
-
-### 3389 - RDP
-
-#### 5060 - SIP
-
-### 5222/5223 - XMP/Jabber
-
-### 5432 - Postgres SQL
-
-### 5666 - Nagios
-
-### 5900 - VNC
-
-### 6000 --> 6063 - X11
-
-### 6129/6133 - DameWare
-
-### 6665 --> 6669 - IRC
-
-### 9001 - Tor / HSQL
-
-### 9090/9091 - Openfire
-
-### 9100 - HP JetDirect
-
-# TESTING + VALIDATING
-
 # ATTACKS
 
 # CODE SNIPPETS
 
-# LINUX BASICS
+# WINDOWS BASICS
+### Windows Administrative Binaries
+| Windows Administrative Binaries | |
+|----------------------------------|--------------------------------------------------|
+| lusrmgr.msc | Local user and group manager |
+| services.msc | Services control panel |
+| taskmgr.exe | Task manager |
+| secpol.msc | Local security policy editor |
+| eventvwr.msc | Event viewer |
+| regedit.exe | Registry editor |
+| gpedit.msc | Group policy editor |
+| control.exe | Control panel |
+| ncpa.cpl | Network connections manager |
+| devmgmt.msc | Device manager editor |
+| diskmgmt.msc | Disk manager editor |
 
+---
+
+### Windows Environment Variables
+| Environment Variables | |
+|----------------------------------|--------------------------------------------------|
+| %SYSTEMROOT% | Points to Windows folder (Commonly: C:\Windows) |
+| %APPDATA% | Points to user roaming directory Commonly (C:\Users\<USERNAME>\AppData\Roaming) |
+| %COMPUTERNAME% | The computer hostname |
+| %HOMEDRIVE% | Points to default OS drive (Commonly: C:\) |
+| %HOMEPATH% | Points to user directory (Commonly: C:\Users\<USERNAME>) |
+| %PATH% | When a command is run without a full path (for example: ipconfig) the OS searches all file paths contained in the PATH environmental variable for this file |
+| %PATHEXT% | When a command is run without an extension (for example: ipconfig) the OS searches for file matches that INCLUDE extensions from this PATHEXT list |
+| %SYSTEMDRIVE% | Points to default OS drive (Commonly: C:\) |
+| %TMP% && %TEMP% | Points to user temp folders (Commonly: C:\Users\<USERNAME>\AppData\Local\Temp) |
+| %USERPROFILE% | Points to user directories (Commonly: C:\Users\<USERNAME>) |
+| %WINDIR% | Points to Windows directory (Commonly: C:\Windows) |
+| %ALLUSERSPROFILE% | Points to Windows directory (Commonly: C:\ProgramData Windows 10+) |
+
+---
+
+### Windows Key Files & Locations
+| Windows Key Files & Locations | |
+|----------------------------------|--------------------------------------------------|
+| %SYSTEMROOT%\System32\drivers\etc\hosts | DNS entries |
+| %SYSTEMROOT%\System32\drivers\etc\networks | Network settings |
+| %SYSTEMROOT%\System32\config\SAM | User & password hashes |
+| %SYSTEMROOT%\repair\SAM | Backup copy of SAM (WinXP) |
+| %SYSTEMROOT%\System32\config\RegBack\SAM | Backup copy of SAM |
+| %WINDIR%\System32\config\AppEvent.Evt | Application Log (WinXP) |
+| %WINDIR%\System32\config\SecEvent.Evt | Security Log    (WinXP) |
+| %WINDIR%\System32\config\SECURITY | Security Log |
+| %WINDIR%\System32\config\APPLICATION | Application Log |
+| %ALLUSERSPROFILE%\Start Menu\Programs\Startup\ | Startup Location (WinXP) |
+| %USERPROFILE%\Appdata\Roaming\Microsoft\Windows\Start Menu\Programs\Startup | Startup Folder |
+| %WINDIR%\Panther\ | Commonly used unattend install files |
+| %WINDIR%\System32\Sysprep | Commonly used unattend install files |
+| %WINDIR%\kb* | Installed patches (WinXP) |
+
+---
+
+### Windows System Enumeration
+| Operating System Information | Description |
+|---------|-------------|
+| ver | Enumerate Windows version information |
+| wmic qfe list | Display hotfixes and service packs |
+| wmic cpu get datawidth /format:list | Display whether 32 or 64 bit system |
+| dir /a c:\ | Enumerate OS architecture - The existence of Program Files (x86) means machine is 64bit |
+| systeminfo | Display OS configuration, including service pack levels |
+| fsutil fsinfo drives | Display drives |
+| wmic logicaldisk get description,name | Display logical drives |
+| set | Display environment variables |
+| dir /a c:\pagefile.sys | Date of last reboot - Created date of pagefile.sys is last startup |
+| net share | Display shares |
+| net session | Display local sessions |
+| reg query HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\MountPoints2\ | List user mounted shares - MUST BE RUN IN THE CONTEXT OF THE USER |
+
+---
+
+### Windows Process & Service Enumeration
+| PROCESS & SERVICE ENUMERATION | |
+|----------------------------------|--------------------------------------------------|
+| tasklist /svc | Display services hosted in each process |
+| tasklist /FI "USERNAME ne NT AUTHORITY\SYSTEM" /FI "STATUS eq running" /V | Display detailed information for running processes that are not running as SYSTEM |
+| taskkill /F /IM <PROCESS_NAME> /T | Force all instances of a process and child processes to terminate (terminate specific PID with /PID <PID>) |
+| wmic process where name="<PROCESS_NAME>" call terminate | Terminate all instances of a process |
+| wmic process get name,executablepath,processid | Display the executable path and PID of all running processes |
+| Get-WmiObject -Namespace "root\SecurityCenter2" -Class AntiVirusProduct -ErrorAction Stop | Display Anti-Virus products commonly registered as AntiVirusProduct (PowerShell command) |
+| runas /user :<DOMAIN>\<USERNAME> "<FILE_PATH> [ARGS]" | Run a file as a specific user (prompts for password) |
+| tasklist /v \| findstr "<STRING_TO_SEARCH>" | Display processes that match a certain string |
+| wmic process get processid,commandline | Display processes (including command line arguments used to launch them) |
+| sc query state= all | Display services (space after state=) |
+
+---
+
+### Windows Account Enumeration
+| WINDOWS ACCOUNT ENUMERATION | |
+|----------------------------------|--------------------------------------------------|
+| echo %USERNAME% | Display current user |
+| wmic netlogin where (name like "%<USERNAME>%") get Name, numberoflogons" | List number of times user has logged on |
+| net localgroup "Administrator" | Display local Administrators |
+
+---
+
+### Windows Network info & Configuration
+| NETWORK INFO & CONFIGURATION | |
+|----------------------------------|--------------------------------------------------|
+| ipconfig /all | Network interface information |
+| ipconfig /displaydns | Display local DNS cache |
+| netstat -ano | Display all connections and ports with associated process ID |
+| netstat -anop tcp 3 >> <FILE_PATH> | Write netstat output to file every 3 seconds |
+| netstat -an \| findstr LISTENING | Display only listening ports |
+| route print | Display routing table |
+| arp -a | Display ARP table |
+| nslookup server <FQDN> set type=ANY ls -d <DOMAIN> > <FILEPATH> exit | Attempt DNS zone transfer |
+| nslookup -type=SRV *www.* tcp.<URL> | Domain SRV lookup (other options: _ldap, *kerberos, *sip) |
+| netsh firewall set opmode disable | Disable firewall (*Old) |
+| netsh wlan show profiles | Display saved wireless profiles |
+| netsh wlan export profile folder=. key=clear | Export wireless profiles to include plaintext encryption keys |
+| netsh interface ip show interfaces | List interface IDs/MTUs |
+| netsh interface ip set address name="<INTERFACE_NAME>" static <NEW_IP> <NEW_SUBNET_MASK> <NEW_GATEWAY> | Set IP |
+| netsh interface ip set dnsservers name="<INTERFACE_NAME>" static <DNS_SERVER_IP> | Set DNS server |
+| netsh interface ip set address name="<INTERFACE_NAME>" source=dhcp | Set interface to use DHCP |
+
+---
+
+### Windows Registry Commands & Important Keys
+| REGISTRY COMMANDS & IMPORTANT KEYS | |
+|----------------------------------|--------------------------------------------------|
+| reg query HKLM /f password /t REG_SZ /s | Search registry for password (Requires SYSTEM privileges) |
+| reg save HKLM\Security security.hive | Save security hive to file |
+| HKLM\Software\Microsoft\Windows NT\CurrentVersion /v ProductName /v InstallDate /v RegisteredOwner /v SystemRoot | OS information |
+| HKLM\System\CurrentControlSet\Control\TimeZonelnformation /v ActiveTimeBias | Time zone (offset in minutes from UTC) |
+| HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\Map Network Drive MRU | Mapped network drives |
+| HKLM\System\MountedDevices | Mounted devices |
+| HKLM\System\CurrentControlSet\Enum\USB | USB devices |
+| HKLM\Security\Policy\PolAdTev | Audit policy enumeration (Requires SYSTEM privileges) |
+| HKLM\SYSTEM\CurrentControlSet\Services | Kernel/user services |
+| HKLM\Software | Installed software for all users |
+| HKCU\Software | Installed software for current user |
+| HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Wordpad\Recent File List | Recent WordPad documents |
+| HKCU\Software\Microsoft\Windows\CurrentVersion\Explorer\RunMRU | Recent typed entries in the Run dialog box |
+| HKCU\Software\Microsoft\Internet Explorer\TypedURLs | Typed URLs |
+| HKCU\Software\Microsoft\Windows\CurrentVersion\Applets\Regedit /v LastKey | Last registry key accessed via regedit.exe |
+
+---
+
+### Windows Remote System Enumeration
+| REMOTE SYSTEM ENUMERATION | |
+|----------------------------------|--------------------------------------------------|
+| net session \\<IP_ADDRESS> | Display sessions for remote system |
+| wmic /node: <IP_ADDRESS> computersystem get username | Display logged in user on remote machine |
+| wmic /node: <IP_ADDRESS> /user:<DOMAIN>\<USERNAME> /password:<PASSWORD> process call create "\\<IP_ADDRESS>\<SHARE_FOLDER>\<FILE_PATH>" | Execute file hosted over SMB on remote system with specified credentials |
+| wmic /node: <IP_ADDRESS> process list brief /every:1 | Display process listing every second for remote machine |
+| reg query \\<IP_ADDRESS>\<REG_HIVE>\<REG_KEY>/v <REG_VALUE> | Query remote registry |
+| tasklist /S <IP_ADDRESS> /v | Display process listing on remote system |
+| systeminfo /S <IP_ADDRESS> /U <DOMAIN>\<USERNAME> /P <PASSWORD> | Display system information for remote system |
+| net view \<IP_ADDRESS> /all | Display shares of remote computer |
+| net use * \\<IP_ADDRESS>\<SHARE FOLDER> /user:<DOMAIN>\<USERNAME> <PASSWORD> | Connect to remote filesystem with specified user account |
+| REG ADD "\\<IP_ADDRESS>\HKCU\SOFTWARE\Microsoft\Windows\CurrentVersion\Run" /V "My App" /t REG_SZ /F /D "<FILE_PATH>" | Add registry key to remote system |
+| xcopy /s \\<IP_ADDRESS>\<SHARE_FOLDER> <LOCAL_DIR> | Copy remote folder |
+| dir \\<IP_ADDRESS>\c$ | Display system uptime - look for creation date of pagefile.sys. This is the last time the system started |
+| tasklist /v /s <IP_ADDRESS> | Display processes (look for AV, logged on users, programs of interest, etc.) |
+| dir \\<IP_ADDRESS>\c$ | Display system architecture - Presence of "Program Files (x86)" means 64-bit system |
+
+## Windows Data Mining 
+
+# LINUX BASICS
 ### Linux Directories
 | Directory | Description |
 |:-----------|:-------------|
