@@ -1,5 +1,3 @@
-[[_TOC_]]
-
 # START
 ## Nmap
 Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
