@@ -1,3 +1,5 @@
+[[_TOC_]]
+
 # START
 ## Nmap
 Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
@@ -6,7 +8,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 <div align="center">
   
-| Scan Type | Description |
+|** Scan Type** | Description |
 |:-----------|:-------------|
 | -sn | Ping scan |
 | -sS | Syn scan |
@@ -18,7 +20,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-| Scan Option | Description |
+| **Scan Option** | Description |
 |:-------------|:-------------|
 | -p <PORT_RANGES> | Ports |
 | -T[0-5] | Speed presets: 0 Slowest, 5 fastest |
@@ -36,7 +38,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-| Output/Input Option | Description |
+|** Output/Input Option** | Description |
 |:---------------------|:-------------|
 | -oX <FILE_PATH> | Write to XML file |
 | -oG <FILE_PATH> | Write to grep file |
@@ -46,7 +48,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-| Firewall Evasion Option | Description |
+| **Firewall Evasion Option** | Description |
 |:-------------------------|:-------------|
 | -f | Fragment packets |
 | -S <IP_ADDRESS> | Spoof source IP |
@@ -59,7 +61,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ---
 
-| Misc Flags | Description |
+|** Misc Flags** | Description |
 |:------------|:-------------|
 | xsltproc <INPUT_NMAP_XML>.xml –o <OUTPUT_PATH>.html | Convert Nmap XML file to HTML |
 | nmap –sP –n –oX out.xml <IP_CIDR> \| grep "Nmap" \| cut –d " " –f 5 > <OUTPUT_PATH>.txt | Generate live host file |
@@ -169,16 +171,151 @@ Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
 
 ### 9100 - HP JetDirect
 
-
 # TESTING + VALIDATING
 
 # ATTACKS
 
 # CODE SNIPPETS
 
+# LINUX BASICS
+
+<div align="center">
+
+| Directory | Description |
+|:-----------|:-------------|
+| / | Anchor and root of the filesystem |
+| /bin | User binaries |
+| /boot | Boot-up related files |
+| /dev | Interface for system devices |
+| /etc | System configuration files |
+| /home | Base directory for user files |
+| /lib | Critical software libraries |
+| /opt | Third party software |
+| /proc | System and running programs |
+| /root | Home directory of root user |
+| /sbin | System administrator binaries |
+| /tmp | Temporary files |
+| /usr | Contains all the system files. Less critical files |
+| /var | Variable system files |
+
+---
+
+| Important Files + Directories | Description |
+|:----------------|:-------------|
+| /etc/shadow | User account information and password hashes |
+| /etc/passwd | User account information |
+| /etc/group | Group names |
+| /etc/rc.d | Startup services (rc0.d-rc6.d) |
+| /etc/init.d | Contains startup/stop scripts |
+| /etc/hosts | Hardcoded hostname and IP combinations |
+| /etc/hostname | Full hostname with domain |
+| /etc/network/interfaces or /etc/netplan | Network configuration |
+| /etc/profile | System environment variables |
+| /etc/apt/sources.list | Debian package source |
+| /etc/resolv.conf | DNS configuration |
+| /home/<USER>/.bash_history | User Bash history |
+| /usr/share/wireshark/manuf | Vendor-MAC lookup (Kali Linux) |
+| ~/.ssh/ | SSH keystore |
+| /var/log | System log files (most Linux) |
+| /var/adm | System log files (Unix) |
+| /var/spool/cron | List cron files |
+| /var/log/apache2/access.log | Apache connection log |
+| /etc/fstab | Contains local and network configured mounts and shares |
+
+---
+
+| Operating System Information | Description |
+|:---------|:-------------|
+| df -h | Disk usage |
+| uname -a | Kernel version & CPU information |
+| cat /etc/issue | Display OS information |
+| cat /etc/*release* | Display OS version information |
+| cat /proc/version | Display kernel information |
+| which <SHELL_NAME> | Locate the executable files or location of each shell on the system (Can search: tscsh, csh, ksh, bash, etc.) |
+| fdisk -l | Display connected drives |
+
+---
+
+| Situational Awareness & Process Manipulation | Description |
+|:---------|:-------------|
+| id | Displays current user/group information |
+| w | List logged on users and what they are doing |
+| who -a | Show currently logged in users |
+| last -a | Show past and current login and system boot information |
+| ps -ef | Process listing |
+| mount or findmnt | List mounted drives |
+| kill -9 <PID> | Force kill processes with specific PID |
+| killall <PROCESS_NAME> | Kill all processes matching a specific name |
+| top | Show all processes sorting by most active |
+| cat /etc/fstab | List configured persistent mounts |
+
+---
+
+| User Account Enumeration & Configuration | Description |
+|:---------------------------------------|:-----------------------------------------------|
+| getent passwd | Display user and service accounts |
+| useradd –m <USERNAME> | Add a user |
+| usermod -g <GROUPNAME> <USERNAME> | Add user to group |
+| passwd <USERNAME> | Change user password |
+| usermod --expiredate 1 --lock --shell /bin/nologin <USERNAME> | Lock user account |
+| usermod --expiredate 99999 --unlock --shell /bin/bash <USERNAME> | Unlock user account |
+| chage –l <USERNAME> | Enumerate user account details |
+| userdel <USERNAME> | Delete user |
+
+---
+
+| Network Configuration | Description |
+|:----------------------------------|:--------------------------------------------------|
+| watch --interval 3 ss -t --all | List all listening, established, and connected TCP sockets every 3 seconds |
+| netstat -tulpn | List all listening TCP and UDP sockets with associated PID/program name |
+| lsof –i –u <USERNAME> -a | List all network activity associated to a specific user |
+| ifconfig <INTERFACE_NAME> <NEW_IP> netmask <NEW_SUBNET_MASK> or ip addr add <NEW_IP> dev <INTERFACE_NAME> | Set IP and NETMASK |
+| ifconfig <INTERFACE_NAME>:<NEW_INTERFACE_NAME> <NEW_IP> or ip addr add <NEW_IP>/<CIDR> dev <INTERFACE_NAME> | Add second IP to existing interface |
+| route add default gw <IP_ADDRESS> <INTERFACE_NAME> or ip route add <IP_ADDRESS>/<CIDR> via <GATEWAY_IP> dev <INTERFACE_NAME> | Set gateway |
+| ifconfig <INTERFACE_NAME> mtu <SIZE> or ip link set dev <INTERFACE_NAME> mtu <SIZE> | Change MTU size |
+| ifconfig <INTERFACE_NAME> hw ether <MAC_ADDRESS> or ip link set dev <INTERFACE_NAME> down ip link set dev <INTERFACE_NAME> address <MAC_ADDRESS> ip link set dev <INTERFACE_NAME> up | Change MAC address |
+| iwlist <INTERFACE_NAME> scan | Built-in Wi-Fi Scanner |
+| cat /var/log/messages \| grep DHCP | List DHCP assignments |
+| tcpkill host <IP_ADDRESS> and port <PORT> | Kills TCP connections running over specific port number |
+| echo "1" > /proc/sys/net/ipv4/ip_forward | Enable on IP Forwarding |
+| echo "nameserver <IP_ADDRESS>" >> /etc/resolv.conf | Add DNS server |
+
+---
+
+| File Manipulation | Description |
+|:----------------------------------|:--------------------------------------------------|
+| diff <FILE_PATH_A> <FILE_PATH_B> | Compare files |
+| rm –rf <FILE_PATH> | Force recursive deletion of directory |
+| shred –f –u <FILE_PATH> | Secure file deletion |
+| touch –r <ORIGINAL_FILE_PATH> <MOD_FILE_PATH> | Modify timestamp to match another file |
+| touch –t <YYYYMMDDHHMM> <FILE> | Modify file timestamp |
+| grep –c "<STRING>" <FILE_PATH> | Count lines containing specific string |
+| awk 'sub("$", "\r")' <SOURCE_FILE_PATH> > <OUTPUT_FILE_PATH> | Convert Linux formatted file to Windows compatible text file |
+| dos2unix <FILE_PATH> | Convert Windows formatted file to Linux compatible text file |
+| find . –type f -name "*.<FILE_EXTENSION>" | Search current and all subdirectories for all files that end with a specific extension |
+| grep -Ria "<SEARCH_PHRASE>" | Search all files (binary and regular files) in current and all subdirectories for a case insensitive phrase |
+| wc -l <FILE_PATH> | Return the line count of a target file |
+| find / -perm -4000 -exec ls -ld {} \; | Search for setuid files |
+| file <FILE_PATH> | Determine file type |
+| chattr +i <FILE_PATH> | Set immutable file |
+| chattr –i <FILE_PATH> | Unset immutable file |
+| dd if=/dev/urandom of=<OUTPUT_FILE_PATH> bs=3145728 count=100 | Generate random file (example 3M file) |
+
+---
+
+| #### File Hashing | Description |
+|:----------------------------------|:--------------------------------------------------|
+| md5sum <FILE_PATH> | Generate MD5 hash of a file |
+| echo "<STRING>" \| md5sum | Generate MD5 hash of a string |
+| sha1sum <FILE_PATH> | Generate SHA1 hash of a file |
+
+---
+
+</div>
+
 # CONVERSIONS
 ## URL Encoding
-| Character | URL Encoded | Character | URL Encoded | Character | URL Encoded |
+| **Character** | URL Encoded | **Character** | URL Encoded | **Character** | URL Encoded |
 |-----------|------------|-----------|------------|-----------|------------|
 | a | %61 | A | %41 | 0 | %30 |
 | b | %62 | B | %42 | 1 | %31 |
