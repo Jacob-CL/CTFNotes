@@ -5,7 +5,7 @@ Ippsec: `nmap -sV -sC -oA <FILENAME.txt> <TARGETIP>`
 <div align="center">
   
 | Scan Type | Description |
-|-----------|-------------|
+|:-----------|:-------------|
 | -sn | Ping scan |
 | -sS | Syn scan |
 | -sT | Connect scan |
