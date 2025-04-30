@@ -39,7 +39,7 @@ TARGET_IP=$2
 
 # Run the nmap command
 echo "Running nmap scan on $TARGET_IP with output to $FILENAME..."
-nmap -sV -sC -oA "$FILENAME" "$TARGET_IP"
+nmap -sV -sC -A -oA "$FILENAME" "$TARGET_IP"
 
 # Check if the command was successful
 if [ $? -eq 0 ]; then
