@@ -6,6 +6,8 @@
 - Scan a file of hosts: `sudo nmap -sn -oA tnet -iL hosts.lst | grep for | cut -d" " -f5` where file is `hosts.lst`
 - Scan multiple IPs: `sudo nmap -sn -oA tnet 10.129.2.18 10.129.2.19 10.129.2.20| grep for | cut -d" " -f5` or `sudo nmap -sn -oA tnet 10.129.2.18-20| grep for | cut -d" " -f5`
 - 6 different states a port can be:
+
+
 | **State** | **Description** |
 |-----------|-----------------|
 | `open` | This indicates that the connection to the scanned port has been established. These connections can be **TCP connections**, **UDP datagrams** as well as **SCTP associations**. |
@@ -14,6 +16,7 @@
 | `unfiltered` | This state of a port only occurs during the **TCP-ACK** scan and means that the port is accessible, but it cannot be determined whether it is open or closed. |
 | `open filtered` | If we do not get a response for a specific port, `Nmap` will set it to that state. This indicates that a firewall or packet filter may protect the port. |
 | `closed filtered` | This state only occurs in the **IP ID idle** scans and indicates that it was impossible to determine if the scanned port is closed or filtered by a firewall. |
+
 - Default Nmap only scans top 1000 ports
 - When a port is filtered, in most cases firewalls have certain rules set to handle specific connections.
 - To be able to track how our sent packets are handled, we deactivate the ICMP echo requests (-Pn), DNS resolution (-n), and ARP ping scan (--disable-arp-ping): `sudo nmap 10.129.2.28 -p 139 --packet-trace -n --disable-arp-ping -Pn`
