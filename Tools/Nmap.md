@@ -1,5 +1,23 @@
 # Nmap
-Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
+- Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
+- Manual confirmation might be necessary - if a port doesn't respond within a specific time, it's considered closed, filtered or unknown.
+- The most effective host discovery method is to use ICMP echo requests.
+- Scan a network range: `sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5`
+- Scan a file of hosts: `sudo nmap -sn -oA tnet -iL hosts.lst | grep for | cut -d" " -f5` where file is `hosts.lst`
+- Scan multiple IPs: `sudo nmap -sn -oA tnet 10.129.2.18 10.129.2.19 10.129.2.20| grep for | cut -d" " -f5` or `sudo nmap -sn -oA tnet 10.129.2.18-20| grep for | cut -d" " -f5`
+- 6 different states a port can be:
+| **State** | **Description** |
+|-----------|-----------------|
+| `open` | This indicates that the connection to the scanned port has been established. These connections can be **TCP connections**, **UDP datagrams** as well as **SCTP associations**. |
+| `closed` | When the port is shown as closed, the TCP protocol indicates that the packet we received back contains an `RST` flag. This scanning method can also be used to determine if our target is alive or not. |
+| `filtered` | Nmap cannot correctly identify whether the scanned port is open or closed because either no response is returned from the target for the port or we get an error code from the target. |
+| `unfiltered` | This state of a port only occurs during the **TCP-ACK** scan and means that the port is accessible, but it cannot be determined whether it is open or closed. |
+| `open filtered` | If we do not get a response for a specific port, `Nmap` will set it to that state. This indicates that a firewall or packet filter may protect the port. |
+| `closed filtered` | This state only occurs in the **IP ID idle** scans and indicates that it was impossible to determine if the scanned port is closed or filtered by a firewall. |
+- Default Nmap only scans top 1000 ports
+- When a port is filtered, in most cases firewalls have certain rules set to handle specific connections.
+- To be able to track how our sent packets are handled, we deactivate the ICMP echo requests (-Pn), DNS resolution (-n), and ARP ping scan (--disable-arp-ping): `sudo nmap 10.129.2.28 -p 139 --packet-trace -n --disable-arp-ping -Pn`
+- Since UDP is a stateless protocol and does not require a three-way handshake like TCP. We do not receive any acknowledgment. Consequently, the timeout is much longer, making the whole UDP scan (-sU) much slower than the TCP scan (-sS). If a UDP port is open, we only get a response if the application is configured to do so.
 
 `nmap.sh`
 
@@ -36,7 +54,7 @@ Example usage: `./nmap.sh myscan 192.168.1.1`
 ### Nmap Scan Types
 | Scan Type | Description |
 |:-----------|:-------------|
-| -sn | Ping scan |
+| -sn | Ping scan /Disables port scanning |
 | -sS | Syn scan |
 | -sT | Connect scan |
 | -sU | UDP scan |
