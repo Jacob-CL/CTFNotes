@@ -3,6 +3,10 @@
   - [OWASP Web Security Testing Guide (WSTG)](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/)
   - [OWASP Cheat Sheet](https://cheatsheetseries.owasp.org/index.html)
      [OWASP Secure Coding Practices](https://owasp.org/www-project-secure-coding-practices-quick-reference-guide/stable-en/)
+- HackTricks
+  - [HackTricks](https://book.hacktricks.wiki/en/index.html)
+  - [HackTricks Cloud](https://cloud.hacktricks.wiki/en/index.html)
+
  
 # CODE SNIPPETS
 
