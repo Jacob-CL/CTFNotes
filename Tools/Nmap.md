@@ -104,7 +104,7 @@ Example usage: `./nmap.sh myscan 192.168.1.1`
 | -f | Fragment packets |
 | -S <IP_ADDRESS> | Spoof source IP |
 | -g <PORT> | Spoof source port |
-| -D <IP_ADDRESS>,<IP_ADDRESS> | Scan with decoys |
+| -D <IP_ADDRESS>,<IP_ADDRESS> | Scan with decoys or use `-D RND:5` to generate 5 random IPs|
 | --mtu <MTU> | Set MTU size |
 | --spoof-mac <MAC> | Spoof MAC address |
 | --data-length <SIZE> | Append random data |
