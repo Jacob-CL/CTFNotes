@@ -1,5 +1,6 @@
 # Nmap
 - Ippsec: `nmap -sV -sC -oA <FILENAME> <TARGETIP>`
+- `-sV` isd default scripts but doesnt cover all script types
 - Manual confirmation might be necessary - if a port doesn't respond within a specific time, it's considered closed, filtered or unknown.
 - The most effective host discovery method is to use ICMP echo requests.
 - Scan a network range: `sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5`
