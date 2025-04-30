@@ -6,6 +6,7 @@
 - Scan a network range: `sudo nmap 10.129.2.0/24 -sn -oA tnet | grep for | cut -d" " -f5`
 - Scan a file of hosts: `sudo nmap -sn -oA tnet -iL hosts.lst | grep for | cut -d" " -f5` where file is `hosts.lst`
 - Scan multiple IPs: `sudo nmap -sn -oA tnet 10.129.2.18 10.129.2.19 10.129.2.20| grep for | cut -d" " -f5` or `sudo nmap -sn -oA tnet 10.129.2.18-20| grep for | cut -d" " -f5`
+- Don't forget you can still try to connect to the port directly to see info with something like `ncat -nv --source-port 53 10.129.191.47 50000`
 - 6 different states a port can be:
 
 
