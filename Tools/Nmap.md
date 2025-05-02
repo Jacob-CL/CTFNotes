@@ -7,7 +7,7 @@
 - Scan a file of hosts: `sudo nmap -sn -oA tnet -iL hosts.lst | grep for | cut -d" " -f5` where file is `hosts.lst`
 - Scan multiple IPs: `sudo nmap -sn -oA tnet 10.129.2.18 10.129.2.19 10.129.2.20| grep for | cut -d" " -f5` or `sudo nmap -sn -oA tnet 10.129.2.18-20| grep for | cut -d" " -f5`
 - Don't forget you can still try to connect to the port directly to see info with something like `ncat -nv --source-port 53 10.129.191.47 50000`
-- Nmap has many scripts for enumerating SMB, such as smb-os-discovery.nse, which will interact with the SMB service to extract the reported operating system version.
+- Nmap has many scripts for enumerating SMB, such as `smb-os-discovery.nse`, which will interact with the SMB service to extract the reported operating system version.
 - 6 different states a port can be:
 
 
