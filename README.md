@@ -300,6 +300,7 @@
 | pkginfo | solaris show installed packages |
 | cat /etc/shells | show location of shell executables |
 | chmod -x <shell dir> | make shell/file nonexecutable |
+| sudo -l | See what sudo perms you have |
 
 ---
 
