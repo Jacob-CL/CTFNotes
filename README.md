@@ -12,6 +12,8 @@
   - [Windows PE Checkist](https://book.hacktricks.wiki/en/windows-hardening/checklist-windows-privilege-escalation.html)
 - Enumeration
   - [Server Enum](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)
+- Kernel
+  - [DirtyCow](https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs)
  
 # CODE SNIPPETS
 
