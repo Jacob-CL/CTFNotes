@@ -10,6 +10,7 @@
   - [GTFOBins](https://gtfobins.github.io/)
   - [Linux PE Checklist](https://book.hacktricks.wiki/en/linux-hardening/linux-privilege-escalation-checklist.html)
   - [Windows PE Checkist](https://book.hacktricks.wiki/en/windows-hardening/checklist-windows-privilege-escalation.html)
+  - https://infosecwriteups.com/hackthebox-academy-privilege-escalation-ca0a8ad2259e
 - Enumeration
   - [Server Enum](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)
 - Kernel
@@ -300,8 +301,8 @@
 | pkginfo | solaris show installed packages |
 | cat /etc/shells | show location of shell executables |
 | chmod -x <shell dir> | make shell/file nonexecutable |
-| sudo -l | See what sudo perms you have, you might have perms over other users and can then run: `sudo -u user2 /bin/bash /home/user2/flag.txt` if you see you have `/bin/bash/` execution as user2 |
-|
+| sudo -l | See what sudo perms you have, you might have perms over other users and can then run: `sudo -u user2 /bin/bash /home/user2/flag.txt` if you see you have `/bin/bash/` execution as user2. If another user can use bash but you can't then run all bash commands as that user |
+| `sudo -u user2 bash -c 'ls -la'` OR `sudo -u user2 bash -c 'ls -al /root'` | Running bash as another user in SSH shell | 
 | sudo su - | Switch to root user | 
 
 ---
