@@ -300,7 +300,9 @@
 | pkginfo | solaris show installed packages |
 | cat /etc/shells | show location of shell executables |
 | chmod -x <shell dir> | make shell/file nonexecutable |
-| sudo -l | See what sudo perms you have |
+| sudo -l | See what sudo perms you have, you might have perms over other users and can then run: `sudo -u user2 /bin/bash /home/user2/flag.txt` if you see you have `/bin/bash/` execution as user2 |
+|
+| sudo su - | Switch to root user | 
 
 ---
 
