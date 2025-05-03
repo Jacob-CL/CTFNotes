@@ -6,7 +6,12 @@
 - HackTricks
   - [HackTricks](https://book.hacktricks.wiki/en/index.html)
   - [HackTricks Cloud](https://cloud.hacktricks.wiki/en/index.html)
-
+- PrivEsc
+  - [GTFOBins](https://gtfobins.github.io/)
+  - [Linux PE Checklist](https://book.hacktricks.wiki/en/linux-hardening/linux-privilege-escalation-checklist.html)
+  - [Windows PE Checkist](https://book.hacktricks.wiki/en/windows-hardening/checklist-windows-privilege-escalation.html)
+- Enumeration
+  - [Server Enum](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)
  
 # CODE SNIPPETS
 
@@ -309,6 +314,12 @@
 | killall <PROCESS_NAME> | Kill all processes matching a specific name |
 | top | Show all processes sorting by most active |
 | cat /etc/fstab | List configured persistent mounts |
+
+Do we have write permissions on cron jobs?
+  - /etc/crontab
+  - /etc/cron.d
+  - /var/spool/cron/crontabs/root
+
 
 ---
 
