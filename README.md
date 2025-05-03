@@ -289,7 +289,7 @@
 | rpm -i *.rpm | install rpm package |
 | rpm -qa | show installed packages |
 | dpkg -i *.deb | install deb package |
-| dpkg --get-selections | show installed packages |
+| dpkg --get-selections | show installed packages/software |
 | pkginfo | solaris show installed packages |
 | cat /etc/shells | show location of shell executables |
 | chmod -x <shell dir> | make shell/file nonexecutable |
