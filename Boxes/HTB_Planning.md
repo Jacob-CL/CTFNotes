@@ -30,22 +30,23 @@ Progress: 4744 / 4745 (99.98%)
 ## DNS Scan
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/DNS]
-└─# gobuster dns -d planning.htb -w subdomains-top1million-20000.txt
+└─# gobuster dns -d planning.htb -w bitquark-subdomains-top100000.txt -t 100
 ===============================================================
 Gobuster v3.6
 by OJ Reeves (@TheColonial) & Christian Mehlmauer (@firefart)
 ===============================================================
 [+] Domain:     planning.htb
-[+] Threads:    10
+[+] Threads:    100
 [+] Timeout:    1s
-[+] Wordlist:   subdomains-top1million-20000.txt
+[+] Wordlist:   bitquark-subdomains-top100000.txt
 ===============================================================
 Starting gobuster in DNS enumeration mode
 ===============================================================
-Progress: 19966 / 19967 (99.99%)
+Progress: 100000 / 100001 (100.00%)
 ===============================================================
 Finished
 ===============================================================
+
 ```
 # Ffuf
 ## File scan
@@ -84,7 +85,7 @@ lib                     [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 2
 ## DNS Scan
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/DNS]
-└─# ffuf -w subdomains-top1million-20000.txt -u http://planning.htb/ -H "Host: FUZZ.planning.htb" -mc all -fs 178
+└─# ffuf -w bitquark-subdomains-top100000.txt -u http://planning.htb/ -H "Host: FUZZ.planning.htb" -t 150 -mc all -fs 178                                              
 
         /'___\  /'___\           /'___\       
        /\ \__/ /\ \__/  __  __  /\ \__/       
@@ -98,19 +99,19 @@ ________________________________________________
 
  :: Method           : GET
  :: URL              : http://planning.htb/
- :: Wordlist         : FUZZ: /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt
+ :: Wordlist         : FUZZ: /usr/share/wordlists/seclists/Discovery/DNS/bitquark-subdomains-top100000.txt
  :: Header           : Host: FUZZ.planning.htb
  :: Follow redirects : false
  :: Calibration      : false
  :: Timeout          : 10
- :: Threads          : 40
+ :: Threads          : 150
  :: Matcher          : Response status: all
  :: Filter           : Response size: 178
 ________________________________________________
 
-#www                    [Status: 400, Size: 166, Words: 6, Lines: 8, Duration: 169ms]
-#mail                   [Status: 400, Size: 166, Words: 6, Lines: 8, Duration: 180ms]
-:: Progress: [19966/19966] :: Job [1/1] :: 195 req/sec :: Duration: [0:01:40] :: Errors: 0 ::
+grafana                 [Status: 302, Size: 29, Words: 2, Lines: 3, Duration: 179ms]
+:: Progress: [100000/100000] :: Job [1/1] :: 626 req/sec :: Duration: [0:02:17] :: Errors: 0 ::
+
 ```
 # SSH
 ```
@@ -127,4 +128,5 @@ Permission denied, please try again.
 
 
 # Lessons
-- Assume the worst - double check results and use the largest wordlist available to you
+- Assume the worst - double check results with different tools and different wordlists. Yes use the biggest one available to you but also a different one altogether. This one required the bitquark one to find `grafana` none others included that one.
+- Ffuf found the subdomain with the wordlist but gobuster didnt :(
