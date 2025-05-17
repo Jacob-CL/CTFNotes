@@ -47,7 +47,8 @@ Progress: 19966 / 19967 (99.99%)
 Finished
 ===============================================================
 ```
-# Ffuf scan
+# Ffuf
+## File scan
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/Web-Content]
 └─# ffuf -u http://planning.htb/FUZZ -w common.txt
@@ -81,7 +82,7 @@ lib                     [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 2
 
 ```
 All 403 except index.php (home page)
-
+## Subdomain Scan
 # SSH
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/Web-Content]
