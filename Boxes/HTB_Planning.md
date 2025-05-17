@@ -126,4 +126,5 @@ Permission denied, please try again.
 ```
 
 
-
+# Lessons
+- Assume the worst - double check results and use the largest wordlist available to you
