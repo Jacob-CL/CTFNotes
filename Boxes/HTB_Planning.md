@@ -83,6 +83,36 @@ lib                     [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 2
 ```
 All 403 except index.php (home page)
 ## Subdomain Scan
+```
+┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/DNS]
+└─# ffuf -w subdomains-top1million-20000.txt -u http://planning.htb/ -H "Host: FUZZ.planning.htb" -mc all -fs 178
+
+        /'___\  /'___\           /'___\       
+       /\ \__/ /\ \__/  __  __  /\ \__/       
+       \ \ ,__\\ \ ,__\/\ \/\ \ \ \ ,__\      
+        \ \ \_/ \ \ \_/\ \ \_\ \ \ \ \_/      
+         \ \_\   \ \_\  \ \____/  \ \_\       
+          \/_/    \/_/   \/___/    \/_/       
+
+       v2.1.0-dev
+________________________________________________
+
+ :: Method           : GET
+ :: URL              : http://planning.htb/
+ :: Wordlist         : FUZZ: /usr/share/wordlists/seclists/Discovery/DNS/subdomains-top1million-20000.txt
+ :: Header           : Host: FUZZ.planning.htb
+ :: Follow redirects : false
+ :: Calibration      : false
+ :: Timeout          : 10
+ :: Threads          : 40
+ :: Matcher          : Response status: all
+ :: Filter           : Response size: 178
+________________________________________________
+
+#www                    [Status: 400, Size: 166, Words: 6, Lines: 8, Duration: 169ms]
+#mail                   [Status: 400, Size: 166, Words: 6, Lines: 8, Duration: 180ms]
+:: Progress: [19966/19966] :: Job [1/1] :: 195 req/sec :: Duration: [0:01:40] :: Errors: 0 ::
+```
 # SSH
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/Web-Content]
