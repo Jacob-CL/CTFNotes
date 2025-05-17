@@ -128,5 +128,5 @@ Permission denied, please try again.
 
 
 # Lessons
-- Assume the worst - double check results with different tools and different wordlists. Yes use the biggest one available to you but also a different one altogether. This one required the bitquark one to find `grafana` none others included that one.
+- Assume the worst - double check results with different tools and different wordlists. And use the biggest one available to you but also a different one altogether. This box required the bitquark txt one to find the `grafana` subdomain when none other had that keyword needed for this challenge
 - Ffuf found the subdomain with the wordlist but gobuster didnt even when i experimented with different threads (`-t`):(
