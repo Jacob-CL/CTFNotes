@@ -113,6 +113,7 @@ grafana                 [Status: 302, Size: 29, Words: 2, Lines: 3, Duration: 17
 :: Progress: [100000/100000] :: Job [1/1] :: 626 req/sec :: Duration: [0:02:17] :: Errors: 0 ::
 
 ```
+Added grafana to etc/hosts
 # SSH
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/Web-Content]
@@ -125,7 +126,7 @@ Warning: Permanently added '10.10.11.68' (ED25519) to the list of known hosts.
 admin@10.10.11.68's password: 
 Permission denied, please try again.
 ```
-
+Provided creds don't seem to work against SSH
 
 # Lessons
 - Assume the worst - double check results with different tools and different wordlists. And use the biggest one available to you but also a different one altogether. This box required the bitquark txt one to find the `grafana` subdomain when none other had that keyword needed for this challenge
