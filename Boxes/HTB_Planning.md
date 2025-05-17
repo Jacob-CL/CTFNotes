@@ -81,7 +81,7 @@ lib                     [Status: 301, Size: 178, Words: 6, Lines: 8, Duration: 2
 :: Progress: [4744/4744] :: Job [1/1] :: 195 req/sec :: Duration: [0:00:25] :: Errors: 0 ::
 
 ```
-## Subdomain Scan
+## DNS Scan
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/DNS]
 └─# ffuf -w subdomains-top1million-20000.txt -u http://planning.htb/ -H "Host: FUZZ.planning.htb" -mc all -fs 178
