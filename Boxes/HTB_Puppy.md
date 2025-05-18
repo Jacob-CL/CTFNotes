@@ -31,6 +31,9 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 187.14 seconds
 ```
+
+---
+
 # LDAP Enum (389)
 - Ran `ldapdomaindump` with little luck:
 ```
@@ -79,7 +82,7 @@ result: 0 Success
 # numResponses: 2
 # numEntries: 1
 ```
-Now that I have the Domain name I can try to dump all data:
+- Now that I have the Domain name I can try to dump all data:
 ```
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# ldapsearch -x -H ldap://10.10.11.70 -b "dc=PUPPY,dc=HTB"                                                                                                   
@@ -99,7 +102,7 @@ text: 000004DC: LdapErr: DSID-0C090DA9, comment: In order to perform this opera
 
 # numResponses: 1
 ```
-The error message indicates that anonymous searching of the directory is not allowed - you need to authenticate first. Gippity says to try NULL bind:
+- The error message indicates that anonymous searching of the directory is not allowed - you need to authenticate first. Gippity says to try NULL bind:
 ```
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# ldapsearch -x -H ldap://10.10.11.70 -D "" -w "" -b "dc=PUPPY,dc=HTB"                                                                                               
@@ -125,8 +128,10 @@ text: 000004DC: LdapErr: DSID-0C090DA9, comment: In order to perform this opera
 
 Perhaps LDAP is not the entry point?
 
+---
+
 # SMB Enum (445)
-XX List shares anonmously:
+- List shares anonmously:
 ```
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# smbclient -L //10.10.11.70 -N                                                                                                                                      
@@ -138,7 +143,7 @@ Reconnecting with SMB1 for workgroup listing.
 do_connect: Connection to 10.10.11.70 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
 Unable to connect with SMB1 -- no workgroup available
 ```
-also specifying the domain:
+- also specifying the domain:
 ```
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# smbclient -L //10.10.11.70 -N -W PUPPY                                                                                                        
@@ -151,7 +156,7 @@ do_connect: Connection to 10.10.11.70 failed (Error NT_STATUS_RESOURCE_NAME_NOT_
 Unable to connect with SMB1 -- no workgroup available
 
 ```
-XX Check for NULL sessions:
+- Check for NULL sessions:
 ```
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# smbmap -H 10.10.11.70 -u "" -p ""                                                                                                                                  
@@ -171,8 +176,10 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
 [*] Closed 0 connections 
 ```
 
+---
+
 # RPC Enum (125)
-XX Try null session with rpcclient
+- Try null session with rpcclient
 ```
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# rpcclient -U "" -N 10.10.11.70                                                                                                                                     
@@ -186,6 +193,56 @@ rpcclient $> lookupnames administrator
 result was NT_STATUS_ACCESS_DENIED
 rpcclient $> 
 ```
+
+---
+
+# DNS Enum
+- Attempt zone transfer
+```
+┌──(root㉿kali)-[/home/jacob/Desktop]
+└─# dig @10.10.11.70 PUPPY.HTB axfr
+
+; <<>> DiG 9.20.7-1-Debian <<>> @10.10.11.70 PUPPY.HTB axfr
+; (1 server found)
+;; global options: +cmd
+; Transfer failed.
+```
+- Resolve hostnames - seem to be having connection issues? or DC not responding to me
+```
+┌──(root㉿kali)-[/home/jacob/Desktop]
+└─# nslookup dc.PUPPY.HTB 10.10.11.70                                                                                                                                  
+Server:         10.10.11.70
+Address:        10.10.11.70#53
+
+Name:   dc.PUPPY.HTB
+Address: 10.10.11.70
+;; communications error to 10.10.11.70#53: timed out
+
+```
+- Check for SRV records:
+```
+  ┌──(root㉿kali)-[/home/jacob/Desktop]
+└─# nslookup -type=SRV _ldap._tcp.PUPPY.HTB 10.10.11.70                                                                                                                
+Server:         10.10.11.70
+Address:        10.10.11.70#53
+
+_ldap._tcp.PUPPY.HTB    service = 0 100 389 dc.puppy.htb.
+
+```
+- Look for other potential subdomains
+```
+┌──(root㉿kali)-[/home/jacob/Desktop]
+└─# fierce --domain PUPPY.HTB --dns-servers 10.10.11.70                                                                                                                
+NS: failure
+SOA: failure
+Failed to lookup NS/SOA, Domain does not exist
+```
+# Kerberos Enum (88)
+```
+
+
+```
+---
 
 # Working Steps
 # Lessons
