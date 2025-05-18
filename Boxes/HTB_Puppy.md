@@ -34,4 +34,4 @@ Nmap done: 1 IP address (1 host up) scanned in 187.14 seconds
 ```
 #
 # Lessons
-- Regular NMAP scan doesn't return anything - have to use `-Pn`  flag
+- Regular NMAP scan doesn't return anything - have to use `-Pn`  flag.  `-Pn: Treat all hosts as online -- skip host discovery`
