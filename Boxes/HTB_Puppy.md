@@ -31,7 +31,7 @@ Host script results:
 Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
 Nmap done: 1 IP address (1 host up) scanned in 187.14 seconds
 ```
-# Steps
+# LDAP Enum (389)
 - Ran `ldapdomaindump` with little luck:
 ```
 ┌──(root㉿kali)-[/home/jacob/Desktop]
@@ -123,9 +123,72 @@ text: 000004DC: LdapErr: DSID-0C090DA9, comment: In order to perform this opera
 - Security is properly configured: LDAP server has been configured to prevent unauthenticated access to the directory contents.
 - "000004DC" error code is a hexadecimal Active Directory error code that translates to "LDAP_OPERATIONS_ERROR" (1244 in decimal), which is a generic error indicating the server can't process your request due to security restrictions.
 
-- Perhaps LDAP is not the entry point?
+Perhaps LDAP is not the entry point?
 
+# SMB Enum (445)
+XX List shares anonmously:
+```
+┌──(root㉿kali)-[/home/jacob/Desktop]
+└─# smbclient -L //10.10.11.70 -N                                                                                                                                      
+Anonymous login successful
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to 10.10.11.70 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Unable to connect with SMB1 -- no workgroup available
+```
+also specifying the domain:
+```
+┌──(root㉿kali)-[/home/jacob/Desktop]
+└─# smbclient -L //10.10.11.70 -N -W PUPPY                                                                                                        
+Anonymous login successful
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to 10.10.11.70 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Unable to connect with SMB1 -- no workgroup available
+
+```
+XX Check for NULL sessions:
+```
+┌──(root㉿kali)-[/home/jacob/Desktop]
+└─# smbmap -H 10.10.11.70 -u "" -p ""                                                                                                                                  
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 0 hosts serving SMB                                                                                                  
+[*] Closed 0 connections 
+```
+
+# RPC Enum (125)
+XX Try null session with rpcclient
+```
+┌──(root㉿kali)-[/home/jacob/Desktop]
+└─# rpcclient -U "" -N 10.10.11.70                                                                                                                                     
+rpcclient $> enumdomusers
+result was NT_STATUS_ACCESS_DENIED
+rpcclient $> administrator
+command not found: administrator
+rpcclient $> lookupnames
+Usage: lookupnames [name1 [name2 [...]]]
+rpcclient $> lookupnames administrator
+result was NT_STATUS_ACCESS_DENIED
+rpcclient $> 
+```
 
 # Working Steps
 # Lessons
 - Regular NMAP scan doesn't return anything - have to use `-Pn`  flag.  `-Pn: Treat all hosts as online -- skip host discovery`
+- Try specifying the domain when enumerating SMB/LDAP
+- A timeout could just be a VPN thing dude
