@@ -123,6 +123,8 @@ text: 000004DC: LdapErr: DSID-0C090DA9, comment: In order to perform this opera
 - Security is properly configured: LDAP server has been configured to prevent unauthenticated access to the directory contents.
 - "000004DC" error code is a hexadecimal Active Directory error code that translates to "LDAP_OPERATIONS_ERROR" (1244 in decimal), which is a generic error indicating the server can't process your request due to security restrictions.
 
+- Perhaps LDAP is not the entry point?
+
 
 # Working Steps
 # Lessons
