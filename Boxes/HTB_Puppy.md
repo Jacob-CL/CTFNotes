@@ -330,7 +330,7 @@ userPrincipalName: steph.cooper_adm@PUPPY.HTB
 
 [*] Bye!
 ```
-
+- Stephen has a user account and an admin account
 ---
 
 # SMB Enum (445)
