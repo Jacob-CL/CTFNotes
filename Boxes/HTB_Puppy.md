@@ -554,7 +554,7 @@ distinguishedName: CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB ----
 instanceType: 4
 whenCreated: 20250308155040.0Z
 --
-displayName: Stephen A. Cooper
+displayName: Stephen A. Cooper --------------------------------------------------
 uSNCreated: 45124
 memberOf: CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
 uSNChanged: 94259
@@ -566,6 +566,7 @@ adminCount: 1
 accountExpires: 9223372036854775807
 logonCount: 0
 ```
+
 
 ---
 
