@@ -1,6 +1,6 @@
 # Puppy
 ## NMAP
-```
+```cs
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# nmap -sV -sC -Pn 10.10.11.70                                                                                                                           
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-05-18 14:31 AEST
