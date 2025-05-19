@@ -515,6 +515,73 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
 
 ---
 
+Now let's try those creds baby
+```py
+┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# smbclient -L //10.10.11.70 -U "levi.james%KingofAkron2025!"                                                                                                        
+
+        Sharename       Type      Comment
+        ---------       ----      -------
+        ADMIN$          Disk      Remote Admin
+        C$              Disk      Default share
+        DEV             Disk      DEV-SHARE for PUPPY-DEVS
+        IPC$            IPC       Remote IPC
+        NETLOGON        Disk      Logon server share 
+        SYSVOL          Disk      Logon server share 
+Reconnecting with SMB1 for workgroup listing.
+do_connect: Connection to 10.10.11.70 failed (Error NT_STATUS_RESOURCE_NAME_NOT_FOUND)
+Unable to connect with SMB1 -- no workgroup available
+```
+- Access to ADMIN$ + C$ denied, but not for others.
+```py
+┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# smbclient //10.10.11.70/ADMIN$ -U "levi.james%KingofAkron2025!"                                                                                                    
+tree connect failed: NT_STATUS_ACCESS_DENIED
+
+┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# smbclient //10.10.11.70/SYSVOL -U "levi.james%KingofAkron2025!"                                                                                                    
+Try "help" to get a list of possible commands.
+smb: \> 
+```
+- DEV seems to have permissions over commands?
+```py
+┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# smbclient //10.10.11.70/DEV -U "levi.james%KingofAkron2025!"                                                                                                    
+Try "help" to get a list of possible commands.
+smb: \> ls
+NT_STATUS_ACCESS_DENIED listing \*
+```
+- SMBMAP was a lot clearer
+```py
+┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# smbmap -H 10.10.11.70 -u "levi.james" -p "KingofAkron2025!" -d PUPPY.HTB                                                                                           
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.70:445 Name: 10.10.11.70               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        DEV                                                     NO ACCESS       DEV-SHARE for PUPPY-DEVS
+        IPC$                                                    READ ONLY       Remote IPC
+        NETLOGON                                                READ ONLY       Logon server share 
+        SYSVOL                                                  READ ONLY       Logon server share 
+[*] Closed 1 connections
+```
+
 # RPC Enum (125)
 - Try null session with rpcclient
 ```py
