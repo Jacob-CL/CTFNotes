@@ -36,7 +36,7 @@ Nmap done: 1 IP address (1 host up) scanned in 187.14 seconds
 
 # LDAP Enum (389)
 - Ran `ldapdomaindump` with little luck:
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# ldapdomaindump 10.10.11.70                                                                                                                                         
 [*] Connecting as anonymous user, dumping will probably fail. Consider specifying a username/password to login with
@@ -47,7 +47,7 @@ Nmap done: 1 IP address (1 host up) scanned in 187.14 seconds
 [+] Domain dump finished
 ```
 - Ran enum4linux also with very little luck, but got the domain:
-```
+```py 
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# enum4linux -a 10.10.11.70                                                                                                     
 Starting enum4linux v0.9.1 ( http://labs.portcullis.co.uk/application/enum4linux/ ) on Sun May 18 14:48:47 2025
@@ -83,7 +83,7 @@ result: 0 Success
 # numEntries: 1
 ```
 - Now that I have the Domain name I can try to dump all data anonymously:
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# ldapsearch -x -H ldap://10.10.11.70 -b "dc=PUPPY,dc=HTB"                                                                                                   
 # extended LDIF
@@ -101,6 +101,7 @@ text: 000004DC: LdapErr: DSID-0C090DA9, comment: In order to perform this opera
  tion a successful bind must be completed on the connection., data 0, v4f7c
 
 # numResponses: 1
+
 ```
 - The error message indicates that anonymous searching of the directory is not allowed - you need to authenticate first. Gippity says to try NULL bind:
 ```
@@ -130,13 +131,13 @@ Perhaps LDAP is not the entry point?
 
 How about we try those handy credentials: 
 
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# ldapsearch -x -H ldap://10.10.11.70 -D "levi.james@PUPPY.HTB" -w "KingofAkron2025!" -b "dc=PUPPY,dc=HTB"
 - Output far to large to copy here but there's a lot of info.
 ```
 Tried grepping the word 'admin' with context set to 1
-```
+```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# ldapsearch -x -H ldap://10.10.11.70 -D "levi.james@PUPPY.HTB" -w "KingofAkron2025!" -b "dc=PUPPY,dc=HTB" | grep -i -C 1 admin
 
@@ -471,7 +472,7 @@ accountExpires: 9223372036854775807
  - Greping for password didn't help much but we have Stephen A. Cooper in admins
  
 - IMPORTANT: Tried windapsearch.py with different flags but kept getting 'invalid credentials', windapsearch.py is super super fussy so make sure the syntax is correct - look at below carefully - same command but structured differently - but one with a slightly misleading error message:
-```
+```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --computers
 [+] Using Domain Controller at: 10.10.11.70
@@ -502,7 +503,7 @@ dNSHostName: DC.PUPPY.HTB
 
 ```
 - Ran `--da` flag
-```
+```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# python3 windapsearch.py --dc-ip 10.10.11.70 -d PUPPY.HTB -u levi.james -p "KingofAkron2025!" --computers
 [+] Using Domain Controller at: 10.10.11.70
@@ -534,7 +535,7 @@ cn: Administrator
 [*] Bye!
 ```
 Asked windapsearch to enumerate all members of Administrators group
-```
+```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --members Administrators                                                 
 [+] Using Domain Controller at: 10.10.11.70
@@ -561,7 +562,7 @@ b'CN=Administrator,CN=Users,DC=PUPPY,DC=HTB'
 
 # SMB Enum (445)
 - List shares anonmously:
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# smbclient -L //10.10.11.70 -N                                                                                                                                      
 Anonymous login successful
@@ -573,7 +574,7 @@ do_connect: Connection to 10.10.11.70 failed (Error NT_STATUS_RESOURCE_NAME_NOT_
 Unable to connect with SMB1 -- no workgroup available
 ```
 - also specifying the domain:
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# smbclient -L //10.10.11.70 -N -W PUPPY                                                                                                        
 Anonymous login successful
@@ -586,7 +587,7 @@ Unable to connect with SMB1 -- no workgroup available
 
 ```
 - Check for NULL sessions:
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# smbmap -H 10.10.11.70 -u "" -p ""                                                                                                                                  
 
@@ -609,7 +610,7 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
 
 # RPC Enum (125)
 - Try null session with rpcclient
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# rpcclient -U "" -N 10.10.11.70                                                                                                                                     
 rpcclient $> enumdomusers
@@ -627,7 +628,7 @@ rpcclient $>
 
 # DNS Enum
 - Attempt zone transfer
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# dig @10.10.11.70 PUPPY.HTB axfr
 
@@ -637,7 +638,7 @@ rpcclient $>
 ; Transfer failed.
 ```
 - Resolve hostnames - seem to be having connection issues? or DC not responding to me
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# nslookup dc.PUPPY.HTB 10.10.11.70                                                                                                                                  
 Server:         10.10.11.70
@@ -649,7 +650,7 @@ Address: 10.10.11.70
 
 ```
 - Check for SRV records:
-```
+```py
   ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# nslookup -type=SRV _ldap._tcp.PUPPY.HTB 10.10.11.70                                                                                                                
 Server:         10.10.11.70
@@ -659,7 +660,7 @@ _ldap._tcp.PUPPY.HTB    service = 0 100 389 dc.puppy.htb.
 
 ```
 - Look for other potential subdomains
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# fierce --domain PUPPY.HTB --dns-servers 10.10.11.70                                                                                                                
 NS: failure
@@ -667,7 +668,7 @@ SOA: failure
 Failed to lookup NS/SOA, Domain does not exist
 ```
 # Kerberos Enum (88)
-```
+```py
 
 
 ```
