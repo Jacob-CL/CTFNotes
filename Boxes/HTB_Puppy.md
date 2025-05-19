@@ -470,7 +470,7 @@ accountExpires: 9223372036854775807
 ```
  - Greping for password didn't help much but we have Stephen A. Cooper in admins
  
-- Tried windapsearch.py with different flags but kept getting 'invalid credentials', windapsearch.py is super super fussy so make sure the syntax is correct - look at below carefully - same command but structured differently - but one with a slightly misleading error message:
+- IMPORTANT: Tried windapsearch.py with different flags but kept getting 'invalid credentials', windapsearch.py is super super fussy so make sure the syntax is correct - look at below carefully - same command but structured differently - but one with a slightly misleading error message:
 ```
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --computers
@@ -500,6 +500,60 @@ dNSHostName: DC.PUPPY.HTB
 [+] Attempting bind
 [!] Error: invalid credentials
 
+```
+- Ran `--da` flag
+```
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -d PUPPY.HTB -u levi.james -p "KingofAkron2025!" --computers
+[+] Using Domain Controller at: 10.10.11.70
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[!] Error: invalid credentials
+
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --da
+[+] Using Domain Controller at: 10.10.11.70
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:PUPPY\levi.james
+[+] Attempting to enumerate all Domain Admins
+[+] Using DN: CN=Domain Admins,CN=Users.CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
+[+]     Found 1 Domain Admins:
+
+cn: Administrator
+
+[+] Using DN: CN=Domain Admins,CN=Users.CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
+[+]     Found 1 Domain Admins:
+
+cn: Administrator
+
+
+[*] Bye!
+```
+Asked windapsearch to enumerate all members of Administrators group
+```
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --members Administrators                                                 
+[+] Using Domain Controller at: 10.10.11.70
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:PUPPY\levi.james
+[+] Attempting to enumerate full DN for group: Administrators
+[+]      Using DN: CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
+
+[+]      Found 4 members:
+
+b'CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB'
+b'CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB'
+b'CN=Enterprise Admins,CN=Users,DC=PUPPY,DC=HTB'
+b'CN=Administrator,CN=Users,DC=PUPPY,DC=HTB'
+
+[*] Bye!
 
 ```
 
