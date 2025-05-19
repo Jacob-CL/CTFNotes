@@ -887,6 +887,89 @@ Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies
 [*] No passwords were discovered :'(
 ```
 - Why is adam blocked
+- 
+More on Adam
+```py
+
+memberOf: CN=DEVELOPERS,DC=PUPPY,DC=HTB
+memberOf: CN=Remote Management Users,CN=Builtin,DC=PUPPY,DC=HTB
+
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# ldapsearch -x -H ldap://10.10.11.70 -D "levi.james@PUPPY.HTB" -w "KingofAkron2025!" -b "DC=PUPPY,DC=HTB" "(samAccountName=adam.silver)" "*"                        
+# extended LDIF
+#
+# LDAPv3
+# base <DC=PUPPY,DC=HTB> with scope subtree
+# filter: (samAccountName=adam.silver)
+# requesting: * 
+#
+
+# Adam D. Silver, Users, PUPPY.HTB
+dn: CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB
+objectClass: top
+objectClass: person
+objectClass: organizationalPerson
+objectClass: user
+cn: Adam D. Silver
+sn: Silver
+givenName: Adam
+initials: D
+distinguishedName: CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB
+instanceType: 4
+whenCreated: 20250219121623.0Z
+whenChanged: 20250519170429.0Z
+displayName: Adam D. Silver
+uSNCreated: 12814
+memberOf: CN=DEVELOPERS,DC=PUPPY,DC=HTB
+memberOf: CN=Remote Management Users,CN=Builtin,DC=PUPPY,DC=HTB
+uSNChanged: 172309
+name: Adam D. Silver
+objectGUID:: 6XTdGwRTsk6ta8cxNx8K6w==
+userAccountControl: 66050
+badPwdCount: 1
+codePage: 0
+countryCode: 0
+homeDirectory: C:\Users\adam.silver
+badPasswordTime: 133921477992022378
+lastLogoff: 0
+lastLogon: 133863842265461471
+pwdLastSet: 133921478692803612
+primaryGroupID: 513
+userParameters:: ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgI
+ CAgUAQaCAFDdHhDZmdQcmVzZW5045S15pSx5oiw44GiGAgBQ3R4Q2ZnRmxhZ3Mx44Cw44Gm44Cy44
+ C5EggBQ3R4U2hhZG9344Cw44Cw44Cw44CwKgIBQ3R4TWluRW5jcnlwdGlvbkxldmVs44Sw
+objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHUQQAAA==
+adminCount: 1
+accountExpires: 9223372036854775807
+logonCount: 6
+sAMAccountName: adam.silver
+sAMAccountType: 805306368
+userPrincipalName: adam.silver@PUPPY.HTB
+objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=PUPPY,DC=HTB
+dSCorePropagationData: 20250309210803.0Z
+dSCorePropagationData: 20250228212238.0Z
+dSCorePropagationData: 20250219143627.0Z
+dSCorePropagationData: 20250219142657.0Z
+dSCorePropagationData: 16010101000000.0Z
+lastLogonTimestamp: 133863576267401674
+
+# search reference
+ref: ldap://ForestDnsZones.PUPPY.HTB/DC=ForestDnsZones,DC=PUPPY,DC=HTB
+
+# search reference
+ref: ldap://DomainDnsZones.PUPPY.HTB/DC=DomainDnsZones,DC=PUPPY,DC=HTB
+
+# search reference
+ref: ldap://PUPPY.HTB/CN=Configuration,DC=PUPPY,DC=HTB
+
+# search result
+search: 2
+result: 0 Success
+
+# numResponses: 5
+# numEntries: 1
+# numReferences: 3
+
 ---
 
 # Working Steps
