@@ -167,7 +167,7 @@ dNSHostName: DC.PUPPY.HTB
 [!] Error: invalid credentials
 
 ```
-- Ran `--da` flag
+- Ran `--da` flag for domain admins
 ```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --da
@@ -188,10 +188,10 @@ cn: Administrator
 
 cn: Administrator -------------------------------
 
-
 [*] Bye!
+
 ```
-Asked windapsearch to enumerate all members of Administrators group
+Asked windapsearch to enumerate all members of Administrators group (`--members Administrators`)
 ```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --members Administrators                                                 
@@ -356,6 +356,46 @@ pwdProperties: 1
 [*] Bye!
 ```
 - No threshold = brute force stephen/adam?
+- Vulnerable to kerberoasting (Have an SPN, User Accounts / Not computer and hopefully weak passwords
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --custom "(&(objectClass=user)(servicePrincipalName=*)(!(sAMAccountName=krbtgt)))" --attrs sAMAccountName,servicePrincipalName,description,memberOf 
+[+] Using Domain Controller at: 10.10.11.70
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:PUPPY\levi.james
+[+] Performing custom lookup with filter: "(&(objectClass=user)(servicePrincipalName=*)(!(sAMAccountName=krbtgt)))"
+[+]     Found 1 results:
+
+CN=DC,OU=Domain Controllers,DC=PUPPY,DC=HTB
+sAMAccountName: DC$
+servicePrincipalName: iSCSITarget/DC
+servicePrincipalName: iSCSITarget/DC.PUPPY.HTB
+servicePrincipalName: TERMSRV/DC
+servicePrincipalName: TERMSRV/DC.PUPPY.HTB
+servicePrincipalName: Dfsr-12F9A27C-BF97-4787-9364-D31B6C55EB04/DC.PUPPY.HTB
+servicePrincipalName: ldap/DC.PUPPY.HTB/ForestDnsZones.PUPPY.HTB
+servicePrincipalName: ldap/DC.PUPPY.HTB/DomainDnsZones.PUPPY.HTB
+servicePrincipalName: DNS/DC.PUPPY.HTB
+servicePrincipalName: GC/DC.PUPPY.HTB/PUPPY.HTB
+servicePrincipalName: RestrictedKrbHost/DC.PUPPY.HTB
+servicePrincipalName: RestrictedKrbHost/DC
+servicePrincipalName: RPC/2bea3ff3-b80d-42a2-8a63-39ee389db252._msdcs.PUPPY.HTB
+servicePrincipalName: HOST/DC/PUPPY
+servicePrincipalName: HOST/DC.PUPPY.HTB/PUPPY
+servicePrincipalName: HOST/DC
+servicePrincipalName: HOST/DC.PUPPY.HTB
+servicePrincipalName: HOST/DC.PUPPY.HTB/PUPPY.HTB
+servicePrincipalName: E3514235-4B06-11D1-AB04-00C04FC2DCD2/2bea3ff3-b80d-42a2-8a63-39ee389db252/PUPPY.HTB
+servicePrincipalName: ldap/DC/PUPPY
+servicePrincipalName: ldap/2bea3ff3-b80d-42a2-8a63-39ee389db252._msdcs.PUPPY.HTB
+servicePrincipalName: ldap/DC.PUPPY.HTB/PUPPY
+servicePrincipalName: ldap/DC
+servicePrincipalName: ldap/DC.PUPPY.HTB
+servicePrincipalName: ldap/DC.PUPPY.HTB/PUPPY.HTB
+```
 ---
 
 # SMB Enum (445)
