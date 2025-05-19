@@ -677,7 +677,7 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
         ./SYSVOL//PUPPY.HTB/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT
         dr--r--r--                0 Wed Feb 19 22:45:20 2025    .
         dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
-        dr--r--r--                0 Tue May 13 09:27:41 2025    SecEdit
+        dr--r--r--                0 Tue May 13 09:27:41 2025    SecEdit --------------------------------------------
         ./SYSVOL//PUPPY.HTB/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT/SecEdit
         dr--r--r--                0 Thu May 15 02:53:36 2025    .
         dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
@@ -699,6 +699,7 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
         fr--r--r--              888 Wed May 14 09:48:05 2025    Registry.pol
 [*] Closed 1 connections
 ```
+- Scripts dir is empty, weird.txtfile is empty, Registry.pol just talks about disbaling defender, comment.cmtx is some XML describing defender
 - This is NETLOGON
 ```py
 ┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
