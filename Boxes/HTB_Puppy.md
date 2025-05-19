@@ -334,7 +334,7 @@ userPrincipalName: steph.cooper_adm@PUPPY.HTB
 - Password policy
 ```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
-└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --custom "(objectClass=domainDNS)" --attrs pwdProperties,lockoutThreshold,minPwdLength,maxPwdAge,minPwdAge,lockoutDuration
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --custom "(objectClass=domainDNS)" --attrs pwdProperties,lockoutThreshold,minPwdLength,maxPwdAge,minPwdAge,lockoutDuration,pwdHistoryLength
 [+] Using Domain Controller at: 10.10.11.70
 [+] Getting defaultNamingContext from Root DSE
 [+]     Found: DC=PUPPY,DC=HTB
@@ -351,9 +351,10 @@ maxPwdAge: -36288000000000
 minPwdAge: -864000000000
 minPwdLength: 7
 pwdProperties: 1
-
+pwdHistoryLength: 24
 
 [*] Bye!
+
 ```
 - No threshold = brute force stephen/adam?
 - Vulnerable to kerberoasting (Have an SPN, User Accounts / Not computer and hopefully weak passwords
