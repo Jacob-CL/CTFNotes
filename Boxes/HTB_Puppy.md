@@ -581,6 +581,159 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
         SYSVOL                                                  READ ONLY       Logon server share 
 [*] Closed 1 connections
 ```
+- God dam you SMBMAP has a depth flag - thisis SYSLOG
+```py
+┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# smbmap -H 10.10.11.70 -u "levi.james" -p "KingofAkron2025!" -d PUPPY.HTB -r SYSVOL --depth 10
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.70:445 Name: 10.10.11.70               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        DEV                                                     NO ACCESS       DEV-SHARE for PUPPY-DEVS
+        IPC$                                                    READ ONLY       Remote IPC
+        NETLOGON                                                READ ONLY       Logon server share 
+        SYSVOL                                                  READ ONLY       Logon server share 
+        ./SYSVOL
+        dr--r--r--                0 Fri Mar 21 16:33:44 2025    .
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
+        dr--r--r--                0 Fri Mar 21 16:33:44 2025    lvRxjnmZBA
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    PUPPY.HTB
+        fr--r--r--                0 Fri Mar 21 16:33:44 2025    UltFsQYRGg.txt
+        ./SYSVOL//PUPPY.HTB
+        dr--r--r--                0 Wed Feb 19 22:46:56 2025    .
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
+        dr--r--r--                0 Mon May 19 22:06:14 2025    DfsrPrivate
+        dr--r--r--                0 Wed May 14 09:42:57 2025    Policies
+        dr--r--r--                0 Fri Mar 21 16:33:44 2025    scripts
+        ./SYSVOL//PUPPY.HTB/Policies
+        dr--r--r--                0 Wed May 14 09:42:57 2025    .
+        dr--r--r--                0 Wed Feb 19 22:46:56 2025    ..
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    {31B2F340-016D-11D2-945F-00C04FB984F9}
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    {6AC1786C-016F-11D2-945F-00C04fB984F9}
+        dr--r--r--                0 Wed May 14 09:42:57 2025    {841B611C-9F3B-4090-BA0C-2AE4D6C02AF8}
+        ./SYSVOL//PUPPY.HTB/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    .
+        dr--r--r--                0 Wed May 14 09:42:57 2025    ..
+        fr--r--r--               22 Wed Feb 19 22:49:00 2025    GPT.INI
+        dr--r--r--                0 Wed Feb 19 22:49:00 2025    MACHINE
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    USER
+        ./SYSVOL//PUPPY.HTB/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE
+        dr--r--r--                0 Thu May 15 02:54:14 2025    .
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    Microsoft
+        fr--r--r--             2786 Wed Feb 19 22:49:00 2025    Registry.pol
+        dr--r--r--                0 Thu May 15 02:54:14 2025    Scripts
+        ./SYSVOL//PUPPY.HTB/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Microsoft
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    .
+        dr--r--r--                0 Thu May 15 02:54:14 2025    ..
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    Windows NT
+        ./SYSVOL//PUPPY.HTB/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Microsoft/Windows NT
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    .
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    SecEdit
+        ./SYSVOL//PUPPY.HTB/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Microsoft/Windows NT/SecEdit
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    .
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
+        fr--r--r--             1098 Wed Feb 19 22:45:20 2025    GptTmpl.inf
+        ./SYSVOL//PUPPY.HTB/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Scripts
+        dr--r--r--                0 Thu May 15 02:54:14 2025    .
+        dr--r--r--                0 Thu May 15 02:54:14 2025    ..
+        dr--r--r--                0 Thu May 15 02:54:14 2025    Shutdown
+        dr--r--r--                0 Thu May 15 02:54:14 2025    Startup
+        ./SYSVOL//PUPPY.HTB/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    .
+        dr--r--r--                0 Wed May 14 09:42:57 2025    ..
+        fr--r--r--               23 Thu May 15 02:53:36 2025    GPT.INI
+        dr--r--r--                0 Tue May 13 09:50:46 2025    MACHINE
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    USER
+        ./SYSVOL//PUPPY.HTB/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE
+        dr--r--r--                0 Tue May 13 09:50:46 2025    .
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
+        dr--r--r--                0 Tue May 13 12:03:29 2025    Applications
+        fr--r--r--              554 Tue May 13 09:50:46 2025    comment.cmtx
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    Microsoft
+        fr--r--r--              984 Tue May 13 09:50:46 2025    Registry.pol
+        dr--r--r--                0 Tue May 13 09:27:17 2025    Scripts
+        ./SYSVOL//PUPPY.HTB/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    .
+        dr--r--r--                0 Tue May 13 09:50:46 2025    ..
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    Windows NT
+        ./SYSVOL//PUPPY.HTB/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    .
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
+        dr--r--r--                0 Tue May 13 09:27:41 2025    SecEdit
+        ./SYSVOL//PUPPY.HTB/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT/SecEdit
+        dr--r--r--                0 Thu May 15 02:53:36 2025    .
+        dr--r--r--                0 Wed Feb 19 22:45:20 2025    ..
+        fr--r--r--             4382 Thu May 15 02:53:36 2025    GptTmpl.inf
+        ./SYSVOL//PUPPY.HTB/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Scripts
+        dr--r--r--                0 Tue May 13 09:27:17 2025    .
+        dr--r--r--                0 Tue May 13 09:50:46 2025    ..
+        dr--r--r--                0 Tue May 13 09:27:17 2025    Shutdown
+        dr--r--r--                0 Tue May 13 09:27:17 2025    Startup
+        ./SYSVOL//PUPPY.HTB/Policies/{841B611C-9F3B-4090-BA0C-2AE4D6C02AF8}
+        dr--r--r--                0 Wed May 14 09:42:57 2025    .
+        dr--r--r--                0 Wed May 14 09:42:57 2025    ..
+        fr--r--r--               59 Wed May 14 09:48:05 2025    GPT.INI
+        dr--r--r--                0 Wed May 14 09:48:05 2025    Machine
+        dr--r--r--                0 Wed May 14 09:42:57 2025    User
+        ./SYSVOL//PUPPY.HTB/Policies/{841B611C-9F3B-4090-BA0C-2AE4D6C02AF8}/Machine
+        dr--r--r--                0 Wed May 14 09:48:05 2025    .
+        dr--r--r--                0 Wed May 14 09:42:57 2025    ..
+        fr--r--r--              888 Wed May 14 09:48:05 2025    Registry.pol
+[*] Closed 1 connections
+```
+- This is NETLOGON
+```py
+┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# smbmap -H 10.10.11.70 -u "levi.james" -p "KingofAkron2025!" -d PUPPY.HTB -r NETLOGON --depth 10                                                                    
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.70:445 Name: 10.10.11.70               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        DEV                                                     NO ACCESS       DEV-SHARE for PUPPY-DEVS
+        IPC$                                                    READ ONLY       Remote IPC
+        NETLOGON                                                READ ONLY       Logon server share 
+        ./NETLOGON
+        dr--r--r--                0 Fri Mar 21 16:33:44 2025    .
+        dr--r--r--                0 Wed Feb 19 22:46:56 2025    ..
+        SYSVOL                                                  READ ONLY       Logon server share 
+[*] Closed 1 connections                                                                                                     
+
+```
+
 
 # RPC Enum (125)
 - Try null session with rpcclient
@@ -654,3 +807,4 @@ Failed to lookup NS/SOA, Domain does not exist
 - Try specifying the domain when enumerating SMB/LDAP
 - A timeout could just be a VPN thing dude
 - windapsearch.py is super fussy about it's command syntax. It'll say 'invalid crednetials' if it's not happy with you and you're 90% confident you have the right perms
+- Don't forget that linux commands wont work in SMB lol
