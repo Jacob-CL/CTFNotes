@@ -1,7 +1,7 @@
 # Puppy
 ## Findings
 - Stephen as admin account (step.cooper_adm)
-- Adam is a developer
+- Adam is a developer and account is blocked/disabled
 - /lvRxjnmZBA is empty, UltFsQYRGg.txt is empty, GptTmpl.inf, 
 
 ## NMAP
@@ -860,10 +860,33 @@ SOA: failure
 Failed to lookup NS/SOA, Domain does not exist
 ```
 # Kerberos Enum (88)
-```py
-
-
+users.txt 
 ```
+administrator
+levi.james
+ant.edwards
+adam.silver
+jamie.williams
+steph.cooper
+steph.cooper_adm
+```
+
+- Kerbrute 
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# kerbrute -dc-ip 10.10.11.70 -domain PUPPY.HTB -users users.txt                                                                                          
+Impacket v0.12.0 - Copyright Fortra, LLC and its affiliated companies 
+
+[*] Valid user => administrator
+[*] Valid user => levi.james
+[*] Valid user => ant.edwards
+[*] Blocked/Disabled user => adam.silver
+[*] Valid user => jamie.williams
+[*] Valid user => steph.cooper
+[*] Valid user => steph.cooper_adm
+[*] No passwords were discovered :'(
+```
+- Why is adam blocked
 ---
 
 # Working Steps
