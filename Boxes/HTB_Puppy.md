@@ -549,6 +549,81 @@ b'CN=Administrator,CN=Users,DC=PUPPY,DC=HTB'
 [*] Bye!
 
 ```
+- For GPOS
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --gpos
+[+] Using Domain Controller at: 10.10.11.70
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:PUPPY\levi.james
+[+] Attempting to enumerate all group policy objects
+[+]     Found 3 GPOs:
+
+displayName: Default Domain Policy
+gPCFileSysPath: \\PUPPY.HTB\sysvol\PUPPY.HTB\Policies\{31B2F340-016D-11D2-945F-00C04FB984F9}
+
+displayName: Default Domain Controllers Policy
+gPCFileSysPath: \\PUPPY.HTB\sysvol\PUPPY.HTB\Policies\{6AC1786C-016F-11D2-945F-00C04fB984F9}
+
+displayName: DisableDefender
+gPCFileSysPath: \\PUPPY.HTB\SysVol\PUPPY.HTB\Policies\{841B611C-9F3B-4090-BA0C-2AE4D6C02AF8}
+
+
+[*] Bye!
+```
+- For all admin objects
+```
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --admin-objects
+[+] Using Domain Controller at: 10.10.11.70
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:PUPPY\levi.james
+[+] Attempting to enumerate all admin (protected) objects
+[+]     Found 17 Admin Objects:
+
+CN=Administrator,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
+
+CN=Print Operators,CN=Builtin,DC=PUPPY,DC=HTB
+
+CN=Backup Operators,CN=Builtin,DC=PUPPY,DC=HTB
+
+CN=Replicator,CN=Builtin,DC=PUPPY,DC=HTB
+
+CN=krbtgt,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Domain Controllers,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Schema Admins,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Enterprise Admins,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Server Operators,CN=Builtin,DC=PUPPY,DC=HTB
+
+CN=Account Operators,CN=Builtin,DC=PUPPY,DC=HTB
+
+CN=Read-only Domain Controllers,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Key Admins,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Enterprise Key Admins,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB
+
+CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
+
+
+[*] Bye!
+```
 
 ---
 
