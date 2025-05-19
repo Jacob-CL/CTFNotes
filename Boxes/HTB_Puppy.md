@@ -449,7 +449,7 @@ Error: An error of type WinRM::WinRMAuthorizationError happened, message is WinR
 Error: Exiting with code 1
 
 ```
-- Dam even is admin account doesn't work for the same password
+- Hail mary attempt at stephens admin account 
 ```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# evil-winrm -i 10.10.11.70 -u steph.cooper_adm@PUPPY.HTB -p "KingofAkron2025!"                                                                                      
