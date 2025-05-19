@@ -1,4 +1,9 @@
 # Puppy
+## Findings
+- Stephen as admin account (step.cooper_adm)
+- Adam is a developer
+- /lvRxjnmZBA is empty, UltFsQYRGg.txt is empty, GptTmpl.inf, 
+
 ## NMAP
 ```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
@@ -581,7 +586,7 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
         SYSVOL                                                  READ ONLY       Logon server share 
 [*] Closed 1 connections
 ```
-- God dam you SMBMAP has a depth flag - thisis SYSLOG
+- God dam SMBMAP has a depth flag - this is SYSLOG
 ```py
 ┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# smbmap -H 10.10.11.70 -u "levi.james" -p "KingofAkron2025!" -d PUPPY.HTB -r SYSVOL --depth 10
