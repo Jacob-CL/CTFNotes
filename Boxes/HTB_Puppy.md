@@ -61,7 +61,7 @@ Domain Sid: S-1-5-21-1487982659-1829050783-2281216199
 [+] Host is part of a domain (not a workgroup)     
 ```
 - `ldapsearch` turned up some stuff I think
-```
+```py
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# ldapsearch -x -H ldap://10.10.11.70 -b "" -s base                                                                                                                  
 ---SNIP---
