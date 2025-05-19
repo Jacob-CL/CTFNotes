@@ -397,7 +397,58 @@ servicePrincipalName: ldap/DC
 servicePrincipalName: ldap/DC.PUPPY.HTB
 servicePrincipalName: ldap/DC.PUPPY.HTB/PUPPY.HTB
 ```
+- Doesn't look like anything or anyone interesting to kerberoast
 ---
+
+# WinRM (5985)
+- Try for shell with 3 different variations of commands but levi doesn't seem to have authZ
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# evil-winrm -i 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!"                                                                                            
+                                        
+Evil-WinRM shell v3.7
+                                        
+Warning: Remote path completions is disabled due to ruby limitation: undefined method `quoting_detection_proc' for module Reline
+                                        
+Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+                                        
+Info: Establishing connection to remote endpoint
+                                        
+Error: An error of type WinRM::WinRMAuthorizationError happened, message is WinRM::WinRMAuthorizationError
+                                        
+Error: Exiting with code 1
+
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# evil-winrm -i 10.10.11.70 -u levi.james -p "KingofAkron2025!"
+                                        
+Evil-WinRM shell v3.7
+                                        
+Warning: Remote path completions is disabled due to ruby limitation: undefined method `quoting_detection_proc' for module Reline
+                                        
+Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+                                        
+Info: Establishing connection to remote endpoint
+                                        
+Error: An error of type WinRM::WinRMAuthorizationError happened, message is WinRM::WinRMAuthorizationError
+                                        
+Error: Exiting with code 1
+
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# evil-winrm -i 10.10.11.70 -u PUPPY\\levi.james -p "KingofAkron2025!"                                                                                               
+                                        
+Evil-WinRM shell v3.7
+                                        
+Warning: Remote path completions is disabled due to ruby limitation: undefined method `quoting_detection_proc' for module Reline
+                                        
+Data: For more information, check Evil-WinRM GitHub: https://github.com/Hackplayers/evil-winrm#Remote-path-completion
+                                        
+Info: Establishing connection to remote endpoint
+                                        
+Error: An error of type WinRM::WinRMAuthorizationError happened, message is WinRM::WinRMAuthorizationError
+                                        
+Error: Exiting with code 1
+
+```
 
 # SMB Enum (445)
 - List shares anonmously:
