@@ -469,26 +469,38 @@ adminCount: 1
 accountExpires: 9223372036854775807
 ```
  - Greping for password didn't help much but we have Stephen A. Cooper in admins
- - 
-- Tried windapsearch.py a few times but doesnt seem to work? Not run enough times to know what normal is
+ 
+- Tried windapsearch.py with different flags but kept getting 'invalid credentials', windapsearch.py is super super fussy so make sure the syntax is correct - look at below carefully - same command but structured differently - but one with a slightly misleading error message:
 ```
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
-└─# python3 windapsearch.py --dc-ip 10.129.1.207 -u levi.james --da                                                                      
-Password for levi.james: 
-[+] Using Domain Controller at: 10.129.1.207
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --computers
+[+] Using Domain Controller at: 10.10.11.70
 [+] Getting defaultNamingContext from Root DSE
-[!] Error retrieving the root DSE
-[!] {'result': -1, 'desc': "Can't contact LDAP server", 'errno': 107, 'ctrls': [], 'info': 'Transport endpoint is not connected'}
-```
-- Tried windapsearch.py with domain both \ and \\ with same error
-```
-  ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
-└─# python3 windapsearch.py --dc-ip 10.129.1.207 -u PUPPY\levi.james --da                                                                                         
-Password for PUPPYlevi.james: 
-[+] Using Domain Controller at: 10.129.1.207
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:PUPPY\levi.james
+
+[+] Enumerating all AD computers
+[+]     Found 1 computers: 
+
+cn: DC
+operatingSystem: Windows Server 2022 Standard
+operatingSystemVersion: 10.0 (20348)
+dNSHostName: DC.PUPPY.HTB
+
+
+[*] Bye!
+
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -d PUPPY.HTB -u levi.james -p "KingofAkron2025!" --computers
+[+] Using Domain Controller at: 10.10.11.70
 [+] Getting defaultNamingContext from Root DSE
-[!] Error retrieving the root DSE
-[!] {'result': -1, 'desc': "Can't contact LDAP server", 'errno': 107, 'ctrls': [], 'info': 'Transport endpoint is not connected'}
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[!] Error: invalid credentials
+
+
 ```
 
 ---
@@ -612,3 +624,4 @@ Failed to lookup NS/SOA, Domain does not exist
 - Regular NMAP scan doesn't return anything - have to use `-Pn`  flag.  `-Pn: Treat all hosts as online -- skip host discovery`
 - Try specifying the domain when enumerating SMB/LDAP
 - A timeout could just be a VPN thing dude
+- windapsearch.py is super fussy about it's command syntax. It'll say 'invalid crednetials' if it's not happy with you and you're 90% confident you have the right perms
