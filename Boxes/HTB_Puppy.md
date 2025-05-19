@@ -135,7 +135,7 @@ How about we try those handy credentials:
 └─# ldapsearch -x -H ldap://10.10.11.70 -D "levi.james@PUPPY.HTB" -w "KingofAkron2025!" -b "dc=PUPPY,dc=HTB"
 - Output far to large to copy here but there's a lot of info.
 ```
-Tried grepping with context
+Tried grepping the word 'admin' with context set to 2
 ```
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# ldapsearch -x -H ldap://10.10.11.70 -D "levi.james@PUPPY.HTB" -w "KingofAkron2025!" -b "dc=PUPPY,dc=HTB" | grep -i -C 2 admin                                      
@@ -209,7 +209,7 @@ whenCreated: 20250219114512.0Z
 --
 uSNCreated: 8199
 uSNChanged: 45139
-name: Administrators
+name: Administrators --------------------------------------------------------
 objectGUID:: yYAcjBJMd0i77HDE3kPxDA==
 objectSid:: AQIAAAAAAAUgAAAAIAIAAA==
 adminCount: 1
@@ -469,7 +469,7 @@ objectClass: top
 objectClass: group
 cn: Enterprise Key Admins
 description: Members of this group can perform administrative actions on key o
- bjects within the forest.
+ bjects within the forest. ----------------------------------------------------------------------------
 distinguishedName: CN=Enterprise Key Admins,CN=Users,DC=PUPPY,DC=HTB
 instanceType: 4
 whenCreated: 20250219114616.0Z
@@ -498,7 +498,7 @@ whenCreated: 20250219114655.0Z
 --
 uSNCreated: 12486
 uSNChanged: 12488
-name: DnsAdmins
+name: DnsAdmins ---------------------------------------------------------------
 objectGUID:: 45QpVsa2ykKwxtGh1r5XGA==
 objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHTQQAAA==
 sAMAccountName: DnsAdmins
@@ -550,7 +550,7 @@ objectClass: person
 --
 givenName: Stephen
 initials: A
-distinguishedName: CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
+distinguishedName: CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB --------------------------------
 instanceType: 4
 whenCreated: 20250308155040.0Z
 --
