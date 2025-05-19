@@ -575,7 +575,7 @@ gPCFileSysPath: \\PUPPY.HTB\SysVol\PUPPY.HTB\Policies\{841B611C-9F3B-4090-BA0C-2
 [*] Bye!
 ```
 - For all admin objects
-```
+```py
 ┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
 └─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --admin-objects
 [+] Using Domain Controller at: 10.10.11.70
