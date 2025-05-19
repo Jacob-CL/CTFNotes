@@ -331,6 +331,31 @@ userPrincipalName: steph.cooper_adm@PUPPY.HTB
 [*] Bye!
 ```
 - Stephen has a user account and an admin account
+- Password policy
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --custom "(objectClass=domainDNS)" --attrs pwdProperties,lockoutThreshold,minPwdLength,maxPwdAge,minPwdAge,lockoutDuration
+[+] Using Domain Controller at: 10.10.11.70
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:PUPPY\levi.james
+[+] Performing custom lookup with filter: "(objectClass=domainDNS)"
+[+]     Found 1 results:
+
+DC=PUPPY,DC=HTB
+lockoutDuration: -18000000000
+lockoutThreshold: 0
+maxPwdAge: -36288000000000
+minPwdAge: -864000000000
+minPwdLength: 7
+pwdProperties: 1
+
+
+[*] Bye!
+```
+- No threshold = brute force stephen/adam?
 ---
 
 # SMB Enum (445)
