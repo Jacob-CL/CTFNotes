@@ -731,8 +731,67 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
         dr--r--r--                0 Wed Feb 19 22:46:56 2025    ..
         SYSVOL                                                  READ ONLY       Logon server share 
 [*] Closed 1 connections                                                                                                     
-
 ```
+- And this is IPC$
+```py
+┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/Puppy/windapsearch]
+└─# smbmap -H 10.10.11.70 -u "levi.james" -p "KingofAkron2025!" -d PUPPY.HTB -r IPC$ --depth 10                                                                    
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.70:445 Name: 10.10.11.70               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        DEV                                                     NO ACCESS       DEV-SHARE for PUPPY-DEVS
+        IPC$                                                    READ ONLY       Remote IPC
+        ./IPC$
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    InitShutdown
+        fr--r--r--                4 Mon Jan  1 10:04:52 1601    lsass
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    ntsvcs
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    scerpc
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-2b4-0
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-3a0-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    epmapper
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-218-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    LSM_API_service
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-374-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    eventlog
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-354-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    atsvc
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-1b4-0
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-2b4-1
+        fr--r--r--                5 Mon Jan  1 10:04:52 1601    wkssvc
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    RpcProxy\49670
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    8df8d00805df4a69
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    RpcProxy\593
+        fr--r--r--                4 Mon Jan  1 10:04:52 1601    srvsvc
+        fr--r--r--                4 Mon Jan  1 10:04:52 1601    netdfs
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    vgauth-service
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    tapsrv
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-2a4-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    ROUTER
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    W32TIME_ALT
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-838-0
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    PIPE_EVENTROOT\CIMV2SCM EVENT PROVIDER
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-830-0
+        NETLOGON                                                READ ONLY       Logon server share 
+        SYSVOL                                                  READ ONLY       Logon server share 
+```
+  
 
 
 # RPC Enum (125)
