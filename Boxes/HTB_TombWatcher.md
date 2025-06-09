@@ -321,4 +321,211 @@ dNSHostName: ControlledComputer.tombwatcher.htb
 
 [*] Bye!
 ```
+# SMB
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# smbmap -H 10.10.11.72 -u "henry" -p "H3nry_987TGV!" -d tombwatcher.htb
 
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.72:445 Name: 10.10.11.72               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    READ ONLY       Remote IPC
+        NETLOGON                                                READ ONLY       Logon server share 
+        SYSVOL                                                  READ ONLY       Logon server share 
+[*] Closed 1 connections
+```
+Exploring IPC$:
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# smbmap -H 10.10.11.72 -u "henry" -p "H3nry_987TGV!" -d tombwatcher.htb -r IPC$ --depth 10
+\
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.72:445 Name: 10.10.11.72               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    READ ONLY       Remote IPC
+        ./IPC$
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    InitShutdown
+        fr--r--r--                4 Mon Jan  1 10:04:52 1601    lsass
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    ntsvcs
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    scerpc
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-3ac-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    epmapper
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-1d0-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    LSM_API_service
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    eventlog
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-1c8-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    atsvc
+        fr--r--r--                4 Mon Jan  1 10:04:52 1601    wkssvc
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-270-0
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-270-1
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-524-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    RpcProxy\49685
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    27417691dad3b958
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    RpcProxy\593
+        fr--r--r--                4 Mon Jan  1 10:04:52 1601    srvsvc
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    efsrpc
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    netdfs
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    vgauth-service
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-25c-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    W32TIME_ALT
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-918-0
+        fr--r--r--                3 Mon Jan  1 10:04:52 1601    cert
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-89c-0
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    PIPE_EVENTROOT\CIMV2SCM EVENT PROVIDER
+        fr--r--r--                1 Mon Jan  1 10:04:52 1601    Winsock2\CatalogChangeListener-8e4-0
+        NETLOGON                                                READ ONLY       Logon server share 
+        SYSVOL                                                  READ ONLY       Logon server share 
+[*] Closed 1 connections 
+```
+Exploring NETLOGON:
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# smbmap -H 10.10.11.72 -u "henry" -p "H3nry_987TGV!" -d tombwatcher.htb -r NETLOGON --depth 10                                                                      
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.72:445 Name: 10.10.11.72               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    READ ONLY       Remote IPC
+        NETLOGON                                                READ ONLY       Logon server share 
+        ./NETLOGON
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        SYSVOL                                                  READ ONLY       Logon server share 
+[*] Closed 1 connections
+```
+Exploring SYSVOL:
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# smbmap -H 10.10.11.72 -u "henry" -p "H3nry_987TGV!" -d tombwatcher.htb -r SYSVOL --depth 10                                                                        
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.72:445 Name: 10.10.11.72               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    READ ONLY       Remote IPC
+        NETLOGON                                                READ ONLY       Logon server share 
+        SYSVOL                                                  READ ONLY       Logon server share 
+        ./SYSVOL
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    tombwatcher.htb
+        ./SYSVOL//tombwatcher.htb
+        dr--r--r--                0 Sat Nov 16 11:08:10 2024    .
+        dr--r--r--                0 Sat Nov 16 11:08:10 2024    ..
+        dr--r--r--                0 Mon Jun  9 13:13:27 2025    DfsrPrivate
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    Policies
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    scripts
+        ./SYSVOL//tombwatcher.htb/Policies
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    {31B2F340-016D-11D2-945F-00C04FB984F9}
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    {6AC1786C-016F-11D2-945F-00C04fB984F9}
+        ./SYSVOL//tombwatcher.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        fr--r--r--               22 Sat Apr 26 00:57:04 2025    GPT.INI
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    MACHINE
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    USER
+        ./SYSVOL//tombwatcher.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    Microsoft
+        ./SYSVOL//tombwatcher.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Microsoft
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    Windows NT
+        ./SYSVOL//tombwatcher.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Microsoft/Windows NT
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        dr--r--r--                0 Sat Apr 26 00:57:04 2025    SecEdit
+        ./SYSVOL//tombwatcher.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Microsoft/Windows NT/SecEdit
+        dr--r--r--                0 Sat Apr 26 00:57:04 2025    .
+        dr--r--r--                0 Sat Apr 26 00:57:04 2025    ..
+        fr--r--r--             1098 Sat Apr 26 00:57:04 2025    GptTmpl.inf
+        ./SYSVOL//tombwatcher.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        fr--r--r--               22 Mon Jun  9 14:09:42 2025    GPT.INI
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    MACHINE
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    USER
+        ./SYSVOL//tombwatcher.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    Microsoft
+        ./SYSVOL//tombwatcher.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    Windows NT
+        ./SYSVOL//tombwatcher.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    .
+        dr--r--r--                0 Sat Nov 16 11:01:46 2024    ..
+        dr--r--r--                0 Mon Jun  9 14:09:42 2025    SecEdit
+        ./SYSVOL//tombwatcher.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT/SecEdit
+        dr--r--r--                0 Mon Jun  9 14:09:42 2025    .
+        dr--r--r--                0 Mon Jun  9 14:09:42 2025    ..
+        fr--r--r--             4920 Mon Jun  9 14:09:42 2025    GptTmpl.inf
+[*] Closed 1 connections  
+```
