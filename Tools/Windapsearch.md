@@ -6,29 +6,27 @@
 5. `python3 windapsearch.py --dc-ip [ip] -u [user@domain.htb/com] -p "[password]"`
 
 To append to the above command:
+Enumeration Options:
+  Data to enumerate from LDAP
 
-| Category | Option | Description |
-|----------|--------|-------------|
-| **Computer Enumeration** | `--computers` | Enumerate domain computers |
-| **User Enumeration** | `--users` | All domain users |
-| | `--privileged-users` | Users with elevated privileges |
-| | `--admin-count` | Users with adminCount=1 (high privilege indicator) |
-| | `--passwd-not-required` | Accounts that don't require passwords |
-| | `--da` | Domain admins |
-| **Group Enumeration** | `--groups` | All domain groups |
-| | `--members "Group Name"` | Members of specific group (e.g., "Administrators") |
-| | `--members "Domain Admins"` | Members of Domain Admins group |
-| | `--members "Enterprise Admins"` | Members of Enterprise Admins group |
-| | `--members "Schema Admins"` | Members of Schema Admins group |
-| | `--members "Backup Operators"` | Members of Backup Operators group |
-| **Security Assessment** | `--unconstrained` | Accounts with unconstrained delegation |
-| | `--asrep` | Accounts vulnerable to AS-REP roasting |
-| | `--kerberoast` | Accounts vulnerable to Kerberoasting |
-| | `--spns` | Service Principal Names |
-| | `--trusts` | Domain trust relationships |
-| **Infrastructure** | `--gpos` | Group Policy Objects |
-| | `--dns-dump` | Dump DNS records |
-| | `--functionality` | Domain functional level |
-| **Custom/Advanced** | `--custom "filter"` | Custom LDAP filter |
-| | `--attrs "attr1,attr2"` | Specify specific attributes to return |
-| | `--full` | Return all attributes (verbose output) |
+  --functionality       Enumerate Domain Functionality level. Possible through anonymous bind
+  -G, --groups          Enumerate all AD Groups
+  -U, --users           Enumerate all AD Users
+  -PU, --privileged-users
+                        Enumerate All privileged AD Users. Performs recursive lookups for nested members.
+  -C, --computers       Enumerate all AD Computers
+  -m, --members GROUP_NAME
+                        Enumerate all members of a group
+  --da                  Shortcut for enumerate all members of group 'Domain Admins'. Performs recursive lookups for nested members.
+  --admin-objects       Enumerate all objects with protected ACLs (i.e. admins)
+  --user-spns           Enumerate all users objects with Service Principal Names (for kerberoasting)
+  --unconstrained-users
+                        Enumerate all user objects with unconstrained delegation
+  --unconstrained-computers
+                        Enumerate all computer objects with unconstrained delegation
+  --gpos                Enumerate Group Policy Objects
+  -s, --search SEARCH_TERM
+                        Fuzzy search for all matching LDAP entries
+  -l, --lookup DN       Search through LDAP and lookup entry. Works with fuzzy search. Defaults to printing all attributes, but honors '--attrs'
+  --custom CUSTOM_FILTER
+                        Perform a search with a custom object filter. Must be valid LDAP filter syntax
