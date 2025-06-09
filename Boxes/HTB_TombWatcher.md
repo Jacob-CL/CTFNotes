@@ -291,4 +291,34 @@ distinguishedName: CN=Infrastructure,CN=Users,DC=tombwatcher,DC=htb
 
 [*] Bye!
 ```
+Computers:
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.72 -u henry@tombwatcher.htb -p "H3nry_987TGV!" --computers                                                                
+[+] Using Domain Controller at: 10.10.11.72
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=tombwatcher,DC=htb
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:TOMBWATCHER\Henry
+
+[+] Enumerating all AD computers
+[+]     Found 4 computers: 
+
+cn: DC01
+operatingSystem: Windows Server 2019 Standard
+operatingSystemVersion: 10.0 (17763)
+dNSHostName: DC01.tombwatcher.htb
+
+cn: ansible_dev
+dNSHostName: TOMBWATCHER.HTB
+
+cn: MYPC
+
+cn: ControlledComputer
+dNSHostName: ControlledComputer.tombwatcher.htb
+
+
+[*] Bye!
+```
 
