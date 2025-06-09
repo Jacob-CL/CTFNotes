@@ -1,4 +1,7 @@
 # Tomb Watcher
+
+As is common in real life Windows pentests, you will start the TombWatcher box with credentials for the following account: henry / H3nry_987TGV!
+
 ## NMAP.sh results
 (`nmap -sV -sC -oA "$FILENAME" "$TARGET_IP"`)
 ```py
