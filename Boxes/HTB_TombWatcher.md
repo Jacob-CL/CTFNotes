@@ -187,3 +187,6 @@ result: 0 Success
 # numResponses: 2
 # numEntries: 1
 ```
+- Authenticated ldapsearch gave me too much info - all good but difficult to look through.
+- Will try to ask for specifics with windapsearch: `git clone https://github.com/ropnop/windapsearch.git`
+
