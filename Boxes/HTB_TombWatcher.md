@@ -651,8 +651,11 @@ Doesn't seem to be any different at face value - trying for other accounts: `cra
 ```py
 
 ```
-Next: crackmapexec smb 10.10.11.72 -u sam -p rockyou.txt 
+Next: `crackmapexec smb 10.10.11.72 -u sam -p rockyou.txt `
 ```py
 
 ```
-Next: crackmapexec smb 10.10.11.72 -u Administrator -p rockyou.txt 
+Next: `crackmapexec smb 10.10.11.72 -u Administrator -p rockyou.txt`
+```py
+
+```
