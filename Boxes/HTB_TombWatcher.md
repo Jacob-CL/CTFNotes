@@ -68,125 +68,227 @@ Nmap done: 1 IP address (1 host up) scanned in 103.95 seconds
 Scan completed successfully.
 Output files created: tombwatcher.nmap, tombwatcher.gnmap, tombwatcher.xml
 ```
-## ldapsearch
-Unauthed - 
-```py
-┌──(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher]
-└─# ldapsearch -x -H ldap://10.10.11.72 -b "" -s base                                                                                                                 
-# extended LDIF
-#
-# LDAPv3
-# base <> with scope baseObject
-# filter: (objectclass=*)
-# requesting: ALL
-#
-
-#
-dn:
-domainFunctionality: 7
-forestFunctionality: 7
-domainControllerFunctionality: 7
-rootDomainNamingContext: DC=tombwatcher,DC=htb
-ldapServiceName: tombwatcher.htb:dc01$@TOMBWATCHER.HTB
-isGlobalCatalogReady: TRUE
-supportedSASLMechanisms: GSSAPI
-supportedSASLMechanisms: GSS-SPNEGO
-supportedSASLMechanisms: EXTERNAL
-supportedSASLMechanisms: DIGEST-MD5
-supportedLDAPVersion: 3
-supportedLDAPVersion: 2
-supportedLDAPPolicies: MaxPoolThreads
-supportedLDAPPolicies: MaxPercentDirSyncRequests
-supportedLDAPPolicies: MaxDatagramRecv
-supportedLDAPPolicies: MaxReceiveBuffer
-supportedLDAPPolicies: InitRecvTimeout
-supportedLDAPPolicies: MaxConnections
-supportedLDAPPolicies: MaxConnIdleTime
-supportedLDAPPolicies: MaxPageSize
-supportedLDAPPolicies: MaxBatchReturnMessages
-supportedLDAPPolicies: MaxQueryDuration
-supportedLDAPPolicies: MaxDirSyncDuration
-supportedLDAPPolicies: MaxTempTableSize
-supportedLDAPPolicies: MaxResultSetSize
-supportedLDAPPolicies: MinResultSets
-supportedLDAPPolicies: MaxResultSetsPerConn
-supportedLDAPPolicies: MaxNotificationPerConn
-supportedLDAPPolicies: MaxValRange
-supportedLDAPPolicies: MaxValRangeTransitive
-supportedLDAPPolicies: ThreadMemoryLimit
-supportedLDAPPolicies: SystemMemoryLimitPercent
-supportedControl: 1.2.840.113556.1.4.319
-supportedControl: 1.2.840.113556.1.4.801
-supportedControl: 1.2.840.113556.1.4.473
-supportedControl: 1.2.840.113556.1.4.528
-supportedControl: 1.2.840.113556.1.4.417
-supportedControl: 1.2.840.113556.1.4.619
-supportedControl: 1.2.840.113556.1.4.841
-supportedControl: 1.2.840.113556.1.4.529
-supportedControl: 1.2.840.113556.1.4.805
-supportedControl: 1.2.840.113556.1.4.521
-supportedControl: 1.2.840.113556.1.4.970
-supportedControl: 1.2.840.113556.1.4.1338
-supportedControl: 1.2.840.113556.1.4.474
-supportedControl: 1.2.840.113556.1.4.1339
-supportedControl: 1.2.840.113556.1.4.1340
-supportedControl: 1.2.840.113556.1.4.1413
-supportedControl: 2.16.840.1.113730.3.4.9
-supportedControl: 2.16.840.1.113730.3.4.10
-supportedControl: 1.2.840.113556.1.4.1504
-supportedControl: 1.2.840.113556.1.4.1852
-supportedControl: 1.2.840.113556.1.4.802
-supportedControl: 1.2.840.113556.1.4.1907
-supportedControl: 1.2.840.113556.1.4.1948
-supportedControl: 1.2.840.113556.1.4.1974
-supportedControl: 1.2.840.113556.1.4.1341
-supportedControl: 1.2.840.113556.1.4.2026
-supportedControl: 1.2.840.113556.1.4.2064
-supportedControl: 1.2.840.113556.1.4.2065
-supportedControl: 1.2.840.113556.1.4.2066
-supportedControl: 1.2.840.113556.1.4.2090
-supportedControl: 1.2.840.113556.1.4.2205
-supportedControl: 1.2.840.113556.1.4.2204
-supportedControl: 1.2.840.113556.1.4.2206
-supportedControl: 1.2.840.113556.1.4.2211
-supportedControl: 1.2.840.113556.1.4.2239
-supportedControl: 1.2.840.113556.1.4.2255
-supportedControl: 1.2.840.113556.1.4.2256
-supportedControl: 1.2.840.113556.1.4.2309
-supportedControl: 1.2.840.113556.1.4.2330
-supportedControl: 1.2.840.113556.1.4.2354
-supportedCapabilities: 1.2.840.113556.1.4.800
-supportedCapabilities: 1.2.840.113556.1.4.1670
-supportedCapabilities: 1.2.840.113556.1.4.1791
-supportedCapabilities: 1.2.840.113556.1.4.1935
-supportedCapabilities: 1.2.840.113556.1.4.2080
-supportedCapabilities: 1.2.840.113556.1.4.2237
-subschemaSubentry: CN=Aggregate,CN=Schema,CN=Configuration,DC=tombwatcher,DC=h
- tb
-serverName: CN=DC01,CN=Servers,CN=Default-First-Site-Name,CN=Sites,CN=Configur
- ation,DC=tombwatcher,DC=htb
-schemaNamingContext: CN=Schema,CN=Configuration,DC=tombwatcher,DC=htb
-namingContexts: DC=tombwatcher,DC=htb
-namingContexts: CN=Configuration,DC=tombwatcher,DC=htb
-namingContexts: CN=Schema,CN=Configuration,DC=tombwatcher,DC=htb
-namingContexts: DC=DomainDnsZones,DC=tombwatcher,DC=htb
-namingContexts: DC=ForestDnsZones,DC=tombwatcher,DC=htb
-isSynchronized: TRUE
-highestCommittedUSN: 90860
-dsServiceName: CN=NTDS Settings,CN=DC01,CN=Servers,CN=Default-First-Site-Name,
- CN=Sites,CN=Configuration,DC=tombwatcher,DC=htb
-dnsHostName: DC01.tombwatcher.htb
-defaultNamingContext: DC=tombwatcher,DC=htb
-currentTime: 20250609080448.0Z
-configurationNamingContext: CN=Configuration,DC=tombwatcher,DC=htb
-
-# search result
-search: 2
-result: 0 Success
-
-# numResponses: 2
-# numEntries: 1
-```
+# LDAP
 - Authenticated ldapsearch gave me too much info - all good but difficult to look through.
-- Will try to ask for specifics with windapsearch: `git clone https://github.com/ropnop/windapsearch.git`
+- Asked for specifics with windapsearch - see "Tools/windapsearch"
+## Windapsearch
+Domain admins:
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.72 -u henry@tombwatcher.htb -p "H3nry_987TGV!" --da
+[+] Using Domain Controller at: 10.10.11.72
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=tombwatcher,DC=htb
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:TOMBWATCHER\Henry
+[+] Attempting to enumerate all Domain Admins
+[+] Using DN: CN=Domain Admins,CN=Users.CN=Domain Admins,CN=Users,DC=tombwatcher,DC=htb
+[+]     Found 1 Domain Admins:
+
+cn: Administrator
+
+[+] Using DN: CN=Domain Admins,CN=Users.CN=Domain Admins,CN=Users,DC=tombwatcher,DC=htb
+[+]     Found 1 Domain Admins:
+
+cn: Administrator
+
+
+[*] Bye!
+```
+Users:
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.72 -u henry@tombwatcher.htb -p "H3nry_987TGV!" --users
+[+] Using Domain Controller at: 10.10.11.72
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=tombwatcher,DC=htb
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:TOMBWATCHER\Henry
+
+[+] Enumerating all AD users
+[+]     Found 7 users: 
+
+cn: Administrator
+
+cn: Guest
+
+cn: krbtgt
+
+cn: Henry
+
+cn: Alfred
+
+cn: sam
+
+cn: john
+
+
+[*] Bye!
+```
+Groups:
+```py
+┌──(v-env)(root㉿kali)-[/home/jacob/Desktop/Boxes/TombWatcher/windapsearch]
+└─# python3 windapsearch.py --dc-ip 10.10.11.72 -u henry@tombwatcher.htb -p "H3nry_987TGV!" -G
+[+] Using Domain Controller at: 10.10.11.72
+[+] Getting defaultNamingContext from Root DSE
+[+]     Found: DC=tombwatcher,DC=htb
+[+] Attempting bind
+[+]     ...success! Binded as: 
+[+]      u:TOMBWATCHER\Henry
+
+[+] Enumerating all AD groups
+[+]     Found 49 groups: 
+
+cn: Administrators
+distinguishedName: CN=Administrators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Users
+distinguishedName: CN=Users,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Guests
+distinguishedName: CN=Guests,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Print Operators
+distinguishedName: CN=Print Operators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Backup Operators
+distinguishedName: CN=Backup Operators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Replicator
+distinguishedName: CN=Replicator,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Remote Desktop Users
+distinguishedName: CN=Remote Desktop Users,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Network Configuration Operators
+distinguishedName: CN=Network Configuration Operators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Performance Monitor Users
+distinguishedName: CN=Performance Monitor Users,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Performance Log Users
+distinguishedName: CN=Performance Log Users,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Distributed COM Users
+distinguishedName: CN=Distributed COM Users,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: IIS_IUSRS
+distinguishedName: CN=IIS_IUSRS,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Cryptographic Operators
+distinguishedName: CN=Cryptographic Operators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Event Log Readers
+distinguishedName: CN=Event Log Readers,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Certificate Service DCOM Access
+distinguishedName: CN=Certificate Service DCOM Access,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: RDS Remote Access Servers
+distinguishedName: CN=RDS Remote Access Servers,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: RDS Endpoint Servers
+distinguishedName: CN=RDS Endpoint Servers,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: RDS Management Servers
+distinguishedName: CN=RDS Management Servers,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Hyper-V Administrators
+distinguishedName: CN=Hyper-V Administrators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Access Control Assistance Operators
+distinguishedName: CN=Access Control Assistance Operators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Remote Management Users
+distinguishedName: CN=Remote Management Users,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Storage Replica Administrators
+distinguishedName: CN=Storage Replica Administrators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Domain Computers
+distinguishedName: CN=Domain Computers,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Domain Controllers
+distinguishedName: CN=Domain Controllers,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Schema Admins
+distinguishedName: CN=Schema Admins,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Enterprise Admins
+distinguishedName: CN=Enterprise Admins,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Cert Publishers
+distinguishedName: CN=Cert Publishers,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Domain Admins
+distinguishedName: CN=Domain Admins,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Domain Users
+distinguishedName: CN=Domain Users,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Domain Guests
+distinguishedName: CN=Domain Guests,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Group Policy Creator Owners
+distinguishedName: CN=Group Policy Creator Owners,CN=Users,DC=tombwatcher,DC=htb
+
+cn: RAS and IAS Servers
+distinguishedName: CN=RAS and IAS Servers,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Server Operators
+distinguishedName: CN=Server Operators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Account Operators
+distinguishedName: CN=Account Operators,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Pre-Windows 2000 Compatible Access
+distinguishedName: CN=Pre-Windows 2000 Compatible Access,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Incoming Forest Trust Builders
+distinguishedName: CN=Incoming Forest Trust Builders,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Windows Authorization Access Group
+distinguishedName: CN=Windows Authorization Access Group,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Terminal Server License Servers
+distinguishedName: CN=Terminal Server License Servers,CN=Builtin,DC=tombwatcher,DC=htb
+
+cn: Allowed RODC Password Replication Group
+distinguishedName: CN=Allowed RODC Password Replication Group,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Denied RODC Password Replication Group
+distinguishedName: CN=Denied RODC Password Replication Group,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Read-only Domain Controllers
+distinguishedName: CN=Read-only Domain Controllers,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Enterprise Read-only Domain Controllers
+distinguishedName: CN=Enterprise Read-only Domain Controllers,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Cloneable Domain Controllers
+distinguishedName: CN=Cloneable Domain Controllers,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Protected Users
+distinguishedName: CN=Protected Users,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Key Admins
+distinguishedName: CN=Key Admins,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Enterprise Key Admins
+distinguishedName: CN=Enterprise Key Admins,CN=Users,DC=tombwatcher,DC=htb
+
+cn: DnsAdmins
+distinguishedName: CN=DnsAdmins,CN=Users,DC=tombwatcher,DC=htb
+
+cn: DnsUpdateProxy
+distinguishedName: CN=DnsUpdateProxy,CN=Users,DC=tombwatcher,DC=htb
+
+cn: Infrastructure
+distinguishedName: CN=Infrastructure,CN=Users,DC=tombwatcher,DC=htb
+
+
+[*] Bye!
+```
 
