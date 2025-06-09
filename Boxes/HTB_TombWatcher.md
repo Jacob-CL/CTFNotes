@@ -529,3 +529,4 @@ SMBMap - Samba Share Enumerator v1.10.7 | Shawn Evans - ShawnDEvans@gmail.com
         fr--r--r--             4920 Mon Jun  9 14:09:42 2025    GptTmpl.inf
 [*] Closed 1 connections  
 ```
+Download files via SMBMAP: `smbmap -H 10.10.11.72 -u "henry" -p "H3nry_987TGV!" -d tombwatcher.htb --download 'SYSVOL/tombwatcher.htb/Policies/{6AC1786C-016F-11D2-945F-00C04fB984F9}/MACHINE/Microsoft/Windows NT/SecEdit/GptTmpl.inf'`
