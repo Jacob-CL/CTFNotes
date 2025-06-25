@@ -21,6 +21,9 @@ Reminder: Github uses advanced search syntax - press `t`. Or clone locally and g
 - Kernel
   - [DirtyCow](https://github.com/dirtycow/dirtycow.github.io/wiki/PoCs)
 - Kindle Books
+
+- HTB
+  - https://academy.hackthebox.com/dashboard
  
 # COMMON CODE SNIPPETS
 ### Python Virtual Environment
