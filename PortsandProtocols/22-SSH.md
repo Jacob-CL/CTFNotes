@@ -1,4 +1,7 @@
-# 21 - SSH
+# 21 - SSH (Secure Socket Shell)
+- https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-ssh.html
+- https://github.com/jtesta/ssh-audit
+- Known bad keys: https://github.com/rapid7/ssh-badkeys/tree/master/authorized
 ## Commands
 - Login - `ssh username@host`
 - Login with SSH Key - `ssh -i /path/to/private_key username@host`
