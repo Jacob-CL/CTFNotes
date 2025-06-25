@@ -1,4 +1,7 @@
+Reminder: Github uses advanced search syntax - press `t`. Or clone locally and grep
+
 `git clone https://github.com/ropnop/windapsearch.git`
+
 `cp /usr/share/wordlists/seclists/Passwords/Leaked-Databases/rockyou.txt .`
 # RESOURCES
 - OWASP Projects
