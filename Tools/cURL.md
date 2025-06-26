@@ -12,3 +12,4 @@
 - Only want to see headers?: `curl -I https://example.com`
 - to include HTTP response headers use `-i`
 - `-A` to set the User-Agent
+- Use `-b` to pass cookies in curl command
