@@ -6,6 +6,15 @@
 - POST requests don't tend to get logged since POST requests may transfer large files (e.g. file upload), it would not be efficient for the server to log all uploaded files as part of the requested URL, as would be the case with a file uploaded through a GET request.
 - The maximum URL Length varies between browsers (Chrome/Firefox/IE), web servers (IIS, Apache, nginx), Content Delivery Networks (Fastly, Cloudfront, Cloudflare), and even URL Shorteners (bit.ly, amzn.to). Generally speaking, a URL's lengths should be kept to below 2,000 characters, and so they cannot handle a lot of data.
 
+APIs perform 4 main operations on the requested database entity: (**CRUD**)
+
+| Operation | HTTP Method | Description |
+|-----------|-------------|-------------|
+| Create | POST | Adds the specified data to the database table |
+| Read | GET | Reads the specified entity from the database table |
+| Update | PUT | Updates the data of the specified database table |
+| Delete | DELETE | Removes the specified row from the database table |
+
 ## URL
 ![image](https://github.com/user-attachments/assets/5a45e53c-7dd0-48b3-86f9-9cde1cda3e93)
 
@@ -89,3 +98,5 @@ Full list here: https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Meth
 | DELETE     | Deletes an existing resource on the webserver. If not properly secured, can lead to Denial of Service (DoS) by deleting critical files on the web server. |
 | OPTIONS    | Returns information about the server, such as the methods accepted by it. |
 | PATCH      | Applies partial modifications to the resource at the specified location. |
+
+
