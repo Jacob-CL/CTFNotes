@@ -3,6 +3,8 @@
 - https://www.rfc-editor.org/rfc/rfc9110.html
 - We enter a Fully Qualified Domain Name (FQDN) as a Uniform Resource Locator (URL) to reach the desired website, like www.hackthebox.com.
 - Browsers will first look up the records in `/etc/hosts/` file, and if the requested domain does not exist within it, then they would contact other DNS servers.
+- POST requests don't tend to get logged since POST requests may transfer large files (e.g. file upload), it would not be efficient for the server to log all uploaded files as part of the requested URL, as would be the case with a file uploaded through a GET request.
+- The maximum URL Length varies between browsers (Chrome/Firefox/IE), web servers (IIS, Apache, nginx), Content Delivery Networks (Fastly, Cloudfront, Cloudflare), and even URL Shorteners (bit.ly, amzn.to). Generally speaking, a URL's lengths should be kept to below 2,000 characters, and so they cannot handle a lot of data.
 
 ## URL
 ![image](https://github.com/user-attachments/assets/5a45e53c-7dd0-48b3-86f9-9cde1cda3e93)
