@@ -123,13 +123,13 @@ It must be noted that popular websites usually utilize a variety of frameworks a
 - APIs connect the front end and back end - typically with GET and POST requests
 
 ### SOAP (API type)
-- Specific protocol/standard for building APIs
 - [SOAP](https://en.wikipedia.org/wiki/SOAP)
+- Specific protocol/standard for building APIs
 - The SOAP (Simple Objects Access) standard shares data through XML, where the request is made in XML through an HTTP request, and the response is also returned in XML. Front end components are designed to parse this XML output properly.
 
-### REST (API type
-- Specific protocol/standard for building APIs
+### REST (API type)
 - [REST](https://en.wikipedia.org/wiki/REST)
+- Specific protocol/standard for building APIs
 - The REST (Representational State Transfer) standard shares data through the URL path 'i.e. search/users/1', and usually returns the output in JSON format 'i.e. userid 1'.
 - REST uses various HTTP methods to perform different actions on the web application:
     - GET request to retrieve data
