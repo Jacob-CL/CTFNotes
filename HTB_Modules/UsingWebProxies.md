@@ -24,3 +24,8 @@ Once we intercept a request, we can test for:
 ## Web Proxy Extensions
 - BApp Store for BurpSuite extensions
 - ZAP Marketplace for ZAP extensions
+
+## Forward / Reverse Proxies
+The key difference is who the proxy is acting on behalf of - the client or the server.
+- Forward = Forwards your request (acts for you: Client → Forward Proxy → Internet → Server)
+- Reverse = Reverses the normal flow (acts for the server: Client → Internet → Reverse Proxy → Backend Server(s))
