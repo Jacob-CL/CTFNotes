@@ -1,6 +1,7 @@
 # Underpass
 - UnDerPass
 - https://www.youtube.com/watch?v=6hoOcB9ubs8&t=256s
+- https://0xdf.gitlab.io/2025/05/10/htb-underpass.html#
 ## Setup
 ```
 ┌──(root㉿kali)-[/home/jacob/Documents/Notes]
@@ -40,11 +41,6 @@ Scan completed successfully.
 Output files created: underpass.nmap, underpass.gnmap, underpass.xml
 
 ```
-## IPPSEC
-
-
-
-
 ## Guided Mode Questions
 1. How many open TCP ports are listening on UnderPass?
 2
