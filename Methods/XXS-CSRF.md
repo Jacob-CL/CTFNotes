@@ -5,6 +5,9 @@
 - [PortSwigger Xss](https://portswigger.net/web-security/cross-site-scripting)
 - [HackTricks XSS](https://book.hacktricks.wiki/en/pentesting-web/xss-cross-site-scripting/index.html)
 
+# Examples
+- [Rook to XSS](https://skii.dev/rook-to-xss/?ref=weekly.infosecwriteups.com)
+
 XSS vulnerabilities take advantage of a flaw in user input sanitization to "write" JavaScript code to the page and execute it on the client side. Of course these vulnerabilities run entirely within the browser's sandbox and is confined to what the browser can do.
 
 # Notes
@@ -76,7 +79,8 @@ Execution Sinks:
 - constructor: `[].constructor.constructor(alert(1))()`
 
 ---
-
+# HTB Module questions
+## Cross-Site Scripting (XSS)
 
 
 ---
