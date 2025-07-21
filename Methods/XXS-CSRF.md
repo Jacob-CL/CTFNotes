@@ -39,7 +39,7 @@ How might these filters be implemented?
 - Filters are often layered. A payload may pass one filter but get caught by another
 - Input could be truncated after a certain number of characters so worth trying short payloads. Some browsers will let you omit `http` or `https` by using `//` e.g `<script/src=//v.ht/aa`
 - HTML is case-sensitive whilst JavaScript is not.
-- Authoers favourite way to evaluate what characters are encoded or not, as it will help determine which useful characters are permitted, encoded, removed and whether the input is in upper or lowercase:
+- Authors favourite way to evaluate what characters are encoded or not, as it will help determine which useful characters are permitted, encoded, removed and whether the input is in upper or lowercase:
 ```
 ;:!--''" <SCs>=&{[(`)]}//.
 ```
