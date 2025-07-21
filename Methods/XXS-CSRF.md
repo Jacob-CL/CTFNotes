@@ -38,7 +38,7 @@ Client-side filters are relatively easy to bypass with BurpSuite, Server-side fi
 - If `img` is blocked, try `audio` or `video`
 - If `alert` is blocked, try `prompt` or `confirm`
 - If parenthesis `()` are blocked, try the back tick `
-- To combine the last 3: `<audio src onloadstart=confirm`1`>`
+- To combine the last 3: `<audio src onloadstart=confirm\`1\`>`
 
 ### JavaScript Encodings
 - Unicode: `"\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0029"`
