@@ -16,7 +16,7 @@ Determine where your input is getting printed in the HTTP response we receive ba
 - Markdown XSS is a thing: `[xss[(javascript:alert('1'))`
 
 ### When is our input getting proces?
-`<script>alert(1)</script>` is triggered on page load. However if our payload laods dynamically, such as `<img src=xoneerror-alert(1)>`, this may be advantageous since onerror is triggered dynamically. Which means:
+`<script>alert(1)</script>` is triggered on page load. However if our payload loads dynamically, such as `<img src=x onerror-alert(1)>`, this may be advantageous since onerror is triggered dynamically. Which means:
 - Harder for security scanners to detect since the malicious code isn't present during initial page analysis :point_left:
 - Can bypass some client-side filters that only check content on page load :point_left:
 - Often involves content that gets injected into the DOM after the page has already loaded
