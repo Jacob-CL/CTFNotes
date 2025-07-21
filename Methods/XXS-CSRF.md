@@ -18,7 +18,7 @@ Determine where your input is getting printed in the HTTP response we receive ba
 - If we're in JS code it depends where we are in the code, JS comments are `//`, it's line terminator is `;` and of course `'` + `"`
 - Markdown XSS is a thing: `[xss[(javascript:alert('1'))`
 
-### When is our input getting proces?
+### When is our input getting processed?
 `<script>alert(1)</script>` is triggered on page load. However if our payload loads dynamically, such as `<img src=x onerror-alert(1)>`, this may be advantageous since onerror is triggered dynamically. Which means:
 - Harder for security scanners to detect since the malicious code isn't present during initial page analysis :point_left:
 - Can bypass some client-side filters that only check content on page load :point_left:
