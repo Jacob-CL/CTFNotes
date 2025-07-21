@@ -2,6 +2,8 @@ Reminder: Github uses advanced search syntax - press `t`. Or clone locally and g
 
 `cp /usr/share/wordlists/seclists/Passwords/Leaked-Databases/rockyou.txt .`
 
+Find all files recursively: `find . -type f`
+
 # RESOURCES
 - OWASP Projects
   - [OWASP Web Security Testing Guide (WSTG)](https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/)
