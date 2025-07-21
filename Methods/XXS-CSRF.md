@@ -32,13 +32,13 @@ XSS can be injected into any input in the HTML page, which is not exclusive to H
 3. If used in client-side JavaScript, you could exploit a DOM XSS - pay attention how your input is controlled and if your controlled input is used by any sink.
 
 # XSS Testing Payloads
-Code review is the most reliable way to get a XSS rather than throwing automated tooling at a website. Remember to check where your input is presenting itself to understand the context and what will work depending on that.
+Code review is the most reliable way to get a XSS rather than throwing automated tooling at a website. Remember to check where your input is presenting itself to understand the context and what will work depending on that (See Notes below).
 - [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
 - [PayloadBox](https://github.com/payloadbox/xss-payload-list)
 
 | Description | Code |
 |-------------|------|
-| Check for filtering (See below) | ;:!--''" <SCs>=&{[(`)]}//. |
+| Check for filtering (See Notes below) | ;:!--''" <SCs>=&{[(`)]}//. |
 | Basic XSS Payload | `<marquee>` |
 | Basic XSS Payload | `<script>alert(window.origin)</script>` |
 | Basic XSS Payload | `<script>alert(1)</script>` |
