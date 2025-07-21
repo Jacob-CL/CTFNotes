@@ -11,6 +11,7 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 # Good Examples
 - [Rook to XSS](https://skii.dev/rook-to-xss/?ref=weekly.infosecwriteups.com)
 - [MySpace Samy worm](https://en.wikipedia.org/wiki/Samy_(computer_worm))
+- [Twitter TweetDeck]([url](https://blog.sucuri.net/2014/06/serious-cross-site-scripting-vulnerability-in-tweetdeck-twitter.html))
 
 
 
