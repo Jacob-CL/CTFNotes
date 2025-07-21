@@ -34,6 +34,7 @@
 ## XSS Payloads
 | Code | Description |
 |------|-------------|
+| `<marquee>` | Basic XSS Payload |
 | `<script>alert(window.origin)</script>` | Basic XSS Payload |
 | `<plaintext>` | Basic XSS Payload |
 | `<script>print()</script>` | Basic XSS Payload |
