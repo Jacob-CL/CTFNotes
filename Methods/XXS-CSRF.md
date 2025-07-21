@@ -11,9 +11,9 @@ XSS vulnerabilities take advantage of a flaw in user input sanitization to "writ
 # Good Examples
 - [Rook to XSS](https://skii.dev/rook-to-xss/?ref=weekly.infosecwriteups.com)
 - [MySpace Samy worm](https://en.wikipedia.org/wiki/Samy_(computer_worm))
-- [Twitter TweetDeck]([url](https://blog.sucuri.net/2014/06/serious-cross-site-scripting-vulnerability-in-tweetdeck-twitter.html))
-
-
+- [Twitter TweetDeck](https://blog.sucuri.net/2014/06/serious-cross-site-scripting-vulnerability-in-tweetdeck-twitter.html)
+- [Google Search XSS](https://www.acunetix.com/blog/web-security-zone/mutation-xss-in-google-search/)
+- [Apache XSS](https://infra.apache.org/blog/apache_org_04_09_2010)
 
 # Notes
 ## Same-Origin Policy (SOP) 
@@ -38,7 +38,11 @@ Determine where your input is getting printed in the HTTP response we receive ba
 - Can bypass some client-side filters that only check content on page load :point_left:
 - Often involves content that gets injected into the DOM after the page has already loaded
 
-## XSS Filter Bypasses
+# XSS Testing Payloads
+- Basic: `<script>alert(window.origin)</script>` | `<script>alert(1)</script>`
+
+
+# XSS Filter Bypasses
 Client-side filters are relatively easy to bypass with BurpSuite, Server-side filters like a WAF or integrated into the app vary in effectiveness as it depends largely on their config.
 
 How might these filters be implemented?
