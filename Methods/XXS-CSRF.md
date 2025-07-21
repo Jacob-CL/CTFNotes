@@ -1,14 +1,18 @@
 # XSS and CSRF
+XSS vulnerabilities take advantage of a flaw in user input sanitization to "write" JavaScript code to the page and execute it on the client side. Of course these vulnerabilities run entirely within the browser's sandbox and is confined to what the browser can do.
+
+# Resources
 - [HTB Cross-Site Scripting (XSS) Module](https://academy.hackthebox.com/module/103/section/965)
 - [HTB Advanced XSS and CSRF Exploitation Module](https://academy.hackthebox.com/module/235/section/2653)
 - [OWASP XSS](https://owasp.org/www-community/attacks/xss/)
 - [PortSwigger Xss](https://portswigger.net/web-security/cross-site-scripting)
 - [HackTricks XSS](https://book.hacktricks.wiki/en/pentesting-web/xss-cross-site-scripting/index.html)
 
-# Examples
+# Good Examples
 - [Rook to XSS](https://skii.dev/rook-to-xss/?ref=weekly.infosecwriteups.com)
+- [MySpace Samy worm](https://en.wikipedia.org/wiki/Samy_(computer_worm))
 
-XSS vulnerabilities take advantage of a flaw in user input sanitization to "write" JavaScript code to the page and execute it on the client side. Of course these vulnerabilities run entirely within the browser's sandbox and is confined to what the browser can do.
+
 
 # Notes
 ## Same-Origin Policy (SOP) 
