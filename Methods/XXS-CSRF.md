@@ -7,7 +7,7 @@
 # TL;DR
 
 # Notes
-## Attacking and Exploiting Modern Web Applications (Kindle)
+## Attacking and Exploiting Modern Web Applications (Kindle Book)
 ### Where is the output presenting itself?
 Determine where your input is getting printed in the HTTP response we receive back:
 - Inside the head or body: Easy, just use your regular HTML tags like `<script>alert(1)</script>` or load an external script `<script src=https://onofri.org/security/xss.js></script>.`
