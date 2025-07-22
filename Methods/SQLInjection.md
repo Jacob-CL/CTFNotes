@@ -55,6 +55,7 @@ Where it uses different communication channels to receive results (separate from
 - Characteristics: Most complex to set up / Often fastest for large data extraction / Bypasses many filtering mechanisms / Requires advanced database privileges
 
 # Resources
+- [PortSwigger SQLi Cheat Sheet](https://portswigger.net/web-security/sql-injection/cheat-sheet)
 - [3306 - Pentesting Mysql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-mysql.html)
 - [1433 - Pentesting MSSQL - Microsft SQL Server](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-mssql-microsoft-sql-server/index.html)
 - [5432,5433 - Pentesting Postgresql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-postgresql.html)
@@ -71,6 +72,7 @@ Where it uses different communication channels to receive results (separate from
 [HackTricks](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html#entry-point-detection)
 1. Find an entry point and figure out how to escape it's context. 
 2. Make it so that it doesn't error out when you've escaped by adding something a comment tag or `'`. Your goal is to either get the previous query to accept NEW data or just input your data and then a comment symbol to the end.
+3. All the while figuring out what the back-end database is so that you can better craft your payload to match the specific syntaxes
 
 
 # Useful Commands + Syntax
