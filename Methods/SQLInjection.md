@@ -1,5 +1,5 @@
 # SQL Injection
-An SQL injection is a security flaw that allows attackers to interfere with database queries of an application. 
+An SQL injection is a security flaw that allows attackers to interfere with database queries of an application. Different databases will have different syntaxes and methods of injection.
 
 There are two types of databases, relational and non-relational -
 - Relational Databases (SQL):
@@ -69,7 +69,7 @@ Where it uses different communication channels to receive results (separate from
 
 # Methodology TLDR
 [HackTricks](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html#entry-point-detection)
-1. Find an entry point and figure out how to escape it's context
+1. Find an entry point and figure out how to escape it's context. 
 2. Make it so that it doesn't error out when you've escaped by adding something a comment tag or `'`. Your goal is to either get the previous query to accept NEW data or just input your data and then a comment symbol to the end.
 
 
@@ -100,6 +100,9 @@ $query = "select * from logins where username like '%$searchInput'";
 $result = $conn->query($query);
 ```
 - If we input SHOW `DATABASES;`, it would be executed as `'%SHOW DATABASES;'` and show us all usernames that are like SHOW DATABASES. What we want to do in this case is add (') which will end the user-input field, and after it, we can write actual SQL code: `1'; DROP TABLE users;`. Resulting in this code `select * from logins where username like '%1'; DROP TABLE users;'`
+
+## How to identify the backend?
+- [Hacktricks](https://book.hacktricks.wiki/en/pentesting-web/sql-injection/index.html#identifying-back-end)
 
 
 # Tricks & Quirks
