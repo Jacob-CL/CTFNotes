@@ -23,6 +23,18 @@ There are two types of databases, relational and non-relational -
 
 # Methodology TLDR
 
+# Useful Commands + Syntax
+| **Description** | **Command** |
+|-----------------|-------------|
+| Auth to MySQL/MariaDB. There shouldn't be any spaces between `-p` and the password. No host specified so it'll default to localhost | `mysql -u root -p` or `mysql -u root -p<password>` |
+| Auth to a specific host | `mysql -u root -h docker.hackthebox.eu -P 3306 -p ` | 
+| Displays the privileges and roles that are assigned to a MySQL user account or role | [SHOW GRANTS](https://dev.mysql.com/doc/refman/8.0/en/show-grants.html) |
+| SHOW DATABASES lists the databases on the MySQL server host | [SHOW DATABASES](https://dev.mysql.com/doc/refman/8.0/en/show-databases.html) |
+| The DESCRIBE and EXPLAIN statements are synonyms. Both used to obtain information about table structure | [DESCRIBE / EXPLAIN](https://dev.mysql.com/doc/refman/8.0/en/explain.html) |
+| Order the output | [ORDER BY](https://dev.mysql.com/doc/refman/8.0/en/order-by-optimization.html) | 
+| Limit the output to a set number | [LIMIT](https://dev.mysql.com/doc/refman/8.0/en/limit-optimization.html)
+| SQL pattern matching enables you to use _ to match any single character and % to match an arbitrary number of characters (including zero characters) | [LIKE](https://dev.mysql.com/doc/refman/8.0/en/pattern-matching.html) |
+
 # SQLi Testing Payloads
 
 # SQLi Payloads
@@ -30,12 +42,12 @@ There are two types of databases, relational and non-relational -
 # SQLi Bypasses
 
 # Notes
+- The default MySQL/MariaDB port is (3306), but it can be configured to another port. It is specified using an uppercase `P`, unlike the lowercase `p` used for passwords. 
 
 # Tricks & Quirks
 
 # HTB Module Questions
 ## SQL Injection Fundamentals 
-
 # HTB Cheat Sheet
 | **Description** | **Command** |
 |----------------|-------------|
@@ -65,7 +77,7 @@ There are two types of databases, relational and non-relational -
 | Only show first two results | `SELECT * FROM logins LIMIT 2` |
 | Only show first two results starting from index 2 | `SELECT * FROM logins LIMIT 1, 2` |
 | List results that meet a condition | `SELECT * FROM table_name WHERE <condition>` |
-| List results where the name is similar to a given string | `SELECT * FROM logins WHERE username LIKE 'admin%'` |
+| List results where the name is similar to a given string (starts with admin) | `SELECT * FROM logins WHERE username LIKE 'admin%'` |
 
 ## MySQL Operator Precedence
 * Division (`/`), Multiplication (`*`), and Modulus (`%`)
