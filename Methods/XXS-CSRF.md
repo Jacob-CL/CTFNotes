@@ -169,7 +169,7 @@ Execution Sinks:
 
 # Tricks & Quirks
 - XSS can be injected into any input in the HTML page, which is not exclusive to HTML input fields, but may also be in HTTP headers like the Cookie or User-Agent (i.e., when their values are displayed on the page).
-- If you're defacing, you can always open the `.html` locally to test how it looks
+- If you're defacing, you can always open the `.html` locally to test how it looks. Testing locally like applies to a lot of things - different browsers might even reflect your XSS differently
 - Email fields usually must match an email format, even if we try manipulating the HTTP request parameters, as it's usually validated on both the front-end and the back-end. Likewise, we may skip the password field, as passwords are usually hashed and not usually shown in cleartext. This helps us in reducing the number of potentially vulnerable input fields we need to test.
 - Most common XSS protections are length issues and not allowing < or > or according to THP1.
 - The following will let us know which of the fields (`fullname` or `username`) is vulnerable based of what we see on our listener:
