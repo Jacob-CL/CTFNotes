@@ -10,7 +10,7 @@ computer and network assets.
 
 ## 1.1 CyberSecurity, Information Security and Network Security
 As subsets of Cybersecurity we can define the following:
-- `Information Security`: security: This term refers to preservation of confidentiality, integrity, and availability of information. In addition, other properties, such as authenticity, accountability, nonrepudiation, and reliability can also be involved.
+- `Information Security`: This term refers to preservation of confidentiality, integrity, and availability of information. In addition, other properties, such as authenticity, accountability, nonrepudiation, and reliability can also be involved.
 - `Network Security`: This term refers to protection of networks and their service from unauthorized modification, destruction, or disclosure, and provision of assurance that the network performs its critical functions correctly and there are no harmful side effects.
 
 Security Objectives (CIA Triad)
