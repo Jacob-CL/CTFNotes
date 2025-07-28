@@ -30,6 +30,10 @@ HTB
 - https://academy.hackthebox.com/dashboard
  
 # COMMON CODE SNIPPETS
+### Clone
+`git clone https://github.com/Jacob-CL/Notes.git`
+If you've made edits in GitHub, do merge those: `git pull`
+
 ### Python Virtual Environment
 ```
 # Create the virtual environment
