@@ -1,17 +1,8 @@
 # Chapter 1: Information and Network Security Concepts
-Learning Objectives
-- Describe the key security requirements of confidentiality, integrity, and availability.
-- Discuss the types of security threats and attacks that must be dealt with and give examples of the types of threats and attacks that apply to different categories of
-computer and network assets.
-- Provide an overview of keyless, single-key, and two-key cryptographic algorithms.
-- Provide an overview of the main areas of network security.
-- Describe a trust model for information security.
-- List and briefly describe key organizations involved in cryptography standards.
-
 ## 1.1 CyberSecurity, Information Security and Network Security
 As subsets of Cybersecurity we can define the following:
-- `Information Security`: This term refers to preservation of confidentiality, integrity, and availability of information. In addition, other properties, such as authenticity, accountability, nonrepudiation, and reliability can also be involved.
-- `Network Security`: This term refers to protection of networks and their service from unauthorized modification, destruction, or disclosure, and provision of assurance that the network performs its critical functions correctly and there are no harmful side effects.
+- `Information Security`: Preservation of confidentiality, integrity, and availability of information. In addition, other properties, such as authenticity, accountability, nonrepudiation, and reliability can also be involved.
+- `Network Security`: Protection of networks and their service from unauthorized modification, destruction, or disclosure, and provision of assurance that the network performs its critical functions correctly and there are no harmful side effects.
 
 Security Objectives (CIA Triad)
 - `Confidentiality` covers data confidentiality and privacy
@@ -19,8 +10,8 @@ Security Objectives (CIA Triad)
 - `Availability`
 
 Some argue the need for more than just those 3:
-- `Accountability`: The security goal that generates the requirement for actions of an entity to be traced uniquely to that entity.
-- `Authenticity`: The property of being genuine and being able to be verified and trusted; confidence in the validity of a transmission, a message, or message originator.
+- `Accountability`: Events and actions can be traced uniquely to that entity.
+- `Authenticity`: Being genuine and being able to be verified and trusted; confidence in the validity of a transmission, a message, or message originator.
 
 Challenges of Information Security:
 1. Although we may be able to simplify InfoSec into the CIA, or CIAAA - the mechanisms used to meet those requirements can be very complex.
