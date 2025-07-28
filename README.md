@@ -40,9 +40,6 @@ git commit -m "message"
 git push
 git pull (To merge GitHub repo with local)
 ```
-
-If you've made edits in GitHub, to merge those down locally: `git pull` (This is `git fetch` and `git merge` in one)
-
 ### Python Virtual Environment
 ```
 python3 -m venv v-env
