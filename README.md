@@ -33,12 +33,10 @@ HTB
 - https://academy.hackthebox.com/dashboard
  
 # COMMON CODE SNIPPETS
-### Clone
-`git clone https://github.com/Jacob-CL/Notes.git`
-
-`git commit -m "message"`
-
-`git push`
+### Git
+- `git clone https://github.com/Jacob-CL/Notes.git`
+- `git commit -m "message"`
+- `git push`
 
 If you've made edits in GitHub, to merge those down locally: `git pull` (This is `git fetch` and `git merge` in one)
 
