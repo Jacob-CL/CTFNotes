@@ -1,4 +1,4 @@
-<img width="451" height="88" alt="image" src="https://github.com/user-attachments/assets/da9aa728-ace2-438f-a27b-90e4c88516e9" /># Chapter 1: Information and Network Security Concepts
+# Chapter 1: Information and Network Security Concepts
 Learning Objectives
 - Describe the key security requirements of confidentiality, integrity, and availability.
 - Discuss the types of security threats and attacks that must be dealt with and give examples of the types of threats and attacks that apply to different categories of
