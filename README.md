@@ -18,6 +18,9 @@ PrivEsc
 - [Windows PE Checkist](https://book.hacktricks.wiki/en/windows-hardening/checklist-windows-privilege-escalation.html)
 - https://infosecwriteups.com/hackthebox-academy-privilege-escalation-ca0a8ad2259e
 
+Git
+- [GitHub CheatSheet](https://training.github.com/downloads/github-git-cheat-sheet/)
+
 Enumeration
 - [Server Enum](https://github.com/carlospolop/privilege-escalation-awesome-scripts-suite)
 
