@@ -35,7 +35,10 @@ HTB
 # COMMON CODE SNIPPETS
 ### Clone
 `git clone https://github.com/Jacob-CL/Notes.git`
-If you've made edits in GitHub, do merge those: `git pull`
+`git commit -m "message"`
+`git push`
+
+If you've made edits in GitHub, to merge those down locally: `git pull` (This is `git fetch` and `git merge` in one)
 
 ### Python Virtual Environment
 ```
