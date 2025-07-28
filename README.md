@@ -44,13 +44,8 @@ If you've made edits in GitHub, to merge those down locally: `git pull` (This is
 
 ### Python Virtual Environment
 ```
-# Create the virtual environment
 python3 -m venv v-env
-
-# Start virtual environment
 source v-env/bin/activate
-
-# Stop virtual environment
 deactivate
 ```
 ### Bash Reverse Shell
