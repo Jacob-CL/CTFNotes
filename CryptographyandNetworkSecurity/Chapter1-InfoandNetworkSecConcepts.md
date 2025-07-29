@@ -38,9 +38,9 @@ The terms `threat` and `attack` are commonly used, with the following meanings:
 A means of classifying security attacks - `passive` or `active`
 - `Passive`: These include eavesdropping type attacks like traffic analysis or the release of message contents. Passive attacks are very difficult to detect because they do not involve any alteration of data and once a packet leaves our network, it's impossible to really know what happens to it like a third-party listening to it. This type of attacks is countered with strong encryption.
 - `Active`: These involve some kind of modification of the data stream or the creation of a flase stream and can be subdivided in 4 categories: `replay`, `masquerade`, `modification of message` and `denial of service`. These are much easier to detect if you have the tools and logic set up to do so.
-  - Masquerade takes place when one entity pretends to be another. (MiTM)
-  - Replay involves the passive capture of a data unit and its subsequent retransmission to produce an unauthorized effect.
-  - DoS prevents or inhibits normal use or management of communication facilities. (Flooding the server with an overwhelming amount of data AND/OR triggering some action the server that consume substantial computing resources.
+  - `Masquerade` takes place when one entity pretends to be another. (MiTM)
+  - `Replay` involves the passive capture of a data unit and its subsequent retransmission to produce an unauthorized effect.
+  - `DoS` prevents or inhibits normal use or management of communication facilities. (Flooding the server with an overwhelming amount of data AND/OR triggering some action the server that consume substantial computing resources.
  
 ## 1.4 Security Services
 
