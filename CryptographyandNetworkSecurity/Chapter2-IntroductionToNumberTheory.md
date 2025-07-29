@@ -2,7 +2,7 @@
 Number theory is everywhere in cryptographic alogrithms and are fundamental to asymmetric (public-key) cryptographic algorithms.
 
 ## 2.1 Divisibility and the Division Alogrithm
-Divisibility:
+### Divisibility:
 
 When we say `b` divides `a` (written as `b|a`), we mean: You can divide `a` by `b` and get a whole number with no leftover.
 - 3 divides 12 because `12 ÷ 3 = 4` (no remainder) → We write this as `3|12`
@@ -31,8 +31,6 @@ Therefore,
 
 The vertical bar `|` is about whether division works cleanly, while ÷ is about what you get from division.
 
-
-
 So we have some simple rules of divisibility:
 - If something divides 1, it must be 1 or -1 because only they can divide 1 evenly.
 - If `a` divides `b` AND `b` divides `a`, then they're basically the same size. Like saying 6 divides 12 AND 12 divides 6 - this only works if they're euqal (or opposites)
@@ -49,6 +47,4 @@ To explain the combination rule more:
 ```
 The coefficents can be any integer you want
 
----
-
-The Division Algorithm:
+### The Division Algorithm:
