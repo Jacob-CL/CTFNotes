@@ -86,13 +86,63 @@ typically, a cryptographic hash function of the message. The MAC is designed so 
 Asymmetric encryption is really useful for:
 - `Digital signatures`: You "sign" a document using your private key --> Anyone can check your signature using your public key --> This proves two things: who sent it and that it wasn't changed. e.g When you get a software update, it's digitally signed so you know it's really from Apple/Microsoft and hasn't been infected with malware.
 -  `Key Exchange`: You use asymmetric encryption to safely pass that secret code --> Once you both have the secret code, you switch to using it (because it's much faster than asymmetric encryption) e.g When you visit a website with HTTPS, your browser and the server use this method to agree on a shared secret for that session
--  `user Authentication`: You prove your identity without giving away your password --> The system verifies you're genuine, and you verify the system is genuine too. e.g Using a security key like a YubiKey to log into something - it uses asymmetric encryption to prove you're really you.
+-  `User Authentication`: You prove your identity without giving away your password --> The system verifies you're genuine, and you verify the system is genuine too. e.g Using a security key like a YubiKey to log into something - it uses asymmetric encryption to prove you're really you.
 
 Ultimately - Asymmetric encryption is mainly used for proving identity, ensuring nothing was tampered with, and safely sharing secrets.
 
 ## 1.7 Network Security
 
+## 1.8 Trust and Trustworthiness
 
+## 1.9 Standards
+
+## 1.10 Key terms, review questions and problems
+1.1 What is the OSI security architecture?
+
+1.2 What is application security in networking?
+
+1.3 List the differences between adware and ransom ware.
+
+1.4 What is the most effective measure to take against a cross-site request forgery?
+
+1.5 List and briefly define categories of security mechanisms.
+
+1.6 List and briefly define the fundamental security design principles.
+
+1.7 Provide an overview of the three types of cryptographic algorithms.
+
+1.8 Which is worse in terms of firewall detection, a false positive or false negative and why?
+
+1.9 Why are internal threats usually more effective than external threats?
+
+1.10 What are the few major applications of cryptography in the modern world?
+
+1.11 List the differences between hashing and encryption.
+
+1.12 What do you know about cryptosystems? What is its significance?
+
+1.13 Name the properties of interactive proof that are useful in cryptography.
+
+Problems:
+1.1 Consider an automated cash deposit machine in which users provide a card or an account number to deposit cash. Give examples of confiden tiality, integrity, and availability requirements associated with the system, and, in each case, indicate the degree of importance of the requirement.
+
+1.2 Repeat Problem 1.1 for a payment gateway system where a user pays for an item using their account via the payment gateway.
+
+1.3 Consider a financial report publishing system used to produce reports for various organizations.
+  a. Give an example of a type of publication for which confidentiality of the stored data is the most important
+requirement.
+  b. Give an example of a type of publication in which data itegrity is the most important requirement.
+  c. Give an example in which system availability is the most important requirement.
+
+1.4 For each of the following assets, assign a low, moderate, or high impact level for the loss of confidentiality, availability, and integrity, respectively. Justify your answers.
+  a. A student maintaining a blog to post public information.
+  b. An examination section of a university that is managing sensitive information about exam papers.
+  c. An information system in a pathological laboratory maintaining the patient's data.
+  d. A student information system used for maintaining student data in a university that contains both personal,
+academic information and routine administrative information (not privacy related). Assess the impact for the two data sets separately and the information system as a whole.
+  e. A university library contains a library management system, which controls the distribution of books among the students of various departments. The library management system contains both the student data and the book data. Assess the impact for the two data sets separately and the information system as a whole.
+  
+1.5 If you work with a Linux server, what are the three significant steps you must take in order to secure it?
 
 
 
