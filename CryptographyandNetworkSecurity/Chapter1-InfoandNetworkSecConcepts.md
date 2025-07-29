@@ -120,26 +120,26 @@ This is security built directly into the apps and software you use. Instead of j
 Use `CSRF tokens` - basically unique, random codes that verify requests are actually coming from the real user, not from a malicious website trying to trick the system.
 
 1.5 List and briefly define categories of security mechanisms.
-- Cryptographic alogirthms:
-- Data Integrity:
-- Digital Signatures:
-- Authentication:
-- Traffic padding:
-- Routing control:
-- Notarizatrion:
-- Access Control:
+- `Cryptographic alogirthms`:
+- `Data Integrity`:
+- `Digital Signatures`:
+- `Authentication`:
+- `Traffic padding`:
+- `Routing control`:
+- `Notarizatrion`:
+- `Access Control`:
 
 1.6 List and briefly define the fundamental security design principles.
-- Confidentiality:
-- Integrity:
-- Availability:
-- Accountability:
-- Authenticity:
+- `Confidentiality`:
+- `Integrity`:
+- `Availability`:
+- `Accountability`:
+- `Authenticity`:
 
 1.7 Provide an overview of the three types of cryptographic algorithms.
-- Keyless (Hash):
-- Single Key (Symmetric):
-- Asymmetric (Asymmetric):
+- `Keyless` (Hash):
+- `Single Key` (Symmetric):
+- `Asymmetric` (Asymmetric):
 
 1.8 Which is worse in terms of firewall detection, a false positive or false negative and why?
 A false positive blocks legitimate traffic (annoying but safe), while a false negative lets malicious traffic through (potentially catastrophic). Better to be overly cautious than to miss real threats.
