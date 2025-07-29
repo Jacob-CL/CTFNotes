@@ -103,7 +103,7 @@ Trust is confidence that an entity will perform in a way the will not prejudice 
 Go to the book if you want to read more about trust and how it's defined.
 
 ## 1.9 Standards
-Most of the above and what will come below have been specified as standards. The most common we'll find is: `NIST` / `ISOC` / `IETF` / `ITU-T` / `ISO`
+Most of the above and what will come later have been specified as standards. The most common: `NIST` / `ISOC` / `IETF` / `ITU-T` / `ISO`
 
 ## 1.10 Key terms, review questions and problems
 1.1 What is the OSI security architecture?
