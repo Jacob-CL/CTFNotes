@@ -2,10 +2,8 @@
 Number theory is everywhere in cryptographic alogrithms and are fundamental to asymmetric (public-key) cryptographic algorithms.
 
 ## 2.1 Divisibility and the Division Alogrithm
+Divisibility:
 
----
-
-Divisbility:
 When we say `b` divides `a` (written as `b|a`), we mean: You can divide `a` by `b` and get a whole number with no leftover.
 - 3 divides 12 because `12 ÷ 3 = 4` (no remainder) → We write this as `3|12`
 - 5 divides 30 because `30 ÷ 5 = 6` (no remainder) → We write this as `5|30`
