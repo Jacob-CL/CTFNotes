@@ -25,3 +25,37 @@ Challenges of Information Security:
 9. Many users perceive strong security as an impediment to efficient and user-friendly operation of an info system or use of information
 
 ## 1.2 The OSI Security Architecture
+The open systems interconnection (OSI) security architecture is useful to managers as a way of organizing the task of providing security. It focuses on:
+- `Security Attacks`: Any action that compromises the security of information owned by an org
+- `Security Mechenism`: A process (or a device incorporating such a process) that is designed to detect, prevent, or recover from a security attack.
+- `Security Service`: A processing or comm service that enahces the security of the data processing systems and the information transfer of an organization. The services are intended to count security attacks, and they make use of one or more security mechanisms to provide the service .
+
+The terms `threat` and `attack` are commonly used, with the following meanings:
+- `Threat`: Any circumstance or event with the potential to adversely impact organizational operations (including mission, functions, image, or reputation), organizational assets, individuals, other organizations, or the Nation through an information system via unauthorized access, destruction, disclosure, modification of information, and/or denial of service.
+- `Attack`: Any kind of malicious activity that attempts to collect, disrupt, deny, degrade or destroy information system resources or the information itself.
+
+## 1.3 Security Attacks
+A means of classifying security attacks - `passive` or `active`
+- `Passive`: These include eavesdropping type attacks like traffic analysis or the release of message contents. Passive attacks are very difficult to detect because they do not involve any alteration of data and once a packet leaves our network, it's impossible to really know what happens to it like a third-party listening to it. This type of attacks is countered with strong encryption.
+- `Active`: These involve some kind of modification of the data stream or the creation of a flase stream and can be subdivided in 4 categories: `replay`, `masquerade`, `modification of message` and `denial of service`. These are much easier to detect if you have the tools and logic set up to do so.
+  - Masquerade takes place when one entity pretends to be another. (MiTM)
+  - Replay involves the passive capture of a data unit and its subsequent retransmission to produce an unauthorized effect.
+  - DoS prevents or inhibits normal use or management of communication facilities. (Flooding the server with an overwhelming amount of data AND/OR triggering some action the server that consume substantial computing resources.
+ 
+## 1.4 Security Services
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
