@@ -91,37 +91,83 @@ Asymmetric encryption is really useful for:
 Ultimately - Asymmetric encryption is mainly used for proving identity, ensuring nothing was tampered with, and safely sharing secrets.
 
 ## 1.7 Network Security
+Broad term that encompasses security of the communication pathways of the network and the security of network devices attached to the network.
+- `Communications Security`: Protects the data traveling through networks from being intercepted or tampered with. It works by using special rules called "network protocols" that control how data gets packaged and sent between devices. Security can be built into existing communication systems or added as separate protective layers. e.g IPsec (built into internet protocols), TLS (used for secure websites - the "https" you see in web addresses), SSH (for secure remote access).
+- `Device Security`: Protects the actual network equipment (like routers and Wi-Fi devices) and connected computers from attacks. The main threats are hackers gaining unauthorized access, malware being installed, systems being overwhelmed and shut down (Dos).
+
+There are 3 key protection methods: Firewalls, Intrusion Detection (IDS) and Intrusion Prevention (IPS).
 
 ## 1.8 Trust and Trustworthiness
+Trust is confidence that an entity will perform in a way the will not prejudice the security of the user of the system of which that entity is a part. Trust is always restricted to specific functions or ways of behavior and is meaningful only in the context of a security policy. Generally, an entity is said to trust a second entity when the first entity assumes that the second entity will behave exactly as the first entity expects.
+
+Go to the book if you want to read more about trust and how it's defined.
 
 ## 1.9 Standards
+Most of the above and what will come below have been specified as standards. The most common we'll find is: `NIST` / `ISOC` / `IETF` / `ITU-T` / `ISO`
 
 ## 1.10 Key terms, review questions and problems
 1.1 What is the OSI security architecture?
+Basically a blueprint for network security created by the International Organization for Standardization (ISO). A universal framework that helps different security systems work together. It defines security services (like authentication and encryption), security mechanisms (the tools that provide these services), and security management.
 
 1.2 What is application security in networking?
+This is security built directly into the apps and software you use. Instead of just protecting the network pipes, you're protecting the actual programs - like making sure your email app or web browser can't be tricked into doing malicious things.
 
 1.3 List the differences between adware and ransom ware.
+`Adware`: Annoying but mostly harmless - shows you unwanted ads and tracks your browsing to make money from advertising
+`Ransomware`: Malicious and dangerous - locks up your files and demands payment to unlock them. Think hostage situation for your data
 
 1.4 What is the most effective measure to take against a cross-site request forgery?
+Use `CSRF tokens` - basically unique, random codes that verify requests are actually coming from the real user, not from a malicious website trying to trick the system.
 
 1.5 List and briefly define categories of security mechanisms.
+- Cryptographic alogirthms:
+- Data Integrity:
+- Digital Signatures:
+- Authentication:
+- Traffic padding:
+- Routing control:
+- Notarizatrion:
+- Access Control:
 
 1.6 List and briefly define the fundamental security design principles.
+- Confidentiality:
+- Integrity:
+- Availability:
+- Accountability:
+- Authenticity:
 
 1.7 Provide an overview of the three types of cryptographic algorithms.
+- Keyless (Hash):
+- Single Key (Symmetric):
+- Asymmetric (Asymmetric):
 
 1.8 Which is worse in terms of firewall detection, a false positive or false negative and why?
+A false positive blocks legitimate traffic (annoying but safe), while a false negative lets malicious traffic through (potentially catastrophic). Better to be overly cautious than to miss real threats.
 
 1.9 Why are internal threats usually more effective than external threats?
+Insiders already have access, know the systems, understand the weaknesses, and are trusted by the organization.
 
 1.10 What are the few major applications of cryptography in the modern world?
+- Secure communications (messaging, email)
+- Online banking and e-commerce
+- Digital signatures and document authentication
+- Password protection
+- Blockchain and cryptocurrencies
+- Secure data storage
+- VPNs and secure connections
 
 1.11 List the differences between hashing and encryption.
+`Hashing`: One-way - you can't get the original data back. Creates a unique fingerprint. Used for password storage and data integrity. (However you can hash strings and compare hashes to determine the original plain text) 
+`Encryption`: Two-way - you can decrypt to get original data back. Used for keeping data secret during transmission or storage.
 
 1.12 What do you know about cryptosystems? What is its significance?
+A cryptosystem is the complete package - the encryption algorithm, the keys, and all the procedures for using them safely. It's about having a good algorithm as well as good key management, proper implementation, and secure procedures to actually be secure.
 
 1.13 Name the properties of interactive proof that are useful in cryptography.
+- `Completeness`: If something is true, the system will accept it
+- `Soundness`: If something is false, the system will reject it (with high probability)
+- `Zero-knowledge`: You can prove you know something without revealing what that something actually is
+These properties are super useful for things like authentication (proving who you are without revealing your password) and blockchain consensus mechanisms.
 
 Problems:
 1.1 Consider an automated cash deposit machine in which users provide a card or an account number to deposit cash. Give examples of confiden tiality, integrity, and availability requirements associated with the system, and, in each case, indicate the degree of importance of the requirement.
