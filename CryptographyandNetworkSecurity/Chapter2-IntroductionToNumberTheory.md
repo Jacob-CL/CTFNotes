@@ -7,9 +7,9 @@ Number theory is everywhere in cryptographic alogrithms and are fundamental to a
 
 Divisbility:
 When we say `b` divides `a` (written as `b|a`), we mean: You can divide `a` by `b` and get a whole number with no leftover.
-- 3 divides 12 because `12 ÷ 3 = 4` (no remainder) → We write this as 3|12
-- 5 divides 30 because `30 ÷ 5 = 6` (no remainder) → We write this as 5|30
-- 4 does NOT divide 15 because `15 ÷ 4 = 3` remainder 3 → We write this as 4∤15 (the crossed-out | means "does not divide")
+- 3 divides 12 because `12 ÷ 3 = 4` (no remainder) → We write this as `3|12`
+- 5 divides 30 because `30 ÷ 5 = 6` (no remainder) → We write this as `5|30`
+- 4 does NOT divide 15 because `15 ÷ 4 = 3` remainder 3 → We write this as `4∤15` (the crossed-out | means "does not divide")
 
 NOTE: The Divisibility Statement vs. Actual Division:
 `7|14` is NOT an equation that equals something. It's a statement that means "7 divides 14" - and this statement is either TRUE or FALSE. 7|14 = TRUE (because 7 does divide 14 evenly)
