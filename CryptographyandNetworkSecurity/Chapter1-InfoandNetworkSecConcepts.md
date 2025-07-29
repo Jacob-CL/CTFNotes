@@ -135,12 +135,13 @@ requirement.
   c. Give an example in which system availability is the most important requirement.
 
 1.4 For each of the following assets, assign a low, moderate, or high impact level for the loss of confidentiality, availability, and integrity, respectively. Justify your answers.
-  a. A student maintaining a blog to post public information.
-  b. An examination section of a university that is managing sensitive information about exam papers.
-  c. An information system in a pathological laboratory maintaining the patient's data.
+
+  a. A student maintaining a blog to post public information
+  b. An examination section of a university that is managing sensitive information about exam papers
+  c. An information system in a pathological laboratory maintaining the patient's data
   d. A student information system used for maintaining student data in a university that contains both personal,
-academic information and routine administrative information (not privacy related). Assess the impact for the two data sets separately and the information system as a whole.
-  e. A university library contains a library management system, which controls the distribution of books among the students of various departments. The library management system contains both the student data and the book data. Assess the impact for the two data sets separately and the information system as a whole.
+academic information and routine administrative information (not privacy related). Assess the impact for the two data sets separately and the information system as a whole
+e. A university library contains a library management system, which controls the distribution of books among the students of various departments. The library management system contains both the student data and the book data. Assess the impact for the two data sets separately and the information system as a whole.
   
 1.5 If you work with a Linux server, what are the three significant steps you must take in order to secure it?
 
