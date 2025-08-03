@@ -9,26 +9,51 @@
 - Modern day 'classical computers' can not / will not be able to break RSA. Silicon chips will continue to get faster as the years pass, doubling in speed roughly every eighteen months, but this is not enough to make a real impact on the speed of factoring – cryptanalysts require a technology that is billions of times faster than current computers.
 - "Anyone who can comtemplate quantum mechanics without getting dizzy hasn't understood it" - Neils Bohr
 - Classical physics can explain the orbits of planets or the trajectory of a cannonball, but cannot fully describe the world of the truly tiny, such as the trajectory of a photon.
-- In an effort to explain what might be going on there is Quantum theory. Which is an explanation of how objects behave at the microscopic level and quantum theorists are divided into 2 camps:
+
+# Double-slit experiment
+This experiment is the foundation of all the weirdness in quantum mechanics.
+1.  You shoot individual photons of light at a barrier with two parallel slits, and there's a screen behind it to see where the light hits.
+2.  That photon SHOULD go through either the left or right slit and on the wall behind, you'll see a bright light depending on which slit it passed through. What ends up happening is that you an interference pattern - multiple bright and dark stripes across the screen. This only happens when light behaves like a wave that goes through both slits simultaneously, and the waves interfere with each other. This happens whether you send a single photon or many (like a beam of light many)
+3.  Now, if you set up detectors to see which slit each photon actually goes through, the interference pattern disappears. Now the photons behave like particles and only go through one slit each, giving you just two bright lines.
+
+What this teaches us:
+- Particles aren't just particles - they're also waves
+- A single photon can be in multiple places simultaneously (superposition)
+- The act of measuring/observing changes reality itself
+- Things don't have definite properties until you measure them
+
+This experiment shows that quantum objects exist in all possible states until measurement forces them to "choose." It's the experimental proof that reality at the quantum level is fundamentally different from our everyday experience - and it's the foundation for everything from quantum computers to our understanding of atoms.
+
+There are 2 mainline theories in an effort to explain what might be going on here. Quantum theorists are divided into 2 camps:
 
 ## Superposition
-TL;DR: When you put a cat in the box and look away, the cat is in all states all at once until it is seen again.
+The Basic Mystery: We know a photon starts at point A and ends at point B, but we have no clue how it gets there. Since we can't track its path, quantum physicists say it takes every possible path at once - this is superposition.
 
-Begins with stating that we know only two things for certain about the photon - it leaves the filament and it strikes the screen. Everything else is a complete mysterym including whether the photon passed through the left or right slit. Because the exact path of the photon is unknown, superpositionists take the perculiar view that the photon somehow passes through both slits simultaneously which would then allow it intefere with itself and create the stripped pattern on the screen. But how can one photon pass through both slits? They argue that if we do not know what a particle is doing then it is alloweed to do everything possible all at once.
+Schrödinger's Cat Explains It:
+- Cat in box with 50% chance of dying
+- Until you look = cat is both alive AND dead simultaneously
+- When you look = cat "chooses" to be either alive OR dead
 
-Schrodingers cat is often used to help explain the concept of superposition. A cat is in a box with a device that has a 50% chance of killing it based on a quantum event (vial of cyanide). According to quantum mechanics, until you open the box and look, the cat is simultaneously both alive AND dead - existing in what's called a "superposition" of both states.
+Why This Matters for Computers:
+- Regular computers: Bits are like checking the cat - they're either 0 OR 1
+- Quantum computers: Qubits are like the unopened box - they're 0 AND 1 AND everything in between, all at once
 
-- Regular computers use bits that are either 0 OR 1 - like the cat being either alive OR dead after you check.
-- Quantum computers use "qubits" that can be in superposition - they're like Schrödinger's cat before you open the box. A qubit can be 0 AND 1 at the same time (or everything between) just like the cat can be alive AND dead simultaneously, it satisfies all possibilites, everything between 1 and 0, all at the same time.
-  
-So while a regular computer has to check each possibility one by one (like opening millions of boxes sequentially), a quantum computer can explore many possibilities simultaneously (like having millions of unopened boxes all containing cats that are both alive and dead). When the quantum computer finishes its calculation, it's like finally opening the box - the superposition collapses and you get your answer.
+The Power:
+- Regular computer: Opens millions of boxes one by one
+- Quantum computer: Keeps millions of boxes closed (so cats stay in superposition), processes all possibilities simultaneously, then "opens" them at the end for the answer
 
-Superposition only occurs when we lose sight of the object, and it is a way of describing an object during a period of ambiguity. The act of looking at the cat forces it  to be in one particular state and at that very moment the superposition disappears.
+The Key Rule:
+- Superposition only works when you're NOT looking. The moment you observe/measure something, it's forced to pick just one state and the superposition disappears. i.e if you can't see what something is doing, quantum mechanics says it's doing everything possible all at once - until you peek.
 
 ## Many-worlds 
-TL;DR: Cat in the box splits into many universes to represent each state and they somehow intefere with each other.
+The second quantum theory is that instead of the cat being both alive AND dead in one universe, the universe literally splits in two the moment you put the cat in the box. There is a universe where the cat is dead and one where it is alive. It explains the Photon Experiment by saying that when a photon approaches the two slits, the universe splits.
 
-The second camp of quantum theorists claims that once you put the cat in the box and look away, the universe divides into 2, one where the cat is alive and one where it is dead. These two universes somehow interfere with each other, which accounts for the striped pattern in the photon experiment. Followers of the many-worlds interpretation believe that whenever an object has the potential to enter one of several possible states, the universe splits into many universes, so that each potential is fulfilled in a different universe. This proliferation of universes is referred to as the multiverse.
+Then these parallel universes somehow "interfere" with each other (called quantum interference effects), creating the striped pattern we see. So essentially, every time anything could go multiple ways, reality branches:
+- Flip a coin → Universe where it's heads + Universe where it's tails
+- Every quantum event → Countless new universes
+- Result = An infinite "multiverse" of parallel realities
+
+So instead of saying "the cat is both alive and dead" like superposition, many-worlds says "there's a universe where the cat is alive AND a separate universe where the cat is dead, and both are equally real."
 
 ---
 
