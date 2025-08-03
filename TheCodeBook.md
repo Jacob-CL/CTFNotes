@@ -2,7 +2,8 @@
 ## Singh, Simon. The Code Book: The Secret History of Codes and Code-breaking. HarperCollins Publishers. Kindle Edition. 
 
 - Classical mechanics emerges from quantum mechanics. As size increases, wavelength decreases and becomes negligible to effecting itself.
-- As objects become large enough, their wavelength becomes negligible, it's wavelength is inversely proportional to an object's mass. The smaller the particles the more the wavelength effects it - hence why electrons are both particles AND waves, they're as significant as each other. 
+- As objects become large enough, their wavelength becomes negligible, it's wavelength is inversely proportional to an object's mass. The smaller the particles the more the wavelength effects it - hence why electrons are both particles AND waves, they're as significant as each other.
+- When observed its acts as a particle? When nont observed it acts like a wave?
 
 # Chapter 8 - A Quantum Leap into the Future
 - Previous experience has told us that every so-called unbreakabke cipher has, sooner or later, succumbed to cryptanalysis.
