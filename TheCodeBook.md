@@ -14,7 +14,7 @@
 This experiment is the foundation of all the weirdness in quantum mechanics.
 1.  You shoot individual photons of light at a barrier with two parallel slits, and there's a screen behind it to see where the light hits.
 2.  That photon SHOULD go through either the left or right slit and on the wall behind, you'll see a bright light depending on which slit it passed through. What ends up happening is that you an interference pattern - multiple bright and dark stripes across the screen. This only happens when light behaves like a wave that goes through both slits simultaneously, and the waves interfere with each other. This happens whether you send a single photon or many (like a beam of light many)
-3.  Now, if you set up detectors to see which slit each photon actually goes through, the interference pattern disappears. Now the photons behave like particles and only go through one slit each, giving you just two bright lines.
+3. **Now, if you set up detectors to see which slit each photon actually goes through, the interference pattern disappears. Now the photons behave like particles and only go through one slit each, giving you just two bright lines.**
 
 What this teaches us:
 - Particles aren't just particles - they're also waves
