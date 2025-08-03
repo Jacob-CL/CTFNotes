@@ -58,3 +58,6 @@ So instead of saying "the cat is both alive and dead" like superposition, many-w
 ---
 
 Either argument is crazy but theyre the only quantum theories allows physicists to calculate the consequences of nuclear reactions in power stations; only quantum theory can explain the wonders of DNA; only quantum theory explains how the sun shines; only quantum theory can be used to design the laser that reads the CDs in your stereo. Thus, like it or not, we live in a quantum world.
+
+NOTE: The same Thomas Young who helped decipher the Egyptian heiroglyphs (He figured out that some hieroglyphs represented sounds rather than just pictures or ideas) is the same Thomas Young who conducted the double-slit experiment around 1801-1803 that proved light behaves like a wave, laying crucial groundwork for quantum mechanics.
+
