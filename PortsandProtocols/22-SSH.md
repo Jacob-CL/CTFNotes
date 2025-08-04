@@ -22,3 +22,26 @@
 
 ## Notes
 - An SSH connection is typically much more stable than a reverse shell connection and can often be used as a "jump host" to enumerate and attack other hosts in the network, transfer tools, set up persistence, etc
+
+## SSH Field Manual
+| Description | Command |
+|-------------|---------|
+| File contains system-wide known hosts | `/etc/ssh/ssh_known_hosts` |
+| File contains previous hosts user has logged into | `~/.ssh/known_hosts` |
+| Generate SSH DSA keys | `ssh-keygen -t dsa -f <OUTPUT_PATH>` |
+| Generate SSH RSA keys | `ssh-keygen -t rsa -f <OUTPUT_PATH>` |
+| Upload a file using SSH | `scp <SOURCE_PATH> <USERNAME>@<IP_ADDRESS>:/<OUTPUT_PATH>` |
+| Download a file using SSH | `scp <USERNAME>@<IP_ADDRESS>:/<INPUT_PATH> <OUTPUT_PATH>` |
+| Connect to target via SSH over a non-standard port | `ssh <USERNAME>@<IP_ADDRESS> -p <PORT>` |
+
+## SETUP SSH KEYS
+
+| Description | Command |
+|-------------|---------|
+| (Run on local machine) Create SSH keys. After creation command should display where keys were saved with filename | `ssh-keygen` |
+| (Run on remote machine) | `mkdir ~/.ssh` |
+| Authorized_keys may already exist, if it doesn't, run this command | `touch ~/.ssh/authorized_keys` |
+| Copy the contents of id_rsa.pub to target remote machine's file: ~/.ssh/authorized_keys | Copy the contents of id_rsa.pub to target remote machine's file: `~/.ssh/authorized_keys` |
+| (Run on remote machine) | `chmod 700 /root/.ssh` |
+| Set permissions on newly created folders and files | `chmod 600 /root/.ssh/authorized_keys` |
+| (Run on local machine) Run SSH to connect to target. <FILE_PATH> is path to private key created above (NOT the .pub file) | `ssh -l <FILE_PATH> <USERNAME>@<IP_ADDRESS>` |
