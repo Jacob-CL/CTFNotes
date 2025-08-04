@@ -1,4 +1,4 @@
-<img width="1005" height="530" alt="image" src="https://github.com/user-attachments/assets/fc43b06c-83fd-4e70-a09a-a14ce8cfd12f" /># WINDOWS FIELD MANUAL
+# WINDOWS FIELD MANUAL
 ### Windows Administrative Binaries
 | Windows Administrative Binaries | |
 |----------------------------------|--------------------------------------------------|
