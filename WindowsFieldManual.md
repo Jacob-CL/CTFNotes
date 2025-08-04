@@ -156,3 +156,13 @@
 | Display system architecture - Presence of "Program Files (x86)" means 64-bit system | `dir \\<IP_ADDRESS>\c$` |
 
 ## Windows Data Mining
+## FILE INFO & SEARCHING
+
+| Description | Command |
+|-------------|---------|
+| Search for all PDFs | `dir /a /s /b C:\*.pdf*` |
+| Search current and subdirectories for .txt files for case insensitive string "password" | `findstr /SI password *.txt` |
+| Display file contents | `type <FILE_PATH>` |
+| Display all lines in a file that match case insensitive <STRING> | `find /I "<STRING_TO_SEARCH>" <FILE_PATH>` |
+| Display line count for a file | `type <FILE_PATH> | find /c /v ""` |
+| Enumerate recently opened files | `dir C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\Recent`<br><br>#Then run the following command on the .lnk:<br>`type <FILE_PATH>`<br><br>#Look for full file path in output |
