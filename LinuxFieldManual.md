@@ -1,10 +1,9 @@
-# LINUX BASICS
-
 Do we have write permissions on cron jobs?
   - `/etc/crontab`
   - `/etc/cron.d`
   - `/var/spool/cron/crontabs/root`
 
+# LINUX BASICS
 ### Linux Basic Commands
 | Description | Basic Commands |
 |-------------|----------------|
@@ -51,7 +50,7 @@ Do we have write permissions on cron jobs?
 
 ---
 
-### Linux Directories
+### Linux Directories / File Structure
 | Description | Directory |
 |:-------------|:-----------|
 | Anchor and root of the filesystem | `/` |
@@ -71,7 +70,7 @@ Do we have write permissions on cron jobs?
 
 ---
 
-### Im### Important Linux Files and Directories
+### Important Linux Files and Directories
 | Description | Important Files + Directories |
 |:-------------|:----------------|
 | User account information and password hashes | `/etc/shadow` |
@@ -200,6 +199,27 @@ Do we have write permissions on cron jobs?
 | Generate random file (example 3M file) | `dd if=/dev/urandom of=<OUTPUT_FILE_PATH> bs=3145728 count=100` |
 
 ---
+
+### MANIPULATE PACKAGES USING RPM (RED HAT)
+| Description | Command |
+|-------------|---------|
+| List all installed Redhat Packages | `rpm -qa` |
+| Install all Red Hat packages with a filename ending in .rpm in the current directory | `rpm -ivh *.rpm` |
+| Remove Red Hat Package | `rpm -e <PACKAGE_NAME>` |
+
+### MANIPULATE PACKAGES USING DPKG
+| Description | Command |
+|-------------|---------|
+| List all installed packages | `dpkg --get-selections` |
+| Install all packages with a filename ending in .deb in the current directory | `dpkg -i *.deb` |
+| Remove Package | `dpkg -r <PACKAGE_NAME>` |
+
+### UPDATE SYSTEM USING APT GET
+| Description | Command |
+|-------------|---------|
+| Updates repositories and available packages to prepare for OS/tool update | `apt-get update` |
+| Installs newer versions of packages if available (checks results of apt-get update) | `apt-get upgrade` |
+| Intelligently updates system, updating dependencies and removing older obsolete packages as needed | `apt-get dist-upgrade` |
 
 ### Linux File Hashing
 | Description | File Hashing |
