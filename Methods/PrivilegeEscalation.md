@@ -1,0 +1,6 @@
+## WINDOWS PRIVILEGE ESCALATION CHECKLIST
+- Enumerate all File Servers in a domain and net view to find open shares. Once all shares are located, enumerate all share files/folders for sensitive data such as: administrative info, credentials, user home directories, etc. Repeat against other systems in the domain (other server roles like database, web, etc.) which may have misconfigured network shares exposing sensitive data.
+- Enumerate PATH and then .DLL hijack (wlbsctrl or scheduler) if applicable.
+- Run open-source tool "SharpUp" to enumerate potential privilege escalation opportunities such as vulnerable paths, weak service information, and more.
+- Enumerate startup folder, user scheduled tasks, etc. Attempt to poison global shared scripts set to run at login.
+- Gain access to administrative shares and attempt to poison scripts run by administrators or macro enabled files.
