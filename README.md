@@ -36,8 +36,12 @@ HTB
 ### Git
 ```
 git clone https://github.com/Jacob-CL/Notes.git
+
+git add .
+git status
 git commit -m "message"
-git push
+git push origin main
+
 git pull (To merge GitHub repo with local)
 ```
 ### Files
