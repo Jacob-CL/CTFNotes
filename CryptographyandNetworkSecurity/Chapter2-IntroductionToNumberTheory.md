@@ -48,3 +48,29 @@ To explain the combination rule more:
 The coefficents can be any integer you want
 
 ### The Division Algorithm:
+- Positive integers: 1, 2, 3, 4, 5, ... (greater than 0)
+- Nonnegative integers: 0, 1, 2, 3, 4, 5, ... (greater than or equal to 0)
+
+The Division Algorithm is simply a formal way to describe what happens when you divide any integer by a positive integer. Here's the simple explanation:
+
+When you divide any integer `a` by any positive integer `n`, you always get:
+- A quotient `q` (how many times n goes into a)
+- A remainder `r` (what's left over)
+
+The formula is `a = qn + r` where the remainder `r` must satisfy: `0 ≤ r < n`
+
+### TL;DR
+Any number equals (some whole number times the divisor) plus a remainder that's always smaller than the divisor
+Positive example: `11 ÷ 7`
+```
+11 = (1 × 7) + 4
+Quotient q = 1, Remainder r = 4
+Check: 4 < 7 ✓
+```
+Negative example: `-11 ÷ 7`
+```
+-11 = (-2 × 7) + 3
+Quotient q = -2, Remainder r = 3
+Check: 3 < 7 ✓ (remainder is still positive!)
+```
+The remainder is always non-negative and always smaller than the divisor, even when dividing negative numbers. This is what makes the algorithm "work" consistently. This guarantees that every division has a unique quotient and remainder, which is fundamental for number theory, computer science, and many mathematical proofs.
