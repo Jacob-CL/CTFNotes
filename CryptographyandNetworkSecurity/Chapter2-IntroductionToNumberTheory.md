@@ -14,8 +14,7 @@ If you wanted to find all divisors for the number `24`:
 - 2 goes into 24 (12 times)
 - 3 goes into 24 (8 times)
 - 4 goes into 24 (6 times)
-- 5 does not go in to 24 
-- etc
+- 5 does not go in to 24
 
 IMPORTANT NOTE: The Divisibility Statement vs. Actual Division:
 `7|14` is NOT an equation that equals something. It's a statement that means "7 divides 14" - and this statement is either TRUE or FALSE. 7|14 = TRUE (because 7 does divide 14 evenly)
@@ -59,7 +58,7 @@ When you divide any integer `a` by any positive integer `n`, you always get:
 
 The formula is `a = qn + r` where the remainder `r` must satisfy: `0 ≤ r < n`
 
-### TL;DR
+#### TL;DR
 Any number equals (some whole number times the divisor) plus a remainder that's always smaller than the divisor
 Positive example: `11 ÷ 7`
 ```
@@ -74,3 +73,45 @@ Quotient q = -2, Remainder r = 3
 Check: 3 < 7 ✓ (remainder is still positive!)
 ```
 The remainder is always non-negative and always smaller than the divisor, even when dividing negative numbers. This is what makes the algorithm "work" consistently. This guarantees that every division has a unique quotient and remainder, which is fundamental for number theory, computer science, and many mathematical proofs.
+
+### 2.2 The Euclid Algorithm
+- The Euclidean Algorithm is a simple way to find the Greatest Common Divisor (GCD) of two numbers. The basic idea is that instead of listing all factors, you use **repeated division** and focus on the **remainders**.
+- One of the basic techniques of number theory is the Euclidean Algorithm, which is a simple procedure for determining the greatest common divisor of two positive integers. First, we need a simple definition: Two integers are **relatively prime** if and only if their only common positive integer factor is 1.
+
+The process:
+1. Divide the larger number by the smaller number
+1. Look at the remainder
+1. Replace the larger number with the smaller number, and the smaller number with the remainder
+1. Repeat until the remainder is 0
+1. The last non-zero remainder is your GCD!
+
+Simple Example: Find GCD(710, 310)
+- Step 1: `710 ÷ 310 = 2` remainder `90`
+  - So: `710 = 2 × 310 + 90`
+- Step 2: `310 ÷ 90 = 3` remainder `40`
+  - So: `310 = 3 × 90 + 40`
+- Step 3: `90 ÷ 40 = 2` remainder `10`
+  - So: `90 = 2 × 40 + 10`
+- Step 4: `40 ÷ 10 = 4` remainder `0`
+  - So: `40 = 4 × 10 + 0`
+Since remainder = `0`, we STOP! Answer: `GCD(710, 310) = 10` Therefore, keep dividing and using remainders, the remainders get smaller and smaller and eventually you hit `0`, the step before 0 gives you the GCD.
+
+### 2.3 Modular Arithmetic
+Modular Arithmetic is basically "clock arithmetic" - it's about what happens when numbers "wrap around" after reaching a certain point.
+- `a mod n` = the remainder when you divide `a` by `n`
+Examples:
+- `17 mod 12 = 5` (because 17 ÷ 12 = 1 remainder 5)
+- `25 mod 7 = 4` (because 25 ÷ 7 = 3 remainder 4)
+- `10 mod 3 = 1` (because 10 ÷ 3 = 3 remainder 1)
+
+`a ≡ b (mod n)` means `a` and `b` have the same remainder when divided by `n`
+Examples:
+- `17 ≡ 5 (mod 12)` because both 17 and 5 give remainder 5 when divided by 12
+- `25 ≡ 4 (mod 7)` because both 25 and 4 give remainder 4 when divided by 7
+
+Real-World Examples:
+- Days of the week (mod `7`):
+- Today is Tuesday (day `2`)
+What day is it 10 days from now?
+- `2 + 10 = 12`
+- `12 mod 7 = 5` → Friday!
