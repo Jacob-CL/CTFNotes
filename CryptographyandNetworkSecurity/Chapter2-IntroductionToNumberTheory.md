@@ -115,3 +115,28 @@ Real-World Examples:
 What day is it 10 days from now?
 - `2 + 10 = 12`
 - `12 mod 7 = 5` → Friday!
+
+### 2.4 Prime Numbers
+A prime number is a whole number greater than 1 that can only be divided evenly by 1 and itself. (Except 1)
+- Prime: 2, 3, 5, 7, 11, 13, 17, 19, 23... (2 is the only even prime number)
+- Not Prime: 4 (divisible by 2), 6 (divisible by 2 and 3), 9 (divisible by 3)
+- There are infinite number of primes (proven by Euclid)
+
+The Fundamental Theorem of Arithmetic is that every number can be broken down into prime factors in exactly one way, think of it like: every number has a unique "DNA" made of primes:
+- `12 = 2² × 3`
+- `30 = 2 × 3 × 5`
+- `100 = 2² × 5²`
+
+Relatively Prime (Coprime) are two numbers which are "relatively prime" if their only common factor is 1
+- `8` and `15` are relatively prime (even though 8 isn't prime)
+- `GCD(8, 15) = 1`
+
+Prime Factorization is breaking numbers into their prime building blocks:
+- `60 = 2² × 3 × 5`
+- `84 = 2² × 3 × 7`
+
+Cryptography / hash functions relies on the difficulty of factoring huge numbers e.g RSA encryption uses very large prime numbers.
+
+### 2.5 Fermat's and Euler's Theorems
+These 2 theorems play an important rtole in public-key cryptography.
+  
