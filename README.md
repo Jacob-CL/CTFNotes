@@ -33,6 +33,11 @@ HTB
 - https://academy.hackthebox.com/dashboard
  
 # COMMON CODE SNIPPETS
+
+### /etc/hosts
+```
+echo "192.168.1.100 example.com" | sudo tee -a /etc/hosts
+```
 ### Git
 ```
 git clone https://github.com/Jacob-CL/Notes.git
@@ -89,7 +94,7 @@ nc -lvnp 4444
 ```
 ### Find all files recursively
 ```
-find . -type f
+find . | grep -i ""
 ```
 
 ---
