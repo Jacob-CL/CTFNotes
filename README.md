@@ -30,7 +30,8 @@ Kernel
 Kindle Books
 
 HTB
-- https://academy.hackthebox.com/dashboard
+- [Academy](https://academy.hackthebox.com/dashboard)
+- [Labs](https://app.hackthebox.com/home)
  
 # COMMON CODE SNIPPETS
 
