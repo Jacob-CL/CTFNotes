@@ -37,11 +37,11 @@ sudo airodump-ng wlan1mon --band a -w dump
 ### Visualize APs and Clients with:
 Use airodump-ng `.csv`s
 ```
-sudo airgraph-ng -i HTB-01.csv -g CAPR -o HTB_CAPR.png
+sudo airgraph-ng -i dump-01.csv -g CAPR -o dumpCAPR.png
 ```
 OR for CPG:
 ```
-sudo airgraph-ng -i HTB-01.csv -g CPG -o HTB_CPG.png
+sudo airgraph-ng -i HTB-01.csv -g CPG -o dumpCPG.png
 ```
 
 ---
