@@ -21,11 +21,13 @@ sudo airmon-ng check kill
 ```
 sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
 ```
-Dump network traffic to file: (airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
+### Dump network traffic to file:
+(airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
 sudo airodump-ng wlan1mon --band a -w dump
 ```
-Visualize APs and Clients with: (Use airodump-ng .csvs)
+### Visualize APs and Clients with:
+(Use airodump-ng .csvs)
 ```
 sudo airgraph-ng -i HTB-01.csv -g CAPR -o HTB_CAPR.png
 ```
@@ -33,7 +35,7 @@ OR for CPG:
 ```
 sudo airgraph-ng -i HTB-01.csv -g CPG -o HTB_CPG.png
 ```
-Rasberry Pi MAC address ranges:
+### Rasberry Pi MAC address ranges:
 ```
 28:CD:C1:xx:xx:xx
 B8:27:EB:xx:xx:xx
