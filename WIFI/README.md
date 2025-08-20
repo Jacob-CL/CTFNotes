@@ -30,6 +30,18 @@ DC:A6:32:xx:xx:xx
 E4:5F:01:xx:xx:xx
 ```
 
+Put `wlan1` into Monitor mode:
+```
+sudo ip link set wlan1 down
+```
+```
+sudo iw dev wlan1 set type monitor
+```
+```
+sudo ip link set wlan1 up
+```
+
+
 ---
 
 Configuring the Alpha AWUS036ACH Wi-Fi Adapter - [Link](https://medium.com/@wicked_picker/configuring-the-alpha-awus036ach-wi-fi-adapter-on-kali-linux-eb5ec2826713)
