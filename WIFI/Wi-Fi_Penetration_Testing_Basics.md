@@ -28,3 +28,12 @@ This is the typical connection process between clients and access points and the
 4. `Association Request and Response` = After sending an authentication request and undergoing the authentication process, the client sends an association request to the access point. The access point then responds with an association response to indicate whether the client is able to associate with it or not: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 1)`
 5. Some form of handshake or other security mechanism: `eapol`
 6. `Disassociation/Deauthentication` = Disassociation and Deauthentication frames are sent from the access point to the client. Similar to their inverse frames (association and authentication), they are designed to terminate the connection between the access point and the client. These frames additionally contain what is known as a reason code. This reason code indicates why the client is being disconnected from the access point. We utilize crafting these frames for many handshake captures and denial of service based attacks during wi-fi penetration testing efforts: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 12) or (wlan.fc.type_subtype == 10)`
+
+## Authentication Methods
+<img width="1440" height="896" alt="image" src="https://github.com/user-attachments/assets/d4be27f5-614c-450a-966e-0b152f3b8df3" />
+
+Shared Key Authentication:
+<img width="1440" height="536" alt="image" src="https://github.com/user-attachments/assets/f7d05558-a538-4d05-94c5-ed5c63a3c47d" />
+
+
+
