@@ -40,7 +40,14 @@ sudo iw dev wlan1 set type monitor
 ```
 sudo ip link set wlan1 up
 ```
-
+OR:
+```
+sudo airmon-ng start wlan1
+```
+And to stop it:
+```
+sudo airmon-ng stop wlan1mon
+```
 
 ---
 
