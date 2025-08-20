@@ -6,6 +6,10 @@ Start interface in monitor mode:
 ```
  sudo airmon-ng start wlan0
 ```
+Stop monitor mode:
+```
+sudo airmon-ng stop wlan0mon
+```
 If things are weird:
 ```
 sudo airmon-ng check
