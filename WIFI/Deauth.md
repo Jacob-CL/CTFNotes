@@ -62,7 +62,7 @@ sudo aireplay-ng -0 5 -a ACCESSPOINT-BSSID -c CLIENT-BSSID wlan1mon
 
 ---
 
-## NOTE
+## -- NOTES
 You have to be on the same channel as the AP you're deauthing, change it with:
 ```
 sudo iwconfig wlan1mon channel 149
