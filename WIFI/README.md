@@ -48,6 +48,19 @@ And to stop it:
 ```
 sudo airmon-ng stop wlan1mon
 ```
+Dump network traffic to file: (airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band`
+```
+sudo airodump-ng wlan1mon --band a -w dump
+```
+Visualize APs and Clients with: (Use airodump-ng .csvs)
+```
+sudo airgraph-ng -i HTB-01.csv -g CAPR -o HTB_CAPR.png
+```
+OR for CPG:
+```
+sudo airgraph-ng -i HTB-01.csv -g CPG -o HTB_CPG.png
+```
+
 
 ---
 
