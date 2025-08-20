@@ -98,7 +98,10 @@ nc -lvnp 4444
 ```
 find . | grep -i ""
 ```
-
+### Enable BlueTooth
+```
+sudo systemctl enable bluetooth.service
+```
 ---
 
 # NETWORKING
