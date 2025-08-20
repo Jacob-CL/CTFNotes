@@ -1,1 +1,4 @@
-# Wifi HTB modules
+# WI-FI CODE SNIPPETS
+```
+iwconfig
+```
