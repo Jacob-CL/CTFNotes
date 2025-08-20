@@ -68,7 +68,18 @@ If we prefer to change the frequency directly rather than adjusting the channel,
 `Managed Mode`: Managed mode is when we want our interface to act as a client or a station - this is normal / standard. To change it to Managed Mode:
 - `sudo ifconfig wlan0 down` | ` sudo iwconfig wlan0 mode managed` | `sudo ifconfig wlan0 up`
 - Then to connect to a network: `sudo iwconfig wlan0 essid WIFINAME`
+- Always can see the setting enabled with `sudo iwconfig`
 
+`Ad-hoc Mode`:  Essentially this mode is peer to peer and allows wireless interfaces to communicate directly to one another. This mode is commonly found in most residential mesh systems for their backhaul bands.
+- `sudo iwconfig wlan0 mode ad-hoc` | Connect with: `sudo iwconfig wlan0 essid HTB-Mesh` | `sudo iwconfig`
+
+`Master Mode`: The opposite to Managed Mode, but we can't set this with any command. It's enabled with some management daemon file.
+
+`Mesh mode`: We can set our interface to join a self-configuring and routing network. This mode is commonly used for business applications where there is a need for large coverage across a physical space.
+- `sudo iw dev wlan0 set type mesh`
+
+`Monitor Mode`: In this mode, the network interface can capture all wireless traffic within its range, regardless of the intended recipient. Unlike normal operation, where the interface only captures packets addressed to it or broadcasted, monitor mode enables comprehensive network monitoring and analysis.
+- `iwconfig` | `sudo ifconfig wlan0 down` | `sudo iw wlan0 set monitor control` | `sudo ifconfig wlan0 up` | `iwconfig`
 
 
 
