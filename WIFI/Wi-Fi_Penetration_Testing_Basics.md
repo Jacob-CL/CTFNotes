@@ -22,9 +22,9 @@ When it comes to wifi pentesting you're
 
 ## The Connection Cycle
 This is the typical connection process between clients and access points and their WireShark filters:
-1. Beacon Frames: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 8)`
-2. Probe Request and Response: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 4)` | `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 5)`
-3. Authentication Request and Response: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 11)` | `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 0)`
-4. Association Request and Response: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 1)`
+1. `Beacon Frames` = Beacon frames are primarily used by the access point to communicate its presence to the client or station. It includes information such as supported ciphers, authentication types, its SSID, and supported data rates among others: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 8)`
+2. `Probe Request and Response` = The probe request and response process exist to allow the client to discover nearby access points. Simply put, if a network is hidden or not hidden, a client will send a probe request with the SSID of the access point. The access point will then respond with information about itself for the client: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 4)` | `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 5)`
+3. `Authentication Request and Response` = Authentication requests are sent by the client to the access point to begin the connection process. These frames are primarily used to identify the client to the access point: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 11)` | `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 0)`
+4. `Association Request and Response` = After sending an authentication request and undergoing the authentication process, the client sends an association request to the access point. The access point then responds with an association response to indicate whether the client is able to associate with it or not: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 1)`
 5. Some form of handshake or other security mechanism: `eapol`
-6. Disassociation/Deauthentication: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 12) or (wlan.fc.type_subtype == 10)`
+6. `Disassociation/Deauthentication` = Disassociation and Deauthentication frames are sent from the access point to the client. Similar to their inverse frames (association and authentication), they are designed to terminate the connection between the access point and the client. These frames additionally contain what is known as a reason code. This reason code indicates why the client is being disconnected from the access point. We utilize crafting these frames for many handshake captures and denial of service based attacks during wi-fi penetration testing efforts: `(wlan.fc.type == 0) && (wlan.fc.type_subtype == 12) or (wlan.fc.type_subtype == 10)`
