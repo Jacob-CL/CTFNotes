@@ -35,5 +35,41 @@ This is the typical connection process between clients and access points and the
 Shared Key Authentication:
 <img width="1440" height="536" alt="image" src="https://github.com/user-attachments/assets/f7d05558-a538-4d05-94c5-ed5c63a3c47d" />
 
+WPA uses a form of authN that includes a 4-way handshake, usually replacing the association process with more verbose verification but at a high level:
+1. `Authentication Request`: The client sends an authentication request to the AP to initiate the authentication process.
+2. `Authentication Response`: The AP responds with an authentication response, which indicates that it is ready to proceed with authentication.
+3. `Pairwise Key Generation`: The client and the AP then calculate the PMK from the PSK (password).
+4. `Four-Way Handshake`: The client and access point then undergo each step of the four way handshake, which involves nonce exchange, derivation, among other actions to verify that the client and AP truly know the PSK
+
+## Wi-fi Interfaces
+Computers transit and receive data through these interfaces. [Airgeddon](https://github.com/v1s1t0r1sh3r3/airgeddon/wiki/Cards%20and%20Chipsets) offers a comprehensive list of Wi-Fi adapters based on their performance.
+- Check strength with `iwconfig` --> see `Tx-Power`. We can change the country with something like `sudo iw reg set US` to utilize a greater power but it may be illegal. The interface will automatically set its power to the maximum in our region but check in case.
+
+You can manually change the `txpower`:
+- Bring the interface down: `sudo ifconfig wlan0 down`
+- Set `txpower`: `sudo iwconfig wlan0 txpower 30`
+- Bring it back: `sudo ifconfig wlan0 up`
+- FInally check to see it yourself: `iwconfig`
+
+To see what the interface is capable of run: `iw list`
+Scan available Wifi networks: `iwlist wlan0 scan | grep 'Cell\|Quality\|ESSID\|IEEE'`
+
+## Configure Channels
+See all available channels for the wireless interface: `iwlist wlan0 channel`
+To then change to a particular channel, first disable: `sudo ifconfig wlan0 down` then `sudo iwconfig wlan0 channel 64` then `sudo ifconfig wlan0 up`, check with `iwlist wlan0 channel`
+If we prefer to change the frequency directly rather than adjusting the channel, we have the option to do so as well: 
+- Check with `iwlist wlan0 frequency | grep Current`
+- Then `sudo ifconfig wlan0 down`
+- `sudo iwconfig wlan0 freq "5.52G"`
+- `sudo ifconfig wlan0 up`
+- `iwlist wlan0 frequency | grep Current`
+
+## Interface Nodes
+`Managed Mode`: Managed mode is when we want our interface to act as a client or a station - this is normal / standard. To change it to Managed Mode:
+- `sudo ifconfig wlan0 down` | ` sudo iwconfig wlan0 mode managed` | `sudo ifconfig wlan0 up`
+- Then to connect to a network: `sudo iwconfig wlan0 essid WIFINAME`
+
+
+
 
 
