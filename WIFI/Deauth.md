@@ -17,10 +17,10 @@ sudo airmon-ng check kill
 ```
 sudo airmon-ng start wlan1
 ```
+Interface now is appended `mon` e.g `wlan1mon`
 
 ---
 
-Interface now is appended `mon` e.g `wlan1mon`
 ### Test for packet injection
 Once it's in monitor mode, run a test:
 ```
