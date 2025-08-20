@@ -5,6 +5,10 @@ iwconfig
 ```
 sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
 ```
+If things are weird:
+```
+sudo airmon-ng check kill
+```
 
 ---
 
@@ -42,14 +46,8 @@ sudo airgraph-ng -i HTB-01.csv -g CPG -o HTB_CPG.png
 
 ---
 
-### If things are weird:
-```
-sudo airmon-ng check
-```
-```
-sudo airmon-ng check kill
-```
-### Rasberry Pi MAC address ranges:
+# EXTRAS
+## Rasberry Pi MAC address ranges:
 ```
 28:CD:C1:xx:xx:xx
 B8:27:EB:xx:xx:xx
