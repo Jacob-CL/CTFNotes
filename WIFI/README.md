@@ -2,8 +2,12 @@
 ```
 iwconfig
 ```
+```
+sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
+```
 
 ---
+
 ## Airmon-ng
 ### Start monitor mode:
 ```
@@ -12,13 +16,6 @@ iwconfig
 ### Stop monitor mode:
 ```
 sudo airmon-ng stop wlan0mon
-```
-
----
-
-### List networks:
-```
-sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
 ```
 
 ---
