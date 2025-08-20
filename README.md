@@ -52,8 +52,9 @@ git pull (To merge GitHub repo with local)
 ```
 ### Files
 ```
-Open in VS Code: code filename.md
 Make a file: touch filename.md
+Open in VS Code: code filename.md
+Windows open file: start filename.md
 ```
 
 ### Python Virtual Environment
