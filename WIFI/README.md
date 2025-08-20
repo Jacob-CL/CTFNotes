@@ -22,12 +22,12 @@ sudo airmon-ng check kill
 sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
 ```
 ### Dump network traffic to file:
-(airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
+airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
 sudo airodump-ng wlan1mon --band a -w dump
 ```
 ### Visualize APs and Clients with:
-(Use airodump-ng .csvs)
+Use airodump-ng `.csv`s
 ```
 sudo airgraph-ng -i HTB-01.csv -g CAPR -o HTB_CAPR.png
 ```
