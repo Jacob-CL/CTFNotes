@@ -20,11 +20,19 @@ sudo airmon-ng stop wlan0mon
 ```
 sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
 ```
+
+---
+
+## Airodump-ng
 ### Dump network traffic to file:
 airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
 sudo airodump-ng wlan1mon --band a -w dump
 ```
+
+---
+
+## Airgraph-ng
 ### Visualize APs and Clients with:
 Use airodump-ng `.csv`s
 ```
