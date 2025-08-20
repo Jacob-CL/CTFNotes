@@ -29,3 +29,50 @@ D8:3A:DD:xx:xx:xx
 DC:A6:32:xx:xx:xx
 E4:5F:01:xx:xx:xx
 ```
+
+---
+
+Configuring the Alpha AWUS036ACH Wi-Fi Adapter - [Link](https://medium.com/@wicked_picker/configuring-the-alpha-awus036ach-wi-fi-adapter-on-kali-linux-eb5ec2826713)
+See available USBs:
+```
+lsusb
+```
+See it NOT here:
+```
+iwconfig
+```
+Install the Realtek drivers:
+```
+sudo apt-get install realtek-rtl88xxau-dkms
+```
+Install dkms:
+```
+sudo apt-get install dkms
+```
+Download the rtl8812au drivers from GitHub
+```
+git clone https://github.com/aircrack-ng/rtl8812au
+```
+```
+cd rtl8812au
+```
+Preemptively fix the error:
+```
+sudo apt-get install linux-headers-$(uname -r)
+```
+```
+make
+```
+```
+sudo make install
+```
+```
+reboot
+```
+```
+iwconfig
+```
+
+---
+
+
