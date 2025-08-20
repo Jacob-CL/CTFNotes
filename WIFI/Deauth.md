@@ -39,9 +39,6 @@ The top half are going to be the available WIFI networks / Access Points (APs). 
 
 ---
 
-
----
-
 ### Monitor traffic
 Once you've found your target, listen to it live with:
 ```
