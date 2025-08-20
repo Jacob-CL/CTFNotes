@@ -2,7 +2,10 @@
 ```
 iwconfig
 ```
-### Start interface in monitor mode:
+
+---
+
+### Start monitor mode:
 ```
  sudo airmon-ng start wlan1
 ```
@@ -10,13 +13,9 @@ iwconfig
 ```
 sudo airmon-ng stop wlan0mon
 ```
-### If things are weird:
-```
-sudo airmon-ng check
-```
-```
-sudo airmon-ng check kill
-```
+
+---
+
 ### List networks:
 ```
 sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
@@ -34,6 +33,16 @@ sudo airgraph-ng -i HTB-01.csv -g CAPR -o HTB_CAPR.png
 OR for CPG:
 ```
 sudo airgraph-ng -i HTB-01.csv -g CPG -o HTB_CPG.png
+```
+
+---
+
+### If things are weird:
+```
+sudo airmon-ng check
+```
+```
+sudo airmon-ng check kill
 ```
 ### Rasberry Pi MAC address ranges:
 ```
