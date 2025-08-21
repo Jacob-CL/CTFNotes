@@ -1,8 +1,15 @@
 # Deauthentication Attack
 ### Set router to max power
 ```
+sudo ifconfig wlan1mon down
+```
+```
 sudo iwconfig wlan1mon txpower 30
 ```
+```
+sudo ifconfig wlan1mon up
+```
+
 ---
 
 ### Check / kill:
