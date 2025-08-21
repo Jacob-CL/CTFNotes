@@ -3,7 +3,7 @@
 iwconfig
 ```
 ```
-sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE'
+sudo iwlist wlan0 s | grep 'Cell\|Quality\|ESSID\|IEEE' | tee wifi_scan.txt
 ```
 If things are weird:
 ```
