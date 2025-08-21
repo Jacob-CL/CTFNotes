@@ -103,6 +103,7 @@ airdecap-ng -p <passphrase> <capture-file> -e <essid>
 
 
 # EXTRAS
+Note that it is possible to connect to APs via CLI
 ## Rasberry Pi MAC address ranges:
 ```
 28:CD:C1:xx:xx:xx
