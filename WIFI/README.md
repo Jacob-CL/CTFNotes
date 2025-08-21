@@ -9,6 +9,10 @@ If things are weird:
 ```
 sudo airmon-ng check kill
 ```
+&
+```
+sudo systemctl restart NetworkManager
+```
 
 ---
 
