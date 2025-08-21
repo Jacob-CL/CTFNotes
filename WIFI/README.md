@@ -48,8 +48,59 @@ OR for CPG:
 ```
 sudo airgraph-ng -i HTB-01.csv -g CPG -o dumpCPG.png
 ```
+Test with: (Injection Working!)
+```
+sudo aireplay-ng --test wlan0mon
+```
 
 ---
+
+## Aireplay-ng
+```
+aireplay-ng
+```
+```
+sudo aireplay-ng -0 5 -a ACCESSPOINTBSSID -c CLIENTBSSID wlan1mon
+```
+
+---
+
+## Aircrack-ng
+Benchmark with this command, it will tell you how many passphrases you can crack a second, it's dependent on what else is using the CPU:
+```
+aircrack-ng -S
+```
+Crack WEP Key, use `--ivs` in aurodump-ng command to only capture the IVs (Initialization Vectors). Once enough are captured:
+```
+aircrack-ng -K HTB.ivs
+```
+Crack WPA, make sure the "four-way handshake" is in the `.pcap` by deauthing client from AP.
+```
+aircrack-ng HTB.pcap -w /opt/wordlist.txt
+```
+
+---
+
+## Airdecap-ng
+Need network passphrase / WEP Key and the `.pcap` file of captured traffic
+```
+airdecap-ng
+```
+Decrypt WEP
+```
+airdecap-ng -w <WEP-key> <capture-file>
+```
+Decrypt WPA:
+```
+airdecap-ng -p <passphrase> <capture-file> -e <essid>
+```
+
+---
+
+
+
+
+
 
 # EXTRAS
 ## Rasberry Pi MAC address ranges:
