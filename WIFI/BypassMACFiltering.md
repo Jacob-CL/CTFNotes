@@ -44,22 +44,22 @@ airodump-ng wlan1mon --band agp -w dump
 
 See MAC address
 ```
-sudo macchanger wlan1mon
+macchanger wlan1mon
 ```
 What is on 2.4? 5? Hidden Networks? What's clients are connected to what APs?
 Change MAC address:
 ```
-sudo ifconfig wlan1mon down
+ifconfig wlan1mon down
 ```
 ```
-sudo macchanger wlan1 -m 3E:48:72:B7:62:2A
+macchanger wlan1 -m 3E:48:72:B7:62:2A
 ```
 ```
-sudo ifconfig wlan1mon up
+ifconfig wlan1mon up
 ```
 Check changes made:
 ```
-sudo macchanger wlan1mon
+macchanger wlan1mon
 ```
 OR:
 ```
