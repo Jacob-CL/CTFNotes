@@ -21,6 +21,10 @@ Start monitor mode:
 ```
 airmon-ng start wlan1
 ```
+Save what's out there and save to a file:
+```
+airodump-ng wlan1mon --band agp -w dump
+```
 
 ---
 
