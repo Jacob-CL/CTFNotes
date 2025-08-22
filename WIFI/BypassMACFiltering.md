@@ -29,9 +29,15 @@ Start monitor mode:
 ```
 airmon-ng start wlan1
 ```
+Run a test:
+```
+aireplay-ng --test wlan1mon
+```
+Should see `Injection is working!`
+
 Save what's out there and save to a file:
 ```
-sudo airodump-ng wlan1mon --band agp -w dump
+airodump-ng wlan1mon --band agp -w dump
 ```
 
 ---
