@@ -1,6 +1,8 @@
 # WI-FI CODE SNIPPETS
 
-## The Setup
+---
+
+## Setup
 Set router to max power
 ```
 ifconfig wlan1 down
