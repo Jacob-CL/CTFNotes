@@ -43,24 +43,24 @@ airodump-ng wlan1mon --band agp -w dump
 ```
 
 ## Airmon-ng
-### Start monitor mode:
+Start monitor mode:
 ```
 airmon-ng start wlan1
 ```
-### Stop monitor mode:
+Stop monitor mode:
 ```
 airmon-ng stop wlan0mon
 ```
 
 ## Airodump-ng
-### Dump network traffic to file:
+Dump network traffic to file:
 airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
 airodump-ng wlan1mon --band a -w dump
 ```
 
 ## Airgraph-ng
-### Visualize APs and Clients with:
+Visualize APs and Clients with:
 Use airodump-ng `.csv`s
 ```
 airgraph-ng -i dump-01.csv -g CAPR -o dumpCAPR.png
