@@ -8,8 +8,6 @@ To connect to the same frequency, forcibly disconnect the legitimate client via 
 ### NOTE
 Occasionally, when configuring our MAC address to match that of a client or access point, we may encounter collision events at the data-link layer. This technique of bypassing MAC filtering is most effective when the client we're mimicking is not currently connected to our target network. However, there are instances where these collision events become advantageous to us, serving as a means of denial-of-service (DOS) attack. In the case of a dual-band or multiple access point network, we may be able to utilize a MAC address of a client connected to a separate access point within the same wireless infrastructure.
 
----
-
 ## Setup
 Set router to max power
 ```
@@ -23,28 +21,26 @@ ifconfig wlan1 up
 ```
 Preemptively kill everything that gets in your way:
 ```
-airmon-ng check kill
+sudo airmon-ng check kill
 ```
 Start monitor mode:
 ```
-airmon-ng start wlan1
+sudo airmon-ng start wlan1
 ```
 Run a test:
 ```
-aireplay-ng --test wlan1mon
+sudo aireplay-ng --test wlan1mon
 ```
 Should see `Injection is working!`
 
 Save what's out there and save to a file:
 ```
-airodump-ng wlan1mon --band agp -w dump
+sudo airodump-ng wlan1mon --band agp -w dump
 ```
-
----
 
 See MAC address
 ```
-macchanger wlan1mon
+sudo macchanger wlan1mon
 ```
 What is on 2.4? 5? Hidden Networks? What's clients are connected to what APs?
 Change MAC address:
@@ -52,14 +48,14 @@ Change MAC address:
 ifconfig wlan1mon down
 ```
 ```
-macchanger wlan1 -m 3E:48:72:B7:62:2A
+sudo macchanger wlan1 -m 3E:48:72:B7:62:2A
 ```
 ```
 ifconfig wlan1mon up
 ```
 Check changes made:
 ```
-macchanger wlan1mon
+sudo macchanger wlan1mon
 ```
 OR:
 ```
