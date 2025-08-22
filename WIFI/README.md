@@ -2,6 +2,21 @@
 
 ---
 
+## MISC
+```
+iwconfig
+```
+Grab all networks nearby:
+```
+iwlist wlan1 s | grep 'Cell\|Quality\|ESSID\|IEEE\|Mode\|Frequency\|Channel\|Quality\|Signal Level' | tee wifi_scan.txt
+```
+Restart NetworkManager
+```
+systemctl restart NetworkManager
+```
+
+---
+
 ## Setup
 Set router to max power
 ```
@@ -30,24 +45,6 @@ Should see `Injection is working!`
 Save what's out there and save to a file:
 ```
 airodump-ng wlan1mon --band agp -w dump
-```
-
----
-
-```
-iwconfig
-```
-Grab all networks nearby:
-```
-iwlist wlan1 s | grep 'Cell\|Quality\|ESSID\|IEEE\|Mode\|Frequency\|Channel\|Quality\|Signal Level' | tee wifi_scan.txt
-```
-If things are weird:
-```
-airmon-ng check kill
-```
-&
-```
-systemctl restart NetworkManager
 ```
 
 ---
