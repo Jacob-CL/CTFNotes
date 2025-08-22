@@ -26,6 +26,7 @@ Run a test:
 aireplay-ng --test wlan1mon
 ```
 Should see `Injection is working!`
+
 Save what's out there and save to a file:
 ```
 airodump-ng wlan1mon --band agp -w dump
