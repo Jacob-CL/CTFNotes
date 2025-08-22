@@ -27,15 +27,15 @@ iwconfig
 ```
 Grab all networks nearby:
 ```
-sudo iwlist wlan1 s | grep 'Cell\|Quality\|ESSID\|IEEE\|Mode\|Frequency\|Channel\|Quality\|Signal Level' | tee wifi_scan.txt
+iwlist wlan1 s | grep 'Cell\|Quality\|ESSID\|IEEE\|Mode\|Frequency\|Channel\|Quality\|Signal Level' | tee wifi_scan.txt
 ```
 If things are weird:
 ```
-sudo airmon-ng check kill
+airmon-ng check kill
 ```
 &
 ```
-sudo systemctl restart NetworkManager
+systemctl restart NetworkManager
 ```
 
 ---
@@ -43,11 +43,11 @@ sudo systemctl restart NetworkManager
 ## Airmon-ng
 ### Start monitor mode:
 ```
- sudo airmon-ng start wlan1
+airmon-ng start wlan1
 ```
 ### Stop monitor mode:
 ```
-sudo airmon-ng stop wlan0mon
+airmon-ng stop wlan0mon
 ```
 
 ---
@@ -56,7 +56,7 @@ sudo airmon-ng stop wlan0mon
 ### Dump network traffic to file:
 airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
-sudo airodump-ng wlan1mon --band a -w dump
+airodump-ng wlan1mon --band a -w dump
 ```
 
 ---
@@ -65,15 +65,15 @@ sudo airodump-ng wlan1mon --band a -w dump
 ### Visualize APs and Clients with:
 Use airodump-ng `.csv`s
 ```
-sudo airgraph-ng -i dump-01.csv -g CAPR -o dumpCAPR.png
+airgraph-ng -i dump-01.csv -g CAPR -o dumpCAPR.png
 ```
 OR for CPG:
 ```
-sudo airgraph-ng -i HTB-01.csv -g CPG -o dumpCPG.png
+airgraph-ng -i HTB-01.csv -g CPG -o dumpCPG.png
 ```
 Test with: (Injection Working!)
 ```
-sudo aireplay-ng --test wlan0mon
+aireplay-ng --test wlan0mon
 ```
 
 ---
@@ -83,7 +83,7 @@ sudo aireplay-ng --test wlan0mon
 aireplay-ng
 ```
 ```
-sudo aireplay-ng -0 5 -a ACCESSPOINTBSSID -c CLIENTBSSID wlan1mon
+aireplay-ng -0 5 -a ACCESSPOINTBSSID -c CLIENTBSSID wlan1mon
 ```
 
 ---
