@@ -65,7 +65,7 @@ OR:
 ```
 ifconfig wlan1
 ```
-Connect to AP via GUI or CLI and verify connection with:
+Then attempt to connect to AP via GUI or CLI and verify connection with:
 ```
 ifconfig
 ```
