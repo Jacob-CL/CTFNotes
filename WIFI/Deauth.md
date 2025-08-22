@@ -68,5 +68,5 @@ iwconfig wlan1mon channel 149
 ### For list of attacks:
 We want `0` here
 ```
-aireplay-ng
+sudo aireplay-ng
 ```
