@@ -21,19 +21,15 @@ Start monitor mode:
 ```
 airmon-ng start wlan1
 ```
-Save what's out there and save to a file:
-```
-airodump-ng wlan1mon --band agp -w dump
-```
-
----
-
-### Test for packet injection
-Once it's in monitor mode, run a test:
+Run a test:
 ```
 aireplay-ng --test wlan1mon
 ```
 Should see `Injection is working!`
+Save what's out there and save to a file:
+```
+airodump-ng wlan1mon --band agp -w dump
+```
 
 ---
 
