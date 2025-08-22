@@ -1,4 +1,27 @@
 # WI-FI CODE SNIPPETS
+
+## The Setup
+Set router to max power
+```
+ifconfig wlan1 down
+```
+```
+iwconfig wlan1 txpower 30
+```
+```
+ifconfig wlan1 up
+```
+Preemptively kill everything that gets in your way:
+```
+airmon-ng check kill
+```
+Start monitor mode:
+```
+airmon-ng start wlan1
+```
+
+---
+
 ```
 iwconfig
 ```
