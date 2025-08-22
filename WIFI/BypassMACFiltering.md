@@ -10,31 +10,35 @@ Occasionally, when configuring our MAC address to match that of a client or acce
 
 ---
 
+## Setup
 Set router to max power
 ```
-sudo ifconfig wlan1 down
+ifconfig wlan1 down
 ```
 ```
-sudo iwconfig wlan1 txpower 30
+iwconfig wlan1 txpower 30
 ```
 ```
-sudo ifconfig wlan1 up
+ifconfig wlan1 up
 ```
 Preemptively kill everything that gets in your way:
 ```
-sudo airmon-ng check kill
-```
-See MAC address
-```
-sudo macchanger wlan1
+airmon-ng check kill
 ```
 Start monitor mode:
 ```
-sudo airmon-ng start wlan1
+airmon-ng start wlan1
 ```
-Save what's there to a file:
+Save what's out there to a file:
 ```
 sudo airodump-ng wlan1mon --band agp -w dump
+```
+
+---
+
+See MAC address
+```
+sudo macchanger wlan1mon
 ```
 What is on 2.4? 5? Hidden Networks? What's clients are connected to what APs?
 Change MAC address:
