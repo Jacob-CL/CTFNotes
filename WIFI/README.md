@@ -135,11 +135,11 @@ iwconfig
 ```
 Install the Realtek drivers:
 ```
-sudo apt-get install realtek-rtl88xxau-dkms
+apt-get install realtek-rtl88xxau-dkms
 ```
 Install dkms:
 ```
-sudo apt-get install dkms
+apt-get install dkms
 ```
 Download the rtl8812au drivers from GitHub
 ```
@@ -150,13 +150,13 @@ cd rtl8812au
 ```
 Preemptively fix the error:
 ```
-sudo apt-get install linux-headers-$(uname -r)
+apt-get install linux-headers-$(uname -r)
 ```
 ```
 make
 ```
 ```
-sudo make install
+make install
 ```
 ```
 reboot
