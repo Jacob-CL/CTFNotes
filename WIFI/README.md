@@ -1,7 +1,4 @@
 # WI-FI CODE SNIPPETS
-
----
-
 ## MISC
 ```
 iwconfig
@@ -14,8 +11,6 @@ Restart NetworkManager
 ```
 systemctl restart NetworkManager
 ```
-
----
 
 ## Setup
 Set router to max power
@@ -47,8 +42,6 @@ Save what's out there and save to a file:
 airodump-ng wlan1mon --band agp -w dump
 ```
 
----
-
 ## Airmon-ng
 ### Start monitor mode:
 ```
@@ -59,16 +52,12 @@ airmon-ng start wlan1
 airmon-ng stop wlan0mon
 ```
 
----
-
 ## Airodump-ng
 ### Dump network traffic to file:
 airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
 airodump-ng wlan1mon --band a -w dump
 ```
-
----
 
 ## Airgraph-ng
 ### Visualize APs and Clients with:
@@ -85,8 +74,6 @@ Test with: (Injection Working!)
 aireplay-ng --test wlan0mon
 ```
 
----
-
 ## Aireplay-ng
 ```
 aireplay-ng
@@ -94,8 +81,6 @@ aireplay-ng
 ```
 aireplay-ng -0 5 -a ACCESSPOINTBSSID -c CLIENTBSSID wlan1mon
 ```
-
----
 
 ## Aircrack-ng
 Benchmark with this command, it will tell you how many passphrases you can crack a second, it's dependent on what else is using the CPU:
@@ -111,8 +96,6 @@ Crack WPA, make sure the "four-way handshake" is in the `.pcap` by deauthing cli
 aircrack-ng HTB.pcap -w /opt/wordlist.txt
 ```
 
----
-
 ## Airdecap-ng
 Need network passphrase / WEP Key and the `.pcap` file of captured traffic
 ```
@@ -126,13 +109,6 @@ Decrypt WPA:
 ```
 airdecap-ng -p <passphrase> <capture-file> -e <essid>
 ```
-
----
-
-
-
-
-
 
 # EXTRAS
 Note that it is possible to connect to APs via CLI
