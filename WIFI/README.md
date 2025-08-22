@@ -12,6 +12,8 @@ Restart NetworkManager
 systemctl restart NetworkManager
 ```
 
+---
+
 ## Setup
 Set router to max power
 ```
@@ -25,89 +27,91 @@ ifconfig wlan1 up
 ```
 Preemptively kill everything that gets in your way:
 ```
-airmon-ng check kill
+sudo airmon-ng check kill
 ```
 Start monitor mode:
 ```
-airmon-ng start wlan1
+sudo airmon-ng start wlan1
 ```
 Run a test:
 ```
-aireplay-ng --test wlan1mon
+sudo aireplay-ng --test wlan1mon
 ```
 Should see `Injection is working!`
 
 Save what's out there and save to a file:
 ```
-airodump-ng wlan1mon --band agp -w dump
+sudo airodump-ng wlan1mon --band agp -w dump
 ```
+
+---
 
 ## Airmon-ng
 Start monitor mode:
 ```
-airmon-ng start wlan1
+sudo airmon-ng start wlan1
 ```
 Stop monitor mode:
 ```
-airmon-ng stop wlan0mon
+sudo airmon-ng stop wlan0mon
 ```
 
 ## Airodump-ng
 Dump network traffic to file:
 airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
-airodump-ng wlan1mon --band a -w dump
+sudo airodump-ng wlan1mon --band a -w dump
 ```
 
 ## Airgraph-ng
 Visualize APs and Clients with:
 Use airodump-ng `.csv`s
 ```
-airgraph-ng -i dump-01.csv -g CAPR -o dumpCAPR.png
+sudo airgraph-ng -i dump-01.csv -g CAPR -o dumpCAPR.png
 ```
 OR for CPG:
 ```
-airgraph-ng -i HTB-01.csv -g CPG -o dumpCPG.png
+sudo airgraph-ng -i HTB-01.csv -g CPG -o dumpCPG.png
 ```
 Test with: (Injection Working!)
 ```
-aireplay-ng --test wlan0mon
+sudo aireplay-ng --test wlan0mon
 ```
 
 ## Aireplay-ng
 ```
-aireplay-ng
+sudo aireplay-ng
 ```
 ```
-aireplay-ng -0 5 -a ACCESSPOINTBSSID -c CLIENTBSSID wlan1mon
+sudo aireplay-ng -0 5 -a ACCESSPOINTBSSID -c CLIENTBSSID wlan1mon
 ```
 
 ## Aircrack-ng
 Benchmark with this command, it will tell you how many passphrases you can crack a second, it's dependent on what else is using the CPU:
 ```
-aircrack-ng -S
+sudo aircrack-ng -S
 ```
 Crack WEP Key, use `--ivs` in aurodump-ng command to only capture the IVs (Initialization Vectors). Once enough are captured:
 ```
-aircrack-ng -K HTB.ivs
+sudo aircrack-ng -K HTB.ivs
 ```
 Crack WPA, make sure the "four-way handshake" is in the `.pcap` by deauthing client from AP.
 ```
-aircrack-ng HTB.pcap -w /opt/wordlist.txt
+sudo aircrack-ng HTB.pcap -w /opt/wordlist.txt
 ```
 
 ## Airdecap-ng
 Need network passphrase / WEP Key and the `.pcap` file of captured traffic
 ```
-airdecap-ng
+sudo airdecap-ng
 ```
 Decrypt WEP
 ```
-airdecap-ng -w <WEP-key> <capture-file>
+sudo airdecap-ng -w <WEP-key> <capture-file>
 ```
 Decrypt WPA:
 ```
-airdecap-ng -p <passphrase> <capture-file> -e <essid>
+sudo airdecap-ng -p <passphrase> <capture-file> -e <essid>
 ```
 
 # EXTRAS
@@ -139,7 +143,7 @@ apt-get install realtek-rtl88xxau-dkms
 ```
 Install dkms:
 ```
-apt-get install dkms
+sudo apt-get install dkms
 ```
 Download the rtl8812au drivers from GitHub
 ```
@@ -150,13 +154,13 @@ cd rtl8812au
 ```
 Preemptively fix the error:
 ```
-apt-get install linux-headers-$(uname -r)
+sudo apt-get install linux-headers-$(uname -r)
 ```
 ```
 make
 ```
 ```
-make install
+sudo make install
 ```
 ```
 reboot
