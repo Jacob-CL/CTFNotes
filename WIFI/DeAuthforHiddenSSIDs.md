@@ -2,6 +2,7 @@
 Hiding SSIDs is a superficial attempt at masking SSIDs from casual users and attackers by making it less visible. 2 methods to get their ESSID, deauth and bruteforcing.
 ## Deauth
 If there are clients connected to hidden networks you can deauth them, then capture the request they send to re-connect which will contain the ESSID / network name. 
+
 Once setup:
 ```
 airodump-ng wlan1mon
