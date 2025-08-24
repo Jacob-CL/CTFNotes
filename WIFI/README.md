@@ -123,7 +123,7 @@ sudo airdecap-ng -p <passphrase> <capture-file> -e <essid>
 
 ## Deauth
 0. Do setup
-1. Run airmon-ng to file and see everything: `sudo airodump-ng wlan1mon --band abg -w []]`
+1. Run airmon-ng to file and see everything: `sudo airodump-ng wlan1mon --band abg -w []`
 2. Find your AP BSSID or ESSID amongst files: `cat []-01.csv | grep -i Lands`
 3. Run airmon-ng specifically on BSSID or ESSID + correct channel: `sudo airodump-ng wlan1mon --bssid [] --channel [] -w []`
 4. Find target client's BSSID to deauth: `STATIONS`
@@ -137,6 +137,14 @@ You have to be on the same channel as the AP you're deauthing, change it with:
 ```
 iwconfig wlan1mon channel X
 ```
+
+## Crack password
+0. Do setup
+1. Runairmon-ng to file and see everything: `sudo airodump-ng wlan1mon --band abg -w []`
+2. Find your AP BSSID or ESSID amongst files: `cat []-01.csv | grep -i Lands`
+3. Run airmon-ng specifically on BSSID or ESSID + correct channel: `sudo airodump-ng wlan1mon --bssid [] --channel [] -w []`
+4. Watch and wait for airmon-ng to capture handshake, noted top right OR momentarily deauth a client in another terminal (as above) to capture handshake.
+5. Run `sudo aircrack-ng test-04.cap -w fakewordlist.txt`
 
 # EXTRAS
 - Note that it is possible to connect to APs via CLI
