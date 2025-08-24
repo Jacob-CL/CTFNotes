@@ -3,6 +3,7 @@
 - Password Cracking ✅
 - MAC filter bypass ✅
 - Decrypt `pcap` file ✅
+- Connect to network via CLI
 - Make / find custom wordlist.txt
 
 ## RFID
