@@ -146,6 +146,12 @@ iwconfig wlan1mon channel X
 4. Watch and wait for airmon-ng to capture handshake, noted top right OR momentarily deauth a client in another terminal (as above) to capture handshake.
 5. Run `sudo aircrack-ng test-04.cap -w fakewordlist.txt`
 
+## Get Hidden Network Names
+0. Do setup
+1. Find hidden nework with clients connected
+2. Deauth clients
+3. Reconnection will contain network name
+
 # EXTRAS
 - Note that it is possible to connect to APs via CLI
 - Your phone will randomise it's MAC address when it connects to a network, you can see it `Wifi` --> `Settings` --> `View more`
