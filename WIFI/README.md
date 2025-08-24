@@ -174,6 +174,11 @@ D8:3A:DD:xx:xx:xx
 DC:A6:32:xx:xx:xx
 E4:5F:01:xx:xx:xx
 ```
+## [Channels](https://en.wikipedia.org/wiki/List_of_WLAN_channels)
+- 2.4GHz Wi-Fi uses the channels1-14, but for best performance, only channels 1, 6, and 11 should be used as these are the only channels that do not overlap with each other, minimizing interference from other Wi-Fi networks and devices.
+- 5GHz Wi-Fi uses channels within specific frequency bands, with non-overlapping 20MHz channels typically numbered 36-48, 52-64, 100-144, and 149-165. Some channels, particularly in the 52-64 and 100-144 ranges, are Dynamic Frequency Selection (DFS) channels that are reserved for radar systems and require devices to avoid radar interference. 
+
+
 
 ---
 
