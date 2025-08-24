@@ -118,8 +118,11 @@ sudo airdecap-ng -w <WEP-key> <capture-file>
 ```
 Decrypt WPA:
 ```
-sudo airdecap-ng -p <passphrase> <capture-file> -e <essid>
+sudo airdecap-ng -p 'passphrase' capture-file -e 'essid'
 ```
+- This will make a new `pcap`/`cap` file for you to look at in Wireshark
+- `!` will break double quotes
+- It's ESSID, not BSSID
 
 ## Deauth
 0. Do setup
