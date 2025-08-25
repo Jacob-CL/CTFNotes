@@ -24,4 +24,6 @@ The radio challenge ‘the eyes see through you’ was a sub-Ghz radio, directio
 - Bring lockpicking set + keys
 
 ## Rubber Ducky
-- What are the basic scripts?
+- Script that collects basic system info (OS version, installed software, network config)
+- Running process enumeration
+- Scheduled task creation
