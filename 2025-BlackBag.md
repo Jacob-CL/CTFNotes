@@ -18,3 +18,6 @@ Can I run deauth script off flipper?
 
 ## Locks + Keys
 - Bring lockpicking set + keys
+
+## Rubber Ducky
+- What are the basic scripts?
