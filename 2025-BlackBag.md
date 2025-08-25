@@ -12,3 +12,6 @@
 
 ## RTL-SDR
 - 
+
+## Locks + Keys
+- Bring lockpicking set + keys
