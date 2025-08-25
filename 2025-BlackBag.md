@@ -7,6 +7,8 @@
 - Connect to network via CLI
 - Make / find custom wordlist.txt
 
+Can I run deauth script off flipper?
+
 ## RFID
 - Clone LF + HF
 - Brute force default keys for each freq.
