@@ -3,6 +3,7 @@
 - Password Cracking ✅
 - MAC filter bypass ✅
 - Decrypt `pcap` file ✅
+- Find names of hidden networks ✅
 - Connect to network via CLI
 - Make / find custom wordlist.txt
 
