@@ -18,7 +18,7 @@ In a non-root terminal: `gqrx`
 | UHF Low | 300-520 MHz | Emergency services, amateur 70cm |
 | UHF TV | 520-820 MHz | Television channels 28-69 |
 | Mobile/Cellular | 700-2600 MHz | 3G/4G/5G networks |
-| **ISM 900 **| **915-928 MHz **| **LoRa, industrial/medical **|
+| **ISM 900 **| **915-928 MHz **| **LoRa, industrial/medical **| <------
 | GPS L1 | 1575.42 MHz | Satellite navigation |
 | ISM 2.4G | 2.4-2.485 GHz | WiFi, Bluetooth |
 | ISM 5G | 5.725-5.875 GHz | WiFi, radar |
