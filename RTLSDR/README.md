@@ -18,7 +18,7 @@ In a non-root terminal: `gqrx`
 | UHF Low | 300-520 MHz | Emergency services, amateur 70cm |
 | UHF TV | 520-820 MHz | Television channels 28-69 |
 | Mobile/Cellular | 700-2600 MHz | 3G/4G/5G networks |
-| **ISM 900 **| **915-928 MHz **| **LoRa, industrial/medical **| <------
+| ISM 900 | 915-928 MHz | LoRa, industrial/medical | 
 | GPS L1 | 1575.42 MHz | Satellite navigation |
 | ISM 2.4G | 2.4-2.485 GHz | WiFi, Bluetooth |
 | ISM 5G | 5.725-5.875 GHz | WiFi, radar |
@@ -58,3 +58,14 @@ In a non-root terminal: `gqrx`
 | 12 | 156.6 MHz | Port operations |
 | 67 | 156.375 MHz | Ship-to-ship (small craft) |
 | 80 | 157.025 MHz | Ship-to-ship (Australia) |
+
+## Why ISM 900 Works for Radio Challenges:
+ISM Band (Industrial, Scientific, Medical)
+- 915 MHz falls in the 915-928 MHz ISM band (Australia) or 902-928 MHz (US)
+- Allows unlicensed operation under specific power limits
+- Commonly used for LoRaWAN, IoT devices, research, and educational purposes
+- Sub-GHz band
+- Wide bandwidth available - good for creating RF waterfall images
+- No license required - easier for event organizers
+- Common SDR frequency - most RTL-SDR dongles cover this range
+- Less congested than 2.4 GHz WiFi bands
