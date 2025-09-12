@@ -32,3 +32,68 @@ RMLX NMTBXG, YPCL JPX HBTW TMLXN FXGJXRPMOOMV; TCY GXJ
 NMTBXG FX AMGGXN, MTN PX YBGG RPCY JPX BTJXVQVXJMJBCT. JPX
 IBVRJ ACNXYCVN BR CJPXGGC.
 ```
+- JPX  likely `the`
+- MTN likely `and`
+- B likely `i`
+```
+A = c
+B = i
+C = o
+D = v
+E = y
+F = b
+G = l
+H = k
+I = f
+J = t
+K = q
+L = m
+M = a
+N = d
+O = z
+P = h
+Q = p
+R = s
+S = j
+T = n
+U = u
+V = r
+W = g
+X = e
+Y = w
+Z = x
+```
+This decodes to biblical text from Daniel Chapter 5 (the writing on the wall):
+```
+in the same hour came forth fingers of a man's hand, and
+wrote over against the candlestick upon the plaster of the
+wall of the king's palace; and the king saw the part of the
+hand that wrote. then the king's countenance was changed,
+and his thoughts troubled him, so that the Soints of his
+loins were loosed, and his knes smote one against
+another. the king cried aloud to bring in the astrologers,
+the chaldeans, and the soothsayers. and the king spake,
+and said to the wise men of babylon, whosoever shall read
+this writing, and show me the interpretation thereof,
+shall be clothed with scarlet, and have a chain of gold
+about his neck, and shall be the third ruler in the
+kingdom. then came in all the king's wise men; but they
+could not read the writing, nor make known to the king the
+interpretation thereof. then was king belshazzar greatly
+troubled, and his countenance was changed in him, and his
+lords were astonished. now the Kuen, by reason of the
+words of the king and his lords, came into the banKuet
+house; and the Kuen spake and said, o king, live forever;
+let not thy thoughts trouble the, nor let thy countenance
+be changed; there is a man in thy kingdom, in whom is the
+spirit of the holy gods; and in the days of thy father
+light and understanding and wisdom, like the wisdom of the
+gods, was found in him; whom the king nebuchadnezzar thy
+father, the king, i say, thy father, made master of the
+astrologers, magicians, forasmuch as an excellent spirit, and knowledge,
+understanding, interpreting of dreams, and showing of hard
+sentences, and disolving of doubts, were found in the
+same daniel, whom the king named belteshazzar; now let
+daniel be called, and he will show the interpretation. the
+first codeword is othello.
+```
