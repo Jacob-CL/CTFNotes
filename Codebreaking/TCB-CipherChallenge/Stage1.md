@@ -35,6 +35,7 @@ IBVRJ ACNXYCVN BR CJPXGGC.
 - JPX  likely `the`
 - MTN likely `and`
 - B likely `i`
+
 It kinda falls apart after these assumptions, despite ye old english and a weird last sentence:
 ```
 A = c
