@@ -1,6 +1,8 @@
 # Code breaking
 - UPPERCASE = ciphertext
 - lowercase = plaintext
+- Average word length = 6.2
+- Index of coincidence = 6.7%
 
 ## Most frequent digrams / trigraphs
 1. TH
