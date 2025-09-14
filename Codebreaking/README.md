@@ -52,5 +52,11 @@
 9. IS
 10. I
 
-## Average word length:
-6.2
+## Index of Coincidence
+The Index of Coincidence is like a "randomness detector" for text. It tells you how "English-like" a piece of text looks.
+- IoC ≈ 0.067 = Normal English text
+- IoC ≈ 0.038 = Random/encrypted text
+
+IoC calculation uses these single letter counts and is included in `frequency_analyzer.py`
+
+If you have encrypted text with IoC around 0.067, you know it's probably a simple substitution cipher / caesar that you can crack. If it's around 0.038, it's either good encryption or a more complex cipher.
