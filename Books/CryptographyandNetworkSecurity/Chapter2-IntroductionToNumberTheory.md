@@ -74,7 +74,7 @@ Check: 3 < 7 ✓ (remainder is still positive!)
 ```
 The remainder is always non-negative and always smaller than the divisor, even when dividing negative numbers. This is what makes the algorithm "work" consistently. This guarantees that every division has a unique quotient and remainder, which is fundamental for number theory, computer science, and many mathematical proofs.
 
-### 2.2 The Euclid Algorithm
+## 2.2 The Euclid Algorithm
 - The Euclidean Algorithm is a simple way to find the Greatest Common Divisor (GCD) of two numbers. The basic idea is that instead of listing all factors, you use **repeated division** and focus on the **remainders**.
 - One of the basic techniques of number theory is the Euclidean Algorithm, which is a simple procedure for determining the greatest common divisor of two positive integers. First, we need a simple definition: Two integers are **relatively prime** if and only if their only common positive integer factor is 1.
 
@@ -116,7 +116,7 @@ What day is it 10 days from now?
 - `2 + 10 = 12`
 - `12 mod 7 = 5` → Friday!
 
-### 2.4 Prime Numbers
+## 2.4 Prime Numbers
 A prime number is a whole number greater than 1 that can only be divided evenly by 1 and itself. (Except 1)
 - Prime: 2, 3, 5, 7, 11, 13, 17, 19, 23... (2 is the only even prime number)
 - Not Prime: 4 (divisible by 2), 6 (divisible by 2 and 3), 9 (divisible by 3)
@@ -151,7 +151,7 @@ Euler's Thereom: `aϕ(n) ≡ 1 (mod n)` <-- the foundation of RSA encryption
 - If two numbers `a` and `n` share no common factors (are 'coprime') then  `aϕ(n) ≡ 1 (mod n)`
 - The theorem guarantees that encryption followed by decryption returns the original message.
 
-### 2.6 Testing for Primality
+## 2.6 Testing for Primality
 - For many cryptographic algorithms, it is necessary to select one or more very large prime numbers at random. Thus, we are faced with the task of determining whether a given large number is prime. There is no simple yet efficient means of accomplishing this task. 
 - The Miller-Rabin Algorithm yields a number not necessarily a prime but one that is almsot certianly a prime. It's typically used to test a large number for primality. Therefore, it's a fast-way to check if a number is prime but won't 100% gurantee it
 - Used to generate big prime numbers for things like RSA keys
@@ -168,6 +168,15 @@ Do this a few times, and if n passes every test, you can be pretty confident it�
 - So rather than being told a number, you're given clues about it's modulo, and can then guess the number from that.
 
 <img width="761" height="318" alt="image" src="https://github.com/user-attachments/assets/7dfce00e-29ae-4b71-be13-afa18682c281" />
+
+### 2.8 Discrete Logarithms
+Fundamental to a number of public-key algorithms, including Diffie-Hellman key exchange and the digital signature algorithm (DSA). 
+- “What exponent gives me a number in modular arithmetic?”
+- Used in cryptopgraphy because it's easy to compute in one direction and hard to reverse
+- Easy to go forward: `2^6 mod 11 = 9`
+- Hard to go back: “What power of 2 gives me 9 mod 11?”
+
+## Review Questions
 
 
 
