@@ -139,4 +139,22 @@ Cryptography / hash functions relies on the difficulty of factoring huge numbers
 
 ### 2.5 Fermat's and Euler's Theorems
 These 2 theorems play an important rtole in public-key cryptography.
+
+Fermat Last Thereom: You can’t take three whole numbers (like 3, 4, and 5), raise them to a power greater than 2, and have them fit nicely into the equation: a^n + b&^n = c^n (Pythag theorem) unless n = 2.
+- e.g `3^2 + 4^2 = 5^2 | 9 + 16 = 25` But if it were to the power of 3 or any other number, then it wouldnt work.
+
+Euler's Totient Function: How many numbers less than n are coprime to n. Super important to RSA
+- e.g `φ(9) = 6` Because the numbers 1, 2, 4, 5, 7, 8 are all coprime to 9.
+- Remember: Coprime numbers, also known as relatively prime or mutually prime numbers, are two or more integers that share no common factors other than 1. In other words, their greatest common divisor (GCD) is 1. For example, 8 and 9 are coprime because their only common factor is 1, even though neither is a prime number.
+
+Euler's Thereom: `aϕ(n) ≡ 1 (mod n)` <-- the foundation of RSA encryption
+- If two numbers `a` and `n` share no common factors (are 'coprime') then  `aϕ(n) ≡ 1 (mod n)`
+- The theorem guarantees that encryption followed by decryption returns the original message.
+
+### 2.6 Testing for Primality
+
+
+
+
+
   
