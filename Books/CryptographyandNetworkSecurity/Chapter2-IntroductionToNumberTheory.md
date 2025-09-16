@@ -152,6 +152,25 @@ Euler's Thereom: `aϕ(n) ≡ 1 (mod n)` <-- the foundation of RSA encryption
 - The theorem guarantees that encryption followed by decryption returns the original message.
 
 ### 2.6 Testing for Primality
+- For many cryptographic algorithms, it is necessary to select one or more very large prime numbers at random. Thus, we are faced with the task of determining whether a given large number is prime. There is no simple yet efficient means of accomplishing this task. 
+- The Miller-Rabin Algorithm yields a number not necessarily a prime but one that is almsot certianly a prime. It's typically used to test a large number for primality. Therefore, it's a fast-way to check if a number is prime but won't 100% gurantee it
+- Used to generate big prime numbers for things like RSA keys
+Miller-Rabin super simplified:
+1. Pick a number you want to test — let’s call it n.
+2. Choose a random number a (called a "witness").
+3. Do some math magic using modular arithmetic.
+4. If the result shows something weird, n is definitely not prime.
+5. If everything looks normal, n might be prime — so you test again with a different a.
+Do this a few times, and if n passes every test, you can be pretty confident it’s prime. Essentially it's looking for some evidence of the number NOT being prime rather THAN prime since it's much easier to find evidence of the former. Instead of proving a number is prime (which is hard and slow), it tries to find evidence that it’s not — because that’s much faster.
+
+### 2.7 The Chinese Remainder Thereom (CRT)
+- Basically says that it's possible to reconstruct (find) integers in a certain range from their clues or 'residues modulo (a set of pairwise relatively prime moduli)'
+- So rather than being told a number, you're given clues about it's modulo, and can then guess the number from that.
+
+<img width="761" height="318" alt="image" src="https://github.com/user-attachments/assets/7dfce00e-29ae-4b71-be13-afa18682c281" />
+
+
+
 
 
 
