@@ -1,0 +1,3 @@
+- https://bob-from-canberra.neocities.org/
+- https://sfulham.github.io/blog/mywayplus-vulnerabilities
+- https://jclummus.medium.com/canberras-myway-vulnerability-that-would-let-me-steal-your-balances-056f6d267186
