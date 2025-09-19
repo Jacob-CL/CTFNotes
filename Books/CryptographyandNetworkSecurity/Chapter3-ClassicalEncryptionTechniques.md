@@ -50,7 +50,26 @@ All forms of cryptanalysis for symmetric encryption are designed to exploit the 
 ### Monoalphabetic Ciphers
 - Since Caesar Cipher is so insecure due to it's 25 keys, a dramatic increase in the key space can be achieved by allowing an arbituary substitution.
 - A permutation of a finite set of element `s` is an ordered sequence of all the elements of `s`, with each element appearing exactly once. e.g if `s = {a,b,c}` then there are 6 permutations of `s`: abc, acb, bac, bca, cab, cba.
-- So if any letter can represent another letter, then are are greater than 4 x 10^26 possible keys which is much stronger
+- So if any letter can represent another letter, then are are greater than 4 x 10^26 possible keys which is much stronger and would seem to eliminate brute-force techniques. Such an approach is reffered to as a monoalphabetic substitution cipher, because a single cipher alphabet is user per message.
+- However, if the analyst knows the nature of the plaintext, then the analyst can exploit the regularities of the language.
+- Here frequency analysis might be enough if the plaintext is long enough to gleam patterns from. Also look for known words in the text or we could look for repeating sequences of cipher lettes and try to deduce their plaintext equivalents.
+- Digrams frequency analysis is super handy as well, usually in conjunction with regular frequency analysis. So you might use frequency analysis to discern `e` but then digram analysis to guess `th`. Then from there you might find the most common trigram (`the`) and if they all line up then you might be in business.
+- Monoalphabetic ciphers are easy to break because they reflect the frequency data of the original alphabet. The counter measure is to provide multiple substitutes, known as homophones, for a single letter. e.g `e` could be a number of different symbols.
+- Should that be the case then the Only four letters have been identified, but already we have quite a bit of the message. Continued analysis of frequencies plus trial and error should easily yield a solution from this point. The complete plaintext, with spaces added between words, follows: Monoalphabetic ciphers are easy to break because they reflect the frequency data of the original alphabet. A countermeasure is to provide multiple substitutes, known as homophones, for a single letter. For example, the letter e could be assigned a number of different cipher symbols, such as 16, 74, 35, and 21, with each homophone assigned to a letter in rotation or randomly. If the number of symbols assigned to each letter is proportional to the relative frequency of that letter, then single-letter frequency information is completely obliterated.
+- 2 methods are used in substitution ciphers to lessen the extent to which the structure of the plaintext survives in the ciphertext: One approach is to encrypt multiple letters of plaintext, the other is to use multiple cipher alphabets.
+
+### Playfair Cipher
+The best-known multiple-letter encryption cipher is the Playfair, which treats digrams in the plaintext as single units and translates these units into ciphertext digrams. The Playfair algorithm is based on the use of a 5 × 5 matrix of letters constructed using a keyword.
+ 
+<img width="427" height="231" alt="image" src="https://github.com/user-attachments/assets/7e0313df-af37-4f24-afb2-f4d0a5f65351" />
+
+There keyword here is `monarchy`. The rest is then filled in by the remaining letters of the alphabet from left-right, top-bottom, in alphabetic order. The plaintext is encrypted 2 letters at a time, according to the following rules:
+1. Repeating plaintext letters that are in the same pair are separated with a filler letter, such as x, so that balloon would be treated as ba lx lo on.
+2. Two plaintext letters that fall in the same row of the matrix are each replaced by the letter to the right, with the first element of the row circularly following the last. For example, `ar` is encrypted as RM.
+3. Two plaintext letters that fall in the same column are each replaced by the letter beneath, with the top element of the column circularly following the last. For example, `mu` is encrypted as `CM`.
+4. Otherwise, each plaintext letter in a pair is replaced by the letter that lies in its own row and the column occupied by the other plaintext letter. Thus, `hs` becomes `BP` and `ea` becomes `IM` (or `JM`, as the encipherer wishes).
+
+The Playfiar cipher was for a long time considered unbreakable and was relied upon by the British Army in World War 1 and still enjoyed considerable use by the U.S Army and other Allied forces during World War 2.
 
 
 
