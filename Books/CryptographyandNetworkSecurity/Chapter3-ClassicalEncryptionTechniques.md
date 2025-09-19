@@ -69,7 +69,11 @@ There keyword here is `monarchy`. The rest is then filled in by the remaining le
 3. Two plaintext letters that fall in the same column are each replaced by the letter beneath, with the top element of the column circularly following the last. For example, `mu` is encrypted as `CM`.
 4. Otherwise, each plaintext letter in a pair is replaced by the letter that lies in its own row and the column occupied by the other plaintext letter. Thus, `hs` becomes `BP` and `ea` becomes `IM` (or `JM`, as the encipherer wishes).
 
-The Playfair cipher was for a long time considered unbreakable and was relied upon by the British Army in World War 1 and still enjoyed considerable use by the U.S Army and other Allied forces during World War 2.
+The Playfair cipher was for a long time considered unbreakable and was relied upon by the British Army in World War 1 and still enjoyed considerable use by the U.S Army and other Allied forces during World War 2. This reveals the effectiveness of the playfair cipher compared to others:
+<img width="823" height="560" alt="image" src="https://github.com/user-attachments/assets/70047ccb-549b-4149-b322-85ec81bace1f" />
+
+### Hill Cipher
+
 
 
 
