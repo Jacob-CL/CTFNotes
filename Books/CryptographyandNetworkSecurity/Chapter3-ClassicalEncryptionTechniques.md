@@ -72,6 +72,14 @@ There keyword here is `monarchy`. The rest is then filled in by the remaining le
 The Playfair cipher was for a long time considered unbreakable and was relied upon by the British Army in World War 1 and still enjoyed considerable use by the U.S Army and other Allied forces during World War 2. This reveals the effectiveness of the playfair cipher compared to others:
 <img width="823" height="560" alt="image" src="https://github.com/user-attachments/assets/70047ccb-549b-4149-b322-85ec81bace1f" />
 
+### Polyphabetic Ciphers
+Another way to improve on the simple monoalphabetic technique is to use different monoalphabetic substituions as one proceeds through the plaintext message. The general name for this approach is polyalphabetic substition cipher. Al lthese techniques have the following features in common:
+- A set of related monoalphabetic substitution rules is used
+- A key determines which particular rule is chosen for a given transformation
+
+### Vigenere Cipher
+- Best known and one of the simplest, polyalphabetic ciphers
+
 ### Hill Cipher
 - Polygraphic substitution cipher, meaning it encrypts blocks of letters rather than single letters with a technique based on linear algebra. Vulnerable to known-plaintext attacks.
 
