@@ -73,7 +73,7 @@ The Playfair cipher was for a long time considered unbreakable and was relied up
 <img width="823" height="560" alt="image" src="https://github.com/user-attachments/assets/70047ccb-549b-4149-b322-85ec81bace1f" />
 
 ### Hill Cipher
-
+- Polygraphic substitution cipher, meaning it encrypts blocks of letters rather than single letters with a technique based on linear algebra. Vulnerable to known-plaintext attacks.
 
 
 
