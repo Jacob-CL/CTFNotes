@@ -82,6 +82,7 @@ Another way to improve on the simple monoalphabetic technique is to use differen
 
 ### Hill Cipher
 - Polygraphic substitution cipher, meaning it encrypts blocks of letters rather than single letters with a technique based on linear algebra. Vulnerable to known-plaintext attacks.
+- This is demonstrated as It is easily seen that if the matrix K–1 is applied to the ciphertext, then the plaintext is recovered. In general terms, the Hill system can be expressed as As with Playfair, the strength of the Hill cipher is that it completely hides single-letter frequencies. Indeed, with Hill, the use of a larger matrix hides more frequency information. Thus, a 3 × 3 Hill cipher hides not only single-letter but also two-letter frequency information.
 
 
 
