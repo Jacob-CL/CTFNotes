@@ -3,6 +3,9 @@
 ```
 iwconfig
 ```
+```
+systemctl restart NetworkManager
+```
 Grab all networks nearby:
 ```
 iwlist wlan1 s | grep 'Cell\|Quality\|ESSID\|IEEE\|Mode\|Frequency\|Channel\|Quality\|Signal Level' | tee wifi_scan.txt
