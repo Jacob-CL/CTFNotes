@@ -14,6 +14,7 @@ sympy
 z3-solver
 pwntools
 ecdsa
+jupyter
 rsa
 requests
 numpy
