@@ -22,3 +22,8 @@
   - For **PRNG**, they address the challenge in generating randmonness by reliably producing many artificial random bits from a few true random bits. e.g an RNG system that translates mouse movements to random bits would stop working if you stopped moving the mouse, whereas a PRNG always returns pseudorandom bits when requested to do so.
   - PRNG rely RNGs but behave differently.. RNGs produce random bits relatively slowly from analog sources, in a non-deterministic way, and with no guarantee of uniform distribution or of high entropy. In contrast, PRNGs produce random-looking bits quickly from digital sources, in a deterministic way, uniformly distributed, and with an entropy guaranteed to be high enough for cryptography.
   - Essentially, PRNGs transform a few unreliable random bits into long term stream of reliable pseudorandom bits suitable for crypto applications.
+ 
+## How do PRNGs work?
+- PRNG receives random bits from RNG at regular intervals and uses them to update the contents of a large memory buffer, called the entropy pool. The entropy pool is the PRNGs source of entropy, just like the physical environment is for RNGs.
+- Then, the PRNG runs a deterministic random bit generator (DRBG) algorithm that expands some bits from the entropy pool into a much longer sequence.
+- DRBG is DETERMINISTIC, not randomized. Given one input, you will always get the same output. The PRNG ensures that it's DRBG never receives the same input twice so it can generate unique pseudorandom sequences.
