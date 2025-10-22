@@ -27,3 +27,11 @@
 - PRNG receives random bits from RNG at regular intervals and uses them to update the contents of a large memory buffer, called the entropy pool. The entropy pool is the PRNGs source of entropy, just like the physical environment is for RNGs.
 - Then, the PRNG runs a deterministic random bit generator (DRBG) algorithm that expands some bits from the entropy pool into a much longer sequence.
 - DRBG is DETERMINISTIC, not randomized. Given one input, you will always get the same output. The PRNG ensures that it's DRBG never receives the same input twice so it can generate unique pseudorandom sequences.
+- In the course of its work, the PRNG performs three operations:
+  - init() Initializes the entropy pool and the internal state of the PRNG. The init operation resets the PRNG to a fresh state, reinitializes the entropy pool to some default value, and initializes any variables or memory buffers used by the PRNG to carry out the refresh and next operations. 
+  - refresh(R) Updates the entropy pool using some data, R, usually sourced from an RNG. The refresh operation is often called reseeding, and its argument R is called a seed. When no RNG is available, seeds may be unique values hardcoded in a system. The refresh operation is typically called by the operating system, whereas next is typically called or
+requested by applications.
+  - next(N) Returns N pseudorandom bits and updates the entropy pool. The next operation runs the DRBG and modifies the entropy pool to ensure that the next call will yield different pseudorandom bits.
+
+## PRNG Fortuna
+- Fortuna is a PRNG used in Windows, which superseded Yarrow.
