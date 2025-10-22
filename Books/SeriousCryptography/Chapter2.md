@@ -48,3 +48,19 @@ requested by applications.
 
 ## Linearity Insecurity
 - An XOR combination of bits is called a linear combination
+- X XOR Y OXR Z is linear, (X AND Y) XOR Z is not because of the AND.
+- If the MT algorithm were cryptographically strong, its equations would be nonlinear and would involve not only single bits but also AND combinations of bits.
+- Linear transformations lead to short equations, which are easy to solve, whereas nonlinear transformations give rise to equations of exponential size.
+- Linearity is just one of many security criteria, although necessary, nonlinearity alone does not make a PRNG cryptographically secure.
+
+## Real-world PRNGs
+- Most OSs for any device will have a crypto PRNG. Most of these PRNGs are software based, but those that are pure hardware are used by applications running on the OS and sometimes by other PRNGs running on top of cryptographic libraries or apps.
+- Random Bits in Linux: The device file `/dev/urandom` or `/dev/random` is the userland interface to the crypto PRNG in operating systems based on the Linux kernal. You'll typically use it to generate reliable random bits. Because it's a device file, you request random bits from it by reading it as a file. You can read the entropy value of a Linux system in the `/proc/sys/kernel/random/entropy_avail` file.
+- The cryptgenrandom() function in Windows: The legacy userland interface to the system's PRNG is the CryptGenRandom() function from the Cryptography application programming interface (API). Recent Windows versions replace this function with BcryptGenRandom() function in the Cryptography API: Next Generation (CNG). The Windows PRNG takes entropy from the kernel mode driver `cng.sys` (formerly `ksecdd.sys`) whose entropy collector is loosely based on Fortuna.
+
+## Randomness Failures
+- Poor Entropy Sources
+- Insufficient Entropy at boot time
+- Noncryptographic PRNG
+- Sampling Bug with Strong Randomness
+
