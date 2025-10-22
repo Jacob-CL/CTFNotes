@@ -28,10 +28,23 @@
 - Then, the PRNG runs a deterministic random bit generator (DRBG) algorithm that expands some bits from the entropy pool into a much longer sequence.
 - DRBG is DETERMINISTIC, not randomized. Given one input, you will always get the same output. The PRNG ensures that it's DRBG never receives the same input twice so it can generate unique pseudorandom sequences.
 - In the course of its work, the PRNG performs three operations:
-  - init() Initializes the entropy pool and the internal state of the PRNG. The init operation resets the PRNG to a fresh state, reinitializes the entropy pool to some default value, and initializes any variables or memory buffers used by the PRNG to carry out the refresh and next operations. 
-  - refresh(R) Updates the entropy pool using some data, R, usually sourced from an RNG. The refresh operation is often called reseeding, and its argument R is called a seed. When no RNG is available, seeds may be unique values hardcoded in a system. The refresh operation is typically called by the operating system, whereas next is typically called or
+  - `init()` Initializes the entropy pool and the internal state of the PRNG. The init operation resets the PRNG to a fresh state, reinitializes the entropy pool to some default value, and initializes any variables or memory buffers used by the PRNG to carry out the refresh and next operations. 
+  - `refresh(R)` Updates the entropy pool using some data, R, usually sourced from an RNG. The refresh operation is often called reseeding, and its argument R is called a seed. When no RNG is available, seeds may be unique values hardcoded in a system. The refresh operation is typically called by the operating system, whereas next is typically called or
 requested by applications.
-  - next(N) Returns N pseudorandom bits and updates the entropy pool. The next operation runs the DRBG and modifies the entropy pool to ensure that the next call will yield different pseudorandom bits.
+  - `next(N)` Returns N pseudorandom bits and updates the entropy pool. The next operation runs the DRBG and modifies the entropy pool to ensure that the next call will yield different pseudorandom bits.
 
 ## PRNG Fortuna
 - Fortuna is a PRNG used in Windows, which superseded Yarrow.
+- Doesn't include a comprehensive test suite to check that an implementation is correct, which makes it difficult to ensure that your implementation of Fortuna will behave as expected.
+- Fortuna might not notice if the RNGs fail to produce enough random bits, and as a result will produce lower-quality pseudorandom bits, or it may stop delivering pseodurandom bits altogether.
+- Exposing associated seed files to attackers. The data in Fortuna seed files is used to feed entropy to Fortuna through refresh calls when an RNG is not immediately available, like immediately after a reboot and before the system's RNG have recorded any unpredictable events.
+- Fortuna will produce the same bit sequence twice. Seed files should be therefore be erased after use to ensure they aren't used.
+
+## Cryptography vs. Noncryptographic PRNGs
+- Noncrypto PRNGs are designed to produce uniform distributions for applications such as scientific simulations or video games. However, you should never use noncrypto PRNGs in crypto applications, because they're insecure; they're concerned only with the quality of the bits' probability distribution and not with their predictability.
+- Crypto PRNGs are unpredictable because they're also concerned with the strength of the underlying operations used to deliver well-distributed bits.
+- Most PRNGs exposed by programming languages are noncryptographic.
+- Popular Noncrypto PRNG: **Mersenne Twister**. It generates uniformly distributed random bits without statistical bias, but it's predictable: given a few bits produced by MT, one can guess which bits will follow.
+
+## Linearity Insecurity
+- An XOR combination of bits is called a linear combination
