@@ -9,7 +9,7 @@
 - Consider a symmetric cipher with a 128bit key. Ideally, this cipher should be `(t, t/2**128)`- secure for any value of `t` between 1 and 2**128. The best attack should be brute force. Any better attack would have to exploit some imperfection in the cipher, so we strive to create ciphers where brute force is the best possible attack. The key thus needs to be long enough to blunt brute-force attacks in practice. Also note that computational security is technology agnostic, which means a cipher that's `(t, e)`-secure today, will be `(t, e)` secure tomorrow.
 
 ## Quantifying Security
-- When you've found an attack or a cipher, you should first figure out how efficient it is in theory and how practical it is if at all.
+When you've found an attack or a cipher, you should first figure out how efficient it is in theory and how practical it is if at all.
 
 ### Measuring Security in Bits
 - Bit security expresses the computational cost of the fastest known attack against a cipher, measured as the base-2 logarithm of the number of operations required. For example, if an attack needs NNN operations, the security level is log⁡2(N)\log_2(N)log2​(N) bits.
