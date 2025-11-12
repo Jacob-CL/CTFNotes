@@ -6,19 +6,31 @@
 
 <img width="907" height="138" alt="image" src="https://github.com/user-attachments/assets/1d24ab40-c327-4116-8c03-db8131a84aa1" />
 
-- Consider a symmetric cipher with a 128bit key. Ideally, this cipher should be `(t, t/2**128)`- secure for any value of `t` between 1 and 2**128. The best attack should be brute force. Any better attack would have to exploit some imperfection in the ciopher, so we strive to create ciphers where brute force is the best possible attack. The key thus needs to be long enough to blunt brute-force attacks in practice. Also note that computational security is technology agnostic, which means a cipher that's `(t, e)`-secure today, will be `(t, e)` secure tomorrow.
+- Consider a symmetric cipher with a 128bit key. Ideally, this cipher should be `(t, t/2**128)`- secure for any value of `t` between 1 and 2**128. The best attack should be brute force. Any better attack would have to exploit some imperfection in the cipher, so we strive to create ciphers where brute force is the best possible attack. The key thus needs to be long enough to blunt brute-force attacks in practice. Also note that computational security is technology agnostic, which means a cipher that's `(t, e)`-secure today, will be `(t, e)` secure tomorrow.
 
 ## Quantifying Security
-- When you've found an attack, you should first figure out how efficient it is in theory and how practical it is if at all. Similar if given a cipher that's allegedly secure, you'll want to know what amount of work it can withstand.
+- When you've found an attack or a cipher, you should first figure out how efficient it is in theory and how practical it is if at all.
 
 ### Measuring Security in Bits
-- Expresses the cost of the fastest attack against a cipher by estimating the order of magnitude of the number of operations it needs to succeed. Unfortunately, it only focuses on the time it takes to perform an attack.
-- In computationally security, a cipher is `t`-secure when a successful attack needs at least `t` operations.
-- Two ciphers with the same bit security level can therefore have vastly different real-world security levels when you factor in the actual cost of an attack to a real attacker.
-- Say we have two ciphers, each with a 128-bit key and 128-bit security. We must evaluate each cipher 2128 times to break it, but the second cipher is 100 times slower than the first.Evaluating the second cipher 2**128 times thus takes the same time as 100 x 2**128 = 2**134.64 evaluations of the first. If we count in terms of the first, fast cipher, then breaking the slower one takes 2**134.64 operations. If we count in terms of the second, slow cipher, it takes only 2128 operations. Should we then say that the second cipher is stronger than the first? In principle, yes, but we rarely see such a hundred-fold performance difference between common ciphers.
-- Bit security proves useful when comparing the security level of ciphers, but it doest provide enough info on the actual cost of an attack. It's almost too simple an abstraction 
-- If you know approx. how many operations it takes to break a cipher, you can determine it's security level in bits by taking the binary logarith, of the number of operations: if it takes 1mil operations, the security level is log2(1000000) or about 20 bits (as 1mil is approx = 2**20)
-- Recall that an n-bit key will give at most n-bit security because a brute-force attack with all 2**n possible jeys will aways succeed. But the key size doesn't always match the security level - it just gives an upper bound or the highest possible security level.
+- Bit security expresses the computational cost of the fastest known attack against a cipher, measured as the base-2 logarithm of the number of operations required. For example, if an attack needs NNN operations, the security level is log⁡2(N)\log_2(N)log2​(N) bits.
+- What it captures: Bit security focuses on the number of operations, not the time per operation. It is an abstraction that ignores implementation speed, hardware differences, and parallelization.
+- Suppose two ciphers both require 21282^{128}2128 operations to break (128-bit security). If Cipher A is fast and Cipher B is 100× slower per operation, then: Breaking Cipher B takes 100× more time in practice. In terms of Cipher A’s speed, that’s equivalent to 100×2128≈2134.64100 \times 2^{128} \approx 2^{134.64}100×2128≈2134.64 operations.
+Important: Bit security does not adjust for speed differences. Both ciphers are still considered 128-bit secure in theory.
+- Limitations: Bit security is useful for comparing algorithms but oversimplifies real-world attack costs. It ignores:
+    Hardware acceleration
+    Memory requirements
+    Parallelization
+    Energy consumption
+
+Calculating bit security:
+- If an attack requires 1,000,000 operations:
+- log⁡2(1,000,000)≈20 bits.\log_2(1{,}000{,}000) \approx 20 \text{ bits.}log2​(1,000,000)≈20 bits.
+
+Key size vs. security:
+- An nnn-bit key provides at most nnn-bit security because brute force over 2n2^n2n keys will succeed. However:
+
+Actual security may be lower due to weaknesses.
+- Example: DES uses a 56-bit key but is breakable with fewer than 2562^{56}256 operations due to known attacks.
 
 ## Calculating the full attack cost
 There are other factors to take into account when estimating the actual security level:
