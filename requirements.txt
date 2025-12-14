@@ -1,0 +1,12 @@
+pycryptodome 
+cryptography 
+gmpy2 
+sympy 
+z3-solver 
+pwntools 
+ecdsa 
+jupyter 
+rsa 
+requests 
+numpy 
+matplotlib
