@@ -37,28 +37,41 @@ different sequences of heads or tails. Combinations of binary objects (such as c
 - Reduced to it's essentials, a computer is a synthesis of Boolean algebra and electricity. The crucial components that embody this melding of math and hardware are known as logic gates.
 - AND
 <img width="448" height="132" alt="image" src="https://github.com/user-attachments/assets/29b10b72-58df-4332-8e49-0f0c065895e2" />
+
 <img width="697" height="288" alt="image" src="https://github.com/user-attachments/assets/8661491a-7446-4b91-8526-158d5f5d0a5d" />
+
 <img width="302" height="179" alt="image" src="https://github.com/user-attachments/assets/f1504210-f102-4d82-b5ea-5c5f802ccb12" />
+
 - OR
 <img width="454" height="127" alt="image" src="https://github.com/user-attachments/assets/2a53a164-22a1-47a9-bc42-a4a83efe91fd" />
+
 <img width="702" height="290" alt="image" src="https://github.com/user-attachments/assets/e35faf32-0d2c-4001-9dfb-379ec9ff8857" />
+
 <img width="257" height="161" alt="image" src="https://github.com/user-attachments/assets/c1011916-e3b9-4a6e-bcde-4f4cc6dc7afb" />
+
 - INVERTER
 <img width="708" height="313" alt="image" src="https://github.com/user-attachments/assets/90f68c44-15eb-48d1-bf2f-24ed039a6c0d" />
-- NOR (NOT OR)
 
+- NOR (NOT OR)
 <img width="472" height="123" alt="image" src="https://github.com/user-attachments/assets/47d469ee-a103-4977-9972-979d7e6e9f58" />
+
 <img width="533" height="376" alt="image" src="https://github.com/user-attachments/assets/f886f70d-0e82-41bf-85be-16812b830d07" />
+
 - NAND (NOT AND)
 <img width="472" height="126" alt="image" src="https://github.com/user-attachments/assets/0d7d5e01-1fe8-4da3-a38a-f3ef25c77478" />
+
 <img width="476" height="213" alt="image" src="https://github.com/user-attachments/assets/34919152-e7ca-4426-af08-676aa6aae7aa" />
+
 <img width="609" height="849" alt="image" src="https://github.com/user-attachments/assets/56b62c69-6f2b-4252-8662-9859659803fd" />
+
 - BUFFER
 <img width="763" height="208" alt="image" src="https://github.com/user-attachments/assets/6097754a-11f2-40be-afb3-7c7a55a6cecc" />
+
 <img width="241" height="156" alt="image" src="https://github.com/user-attachments/assets/161304fb-bd20-4e86-bdb2-3a930deb0880" />
 
 - The little circle inverts the signal
 <img width="765" height="401" alt="image" src="https://github.com/user-attachments/assets/d4870c4f-e6c5-4f44-9a9a-e1a2cf843451" />
+
 <img width="693" height="385" alt="image" src="https://github.com/user-attachments/assets/1d67d1a7-ca58-44e6-b1e8-945ce5f520ed" />
 
 - If it's not raining AND it's not snowing, then it's not raining OR snowing.
