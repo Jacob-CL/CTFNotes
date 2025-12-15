@@ -78,6 +78,40 @@ different sequences of heads or tails. Combinations of binary objects (such as c
 - If I'm not big OR I'm not strong, then I'm not big AND strong.
 
 # Chapter 9
+- We use a base 10 number system but that's completely arbituary and likely because we've got 10 fingers. Ten years is a decade; ten decades is a century; ten centuries is a millennium. A thousand thousands is a million; a thousand millions is a billion.
+- The number system we use today id known as the Hindu-Arabic or Indo-Arabic. It is of Indian origin but was brought to Europe by the Arab Mathematicians.
+- The Hindu-Arabic System is said to be positional which means that a particular digit represents a different quantity depenedning on where it is found in the number. WHERE digits appear in the number is actually more significant than the digits themselves! Both 100 and 1000000 have only a dsingle 1 in them, yet we all know that a million is much larger than a hundred.
+- Virtually all eaarly number systems have something that the Hindu-Arabic system does NOT have, and that's a special symbol for the number 10. In our number system, there's NO special symbol for ten. BUT all early number systems are missing 0, which the Hindu-Arabic system does have.
+
+<img width="738" height="439" alt="image" src="https://github.com/user-attachments/assets/0d0044ee-fe40-4c20-90e2-cd7484c5d839" />
+
+# Chapter 10
+- We use decimal/base 10
+- You can avoid some confusion if you pronounce a numeral like 10 as ONE ZERO (or 13 ike ONE THREE etc). Because remember, 0 is a placeholder. This is base 8 or octal numbers, so 10 is refering to the number of fingers cartoon characters have.
+
+<img width="577" height="358" alt="image" src="https://github.com/user-attachments/assets/7145599f-fe64-4434-a80b-5b4537bd85dc" />
+
+<img width="787" height="776" alt="image" src="https://github.com/user-attachments/assets/3d055d85-4f7f-433a-b989-32bc9f909d3b" />
+
+- In an octal system:
+
+<img width="709" height="370" alt="image" src="https://github.com/user-attachments/assets/5ae3a3d2-091e-45c6-bdf2-78a8432a9b91" />
+
+- In a binary system:
+
+<img width="770" height="881" alt="image" src="https://github.com/user-attachments/assets/2ebb59e4-626b-42e2-aabe-8e81fc68ca48" />
+
+<img width="612" height="172" alt="image" src="https://github.com/user-attachments/assets/b1a69971-d6af-469d-a253-502932033a7b" />
+
+<img width="673" height="284" alt="image" src="https://github.com/user-attachments/assets/6e0a96b8-b77e-474d-9836-67c975a12b27" />
+
+<img width="706" height="398" alt="image" src="https://github.com/user-attachments/assets/3658033e-1dea-42c6-b684-a624d2bec656" />
+
+
+
+
+
+
 
 
 
