@@ -107,7 +107,7 @@ different sequences of heads or tails. Combinations of binary objects (such as c
 
 <img width="706" height="398" alt="image" src="https://github.com/user-attachments/assets/3658033e-1dea-42c6-b684-a624d2bec656" />
 
-
+# Chapter 11
 
 
 
