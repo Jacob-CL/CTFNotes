@@ -122,6 +122,8 @@ different sequences of heads or tails. Combinations of binary objects (such as c
 
 <img width="746" height="675" alt="image" src="https://github.com/user-attachments/assets/68e0556a-b451-4d55-82ca-bebbc84f8f38" />
 
+# Chapter 12
+
 
 
 
