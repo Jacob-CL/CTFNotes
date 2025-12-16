@@ -108,7 +108,19 @@ different sequences of heads or tails. Combinations of binary objects (such as c
 <img width="706" height="398" alt="image" src="https://github.com/user-attachments/assets/3658033e-1dea-42c6-b684-a624d2bec656" />
 
 # Chapter 11
+- Binary is special because it is the SIMPLEST number system possible. 0 and 1
+- `bit` coined to mean binary digit
+- In binary, the number of possible codes is always squal to 2 to the power of the number of bits
+- 
+<img width="512" height="417" alt="image" src="https://github.com/user-attachments/assets/4d25ee70-0c73-4e51-b89f-b2548ba6bbab" />
 
+- Every addtional bit doubles the number of codes
+- If you know how many codes you need, how can you calculate how many bits you need? In other words, how do you go backward in the preceding table? The math you need is the base-two logarithm.
+- The logarithm is the opposite of the power. We know that 2 to the 7th power equals 128. The base-two logarithm of 128 equals 7.
+- 2^^7 = 128 == log2 123 = 7
+- Perhaps the most common visual display of binary digits is the ubiquitous Universal Product Code (UPC), that little barcode symbol that appears on virtually every packaged item that we purchase.
+
+<img width="746" height="675" alt="image" src="https://github.com/user-attachments/assets/68e0556a-b451-4d55-82ca-bebbc84f8f38" />
 
 
 
