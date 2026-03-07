@@ -108,12 +108,13 @@ source ~/crypto-env/bin/activate
 ### Add a convenience alias to `~/.zshrc`
 So you can just type `crypto` to activate the environment:
 ```bash
-alias crypto="source ~/crypto-env/bin/activate"
+echo 'alias crypto="source ~/crypto-env/bin/activate"' >> ~/.zshrc
 ```
 Reload after adding:
 ```bash
 source ~/.zshrc
 ```
+
 
 ### Create `requirements.txt` and install
 ```bash
