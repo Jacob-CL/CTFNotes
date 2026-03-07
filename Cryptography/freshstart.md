@@ -10,6 +10,7 @@
 4. [System CTF Tools](#4-system-ctf-tools)
 5. [Useful Tools & Shortcuts](#5-useful-tools--shortcuts)
 6. [Recommended Folder Structure](#6-recommended-folder-structure)
+7. [Verification Checklist](#7-verification-checklist)
 
 ---
 
@@ -141,17 +142,45 @@ pip install -r requirements.txt
 
 These are system-level applications — install them **outside** the venv with pacman/yay.
 
-### Core tools
+### SageMath
+> ⚠️ The package is `sagemath`, not `sage`. Use `--noconfirm` to avoid interactive prompt issues in the terminal.
 ```bash
-sudo pacman -S sage         # SageMath — most powerful tool for crypto CTF
-sudo pacman -S openssl
-sudo pacman -S hashcat
-sudo pacman -S john         # John the Ripper
+yay -S sagemath --noconfirm
 ```
 
-### AUR tools
+### Core tools
 ```bash
-yay -S rsactftool           # automated RSA attack tool — essential for crypto CTF
+sudo pacman -S openssl hashcat john --noconfirm
+```
+
+### RsaCtfTool — manual install from GitHub
+> ⚠️ The AUR package `rsactftool-git` is broken — it installs but points to a missing file. Install manually instead.
+```bash
+cd ~
+git clone https://github.com/RsaCtfTool/RsaCtfTool.git
+cd RsaCtfTool
+crypto                              # activate your venv first
+pip install -r requirements.txt
+```
+
+Add an alias to `~/.zshrc` so you can call it from anywhere:
+```bash
+alias rsactftool="python ~/RsaCtfTool/RsaCtfTool.py"
+```
+
+Reload and test:
+```bash
+source ~/.zshrc
+rsactftool --help
+```
+
+### Verify all installs
+```bash
+sage --version
+openssl version
+hashcat --version
+john                                # john prints usage with no flags — no --version flag
+rsactftool --help
 ```
 
 ### SageMath usage
@@ -222,6 +251,49 @@ sudo pacman -S terminator
 ```
 
 > Most of the time just run `crypto` to activate crypto-env. Only create a per-challenge venv when a tool has conflicting dependencies.
+
+---
+
+## 7. Verification Checklist
+
+Run these after setup to confirm everything is working.
+
+### System
+```bash
+sudo pacman -Syu            # should say "nothing to do" if up to date
+yay --version
+git --version
+cmake --version
+```
+
+### pyenv
+```bash
+pyenv --version
+pyenv versions              # should show * system or an installed version
+python --version
+```
+
+### crypto-env
+```bash
+crypto                      # prompt should change to show (crypto-env)
+
+python -c "import Crypto; print('pycryptodome OK')"
+python -c "import sympy; print('sympy OK')"
+python -c "import z3; print('z3 OK')"
+python -c "import gmpy2; print('gmpy2 OK')"
+python -c "import pwn; print('pwntools OK')"
+python -c "import numpy; print('numpy OK')"
+```
+
+### System CTF tools
+```bash
+sage --version
+openssl version
+hashcat --version
+john                    # prints usage with no flags
+rsactftool --help
+flameshot --version
+```
 
 ---
 
