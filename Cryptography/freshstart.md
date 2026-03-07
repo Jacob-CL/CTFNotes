@@ -48,8 +48,9 @@ pyenv install --list          # see all available versions
 pyenv install 3.12.0          # install one
 pyenv global 3.12.0           # set it as your default
 ```
-
-
+```
+pyenv versions
+```
 
 Screenshot tool:
 ```
