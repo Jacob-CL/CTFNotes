@@ -1,3 +1,9 @@
+```
+sudo pacman -S cmake
+sudo pacman -S gmp
+pip install --upgrade pip
+```
+
 # crypto-env
 ```
 python3 -m venv crypto-env
