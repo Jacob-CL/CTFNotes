@@ -1,4 +1,10 @@
 # hashcrack
+- SHA256
+- SHA1
+- John
+- hashcat
+
+
 1. Find hash type with hashcat `--identify`
 2. Save hash to file `echo "xyz" > file.txt`
 3. Crack with John `--wordlist=/home/dumlum/Downloads/Pwdb_top-1000000.txt --format=raw-sha256 file.txt`
@@ -24,6 +30,7 @@ hash = qwerty098
 
 FLAG = `picoCTF{UseStr0nG_h@shEs_&PaSswDs!_5b836723}`
 
+To see saves cracked passwords in a `john.pot` file see with the `--show` flag. E.g `john --show --format=raw-sha256 3rdhash.txt`
 
 ```
     ~/CTFNotes/Cryptography/PicoCTF/hashcrack    main  nc verbal-sleep.picoctf.net 63965                                                                 INT ✘ 
